@@ -40,6 +40,8 @@ def jobs(datasets,catalog,report):
     yield 'pce',lambda:core.pce(datasets)
     yield 'cpi3',lambda:core.cpi3(datasets)
     yield 'priceppi',lambda:refresh_price_ppi(datasets,catalog)
+    from price_extra_sources import update_cpi
+    yield 'pricecpi',update_cpi
     def revisions():
         rows={};source=None
         for season,offset in [('SA',0),('NSA',6)]:

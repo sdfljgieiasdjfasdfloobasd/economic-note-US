@@ -1,5 +1,5 @@
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=92e99c3be9d646d9fe77';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=92e99c3be9d646d9fe77';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=39155f021c64c774df4c';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=39155f021c64c774df4c';
 export function publicationFilename(page,label,metric,dates){
  const table=label.match(/Table (\d+(?:\.\d+)*)/)?.[1],frequency=label.includes('Quarterly')?'Quarterly':label.includes('Annual')?'Annual':'';
  const name=table?`Table_${table}_${frequency}`:label;
@@ -11,9 +11,9 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
  const manualSettings=new Map();
  const $=s=>panel.querySelector(s);let groups=[],selected=[],catalog,page,series=[],rows=[],dates=[],exportRows=[],seq=0,rendered=false,loading=false,loadedGroupKey='',pendingGroupKey='',exportSnapshot=null;
  $('#ex-table-metric').innerHTML=metrics.map(([id,label])=>`<option value="${id}">${label}</option>`).join('');
- function seasonControl(publishedPpi,displayMetric){
+ function seasonControl(publishedPpi,displayMetric,metricSeries=series){
   const control=$('#ex-table-season'),previous=control.value,pricePage=['cpi','pce','ppi'].includes(page);
-  const actual=[...new Set(series.map(s=>s.seasonal||'非該当'))];
+  const actual=[...new Set(metricSeries.map(s=>s.seasonal||'非該当'))];
   const order=['SA','NSA','非該当','一部SAの合成'];
   const choices=pricePage?[...order.filter(v=>actual.includes(v)),...actual.filter(v=>!order.includes(v))]:['',...order];
   control.innerHTML=choices.map(v=>`<option value="${esc(v)}">${esc(v||'すべて')}</option>`).join('');
@@ -33,9 +33,8 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
    draw();
   }catch(e){if(token!==seq)return;loading=false;pendingGroupKey='';series=[];rows=[];clearExport();$('#ex-table-summary').textContent='統計表を読み込めませんでした。'+e.message}
  }
- function draw(){if(loading)return;clearExport();if(loadedGroupKey!==groupKey())return;const g=group();if(!g)return;if(!series.length){$('#ex-table-summary').textContent=g.label+' · 未収録';$('#ex-table').innerHTML='';$('#ex-table-heat-note').textContent='';$('#ex-heat-manual').hidden=true;$('#ex-heat-error').textContent='';return}const publishedPpi=g.id==='ppi:table1',previousMetric=$('#ex-table-metric').value,choices=publishedPpi?[['published_mom','公表前月比（SA・%）'],['published_yoy','公表前年比（NSA・%）']]:pageMetrics(page,series,true);$('#ex-table-metric').innerHTML=choices.map(([id,label])=>`<option value="${id}">${label}</option>`).join('');$('#ex-table-metric').value=choices.some(([id])=>id===previousMetric)?previousMetric:choices[0][0];const displayMetric=$('#ex-table-metric').value,m=publishedPpi?'level':displayMetric;seasonControl(publishedPpi,displayMetric);const season=$('#ex-table-season').value,from=$('#ex-table-from').value,to=$('#ex-table-to').value;
+ function draw(){if(loading)return;clearExport();if(loadedGroupKey!==groupKey())return;const g=group();if(!g)return;if(!series.length){$('#ex-table-summary').textContent=g.label+' · 未収録';$('#ex-table').innerHTML='';$('#ex-table-heat-note').textContent='';$('#ex-heat-manual').hidden=true;$('#ex-heat-error').textContent='';return}const publishedPpi=g.id==='ppi:table1',publishedExtra=['ppi:table2','cpi:table4','cpi:table5','cpi:table7'].includes(g.id),sourceChoices=[['published_mom','公表前月比'],['published_yoy','公表前年比'],['published_two','公表2か月前比'],['published_effect','前年比寄与度'],['published_ri','相対的重要度'],['published_se','標準誤差']],previousMetric=$('#ex-table-metric').value,choices=publishedPpi?[['published_mom','公表前月比（SA・%）'],['published_yoy','公表前年比（NSA・%）']]:publishedExtra?sourceChoices.filter(([,label])=>series.some(s=>s.sourceMetric===label)):pageMetrics(page,series,true);$('#ex-table-metric').innerHTML=choices.map(([id,label])=>`<option value="${id}">${label}</option>`).join('');$('#ex-table-metric').value=choices.some(([id])=>id===previousMetric)?previousMetric:choices[0][0];const displayMetric=$('#ex-table-metric').value,m=publishedPpi||publishedExtra?'level':displayMetric;const sourceMetric=sourceChoices.find(([id])=>id===displayMetric)?.[1],displayedSeries=publishedPpi||publishedExtra?series.filter(s=>s.sourceMetric===sourceMetric):series;seasonControl(publishedPpi,displayMetric,displayedSeries);const season=$('#ex-table-season').value,from=$('#ex-table-from').value,to=$('#ex-table-to').value;
   if(from&&to&&from>to){$('#ex-table-summary').textContent='表の開始日と終了日を確認してください。';$('#ex-table').innerHTML='';$('#ex-csv').disabled=true;return}
-  const displayedSeries=publishedPpi?series.filter(s=>s.sourceMetric===(displayMetric==='published_yoy'?'公表前年比':'公表前月比')):series;
   rows=displayedSeries.filter(s=>!season||(s.seasonal||'非該当')===season).map(s=>{const incompatible=!metricApplicable(s,m);return {s,unit:compatibleUnit(s,m),incompatible,heat:$('#ex-table-heat').value==='off'||incompatible?null:tableHeatRule(s,m),rs:(incompatible?[]:transform(s,m)).filter(o=>(!from||o.date>=from)&&(!to||o.date<=to))}});
   const manual=$('#ex-table-heat').value==='manual', units=[...new Set(rows.filter(r=>!r.incompatible).map(r=>r.unit))];
   $('#ex-heat-manual').hidden=!manual;
@@ -45,7 +44,7 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
   $('#ex-heat-error').textContent=invalid.length?'数値を確認してください：下限 ＜ 基準 ＜ 上限の順で入力してください。不正な単位の行は色分けしません。':'';
   if(manual)for(const r of rows)r.heat=r.incompatible?null:manualHeatRule(configs.find(x=>x.unit===r.unit)?.config);
   const n=$('#ex-count').value;dates=[...new Set(rows.flatMap(r=>r.rs.map(o=>o.date)))].sort().reverse().slice(0,n==='all'?undefined:Number(n));
-  const available=displayedSeries.filter(s=>s.observations.some(o=>o.value!=null)).length;$('#ex-table-summary').textContent=`${g.label} · 全${displayedSeries.length}系列（データあり${available}・未収録${displayedSeries.length-available}）／表示${rows.length}系列・${dates.length}観測日。`;
+  const available=displayedSeries.filter(s=>s.observations.some(o=>o.value!=null)).length,publishedMissing=displayedSeries.filter(s=>s.status==='published_missing'&&!s.observations.some(o=>o.value!=null)).length;$('#ex-table-summary').textContent=`${g.label} · 全${displayedSeries.length}系列（データあり${available}・未収録${displayedSeries.length-available-publishedMissing}${publishedMissing?`・公式空欄${publishedMissing}`:''}）／表示${rows.length}系列・${dates.length}観測日。`;
   const heatGroups=new Map(),visibleDates=new Set(dates);
   for(const r of rows){if(!r.heat)continue;r.heatKey=JSON.stringify([r.unit,r.heat.center]);if(!heatGroups.has(r.heatKey))heatGroups.set(r.heatKey,[]);heatGroups.get(r.heatKey).push(...r.rs.filter(o=>visibleDates.has(o.date)&&Number.isFinite(o.value)).map(o=>o.value))}
   const limits=new Map([...heatGroups].map(([k,vs])=>[k,tableHeatLimit(vs,JSON.parse(k)[1])]));

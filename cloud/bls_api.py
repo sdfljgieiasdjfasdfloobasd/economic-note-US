@@ -38,7 +38,9 @@ def fetch(codes,path,clock=time.time,opener=urlopen,sleep=time.sleep):
   batch=[c for c in needed[i:i+20] if now-state['cache'].get(c,{}).get('checkedAt',0)>=86400]
   if not batch:continue
   if len(state['attempts'])>=LIMIT or state.get('blockedUntil',0)>now:
-   errors.append('BLS APIの取得上限を保護するため残りは次回へ。保存値を保持。');break
+   until=max(state.get('blockedUntil',0),min(state['attempts'])+86400 if len(state['attempts'])>=LIMIT else 0)
+   stamp=datetime.fromtimestamp(until).astimezone().isoformat()
+   errors.append('BLS APIの保護用待機中。プログラム側の再試行可能時刻: '+stamp+'（BLSが保証した解除時刻ではありません）。保存値を保持。');break
   state['attempts'].append(clock());persist();sleep(1)
   year=datetime.fromtimestamp(now,timezone.utc).year
   req=Request(URL,data=json.dumps(dict(seriesid=batch,startyear=str(year-9),endyear=str(year))).encode(),headers={'Content-Type':'application/json','User-Agent':'EconomicNote/1.0 (official statistical data)'})
@@ -50,6 +52,8 @@ def fetch(codes,path,clock=time.time,opener=urlopen,sleep=time.sleep):
    persist()
   except Exception as ex:
    # A rejected or malformed response is not retried in this run or the next 24h.
-   state['blockedUntil']=clock()+86400;persist();errors.append(str(ex));break
+   state['blockedUntil']=clock()+86400
+   state['lastError']=dict(at=clock(),type=type(ex).__name__,httpStatus=getattr(ex,'code',None),message=str(ex),cooldownPolicy='local_conservative_24h')
+   persist();errors.append(str(ex));break
  result={c:state['cache'][c]['rows'] for c in codes if c in state['cache']}
  return result,errors

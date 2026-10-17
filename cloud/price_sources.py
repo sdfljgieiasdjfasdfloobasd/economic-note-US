@@ -68,6 +68,24 @@ def store(items,bulk=None):
  return out
 
 def update():
- # Fetch at most two small published tables; first rejection stops this adapter.
- items=parse(e.get(URL.format(3)),3)+parse(e.get(URL.format(1)),1)
- return store(items)
+ from price_extra_sources import parse_ppi2,parse_ppi_pdf,store as merge_store,url,retained
+ # One release response supplies all three tables, rather than repeated requests.
+ blob=e.get('https://www.bls.gov/news.release/ppi.htm')
+ items=parse(blob,3)+parse(blob,1)+parse_ppi2(blob)
+ # Reconcile canonical series before saving; Table 2 adds publication row views.
+ combined={}
+ for s in items:
+  old=combined.get(s['id'])
+  if old:
+   old.setdefault('publications',[dict(id=old['publicationId'],label=old['publicationLabel'])]).extend(s['publications'])
+   old.setdefault('publicationViews',{}).update(s['publicationViews'])
+  else:combined[s['id']]=s
+ result=merge_store(list(combined.values()));blocked=None
+ for n in [9,11]:
+  try:
+   if blocked:raise ValueError('BLSがアクセスを拒否したため追加取得を停止。'+blocked)
+   result.extend(merge_store(parse_ppi_pdf(e.get(url('ppi',n)),n)))
+  except Exception as error:
+   result.extend(retained('ppi',n,error))
+   if getattr(error,'code',None) in [403,429]:blocked=str(error)
+ return result
