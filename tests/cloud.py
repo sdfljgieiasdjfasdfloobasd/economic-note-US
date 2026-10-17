@@ -5,6 +5,22 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'cloud'),str(ROOT/'tools')]
 import expansion as e,core,publication,refresh
 class CloudTests(unittest.TestCase):
+ def test_price_alias_levels_and_published_metrics(self):
+  ds={'cpi3':dict(dates=['2026-08','2026-09'],series=[dict(id='0',values={'ri':[4.123,None],'mom':[.2,.3]})]),'pce':dict(dates=['2026-08'],series=[dict(id='0',bases={'SA':[120.123456]})])}
+  for dataset,metric,season,want in [('cpi3','ri','非該当',[4.123,None]),('cpi3','mom','SA',[.2,.3]),('pce','level','SA',[120.123456])]:
+   got=refresh.alias_observations({'alias':dict(dataset=dataset,series='0',metric=metric,season=season)},ds)
+   self.assertEqual([r['value'] for r in got],want)
+ def test_ppi_release_updates_shared_base_when_bulk_did_not(self):
+  import price_sources
+  site=ROOT/'site';rel=refresh.read(site/'release.json');cat=refresh.load(site,rel['catalog']);index=refresh.load(site,rel['seriesIndex'])
+  meta=next(s for s in cat['series'] if s['id'].startswith('priceppi:') and s.get('alias',{}).get('dataset')=='ppi')
+  blob=refresh.load(site,index[meta['id']]);new=copy.deepcopy(blob);last=new['observations'][-1];last.update(value=last['value']+.001,raw=str(last['value']+.001))
+  datasets={'ppi':refresh.load(site,rel['datasets']['ppi'])}
+  with tempfile.TemporaryDirectory() as tmp:
+   e.initialize(tmp,{meta['id']:meta});e.write(e.SERIES/e.key(meta['id']),blob)
+   with patch.object(price_sources,'update',side_effect=lambda:[e.save(new)]):
+    refresh.refresh_price_ppi(datasets,{'series':[meta]})
+   self.assertEqual(refresh.alias_observations(meta,datasets)[-1]['value'],last['value'])
  def test_merge_revisions_and_history(self):
   old=[e.obs('2024-01-01','100.123456'),e.obs('2026-08-01','105'),e.obs('2026-09-01','106')]
   got=e.merge_observations(old,[e.obs('2026-08-01','105.5'),e.obs('2026-09-01',None),e.obs('2026-10-01','108.99')])

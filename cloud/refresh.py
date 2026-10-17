@@ -23,12 +23,23 @@ def retained_failure(old, meta):
     if '/Users/' in reason or '/private/' in reason:reason='取得処理エラー。実行ログを確認してください。'
     return {**old,'status':'fetch_failed','error':reason,'checkedAt':e.now()}
 
+def refresh_price_ppi(datasets,catalog):
+    import price_sources
+    result=price_sources.update();updates={}
+    for m in catalog['series']:
+        a=m.get('alias',{})
+        if m['id'].startswith('priceppi:') and a.get('dataset')=='ppi' and m['id'] in e.ATTEMPTED:
+            updates[a['series']+'|'+a['season']]=read(e.SERIES/e.key(m['id']))['observations']
+    if updates:datasets['ppi']=core.replace_bases(datasets['ppi'],updates)
+    return result
+
 def jobs(datasets,catalog,report):
     import activity_sources as a,macro_sources as m,complementary_sources as c,completion_sources as cs
     import additional_sources as ads,retail_source,jolts_source
     yield 'bls',lambda:core.bls(datasets,catalog,report)
     yield 'pce',lambda:core.pce(datasets)
     yield 'cpi3',lambda:core.cpi3(datasets)
+    yield 'priceppi',lambda:refresh_price_ppi(datasets,catalog)
     def revisions():
         rows={};source=None
         for season,offset in [('SA',0),('NSA',6)]:
@@ -90,6 +101,11 @@ def update_calendar(calendar,datasets,cat,report):
         ev['afterDue']=rc.reflection(ev,entries.get(ev['indicator'],[]),datetime.fromisoformat(ev['scheduledAt'])+timedelta(seconds=1))
     return publication.calendar_scope(dict(calendar,updatedAt=stamp,now=stamp,events=sorted(events,key=lambda x:x['scheduledAt']),sources=sources))
 
+def alias_observations(meta,datasets):
+    a=meta['alias'];d=datasets[a['dataset']];row=next(v for v in d['series'] if v['id']==a['series'])
+    vs=row['values'][a['metric']] if a.get('metric','level')!='level' else row['bases'][a['season']]
+    return [e.obs(dt+'-01',v) for dt,v in zip(d['dates'],vs)]
+
 def finalize(root,original,datasets,catalog,metas,report,started,only):
     site=root/'site';index=load(site,original['seriesIndex']);rows=[];changed=[];checked=0
     allowed=set(index)
@@ -104,6 +120,11 @@ def finalize(root,original,datasets,catalog,metas,report,started,only):
         else:
             checked+=1;s.pop('cloudUpdateStatus',None)
             if s.get('status')=='fetch_failed':s.update(status='available');s.pop('error',None);s.pop('checkedAt',None)
+        # Publication membership is presentation metadata, retained across refreshes.
+        for field in ('pages','publications','publicationViews'):
+            if field in meta:s[field]=meta[field]
+        if meta.get('alias'):
+            s['alias']=meta['alias'];s['observations']=alias_observations(meta,datasets)
         s=publication.clean(s,allowed)
         if load(site,index[sid]).get('observations')!=s.get('observations'):changed.append(sid)
         index[sid]=emit(site,s);rows.append(e.summary(s))
@@ -199,8 +220,8 @@ def run(root=ROOT,only=None):
         for sid,meta in approved.items():
             alias=meta.get('alias')
             if not alias:continue
-            d=datasets[alias['dataset']];s=next(v for v in d['series'] if v['id']==alias['series']);vs=s['bases'][alias['season']]
-            old=e.load_series(sid);old.update(observations=[e.obs(dt+'-01',v) for dt,v in zip(d['dates'],vs)])
+            d=datasets[alias['dataset']]
+            old=e.load_series(sid);old.update(observations=alias_observations(meta,datasets))
             if d['savedAt']!=original_saved[alias['dataset']]:
                 try:metas[sid]=e.save(old)
                 except Exception as ex:report.append(dict(source=sid,status='failed',reason=str(ex)))

@@ -58,6 +58,7 @@ export function compatibleUnit(s,m){return m.startsWith('bp')?'bp':['yoy','qoq',
 export function tableHeatRule(s,metric='level'){
  if(/^(delta\d+|delta_ma\d+|bp1d|bp1w|bp1m|bp3m|bp1y|yoy|qoq|annual|growth[36]|annual[36]|eight|eightannual)$/.test(metric))return {center:0,label:'増減・差（0基準）'};
  if(metric!=='level'&&!/^ma\d+$/.test(metric))return null;
+ if(/相対的重要度|ウェイト/.test(s.sourceMetric||''))return null;
  const id=(s.sourceId||s.id||'').replace(/^ex:/,''),unit=s.unit||'',label=s.label||'';
  const text=[label,s.publicationLabel,s.publication,s.measure].filter(Boolean).join(' ');
  if(/^(ism|sp):/.test(id)&&unit==='DI')return {center:50,label:'PMI（50基準）'};

@@ -176,7 +176,7 @@ def build(source):
             a = m['alias']; d = datasets[a['dataset']]
             s = next(s for s in d['series'] if s['id'] == a['series'])
             from expansion import obs
-            value = dict(m, observations=[obs(date + '-01', v) for date, v in zip(d['dates'], s['bases'][a['season']])])
+            value = dict(m, observations=[obs(date + '-01', v) for date, v in zip(d['dates'], (s['values'][a['metric']] if a.get('metric','level')!='level' else s['bases'][a['season']]))])
         else:
             p = source / 'data/explorer/series' / (hashlib.sha256(sid.encode()).hexdigest() + '.json')
             value = dict(read(p), status=m['status'], error=m.get('error')) if p.exists() else dict(m, observations=[])
@@ -186,6 +186,16 @@ def build(source):
         if (i + 1) % 5000 == 0: print(f'{i + 1:,} 系列を整理済み', flush=True)
     release['seriesIndex'] = emit(index)
     scope = publication.write_report(stage, decisions, release['builtAt'])
+    # Keep the existing cloud schedule/status when rebuilding a manual snapshot.
+    old_release_path=ROOT/'site/release.json'
+    previous_release=json.loads(old_release_path.read_text()) if old_release_path.exists() else {}
+    for key in ('cloudUpdate','numericalRepair'):
+        if key in previous_release:release[key]=previous_release[key]
+    if release.get('cloudUpdate'):
+        status_page=ROOT/'site/update-status.html'
+        if status_page.exists():shutil.copy2(status_page,stage/'update-status.html')
+        page=stage/'index.html'
+        page.write_text(page.read_text().replace('公開用スナップショット：元の統計データは公開者が更新・再公開します。','毎朝4時（日本時間）に公式データを自動取得し、検証後に公開します。').replace('公開データの作成時点の保存値です。更新には再公開が必要です。','公開データの作成時点の保存値です。毎朝4時（日本時間）に自動更新を開始します。').replace('<a href="publication-scope.html">','<a href="update-status.html">自動更新の結果</a> · <a href="publication-scope.html">'))
     release['publicationPolicy'] = 'reviewed-only'
     release['revision'] = hashlib.sha256(encoded(release)).hexdigest()
     (stage / 'release.json').write_bytes(encoded(release))
@@ -193,7 +203,7 @@ def build(source):
               'dataBytesBeforeCompression': uncompressed_bytes, 'dataBytesAfterCompression': compressed_bytes,
               'siteBytes': sum(p.stat().st_size for p in stage.rglob('*') if p.is_file()),
               'sourceUnchanged': True, 'publicationCounts':scope['counts'], 'excluded': ['原Excel', '生の取得ファイル', '改定履歴の保管庫', '更新ログ', '個人のお気に入り', 'ローカル設定・トークン', '調査資料'],
-              'mode': 'snapshot', 'automaticProviderUpdates': False}
+              'mode': 'snapshot', 'automaticProviderUpdates': bool(release.get('cloudUpdate'))}
     # Fail rather than publish a mixed snapshot if a live update changed input.
     for p, digest in seen.items():
         if hashlib.sha256(p.read_bytes()).hexdigest() != digest:

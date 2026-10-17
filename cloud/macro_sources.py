@@ -63,9 +63,16 @@ def bea_parse(b,url,detail=False):
    # Prefixing generic children with their official parents disambiguates "Other".
    full=' / '.join(parents+[name])
    x=item('bea',s.title+':'+code,full,url,'BEA / '+title,unit,season='SA',note=units+'。公式表の全行。連鎖実質額は加算せず、公表総額を使用。',officialId=code,sourceTable=s.title,hierarchy=parents,depth=len(parents),sourceRow=line,measure=kind,matchLabel=name)
+   x['publicationViews']={x['publicationId']:[dict(sourceOrder=line,depth=len(parents),hierarchy=parents,matchLabel=name,label=full)]}
    x['observations']=[dict(e.obs(d,r[c],status='published',sourcePeriod=rows[7][c]),releaseDate=release) for c,d in datecols.items()]
    out.append(x)
  w.close();return out
+
+def merge_publication_views(target,row):
+ for pub,views in row.get('publicationViews',{}).items():
+  old=target.setdefault('publicationViews',{}).get(pub,[])
+  if not isinstance(old,list):old=[old]
+  target['publicationViews'][pub]=list({v['sourceOrder']:v for v in old+views}.values())
 
 def bea():
  # Keep table-specific rounded measures distinct; deduplicate identical observations/code/unit.
@@ -78,10 +85,12 @@ def bea():
    code=s['officialId']
    if code not in aliases:
     a=dict(s,id='bea:price:'+code,alias=dict(dataset='pce',series=ps['id'],season='SA'),status='reused',observations=[e.obs(d+'-01',v) for d,v in zip(prices['dates'],ps['bases']['SA'])]);aliases[code]=a
+   merge_publication_views(aliases[code],s)
    aliases[code].setdefault('publications',[]).append(dict(id=s['publicationId'],label=s['publicationLabel']));continue
   key=(s['officialId'],s['unit'],s['frequency'])
   old=canonical.get(key)
   if old and old['observations']==s['observations']:
+   merge_publication_views(old,s)
    old.setdefault('publications',[{'id':old['publicationId'],'label':old['publicationLabel']}]).append({'id':s['publicationId'],'label':s['publicationLabel']});continue
   canonical[key]=s;out.append(s)
  allitems=out+list(aliases.values());families={}

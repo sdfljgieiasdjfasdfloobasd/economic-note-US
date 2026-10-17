@@ -1,1 +1,26 @@
-{"builtAt":"2026-10-17T06:04:14.330973+00:00","datasets":10,"explorerSeries":16811,"observations":4941536,"dataBytesBeforeCompression":665939631,"dataBytesAfterCompression":75409037,"siteBytes":77227137,"sourceUnchanged":true,"publicationCounts":{"included":16811,"held_for_review":4300,"permission_required":59},"excluded":["原Excel","生の取得ファイル","改定履歴の保管庫","更新ログ","個人のお気に入り","ローカル設定・トークン","調査資料"],"mode":"cloud","automaticProviderUpdates":true}
+{
+  "builtAt": "2026-10-17T07:59:42.120950+00:00",
+  "datasets": 10,
+  "explorerSeries": 19626,
+  "observations": 5517268,
+  "dataBytesBeforeCompression": 778467162,
+  "dataBytesAfterCompression": 84548723,
+  "siteBytes": 86369863,
+  "sourceUnchanged": true,
+  "publicationCounts": {
+    "included": 19626,
+    "held_for_review": 4298,
+    "permission_required": 59
+  },
+  "excluded": [
+    "原Excel",
+    "生の取得ファイル",
+    "改定履歴の保管庫",
+    "更新ログ",
+    "個人のお気に入り",
+    "ローカル設定・トークン",
+    "調査資料"
+  ],
+  "mode": "snapshot",
+  "automaticProviderUpdates": true
+}

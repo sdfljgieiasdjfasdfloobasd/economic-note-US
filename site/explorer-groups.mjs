@@ -17,4 +17,17 @@ export function statisticalGroup(s){
  }
  return {id:(s.provider||p)+':'+s.category,label:(s.provider||'収録範囲の注記')+' / '+s.category};
 }
-export function tableGroups(catalog,page){const groups=new Map();for(const s of catalog.series.filter(s=>belongsToPage(s,page))){for(const g of (s.id?.startsWith('retail:')?[statisticalGroup(s)]:(s.publications||[statisticalGroup(s)]))){if(!groups.has(g.id))groups.set(g.id,{...g,series:[]});groups.get(g.id).series.push(s)}}return [...groups.values()].sort((a,b)=>a.label.localeCompare(b.label,'ja'))}
+export function tableGroups(catalog,page){
+ const groups=new Map();
+ for(const s of catalog.series.filter(s=>belongsToPage(s,page))){
+  const memberships=s.id?.startsWith('retail:')?[statisticalGroup(s)]:(s.publications||[statisticalGroup(s)]);
+  for(const g of new Map(memberships.map(g=>[g.id,g])).values()){
+   if(!groups.has(g.id))groups.set(g.id,{...g,series:[]});
+   const view=s.publicationViews?.[g.id],views=Array.isArray(view)?view:[view];
+   for(const v of views)groups.get(g.id).series.push(v?{...s,tableView:v,sourceOrder:v.sourceOrder}:{...s,sourceOrder:s.sourceOrder??s.sourceRow});
+  }
+ }
+ for(const g of (catalog.publicationCoverage||[]).filter(g=>g.page===page))if(!groups.has(g.id))groups.set(g.id,{...g,series:[]});
+ for(const g of groups.values())if(g.series.some(s=>s.sourceOrder!=null))g.series.sort((a,b)=>(a.sourceOrder??1e9)-(b.sourceOrder??1e9));
+ return [...groups.values()].sort((a,b)=>a.label.localeCompare(b.label,'ja',{numeric:true}));
+}
