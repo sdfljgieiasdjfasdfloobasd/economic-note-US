@@ -101,7 +101,8 @@ def get(url):
             path=RAW/hashlib.sha256(url.encode()).hexdigest();path.write_bytes(blob);_downloads[url]=path
             return blob
         except HTTPError as ex:
-            if ex.code in (401,403):_blocked.add(host)
+            if ex.code in (401,403,429):
+                _blocked.add(host);raise
             if ex.code not in (429,500,502,503,504):raise
             if attempt==2:
                 _blocked.add(host);raise

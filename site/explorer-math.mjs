@@ -37,13 +37,16 @@ export function pageMetrics(page,series=[],table=false){
  return [id,label];
  });
 }
-export function transform(s,metric){const rs=s.observations,f=frequency(s),map=new Map(rs.map(r=>[periodKey(s,r.date),r]));if(metric==='level')return rs;if(!metricApplicable(s,metric))return rs.map(r=>({...r,value:null,raw:null,status:'incompatible'}));if(s.alreadySmoothed&&/^(?:delta_)?ma/.test(metric)||s.frequency==='4-monthly'&&!['level','yoy','delta1'].includes(metric))return rs.map(r=>({...r,value:null,raw:null,status:'incompatible'}));
- const get=(r,k)=>map.get(periodKey(s,lagDate(s,r.date,k)));
- const changes=metric.startsWith('delta_ma')?new Map(transform(s,'delta1').map(r=>[periodKey(s,r.date),r])):null;
+// Keep every observation within a period: a later survey must not leak into an earlier calculation.
+function periodRows(s,rows){const out=new Map();for(const r of rows){const k=periodKey(s,r.date);if(!out.has(k))out.set(k,[]);out.get(k).push(r)}for(const group of out.values())group.sort((a,b)=>a.date.localeCompare(b.date));return out}
+export function transform(s,metric){const rs=s.observations,f=frequency(s),map=periodRows(s,rs);if(metric==='level')return rs;if(!metricApplicable(s,metric))return rs.map(r=>({...r,value:null,raw:null,status:'incompatible'}));if(s.alreadySmoothed&&/^(?:delta_)?ma/.test(metric)||s.frequency==='4-monthly'&&!['level','yoy','delta1'].includes(metric))return rs.map(r=>({...r,value:null,raw:null,status:'incompatible'}));
+ const at=(source,r,k)=>source.get(periodKey(s,lagDate(s,r.date,k)))?.findLast(v=>v.date<=r.date);
+ const get=(r,k)=>at(map,r,k);
+ const changes=metric.startsWith('delta_ma')?periodRows(s,transform(s,'delta1')):null;
  return rs.map((r,i)=>{let value=null,raw=null;if(r.value==null)return {...r,value,raw};
  if(metric.startsWith('bp')){if(f!=='D'||!['%','Percent'].includes(s.unit))return {...r,value:null,raw:null,status:'derived'};const target=metric==='bp1w'?days(r.date,-7):monthShift(r.date,metric==='bp1m'?-1:metric==='bp3m'?-3:-12);const old=metric==='bp1d'?rs.slice(0,i).findLast(v=>v.value!=null):rs.slice(0,i).findLast(v=>v.date<=target&&v.value!=null&&Date.parse(target)-Date.parse(v.date)<=7*86400000);const diff=difference(r.raw,old?.raw);if(diff!=null)value=Number(diff)*100}
  else if(/^delta\d+$/.test(metric)){const old=f==='D'&&metric==='delta1'?rs.slice(0,i).findLast(v=>v.value!=null):get(r,Number(metric.slice(5)));raw=difference(r.raw,old?.raw);value=raw==null?null:Number(raw)}
- else if(/^(?:delta_)?ma\d+$/.test(metric)){const n=Number(metric.match(/\d+$/)[0]),source=changes||map,window=Array.from({length:n},(_,j)=>source.get(periodKey(s,lagDate(s,r.date,j)))?.value);if(window.every(Number.isFinite))value=window.reduce((a,b)=>a+b,0)/n}
+ else if(/^(?:delta_)?ma\d+$/.test(metric)){const n=Number(metric.match(/\d+$/)[0]),source=changes||map,window=Array.from({length:n},(_,j)=>at(source,r,j)?.value);if(window.every(Number.isFinite))value=window.reduce((a,b)=>a+b,0)/n}
  else if(/^(growth|annual)[36]$/.test(metric)){const n=Number(metric.at(-1)),old=get(r,n)?.value;if(f==='M'&&Number.isFinite(old)&&old>0&&r.value>0)value=(Math.pow(r.value/old,metric.startsWith('annual')?12/n:1)-1)*100}
  else if(metric==='percentile'){const history=rs.slice(0,i+1).map(r=>r.value).filter(Number.isFinite);value=100*history.filter(v=>v<=r.value).length/history.length}
  else {const n=metric.startsWith('eight')?8:metric==='yoy'?({M:12,Q:4,W:s.calendar==='48week'?48:52,D:365,A:1,F:3}[f]):1;const old=get(r,n)?.value;if(Number.isFinite(old)&&old!==0&&(!['annual','eightannual'].includes(metric)||(r.value>0&&old>0))){const exponent=metric==='eightannual'?0.5:metric==='annual'?({M:12,Q:4,W:s.calendar==='48week'?48:52,D:365,A:1,F:3}[f]):1;value=(Math.pow(r.value/old,exponent)-1)*100}}

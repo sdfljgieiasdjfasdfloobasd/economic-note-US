@@ -38,6 +38,7 @@ def gdp_parse(b,url=GDP,tables=None):
    un=un.replace('] Seasonally adjusted at annual rates','・年率').replace('] Seasonally adjusted','')
    code=str(r[2]);key=sheet.title+':'+code;key+=(':line'+str(r[0])) if key in seen or code=='ZZZZZZ' else '';seen.add(key)
    s=item('gdp',key,' / '.join(path+[name]),url,'BEA / '+title+' · '+freq,un,freq,'SA' if freq=='Quarterly' else '非該当',note='公表表の見出し: '+unit+'。四半期伸び率は公式表の年率。連鎖実質額の内訳は加算しません。公表改定を含む最新値。',officialId=str(r[2]),sourceTable=sheet.title,depth=len(path),matchLabel=name)
+   if sheet.title=='T10111-Q':s['definition']=s['definition'].replace('四半期伸び率は公式表の年率。','前年同期比（4四半期前比）です。年率換算はしていません。')
    s.update(page='gdp',provider='Bureau of Economic Analysis',observations=[dict(e.obs(d,r[c],'published'),releaseDate=release) for c,d in cols.items()])
    if tables is not None:
     # Standard and underlying detail have different unit-header conventions.

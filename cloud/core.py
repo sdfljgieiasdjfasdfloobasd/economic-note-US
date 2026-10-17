@@ -61,6 +61,13 @@ def bls(datasets,catalog,report):
             found.update(parse_bulk(e.get('https://download.bls.gov/pub/time.series/'+file),codes))
             report.append(dict(source='BLS '+prefix,status='success',series=len(codes&found.keys())))
         except Exception as ex:report.append(dict(source='BLS '+prefix,status='failed',reason=str(ex)))
+    # Use the official API only for CPI codes missing from the bulk response.
+    missing={c for c in wanted if c.startswith('CU') and c not in found}
+    if missing:
+        import bls_api
+        fallback,errors=bls_api.fetch(missing,Path(__file__).parent/'bls-api-state.json')
+        found.update(fallback)
+        report.append(dict(source='BLS CPI API fallback',status='failed' if errors or missing-fallback.keys() else 'success',series=len(fallback),reason='; '.join(errors) if errors else ('未取得系列を保持' if missing-fallback.keys() else '公式APIを使用')))
     for did in ('cpi','cpi_detail','ppi','employment','labor','wages','hours'):
         updates={k.split('|',1)[1]:found[code] for k,code in MAPPING.items() if k.startswith(did+'|') and code in found}
         if did=='labor':

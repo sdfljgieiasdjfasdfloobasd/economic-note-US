@@ -52,7 +52,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- site build-report.json
+          git add -- site build-report.json cloud/bls-api-state.json
           if ! git diff --cached --quiet; then
             git commit -m 'Refresh public economic data (daily 04:00 JST)'
             git push origin HEAD:main

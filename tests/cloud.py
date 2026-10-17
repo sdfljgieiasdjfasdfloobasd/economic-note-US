@@ -41,6 +41,23 @@ class CloudTests(unittest.TestCase):
     with self.assertRaises(TimeoutError):e.get('https://www.bea.gov/test1')
     with self.assertRaises(ValueError):e.get('https://www.bea.gov/test2')
     self.assertEqual(request.call_count,3)
+ def test_api_quota_response_is_not_retried(self):
+  import bls_api,io
+  with tempfile.TemporaryDirectory() as tmp:
+   state=Path(tmp)/'state.json'
+   response=io.BytesIO(b'{"status":"REQUEST_NOT_PROCESSED","message":["daily quota"]}')
+   with patch.object(bls_api,'urlopen',return_value=response) as fetch:
+    bls_api.fetch(['CU1','CU2'],state,clock=lambda:1000000,opener=fetch,sleep=lambda _:None)
+    bls_api.fetch(['CU3'],state,clock=lambda:1000010,opener=fetch,sleep=lambda _:None)
+    self.assertEqual(fetch.call_count,1)
+ def test_http_429_stops_host(self):
+  from urllib.error import HTTPError
+  with tempfile.TemporaryDirectory() as tmp:
+   e.initialize(tmp,{})
+   with patch.object(e,'urlopen',side_effect=HTTPError('https://www.bea.gov',429,'limit',{},None)) as fetch,patch.object(e.time,'sleep'):
+    with self.assertRaises(HTTPError):e.get('https://www.bea.gov/test1')
+    with self.assertRaises(ValueError):e.get('https://www.bea.gov/test2')
+    self.assertEqual(fetch.call_count,1)
  def test_schedule_jst_and_no_private_paths(self):
   yml=(ROOT/'.github/workflows/pages.yml').read_text();self.assertIn("cron: '0 19 * * *'",yml)
   self.assertIn('python cloud/refresh.py',yml);self.assertIn('git push origin HEAD:main',yml)
