@@ -137,3 +137,13 @@
 .ex-table .ppi-compact-table thead th{font-size:12px;letter-spacing:0}
 .ex-table .ppi-compact-table .ex-cell{min-width:0;width:100%;font-size:12px;font-variant-numeric:tabular-nums}
 @media(max-width:600px){.ex-table .ppi-compact-table th:first-child{width:160px;min-width:160px;max-width:160px}}
+
+/* Inflation-expectation comparisons: wrap cards instead of horizontal scrolling. */
+.expectation-presets{flex:1 0 100%;min-width:0}.expectation-presets h3{margin:4px 0 8px;font-size:18px}
+.expectation-preset-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:10px}
+.ex-presets .expectation-preset{display:flex;flex-direction:column;gap:6px;text-align:left;white-space:normal;background:#f8fbfc;color:#244255;border:1px solid #d5e3e9;padding:13px;line-height:1.5;min-width:0}
+.expectation-preset small{color:#527587}.expectation-preset strong{font-size:14px}.expectation-preset span,.expectation-preset em{font-size:12px;font-style:normal}
+.ex-presets .expectation-preset[aria-pressed="true"]{background:#e9f5f2;border-color:#008478;box-shadow:inset 3px 0 #008478}
+.ex-presets .expectation-preset:disabled{opacity:1;color:#76818a;background:#f3f5f6;cursor:not-allowed}.expectation-preset em{color:#6b5961}
+#ex-preset-detail{padding:15px 18px;background:#f4f8fa;border-left:3px solid #008478;margin:16px 0;line-height:1.7}#ex-preset-detail strong{color:#244255}#ex-preset-detail p{margin:6px 0}#ex-preset-detail a{color:#007e72}
+@media(max-width:700px){#explorer-view .ex-presets:has(.expectation-presets){display:flex;overflow:visible}.expectation-preset-grid{grid-template-columns:1fr}.ex-presets .expectation-preset{white-space:normal}}

@@ -1,4 +1,4 @@
-import {chartPdf} from './static-pdf.mjs?v=65acfcf9215c7acd36ec';
+import {chartPdf} from './static-pdf.mjs?v=13b60c8377563bab194c';
 const NS='http://www.w3.org/2000/svg';
 const query=s=>document.querySelector(s),text=s=>query(s)?.textContent?.trim()||'',value=s=>query(s)?.value||'',choice=s=>query(s)?.selectedOptions?.[0]?.textContent?.trim()||'';
 export const filename=(title,format)=>`${title.replace(/[\\/:*?"<>|\x00-\x1f]/g,'_').slice(0,100)||'経済グラフ'}_${new Date().toISOString().slice(0,10)}.${format}`;

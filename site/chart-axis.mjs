@@ -23,6 +23,7 @@ export function resolveAxis(values,options={},manual={}){
  const format=v=>new Intl.NumberFormat('ja-JP',{maximumFractionDigits:digits}).format(v/divisor);
  return {min,max,step,divisor,suffix,format,ticks:Array.from({length:5},(_,i)=>i===4?max:min+i*step),auto,manual:true};
 }
+export function resetAxis(key){settings.delete(key)}
 export function axisScale(key,values,options={}){
  const manual=settings.get(key)||{};let axis;
  try{axis=resolveAxis(values,options,manual)}catch{axis=resolveAxis(values,options);axis.invalidStored=true}

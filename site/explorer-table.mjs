@@ -1,5 +1,5 @@
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=65acfcf9215c7acd36ec';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=65acfcf9215c7acd36ec';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=13b60c8377563bab194c';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=13b60c8377563bab194c';
 export function publicationFilename(page,label,metric,dates){
  const table=label.match(/Table (\d+(?:\.\d+)*)/)?.[1],frequency=label.includes('Quarterly')?'Quarterly':label.includes('Annual')?'Annual':'';
  const name=table?`Table_${table}_${frequency}`:label;
