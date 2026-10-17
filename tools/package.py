@@ -8,7 +8,7 @@ if __name__ == '__main__':
     verify.verify()
     target=ROOT/'economic-dashboard-github.zip'
     paths=[ROOT/'README.md',ROOT/'.gitignore',ROOT/'build-report.json',ROOT/'publication-report.json']
-    for folder in ['site','tools','templates','tests','.github']:
+    for folder in ['site','tools','templates','tests','.github','cloud']:
         paths.extend(p for p in (ROOT/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
     with ZipFile(target,'w',ZIP_DEFLATED) as z:
         for p in sorted(paths):

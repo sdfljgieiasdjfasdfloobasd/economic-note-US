@@ -1,0 +1,802 @@
+[
+  {
+    "id": "fred:ICSA",
+    "code": "ICSA",
+    "page": "labor",
+    "category": "高頻度・失業保険",
+    "provider": "U.S. Department of Labor / FRED",
+    "definition": "週末日を観測日として表示。新規申請と継続受給の対象週は異なります。改定を含みます。"
+  },
+  {
+    "id": "fred:ICNSA",
+    "code": "ICNSA",
+    "page": "labor",
+    "category": "高頻度・失業保険",
+    "provider": "U.S. Department of Labor / FRED",
+    "definition": "週末日を観測日として表示。新規申請と継続受給の対象週は異なります。改定を含みます。"
+  },
+  {
+    "id": "fred:IC4WSA",
+    "code": "IC4WSA",
+    "page": "labor",
+    "category": "高頻度・失業保険",
+    "provider": "U.S. Department of Labor / FRED",
+    "definition": "週末日を観測日として表示。新規申請と継続受給の対象週は異なります。改定を含みます。"
+  },
+  {
+    "id": "fred:CCSA",
+    "code": "CCSA",
+    "page": "labor",
+    "category": "高頻度・失業保険",
+    "provider": "U.S. Department of Labor / FRED",
+    "definition": "週末日を観測日として表示。新規申請と継続受給の対象週は異なります。改定を含みます。"
+  },
+  {
+    "id": "fred:CCNSA",
+    "code": "CCNSA",
+    "page": "labor",
+    "category": "高頻度・失業保険",
+    "provider": "U.S. Department of Labor / FRED",
+    "definition": "週末日を観測日として表示。新規申請と継続受給の対象週は異なります。改定を含みます。"
+  },
+  {
+    "id": "fred:CC4WSA",
+    "code": "CC4WSA",
+    "page": "labor",
+    "category": "高頻度・失業保険",
+    "provider": "U.S. Department of Labor / FRED",
+    "definition": "週末日を観測日として表示。新規申請と継続受給の対象週は異なります。改定を含みます。"
+  },
+  {
+    "id": "fred:IURSA",
+    "code": "IURSA",
+    "page": "labor",
+    "category": "高頻度・失業保険",
+    "provider": "U.S. Department of Labor / FRED",
+    "definition": "週末日を観測日として表示。新規申請と継続受給の対象週は異なります。改定を含みます。"
+  },
+  {
+    "id": "fred:IURNSA",
+    "code": "IURNSA",
+    "page": "labor",
+    "category": "高頻度・失業保険",
+    "provider": "U.S. Department of Labor / FRED",
+    "definition": "週末日を観測日として表示。新規申請と継続受給の対象週は異なります。改定を含みます。"
+  },
+  {
+    "id": "fred:JTSJOL",
+    "code": "JTSJOL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTSJOR",
+    "code": "JTSJOR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTSHIL",
+    "code": "JTSHIL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTSHIR",
+    "code": "JTSHIR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTSTSL",
+    "code": "JTSTSL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTSTSR",
+    "code": "JTSTSR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTSQUL",
+    "code": "JTSQUL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTSQUR",
+    "code": "JTSQUR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTSLDL",
+    "code": "JTSLDL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTSLDR",
+    "code": "JTSLDR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTSOSL",
+    "code": "JTSOSL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTSOSR",
+    "code": "JTSOSR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTUJOL",
+    "code": "JTUJOL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTUHIL",
+    "code": "JTUHIL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS。求人は月末時点、採用・離職は月間のフロー。他の離職には退職以外も含まれます。"
+  },
+  {
+    "id": "fred:JTS1000JOL",
+    "code": "JTS1000JOL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:JTS1000JOR",
+    "code": "JTS1000JOR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:JTS1000HIL",
+    "code": "JTS1000HIL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:JTS1000HIR",
+    "code": "JTS1000HIR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:JTS1000TSL",
+    "code": "JTS1000TSL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:JTS1000TSR",
+    "code": "JTS1000TSR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:JTS1000QUL",
+    "code": "JTS1000QUL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:JTS1000QUR",
+    "code": "JTS1000QUR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:JTS1000LDL",
+    "code": "JTS1000LDL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:JTS1000LDR",
+    "code": "JTS1000LDR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:JTS1000OSL",
+    "code": "JTS1000OSL",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:JTS1000OSR",
+    "code": "JTS1000OSR",
+    "page": "labor",
+    "category": "求人・採用（JOLTS）",
+    "provider": "BLS / FRED",
+    "definition": "JOLTS民間部門。月末時点の求人と月間フローを区別します。"
+  },
+  {
+    "id": "fred:LNS11300060",
+    "code": "LNS11300060",
+    "page": "labor",
+    "category": "労働供給・余剰",
+    "provider": "BLS / FRED",
+    "definition": "CPS家計調査。年初の人口統制変更などで水準が不連続になる場合があります。"
+  },
+  {
+    "id": "fred:LNS12300060",
+    "code": "LNS12300060",
+    "page": "labor",
+    "category": "労働供給・余剰",
+    "provider": "BLS / FRED",
+    "definition": "CPS家計調査。年初の人口統制変更などで水準が不連続になる場合があります。"
+  },
+  {
+    "id": "fred:LNS12032194",
+    "code": "LNS12032194",
+    "page": "labor",
+    "category": "労働供給・余剰",
+    "provider": "BLS / FRED",
+    "definition": "CPS家計調査。年初の人口統制変更などで水準が不連続になる場合があります。"
+  },
+  {
+    "id": "fred:LNS12032195",
+    "code": "LNS12032195",
+    "page": "labor",
+    "category": "労働供給・余剰",
+    "provider": "BLS / FRED",
+    "definition": "CPS家計調査。年初の人口統制変更などで水準が不連続になる場合があります。"
+  },
+  {
+    "id": "fred:LNS12032196",
+    "code": "LNS12032196",
+    "page": "labor",
+    "category": "労働供給・余剰",
+    "provider": "BLS / FRED",
+    "definition": "CPS家計調査。年初の人口統制変更などで水準が不連続になる場合があります。"
+  },
+  {
+    "id": "fred:LNU05026642",
+    "code": "LNU05026642",
+    "page": "labor",
+    "category": "労働供給・余剰",
+    "provider": "BLS / FRED",
+    "definition": "CPS家計調査。年初の人口統制変更などで水準が不連続になる場合があります。"
+  },
+  {
+    "id": "fred:LNU05026645",
+    "code": "LNU05026645",
+    "page": "labor",
+    "category": "労働供給・余剰",
+    "provider": "BLS / FRED",
+    "definition": "CPS家計調査。年初の人口統制変更などで水準が不連続になる場合があります。"
+  },
+  {
+    "id": "fred:LNS12500000",
+    "code": "LNS12500000",
+    "page": "labor",
+    "category": "労働供給・余剰",
+    "provider": "BLS / FRED",
+    "definition": "CPS家計調査。年初の人口統制変更などで水準が不連続になる場合があります。"
+  },
+  {
+    "id": "fred:LNS12600000",
+    "code": "LNS12600000",
+    "page": "labor",
+    "category": "労働供給・余剰",
+    "provider": "BLS / FRED",
+    "definition": "CPS家計調査。年初の人口統制変更などで水準が不連続になる場合があります。"
+  },
+  {
+    "id": "fred:LNS12026619",
+    "code": "LNS12026619",
+    "page": "labor",
+    "category": "労働供給・余剰",
+    "provider": "BLS / FRED",
+    "definition": "CPS家計調査。年初の人口統制変更などで水準が不連続になる場合があります。"
+  },
+  {
+    "id": "fred:LNS12026620",
+    "code": "LNS12026620",
+    "page": "labor",
+    "category": "労働供給・余剰",
+    "provider": "BLS / FRED",
+    "definition": "CPS家計調査。年初の人口統制変更などで水準が不連続になる場合があります。"
+  },
+  {
+    "id": "fred:LNS14000012",
+    "code": "LNS14000012",
+    "page": "labor",
+    "category": "年齢・人種別失業",
+    "provider": "BLS / FRED",
+    "definition": "人種別とHispanicは分類が重なります。足し合わせないでください。"
+  },
+  {
+    "id": "fred:LNS14000036",
+    "code": "LNS14000036",
+    "page": "labor",
+    "category": "年齢・人種別失業",
+    "provider": "BLS / FRED",
+    "definition": "人種別とHispanicは分類が重なります。足し合わせないでください。"
+  },
+  {
+    "id": "fred:LNS14000089",
+    "code": "LNS14000089",
+    "page": "labor",
+    "category": "年齢・人種別失業",
+    "provider": "BLS / FRED",
+    "definition": "人種別とHispanicは分類が重なります。足し合わせないでください。"
+  },
+  {
+    "id": "fred:LNS14000091",
+    "code": "LNS14000091",
+    "page": "labor",
+    "category": "年齢・人種別失業",
+    "provider": "BLS / FRED",
+    "definition": "人種別とHispanicは分類が重なります。足し合わせないでください。"
+  },
+  {
+    "id": "fred:LNS14000093",
+    "code": "LNS14000093",
+    "page": "labor",
+    "category": "年齢・人種別失業",
+    "provider": "BLS / FRED",
+    "definition": "人種別とHispanicは分類が重なります。足し合わせないでください。"
+  },
+  {
+    "id": "fred:LNU04000095",
+    "code": "LNU04000095",
+    "page": "labor",
+    "category": "年齢・人種別失業",
+    "provider": "BLS / FRED",
+    "definition": "人種別とHispanicは分類が重なります。足し合わせないでください。"
+  },
+  {
+    "id": "fred:LNU04000097",
+    "code": "LNU04000097",
+    "page": "labor",
+    "category": "年齢・人種別失業",
+    "provider": "BLS / FRED",
+    "definition": "人種別とHispanicは分類が重なります。足し合わせないでください。"
+  },
+  {
+    "id": "fred:LNS14000003",
+    "code": "LNS14000003",
+    "page": "labor",
+    "category": "年齢・人種別失業",
+    "provider": "BLS / FRED",
+    "definition": "人種別とHispanicは分類が重なります。足し合わせないでください。"
+  },
+  {
+    "id": "fred:LNS14000006",
+    "code": "LNS14000006",
+    "page": "labor",
+    "category": "年齢・人種別失業",
+    "provider": "BLS / FRED",
+    "definition": "人種別とHispanicは分類が重なります。足し合わせないでください。"
+  },
+  {
+    "id": "fred:LNS14032183",
+    "code": "LNS14032183",
+    "page": "labor",
+    "category": "年齢・人種別失業",
+    "provider": "BLS / FRED",
+    "definition": "人種別とHispanicは分類が重なります。足し合わせないでください。"
+  },
+  {
+    "id": "fred:LNS14000009",
+    "code": "LNS14000009",
+    "page": "labor",
+    "category": "年齢・人種別失業",
+    "provider": "BLS / FRED",
+    "definition": "人種別とHispanicは分類が重なります。足し合わせないでください。"
+  },
+  {
+    "id": "fred:LNS13023621",
+    "code": "LNS13023621",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:LNS13023705",
+    "code": "LNS13023705",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:LNS13023557",
+    "code": "LNS13023557",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:LNS13023569",
+    "code": "LNS13023569",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:LNS13026638",
+    "code": "LNS13026638",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:LNS13023653",
+    "code": "LNS13023653",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:LNS13025699",
+    "code": "LNS13025699",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:UEMPLT5",
+    "code": "UEMPLT5",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:UEMP5TO14",
+    "code": "UEMP5TO14",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:UEMP15T26",
+    "code": "UEMP15T26",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:UEMP27OV",
+    "code": "UEMP27OV",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:UEMPMEAN",
+    "code": "UEMPMEAN",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:UEMPMED",
+    "code": "UEMPMED",
+    "page": "labor",
+    "category": "失業理由・期間",
+    "provider": "BLS / FRED",
+    "definition": "人数・比率・期間は単位を区別して表示します。"
+  },
+  {
+    "id": "fred:AHETPI",
+    "code": "AHETPI",
+    "page": "labor",
+    "category": "賃金・労働時間",
+    "provider": "BLS / FRED",
+    "definition": "CES事業所調査。生産・非管理職の賃金は全従業員の平均時給と対象が異なります。"
+  },
+  {
+    "id": "fred:AWHI",
+    "code": "AWHI",
+    "page": "labor",
+    "category": "賃金・労働時間",
+    "provider": "BLS / FRED",
+    "definition": "CES事業所調査。生産・非管理職の賃金は全従業員の平均時給と対象が異なります。"
+  },
+  {
+    "id": "fred:CES0500000035",
+    "code": "CES0500000035",
+    "page": "labor",
+    "category": "賃金・労働時間",
+    "provider": "BLS / FRED",
+    "definition": "CES事業所調査。生産・非管理職の賃金は全従業員の平均時給と対象が異なります。"
+  },
+  {
+    "id": "fred:AWHAE",
+    "code": "AWHAE",
+    "page": "labor",
+    "category": "賃金・労働時間",
+    "provider": "BLS / FRED",
+    "definition": "CES事業所調査。生産・非管理職の賃金は全従業員の平均時給と対象が異なります。"
+  },
+  {
+    "id": "fred:CES0500000017",
+    "code": "CES0500000017",
+    "page": "labor",
+    "category": "賃金・労働時間",
+    "provider": "BLS / FRED",
+    "definition": "CES事業所調査。生産・非管理職の賃金は全従業員の平均時給と対象が異なります。"
+  },
+  {
+    "id": "fred:CIS1010000000000I",
+    "code": "CIS1010000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIS1020000000000I",
+    "code": "CIS1020000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIS1030000000000I",
+    "code": "CIS1030000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIS2010000000000I",
+    "code": "CIS2010000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIS2020000000000I",
+    "code": "CIS2020000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIS2030000000000I",
+    "code": "CIS2030000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIS3010000000000I",
+    "code": "CIS3010000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:ECIGVTWAG",
+    "code": "ECIGVTWAG",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:ECIGVTBEN",
+    "code": "ECIGVTBEN",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIU1010000000000I",
+    "code": "CIU1010000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIU1020000000000I",
+    "code": "CIU1020000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIU1030000000000I",
+    "code": "CIU1030000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIU2010000000000I",
+    "code": "CIU2010000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIU2020000000000I",
+    "code": "CIU2020000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIU2030000000000I",
+    "code": "CIU2030000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIU3010000000000I",
+    "code": "CIU3010000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIU3020000000000I",
+    "code": "CIU3020000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:CIU3030000000000I",
+    "code": "CIU3030000000000I",
+    "page": "labor",
+    "category": "雇用コスト（ECI）",
+    "provider": "BLS / FRED",
+    "definition": "四半期雇用コスト指数。構成変化の影響を抑えた労働コスト指標。"
+  },
+  {
+    "id": "fred:OPHNFB",
+    "code": "OPHNFB",
+    "page": "labor",
+    "category": "生産性・単位労働コスト",
+    "provider": "BLS / FRED",
+    "definition": "非農業企業部門。原指数から前期比・年率・前年比・8四半期変化を算出できます。"
+  },
+  {
+    "id": "fred:HOANBS",
+    "code": "HOANBS",
+    "page": "labor",
+    "category": "生産性・単位労働コスト",
+    "provider": "BLS / FRED",
+    "definition": "非農業企業部門。原指数から前期比・年率・前年比・8四半期変化を算出できます。"
+  },
+  {
+    "id": "fred:OUTNFB",
+    "code": "OUTNFB",
+    "page": "labor",
+    "category": "生産性・単位労働コスト",
+    "provider": "BLS / FRED",
+    "definition": "非農業企業部門。原指数から前期比・年率・前年比・8四半期変化を算出できます。"
+  },
+  {
+    "id": "fred:COMPNFB",
+    "code": "COMPNFB",
+    "page": "labor",
+    "category": "生産性・単位労働コスト",
+    "provider": "BLS / FRED",
+    "definition": "非農業企業部門。原指数から前期比・年率・前年比・8四半期変化を算出できます。"
+  },
+  {
+    "id": "fred:COMPRNFB",
+    "code": "COMPRNFB",
+    "page": "labor",
+    "category": "生産性・単位労働コスト",
+    "provider": "BLS / FRED",
+    "definition": "非農業企業部門。原指数から前期比・年率・前年比・8四半期変化を算出できます。"
+  },
+  {
+    "id": "fred:ULCNFB",
+    "code": "ULCNFB",
+    "page": "labor",
+    "category": "生産性・単位労働コスト",
+    "provider": "BLS / FRED",
+    "definition": "非農業企業部門。原指数から前期比・年率・前年比・8四半期変化を算出できます。"
+  },
+  {
+    "id": "fred:A132RC1Q027SBEA",
+    "code": "A132RC1Q027SBEA",
+    "page": "labor",
+    "category": "労働所得・企業利益",
+    "provider": "BEA / FRED",
+    "definition": "四半期・年率換算額。賃金と企業利益は対象範囲を確認し、同じものと扱わないでください。"
+  },
+  {
+    "id": "fred:A463RC1Q027SBEA",
+    "code": "A463RC1Q027SBEA",
+    "page": "labor",
+    "category": "労働所得・企業利益",
+    "provider": "BEA / FRED",
+    "definition": "四半期・年率換算額。賃金と企業利益は対象範囲を確認し、同じものと扱わないでください。"
+  }
+]

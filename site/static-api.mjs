@@ -53,7 +53,7 @@ export async function request(url,options={}) {
     throw Error('公開版ではこの操作を実行できません。');
   }
   const r=await release();
-  if (path==='/api/status') return {app:'economic-note-pages',token:'',auto:false,running:false,lastOfficial:r.builtAt,lastResult:r.revision,reportId:r.revision,fingerprint:(await file(r.manifest)).fingerprint,failed:false,message:'公開用データを表示しています。公式データの更新は公開者が行い、再公開後に反映されます。'};
+  if (path==='/api/status') return {app:'economic-note-pages',token:'',auto:false,running:false,lastOfficial:r.builtAt,lastResult:r.revision,reportId:r.revision,fingerprint:(await file(r.manifest)).fingerprint,failed:false,message:r.cloudUpdate ? `毎朝4時（日本時間）に自動更新。前回：${r.cloudUpdate.changedSeries}拡張系列の値が変更、${r.cloudUpdate.failedSources}件の取得処理が未完了。詳細は「自動更新の結果」。` : '公開用データを表示しています。公式データの更新は公開者が行い、再公開後に反映されます。'};
   const plain={'/api/manifest':'manifest','/api/explorer':'catalog','/api/analysis/catalog':'analysisCatalog','/api/update-report':'updateReport'};
   if (plain[path]) return file(r[plain[path]]);
   if (path==='/api/calendar') return calendarAt(await file(r.calendar));

@@ -1,7 +1,7 @@
 # 経済データノート — GitHub Pages用
 
-既存のローカルサイトとは独立した、保存データの公開用スナップショットです。
-まだGitHubへのアップロード・インターネット公開は行っていません。
+既存のMac用サイトとは独立した公開版です。
+公開URL: https://sdfljgieiasdjfasdfloobasd.github.io/economic-note-US/
 
 ## 元のサイトに戻る
 
@@ -43,13 +43,27 @@ http://127.0.0.1:8765/ にアクセスしてください。
 Safari 16.4以降などDecompressionStreamに対応したブラウザが必要です。
 公開後の閲覧にはMacの電源は不要です。
 
-## データ更新の範囲
+## 毎朝4時の自動更新（日本時間）
 
-この段階では**スナップショット公開**です。クラウドで公式データを自動取得する処理は未導入です。
-閲覧画面の「公開データを再読込」は再公開済みファイルを読み直す操作で、公式統計の取得ではありません。
-更新する場合は元のローカルサイトでデータ更新を完了し、以下で再作成してGitHubへpushします。
-取得失敗・未取得の状態も元の保存状態を保持し、公開準備が公式確認の成功を意味することはありません。
-発表予定は保存分を表示し、予定時刻経過の判定のみブラウザの現在時刻に合わせます。
+GitHub Actionsが毎日04:00 JST（UTCでは前日19:00）に起動し、公開対象の公式データを取得・検証してPagesに反映します。夏時間によるJSTの時刻変更はありません。混雑時は開始が遅れる場合があり、完了は取得時間の後になります。Macの起動・Codexの起動は不要で、AI APIは使いません。
+
+- `cloud/refresh.py`: 公開スナップショットだけを入力に更新。Macのフォルダ・Excelを参照しません。
+- `cloud/`: BLS・BEA・Census・FRB理事会・DOL・EIAと承認済みFRED系列の取得処理。
+- `.github/workflows/pages.yml`: スケジュール実行・手動実行では取得→検証→GitHubに保存→Pagesへ配置。通常のpushは検証→配置のみ。
+- サイト上の「自動更新の結果」で、直近の試行・取得処理ごとの失敗理由を確認できます。
+- 閲覧者の再読込ボタンは、公開済みのデータを読み直すだけです。
+
+取得失敗・古い応答・形式変更時は保存済みの値を保持します。定義・提供元・単位の変更や未承認の新規系列は自動公開しません。公式の改定は同じ対象期へ反映し、過去の保存履歴は維持します。元データが欠損を明示しているときは0に変換しません。
+
+CPI Table 6の発表時点寄与度、雇用の年次ベンチマーク保存値は自動更新の対象外です。ISМ・S&P等の公開保留範囲も取得・公開対象になりません。これらが毎日最新になるという意味ではありません。
+
+手動でクラウド更新するには、GitHubのActions → **Publish prepared economic dashboard** → **Run workflow**を選び、refreshを有効にします。falseは保存済みデータの再公開だけです。
+
+公開用の画面を改良するときは、先にGitHub Desktopの **Fetch origin → Pull origin** で日次更新のコミットを取り込み、その後変更・Commit・Pushします。取り込まずに古い公開データで上書きしないでください。
+
+停止はGitHubのActionsでこのworkflowをDisable workflow、またはschedule部分を削除します。元のMac用サイトはそのまま使えます。公開版だけを戻す場合はGitHub Desktopで対象コミットをRevertしてPushします（他の履歴を消すreset/force-pushは不要です）。公開リポジトリのスケジュールは60日間活動がないとGitHub側で無効になる場合があります。
+
+元サイトのデータを手動で公開版へ作り直す旧手順も残しています。これはクラウド更新とは別で、実行するとその時点のMac保存値に置き換わるため、意図した場合だけ使ってください。
 
 ```sh
 python3 tools/build.py
@@ -57,10 +71,7 @@ python3 tools/verify.py --source-unchanged
 python3 tools/package.py
 ```
 
-`build.py` は元サイトの読み込み用にopenpyxlとlxmlを利用します。
-元サイトの隣にこのフォルダを置いて実行してください。別の場所なら `--source` で指定できます。
-実行中に元データが変わった場合は作成を中止し、前の公開版を保持します。
-直前の公開用ファイルは `.site-previous/` に保持します（GitHubには含めません）。
+`build.py` はopenpyxlとlxmlを利用します。元サイトの隣にこのフォルダを置き、別の場所では `--source` を指定します。日次実行では使用しません。
 
 ## ローカルで試す
 
@@ -100,14 +111,8 @@ BLS・BEAの基本表の構成変更時は作成を中止し、確認を求め�
 公式手順: https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
 容量制限: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
 
-## 2026-10-17 公開前の整理
+## 検証
 
-元のローカルサイト・Excelを変更せず、公開用コピーだけを絞り込みました。
-未公開のGitHub Desktopリポジトリには除外前データを含む履歴があったため、
-復元用の控えを公開フォルダの外に保存したうえで、公開用の履歴を作り直しました。
-GitHubへの送信は別操作です。Desktopで公開用リポジトリを選んでPublish repositoryを使います。
-無料のGitHub Pagesで一般公開する場合はKeep this code privateのチェックを外します。
-元サイトや私用バックアップのフォルダを追加しないでください。
-
-検証は `python3 tests/publication.py`、`python3 tools/verify.py`、
-ブラウザ用の検証は `node --test tests/static-api.mjs` で行えます。
+`python3 tests/cloud.py`、`python3 tests/publication.py`、`python3 tools/verify.py`。
+ブラウザ用APIの検証は `node --test tests/static-api.mjs`。
+公開範囲の承認リストは日次更新では変更しません。

@@ -9,3 +9,8 @@ __pycache__/
 .env
 .env.*
 node_modules/
+.cloud-work/
+.cloud-next/
+
+.cloud-work-*/
+.cloud-previous/
