@@ -1,4 +1,5 @@
-import {statisticalGroup} from './explorer-groups.mjs?v=b1e119ec248dc86f33f4';
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=619354d760d87e0a9935';
+import {statisticalGroup} from './explorer-groups.mjs?v=619354d760d87e0a9935';
 export const categoryNames={cpi:'物価',pce:'物価',ppi:'物価',employment:'労働市場',labor:'労働市場',expectations:'期待インフレ',sp:'企業活動・PMI',ism:'企業活動・PMI',gdp:'GDP・国内需要',retail:'小売売上高',consumption:'消費','pce-nonprice':'所得・消費・貯蓄',housing:'住宅建設',production:'鉱工業生産'};
 export function workbookPath(d,s){
  const publication=d.title===d.label?d.title:`${d.title} / ${d.label}`;
@@ -22,6 +23,7 @@ export function workbookPickerItems(d){
  });
 }
 export function explorerPickerItem(s){
+ s=hierarchyMetadata(s);
  const native={...s,id:s.sourceId||s.id.replace(/^ex:/,'')},publication=statisticalGroup(native).label;
  let path;
  if(s.pickerPath)path=s.pickerPath;
@@ -33,9 +35,9 @@ export function explorerPickerItem(s){
   let label=s.matchLabel||s.label;
   // GDP's parser explicitly records indentation depth and joins ancestors with ' / '.
   if(native.id.startsWith('gdp:')&&s.depth>0){const parts=s.label.split(' / ');parents=parts.slice(0,-1);label=parts.at(-1)}
-  if(native.id.startsWith('adp:')){const p=native.id.split(':');prefix.push(p[1]==='M'?'月次':'週次',p[2]);}
-  if(s.measure&&s.industryName){prefix.push({JO:'求人数',HI:'採用数',QU:'自発的離職数',LD:'解雇数',TS:'総離職数',OS:'その他離職数'}[s.measure]||s.measure);label=s.industryName;}
-  path=[...prefix,...parents,label].filter(Boolean);
+  if(native.id.startsWith('adp:')&&!s.hierarchySection){const p=native.id.split(':');prefix.push(p[1]==='M'?'月次':'週次',p[2]);}
+  if(s.measure&&s.industryName&&!s.hierarchySection){prefix.push({JO:'求人数',HI:'採用数',QU:'自発的離職数',LD:'解雇数',TS:'総離職数',OS:'その他離職数'}[s.measure]||s.measure);label=s.industryName;}
+  path=[...prefix,s.hierarchySection,...parents,label].filter(Boolean);
  }
  return {id:s.id,label:s.label,path,detail:[s.seasonal,s.frequency,s.unit,s.descriptor&&s.descriptor[3]!=='level'?s.label.split(' / ').at(-1):''].filter(Boolean).join(' · '),search:[s.officialId,s.code,s.id].filter(Boolean).join(' ')};
 }
