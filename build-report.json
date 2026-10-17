@@ -1,11 +1,11 @@
 {
-  "builtAt": "2026-10-17T11:02:37.425782+00:00",
+  "builtAt": "2026-10-17T19:25:41.707896+00:00",
   "datasets": 10,
   "explorerSeries": 28618,
-  "observations": 5574506,
-  "dataBytesBeforeCompression": 816227460,
-  "dataBytesAfterCompression": 92962896,
-  "siteBytes": 95037924,
+  "observations": 5585366,
+  "dataBytesBeforeCompression": 833666821,
+  "dataBytesAfterCompression": 96402605,
+  "siteBytes": 98470414,
   "sourceUnchanged": true,
   "publicationCounts": {
     "included": 28618,
@@ -21,7 +21,7 @@
     "ローカル設定・トークン",
     "調査資料"
   ],
-  "mode": "snapshot",
+  "mode": "cloud",
   "automaticProviderUpdates": true,
-  "frontendVersion": "619354d760d87e0a9935"
+  "frontendVersion": "43be19ff7ceccb59766e"
 }

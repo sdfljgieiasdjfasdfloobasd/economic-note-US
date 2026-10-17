@@ -1,13 +1,13 @@
-import {mountRevisionView} from './revision-view.mjs?v=619354d760d87e0a9935';
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=619354d760d87e0a9935';
-import {axisScale,axisControls} from './chart-axis.mjs?v=619354d760d87e0a9935';
-import {explorerPickerItem} from './series-tree.mjs?v=619354d760d87e0a9935';
-import {setupSeriesPicker} from './series-picker.mjs?v=619354d760d87e0a9935';
-import {niceAxis} from './chart-axis.mjs?v=619354d760d87e0a9935';
-import {metrics,pageMetrics,frequency} from './explorer-math.mjs?v=619354d760d87e0a9935';
-import {prepare,displaySeries,pairSeries} from './analysis-math.mjs?v=619354d760d87e0a9935';
-import {regress} from './analytics.mjs?v=619354d760d87e0a9935';
-import {attachTooltip} from './explorer-tooltip.mjs?v=619354d760d87e0a9935';
+import {mountRevisionView} from './revision-view.mjs?v=43be19ff7ceccb59766e';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=43be19ff7ceccb59766e';
+import {axisScale,axisControls} from './chart-axis.mjs?v=43be19ff7ceccb59766e';
+import {explorerPickerItem} from './series-tree.mjs?v=43be19ff7ceccb59766e';
+import {setupSeriesPicker} from './series-picker.mjs?v=43be19ff7ceccb59766e';
+import {niceAxis} from './chart-axis.mjs?v=43be19ff7ceccb59766e';
+import {metrics,pageMetrics,frequency} from './explorer-math.mjs?v=43be19ff7ceccb59766e';
+import {prepare,displaySeries,pairSeries} from './analysis-math.mjs?v=43be19ff7ceccb59766e';
+import {regress} from './analytics.mjs?v=43be19ff7ceccb59766e';
+import {attachTooltip} from './explorer-tooltip.mjs?v=43be19ff7ceccb59766e';
 const colors=['#007e72','#d58b35','#526bc4','#bd527f','#8a6b42','#299bb0','#7845a1','#656b75'];
 export function setupAnalysis({request,esc,fmt,csv,getToken}){
  const root=document.createElement('section');root.id='analysis-view';root.hidden=true;document.querySelector('main footer').before(root);
