@@ -1,4 +1,6 @@
-export const belongsToPage=(s,page)=>s.page===page||(s.pages||[]).includes(page);
+// PCE's price page excludes real spending, income and saving tables.
+export const isPcePricePublication=g=>g.id==='price-table:pce'||/Table (?:2\.3\.4U|2\.4\.4U?|2\.8\.[478])(?:\.|\s|$)/.test(g.label||g.id||'');
+export const belongsToPage=(s,page)=>(s.page===page||(s.pages||[]).includes(page))&&(page!=='pce'||(s.publications||[statisticalGroup(s)]).some(isPcePricePublication));
 // Publication families: institutions with multiple surveys remain separate tables.
 export function statisticalGroup(s){
  if(s.id?.startsWith('retail:'))return {id:'retail',label:'米国国勢調査局 / 小売売上高（MRTS・MARTS 全収録項目）'};
@@ -22,6 +24,7 @@ export function tableGroups(catalog,page){
  for(const s of catalog.series.filter(s=>belongsToPage(s,page))){
   const memberships=s.id?.startsWith('retail:')?[statisticalGroup(s)]:(s.publications||[statisticalGroup(s)]);
   for(const g of new Map(memberships.map(g=>[g.id,g])).values()){
+   if(page==='pce'&&!isPcePricePublication(g))continue;
    if(!groups.has(g.id))groups.set(g.id,{...g,series:[]});
    const view=s.publicationViews?.[g.id],views=Array.isArray(view)?view:[view];
    for(const v of views)groups.get(g.id).series.push(v?{...s,tableView:v,sourceOrder:v.sourceOrder}:{...s,sourceOrder:s.sourceOrder??s.sourceRow});
