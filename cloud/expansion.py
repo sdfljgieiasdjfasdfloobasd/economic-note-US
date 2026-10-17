@@ -70,7 +70,7 @@ def xseries(id,label,page,category,provider,source,rows,col,datecol=0,scale=1,fr
 # The cloud worker is rooted in a TemporaryDirectory supplied by the caller.
 # It cannot discover or write the Mac dashboard or Excel files.
 HERE = CACHE = RAW = SERIES = None
-ALLOWED = ('bea.gov','bls.gov','census.gov','federalreserve.gov','eia.gov','dol.gov','doleta.gov','stlouisfed.org','newyorkfed.org','philadelphiafed.org')
+ALLOWED = ('bea.gov','bls.gov','census.gov','federalreserve.gov','eia.gov','dol.gov','doleta.gov','stlouisfed.org','newyorkfed.org','philadelphiafed.org','clevelandfed.org')
 FRED = json.loads((Path(__file__).parent/'fred-specs.json').read_text())
 APPROVED = {}; ATTEMPTED = set(); REJECTED = {}; CANDIDATES = None
 _downloads = {}; _blocked = set()
@@ -90,7 +90,7 @@ def get(url):
     if host in _blocked:raise ValueError('この提供元はアクセスを拒否したため、今回の残りの取得を停止')
     for attempt in range(3):
         try:
-            time.sleep(1 if host.endswith(('stlouisfed.org','newyorkfed.org','philadelphiafed.org')) else .2)
+            time.sleep(1 if host.endswith(('stlouisfed.org','newyorkfed.org','philadelphiafed.org','clevelandfed.org')) else .2)
             req=Request(url,headers={'User-Agent':'Mozilla/5.0 (EconomicNote public statistical research)','Referer':'https://www.bls.gov/' if host.endswith('bls.gov') else 'https://'+host+'/'})
             with urlopen(req,timeout=60) as response:
                 # Reject an unexpected redirect outside the public source allowlist.

@@ -1,10 +1,10 @@
 {
   "reviewedAt": "2026-10-17",
-  "builtAt": "2026-10-17T10:12:18.340358+00:00",
+  "builtAt": "2026-10-17T11:02:37.425782+00:00",
   "policy": "reviewed-only",
   "counts": {
-    "included": 28614,
-    "held_for_review": 4285,
+    "included": 28617,
+    "held_for_review": 4282,
     "permission_required": 59
   },
   "providers": {
@@ -78,7 +78,8 @@
       "held_for_review": 106
     },
     "Federal Reserve Bank of Cleveland": {
-      "held_for_review": 35
+      "included": 3,
+      "held_for_review": 32
     },
     "Federal Reserve Bank of Kansas City / FRED": {
       "held_for_review": 2
@@ -153,6 +154,11 @@
     }
   },
   "rules": {
+    "cleveland_model": {
+      "name": "Cleveland Fed / Inflation Expectations",
+      "terms": "https://www.clevelandfed.org/privacy",
+      "basis": "非商用・教育目的の掲載としてCleveland連銀自身の期待インフレ・モデル推計を出典付きで転載。元となる第三者データは配布しない。"
+    },
     "nyfed_sce": {
       "name": "New York Fed / SCE",
       "terms": "https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf",
@@ -12835,10 +12841,10 @@
       "label": "Cleveland 1年期待インフレ",
       "provider": "Federal Reserve Bank of Cleveland",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "cleveland_model",
+      "terms": "https://www.clevelandfed.org/privacy",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "cleveland:exp2",
@@ -12875,10 +12881,10 @@
       "label": "Cleveland 5年期待インフレ",
       "provider": "Federal Reserve Bank of Cleveland",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "cleveland_model",
+      "terms": "https://www.clevelandfed.org/privacy",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "cleveland:exp6",
@@ -12925,10 +12931,10 @@
       "label": "Cleveland 10年期待インフレ",
       "provider": "Federal Reserve Bank of Cleveland",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "cleveland_model",
+      "terms": "https://www.clevelandfed.org/privacy",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "cleveland:exp11",

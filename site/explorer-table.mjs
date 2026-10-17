@@ -1,6 +1,6 @@
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=eb6c017c713c0b35b280';
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=eb6c017c713c0b35b280';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=eb6c017c713c0b35b280';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=893b38f3a0aae37a46af';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=893b38f3a0aae37a46af';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=893b38f3a0aae37a46af';
 export function publicationFilename(page,label,metric,dates){
  const table=label.match(/Table (\d+(?:\.\d+)*)/)?.[1],frequency=label.includes('Quarterly')?'Quarterly':label.includes('Annual')?'Annual':'';
  const name=table?`Table_${table}_${frequency}`:label;

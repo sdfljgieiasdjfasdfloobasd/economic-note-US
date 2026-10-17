@@ -55,8 +55,8 @@ def jobs(datasets,catalog,report):
         return cs.revisions()
     yield 'revisions',revisions
     from expectation_sources import official_excel
-    for name in ('nyfed','spf_median'):
-        if any(s['id'].startswith('nyfed:' if name=='nyfed' else 'spf:median:') for s in catalog['series']):
+    for name in ('nyfed','spf_median','cleveland'):
+        if any(s['id'].startswith({'nyfed':'nyfed:','spf_median':'spf:median:','cleveland':'cleveland:exp'}[name]) for s in catalog['series']):
             yield name,lambda n=name:official_excel(n)
     yield 'bea',m.bea
     yield 'gdp',a.gdp

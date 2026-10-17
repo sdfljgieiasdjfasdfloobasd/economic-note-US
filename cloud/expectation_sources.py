@@ -2,7 +2,7 @@
 import io
 import openpyxl
 from expansion import get,workbook_rows,xseries,obs,save
-URLS={'nyfed': 'https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-data.xlsx', 'spf_median': 'https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/survey-of-professional-forecasters/historical-data/medianLevel.xlsx'}
+URLS={'cleveland':'https://www.clevelandfed.org/-/media/files/webcharts/inflationexpectations/inflation-expectations.xlsx?sc_lang=en','nyfed': 'https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-data.xlsx', 'spf_median': 'https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/survey-of-professional-forecasters/historical-data/medianLevel.xlsx'}
 def official_excel(which):
     url = URLS[which]
     b = get(url)
@@ -29,6 +29,10 @@ def official_excel(which):
             item.update(sourceTable=sn, sourceColumn=col)
             parsed.append(item)
         out = [save(item) for item in parsed]
+    elif which == 'cleveland':
+        rows = workbook_rows(b, 'Expected Inflation')
+        for col in (1, 5, 10):
+            out.append(xseries('cleveland:exp'+str(col), 'Cleveland '+str(col)+'年期待インフレ', 'expectations', '総合・モデル', 'Federal Reserve Bank of Cleveland', url, rows, col, scale=100, horizon=str(col)+'Y', note='モデル推計。原Excelの小数比率を100倍して%表示。'))
     elif which == 'spf_median':
         for sn in ['CPI5YR', 'PCE5YR', 'CPI10', 'PCE10', 'CPI', 'CORECPI', 'PCE', 'COREPCE']:
             rows = workbook_rows(b, sn)

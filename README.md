@@ -129,3 +129,11 @@ SCE・SPFは公式Excelの既存パーサーを公開用に分離し、毎朝の
 - https://www.philadelphiafed.org/about-us/privacy-notice
 - https://fred.stlouisfed.org/legal/ （3系列ともCitation Required区分）
 - https://data.sca.isr.umich.edu/agreement.php
+
+### 年限別の期待インフレ比較（2026-10-17）
+
+「今後1年」「今後5年平均」「今後10年平均」の比較を追加。1年はNY Fed SCEとClevelandモデル、5年・10年はSPF CPI・BEI・Clevelandモデルを並べます。NY Fedの5年先単年予想を5年平均に含めません。SPFの暦年予測とローリング年限の起点の違い、BEIのプレミアム、モデルと調査の違いを画面で説明します。月次・四半期・日次は補間せず保持します。
+
+Clevelandの保存済みモデル推計3系列を非商用・教育目的の出典付き掲載として追加（https://www.clevelandfed.org/privacy）。原データを丸めず保持し、クラウド更新では公式Excelを一度読み取り、承認済みの1年・5年・10年だけ更新します。元となる第三者の予測・価格データは配布しません。既存公開系列の数値ファイルは変更していません。
+
+検証：公開用ファイル全体、キャッシュ済み公式Excelと更新アダプターの定義一致、公開版の3ボタン操作と系列切替、ローカル版のミシガン追加条件を確認。
