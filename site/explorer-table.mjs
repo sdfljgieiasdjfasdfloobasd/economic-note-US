@@ -1,7 +1,7 @@
-import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=17b2b4b6db30bdcab144';
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=17b2b4b6db30bdcab144';
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=17b2b4b6db30bdcab144';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=17b2b4b6db30bdcab144';
+import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=b1e119ec248dc86f33f4';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=b1e119ec248dc86f33f4';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=b1e119ec248dc86f33f4';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=b1e119ec248dc86f33f4';
 export function publicationFilename(page,label,metric,dates){
  const table=label.match(/Table (\d+(?:\.\d+)*)/)?.[1],frequency=label.includes('Quarterly')?'Quarterly':label.includes('Annual')?'Annual':'';
  const name=table?`Table_${table}_${frequency}`:label;

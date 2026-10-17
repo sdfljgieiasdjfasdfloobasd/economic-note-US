@@ -4,6 +4,7 @@ export const isRetailSeries=s=>/^(?:retail:|carts:|fred:RRSFS$|macrocalc:(?:reta
 export const belongsToPage=(s,page)=>page==='retail'?isRetailSeries(s):page==='consumption'&&isRetailSeries(s)?false:(s.page===page||(s.pages||[]).includes(page))&&(page!=='pce'||(s.publications||[statisticalGroup(s)]).some(isPcePricePublication));
 // Publication families: institutions with multiple surveys remain separate tables.
 export function statisticalGroup(s){
+ if(/^macrocalc:(?:retail_control:|retail_breadth:|gasoline_share:)/.test(s.id||''))return {id:'macrocalc:小売 / 派生指標',label:'小売 / コントロールグループ・増加業種の割合・ガソリン売上構成比'};
  if(s.id?.startsWith('retail:'))return {id:'retail',label:'米国国勢調査局 / 小売売上高（MRTS・MARTS 全収録項目）'};
  if(s.publicationId)return {id:s.publicationId,label:s.publicationLabel||s.category};
  const id=s.id||'',p=id.split(':')[0];
