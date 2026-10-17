@@ -114404,6 +114404,58 @@
     "priceppi:11:924126-7:価格指数": [
       "bls",
       "6c3b1df6f6b583ebacba7a7e44cdc77a71f3b1524e4770c551b45c93e4ef26d6"
+    ],
+    "fred:T5YIE": [
+      "fred_citation",
+      "4afe130efb35aed7ce71adf9dfe2cf94bc8a98115161f303996152ffa3450051"
+    ],
+    "fred:T10YIE": [
+      "fred_citation",
+      "8f8fd22c35f3fc69eef2ae5ebfbb8ceba8c65cc5e48c3d2ad69a12a907416948"
+    ],
+    "fred:T5YIFR": [
+      "fred_citation",
+      "9ecd98be6e205df72768f0f304806c4c573c32cb65024f37c1bee70a36bd7ec8"
+    ],
+    "nyfed:Inflation expectations:1": [
+      "nyfed_sce",
+      "7c017852d4b4034f4b830d446fa61a0901508bdfd25dd29c357bc1a7ec9592e0"
+    ],
+    "nyfed:Inflation expectations:2": [
+      "nyfed_sce",
+      "33e0b7555acf340dabc8b566cc61f4734177dfd80ad7f1eab89badc32fc4645a"
+    ],
+    "nyfed:Inflation uncertainty:1": [
+      "nyfed_sce",
+      "277e1b1103f38f1cba781cec21feb1252c7816200e0db51e21d5d21dc9203c82"
+    ],
+    "nyfed:Inflation uncertainty:2": [
+      "nyfed_sce",
+      "aad527dd89aa1f28e0ffcee7fe42253d7aae74bafc982498728df8bc5cdfe408"
+    ],
+    "nyfed:Five-year ahead Infl Exp:1": [
+      "nyfed_sce",
+      "79fda5ef44a20d24162a96915df66c0c4c01a9995ca2b5704b38538a39be98ed"
+    ],
+    "nyfed:Five-year ahead Infl Exp:5": [
+      "nyfed_sce",
+      "0551ceba78900807f9923f16842ff458d8b19b7f40c74330d20a2469ada56c95"
+    ],
+    "spf:median:CPI5YR": [
+      "philly_spf",
+      "9bb9ff5c47324e05eafa220b3109f56c4ec1765656e24ba41b6902b54e3cf635"
+    ],
+    "spf:median:PCE5YR": [
+      "philly_spf",
+      "2f1e78c21b100f21e459f5a1b6a7897321afcce1ed4a857d1ed77e9aed1018d2"
+    ],
+    "spf:median:CPI10": [
+      "philly_spf",
+      "c8db1d1604732d60dcbbf45a8bc6310d0ef86e424da531d99dc95f3415d6d46b"
+    ],
+    "spf:median:PCE10": [
+      "philly_spf",
+      "b8825f29bf2410dd0bcff90df7becaf313e25919bfb0a2f8a8421bdef97b6810"
     ]
   },
   "datasets": {

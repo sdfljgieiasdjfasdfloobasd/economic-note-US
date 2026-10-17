@@ -11,6 +11,10 @@ import json
 HERE = Path(__file__).resolve().parent
 REVIEW_DATE = '2026-10-17'
 RULES = {
+ 'nyfed_sce': {'name':'New York Fed / SCE', 'terms':'https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf', 'basis':'SCE公開データの利用・改変・再配布ライセンス。指定の出典・免責を画面と出力に記載。'},
+ 'philly_spf': {'name':'Philadelphia Fed / SPF', 'terms':'https://www.philadelphiafed.org/about-us/privacy-notice', 'basis':'情報・教育・研究目的の利用条件に基づくSPFの公表集計値。出典を表示し、本サイトの分析を同連銀の見解としない。'},
+ 'fred_citation': {'name':'St. Louis Fed / FRED inflation compensation', 'terms':'https://fred.stlouisfed.org/legal/', 'basis':'T5YIE・T10YIE・T5YIFRのCopyrighted: Citation Required区分。系列別出典とFRED経由であることを表示。'},
+
  'bls': {'name':'BLS', 'terms':'https://www.bls.gov/opub/copyright-information.htm', 'basis':'BLS公表統計のpublic-domain方針。出典を表示。写真・ロゴ等は対象外。'},
  'bea': {'name':'BEA', 'terms':'https://www.bea.gov/help/faq/145', 'basis':'BEA公表統計の再利用方針。出典を表示。第三者素材は対象外。'},
  'census': {'name':'U.S. Census Bureau / BEA / HUD', 'terms':'https://www2.census.gov/foia/ds_policies/ds027.pdf', 'basis':'Census作成の公表統計を対象。出典と元の定義・単位を保持。'},

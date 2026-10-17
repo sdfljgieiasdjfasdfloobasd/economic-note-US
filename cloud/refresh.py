@@ -54,6 +54,10 @@ def jobs(datasets,catalog,report):
         write(e.HERE/'research/revision-snapshot.json',dict(source=source,rows=rows))
         return cs.revisions()
     yield 'revisions',revisions
+    from expectation_sources import official_excel
+    for name in ('nyfed','spf_median'):
+        if any(s['id'].startswith('nyfed:' if name=='nyfed' else 'spf:median:') for s in catalog['series']):
+            yield name,lambda n=name:official_excel(n)
     yield 'bea',m.bea
     yield 'gdp',a.gdp
     yield 'retail',retail_source.update

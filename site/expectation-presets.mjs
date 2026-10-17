@@ -18,3 +18,13 @@ export function presetAvailability(preset,series){
  const missing=preset.series.filter(id=>!available.has(id));
  return {complete:missing.length===0,missing,count:preset.series.length-missing.length};
 }
+
+export const sceAttribution='Source: Survey of Consumer Expectations, © 2013–2026 Federal Reserve Bank of New York (FRBNY). The SCE data are available without charge at https://www.newyorkfed.org/microeconomics/sce and may be used subject to license terms posted there. FRBNY disclaims any responsibility for this analysis and interpretation of Survey of Consumer Expectations data.';
+export function seriesAttribution(s){
+ const id=(s.id||'').replace(/^ex:/,''),label=s.label||'';
+ if(id.startsWith('nyfed:')||label.startsWith('NY Fed SCE '))return sceAttribution;
+ if(id.startsWith('spf:')||label.startsWith('SPF '))return 'Source: Survey of Professional Forecasters, Federal Reserve Bank of Philadelphia. https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters';
+ const code=['T5YIE','T10YIE','T5YIFR'].find(c=>id==='fred:'+c)||(/5-Year, 5-Year Forward Inflation/.test(label)?'T5YIFR':/10-Year Breakeven/.test(label)?'T10YIE':/5-Year Breakeven/.test(label)?'T5YIE':null);
+ return code?'Source: Federal Reserve Bank of St. Louis, '+code+', retrieved from FRED. https://fred.stlouisfed.org/series/'+code:'';
+}
+export function seriesAttributions(series){return [...new Set(series.map(seriesAttribution).filter(Boolean))]}

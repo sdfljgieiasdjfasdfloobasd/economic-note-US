@@ -56,7 +56,7 @@ def dt(v):
  if isinstance(v,str) and re.match(r'^\d{4}-\d\d-\d\d',v):return v[:10]
  return None
 
-def xseries(id,label,page,category,provider,source,rows,col,datecol=0,scale=1,frequency='Monthly',note='',season='非該当',horizon=None):
+def xseries(id,label,page,category,provider,source,rows,col,datecol=0,scale=1,frequency='Monthly',note='',season='非該当',horizon=None,save_result=True):
  rs=[]
  for r in rows:
   date=dt(r[datecol]) if len(r)>datecol else None
@@ -64,12 +64,13 @@ def xseries(id,label,page,category,provider,source,rows,col,datecol=0,scale=1,fr
   raw=dec(r[col]) if len(r)>col else None
   value=format(Decimal(raw)*Decimal(str(scale)),'f') if raw is not None else None
   rs.append(obs(date,value,sourceRaw=raw))
- return save(dict(id=id,label=label,page=page,category=category,provider=provider,source=source,unit='%',frequency=frequency,seasonal=season,horizon=horizon,definition=note,observations=rs))
+ result=dict(id=id,label=label,page=page,category=category,provider=provider,source=source,unit='%',frequency=frequency,seasonal=season,horizon=horizon,definition=note,observations=rs)
+ return save(result) if save_result else result
 
 # The cloud worker is rooted in a TemporaryDirectory supplied by the caller.
 # It cannot discover or write the Mac dashboard or Excel files.
 HERE = CACHE = RAW = SERIES = None
-ALLOWED = ('bea.gov','bls.gov','census.gov','federalreserve.gov','eia.gov','dol.gov','doleta.gov','stlouisfed.org')
+ALLOWED = ('bea.gov','bls.gov','census.gov','federalreserve.gov','eia.gov','dol.gov','doleta.gov','stlouisfed.org','newyorkfed.org','philadelphiafed.org')
 FRED = json.loads((Path(__file__).parent/'fred-specs.json').read_text())
 APPROVED = {}; ATTEMPTED = set(); REJECTED = {}; CANDIDATES = None
 _downloads = {}; _blocked = set()
@@ -89,7 +90,7 @@ def get(url):
     if host in _blocked:raise ValueError('この提供元はアクセスを拒否したため、今回の残りの取得を停止')
     for attempt in range(3):
         try:
-            time.sleep(1 if host.endswith('stlouisfed.org') else .2)
+            time.sleep(1 if host.endswith(('stlouisfed.org','newyorkfed.org','philadelphiafed.org')) else .2)
             req=Request(url,headers={'User-Agent':'Mozilla/5.0 (EconomicNote public statistical research)','Referer':'https://www.bls.gov/' if host.endswith('bls.gov') else 'https://'+host+'/'})
             with urlopen(req,timeout=60) as response:
                 # Reject an unexpected redirect outside the public source allowlist.

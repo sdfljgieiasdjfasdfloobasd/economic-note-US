@@ -798,5 +798,29 @@
     "category": "労働所得・企業利益",
     "provider": "BEA / FRED",
     "definition": "四半期・年率換算額。賃金と企業利益は対象範囲を確認し、同じものと扱わないでください。"
+  },
+  {
+    "id": "fred:T5YIE",
+    "code": "T5YIE",
+    "page": "expectations",
+    "category": "市場",
+    "provider": "Federal Reserve / FRED",
+    "definition": "TIPSのインフレ補償。期待インフレのほか、リスク・流動性プレミアムを含みます。"
+  },
+  {
+    "id": "fred:T10YIE",
+    "code": "T10YIE",
+    "page": "expectations",
+    "category": "市場",
+    "provider": "Federal Reserve / FRED",
+    "definition": "TIPSのインフレ補償。期待インフレのほか、リスク・流動性プレミアムを含みます。"
+  },
+  {
+    "id": "fred:T5YIFR",
+    "code": "T5YIFR",
+    "page": "expectations",
+    "category": "市場",
+    "provider": "Federal Reserve / FRED",
+    "definition": "TIPSのインフレ補償。期待インフレのほか、リスク・流動性プレミアムを含みます。"
   }
 ]

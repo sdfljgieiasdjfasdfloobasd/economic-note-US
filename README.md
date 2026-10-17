@@ -116,3 +116,16 @@ BLS・BEAの基本表の構成変更時は作成を中止し、確認を求め�
 `python3 tests/cloud.py`、`python3 tests/publication.py`、`python3 tools/verify.py`。
 ブラウザ用APIの検証は `node --test tests/static-api.mjs`。
 公開範囲の承認リストは日次更新では変更しません。
+
+
+### 期待インフレの公開比較（2026-10-17）
+
+公開版はCIEに加え、NY連銀SCEの6系列、SPFの5年・10年CPI/PCE中央値4系列、FREDのT5YIE/T10YIE/T5YIFRを収録。NY連銀・市場・SPF・CIEの4種類を比較ボタンから選択できます。必要な系列が欠ける比較はボタンにせず、理由を折りたたみ欄に表示します。ミシガン大学の原系列は公開ダッシュボードの再配布条件を確認するまで非収録です。
+
+SCE・SPFは公式Excelの既存パーサーを公開用に分離し、毎朝の更新に追加しました。許可リスト外の系列は配信しません。出典・SCE指定の免責はグラフ・表・CSV・画像出力にも含めます。追加前の28,601系列と基本表はバイト単位で変更なし。公開物全体の検証、保存済み公式Excelによる10系列の更新試験、4比較のブラウザ操作、SVG出典表示を確認しました。
+
+条件確認元：
+- https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf
+- https://www.philadelphiafed.org/about-us/privacy-notice
+- https://fred.stlouisfed.org/legal/ （3系列ともCitation Required区分）
+- https://data.sca.isr.umich.edu/agreement.php

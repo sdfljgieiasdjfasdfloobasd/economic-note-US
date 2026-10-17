@@ -1,10 +1,10 @@
 {
   "reviewedAt": "2026-10-17",
-  "builtAt": "2026-10-17T09:09:08.217942+00:00",
+  "builtAt": "2026-10-17T10:12:18.340358+00:00",
   "policy": "reviewed-only",
   "counts": {
-    "included": 28601,
-    "held_for_review": 4298,
+    "included": 28614,
+    "held_for_review": 4285,
     "permission_required": 59
   },
   "providers": {
@@ -69,7 +69,7 @@
       "held_for_review": 8
     },
     "Federal Reserve / FRED": {
-      "held_for_review": 3
+      "included": 3
     },
     "Federal Reserve Bank of Atlanta": {
       "held_for_review": 9
@@ -84,10 +84,12 @@
       "held_for_review": 2
     },
     "Federal Reserve Bank of New York": {
-      "held_for_review": 2040
+      "included": 6,
+      "held_for_review": 2034
     },
     "Federal Reserve Bank of Philadelphia": {
-      "held_for_review": 85
+      "held_for_review": 81,
+      "included": 4
     },
     "Federal Reserve Board": {
       "included": 3281
@@ -151,6 +153,21 @@
     }
   },
   "rules": {
+    "nyfed_sce": {
+      "name": "New York Fed / SCE",
+      "terms": "https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf",
+      "basis": "SCE公開データの利用・改変・再配布ライセンス。指定の出典・免責を画面と出力に記載。"
+    },
+    "philly_spf": {
+      "name": "Philadelphia Fed / SPF",
+      "terms": "https://www.philadelphiafed.org/about-us/privacy-notice",
+      "basis": "情報・教育・研究目的の利用条件に基づくSPFの公表集計値。出典を表示し、本サイトの分析を同連銀の見解としない。"
+    },
+    "fred_citation": {
+      "name": "St. Louis Fed / FRED inflation compensation",
+      "terms": "https://fred.stlouisfed.org/legal/",
+      "basis": "T5YIE・T10YIE・T5YIFRのCopyrighted: Citation Required区分。系列別出典とFRED経由であることを表示。"
+    },
     "bls": {
       "name": "BLS",
       "terms": "https://www.bls.gov/opub/copyright-information.htm",
@@ -11888,30 +11905,30 @@
       "label": "5-Year Breakeven Inflation Rate",
       "provider": "Federal Reserve / FRED",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "fred_citation",
+      "terms": "https://fred.stlouisfed.org/legal/",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "fred:T10YIE",
       "label": "10-Year Breakeven Inflation Rate",
       "provider": "Federal Reserve / FRED",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "fred_citation",
+      "terms": "https://fred.stlouisfed.org/legal/",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "fred:T5YIFR",
       "label": "5-Year, 5-Year Forward Inflation Expectation Rate",
       "provider": "Federal Reserve / FRED",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "fred_citation",
+      "terms": "https://fred.stlouisfed.org/legal/",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "fred:ICSA",
@@ -12758,60 +12775,60 @@
       "label": "NY Fed SCE 1年先期待インフレ・中央値",
       "provider": "Federal Reserve Bank of New York",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "nyfed_sce",
+      "terms": "https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "nyfed:Inflation expectations:2",
       "label": "NY Fed SCE 3年先期待インフレ・中央値",
       "provider": "Federal Reserve Bank of New York",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "nyfed_sce",
+      "terms": "https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "nyfed:Inflation uncertainty:1",
       "label": "NY Fed SCE 1年先インフレ不確実性",
       "provider": "Federal Reserve Bank of New York",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "nyfed_sce",
+      "terms": "https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "nyfed:Inflation uncertainty:2",
       "label": "NY Fed SCE 3年先インフレ不確実性",
       "provider": "Federal Reserve Bank of New York",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "nyfed_sce",
+      "terms": "https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "nyfed:Five-year ahead Infl Exp:1",
       "label": "NY Fed SCE 5年先期待インフレ・中央値",
       "provider": "Federal Reserve Bank of New York",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "nyfed_sce",
+      "terms": "https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "nyfed:Five-year ahead Infl Exp:5",
       "label": "NY Fed SCE 5年先インフレ不確実性",
       "provider": "Federal Reserve Bank of New York",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "nyfed_sce",
+      "terms": "https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "cleveland:exp1",
@@ -13208,40 +13225,40 @@
       "label": "SPF CPI5YR 5年平均",
       "provider": "Federal Reserve Bank of Philadelphia",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "philly_spf",
+      "terms": "https://www.philadelphiafed.org/about-us/privacy-notice",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "spf:median:PCE5YR",
       "label": "SPF PCE5YR 5年平均",
       "provider": "Federal Reserve Bank of Philadelphia",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "philly_spf",
+      "terms": "https://www.philadelphiafed.org/about-us/privacy-notice",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "spf:median:CPI10",
       "label": "SPF CPI10 10年平均",
       "provider": "Federal Reserve Bank of Philadelphia",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "philly_spf",
+      "terms": "https://www.philadelphiafed.org/about-us/privacy-notice",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "spf:median:PCE10",
       "label": "SPF PCE10 10年平均",
       "provider": "Federal Reserve Bank of Philadelphia",
       "page": "expectations",
-      "decision": "held_for_review",
-      "rule": null,
-      "terms": "",
-      "reason": "系列ごとの再配布条件・必要な権利表示の確認が未完了のため公開保留（禁止と断定するものではありません）"
+      "decision": "included",
+      "rule": "philly_spf",
+      "terms": "https://www.philadelphiafed.org/about-us/privacy-notice",
+      "reason": "確認した公開範囲に含む"
     },
     {
       "id": "spf:median:CPI1",
