@@ -1,0 +1,11 @@
+.private/
+.build-next/
+.site-previous/
+__pycache__/
+.DS_Store
+*.zip
+*.log
+*.pid
+.env
+.env.*
+node_modules/

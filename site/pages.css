@@ -1,0 +1,7 @@
+/* Scope only to the exported copy. */
+#workbook-link,.automation{display:none!important}
+.pages-note{font-size:13px;line-height:1.7;margin-bottom:16px}
+@media(max-width:600px){.topbar{gap:12px;flex-wrap:wrap}.update-tools{flex-wrap:wrap}.pages-note{font-size:12px}}
+
+#explorer-view[data-public-empty="true"] > :not(.workspace),
+#explorer-view[data-public-empty="true"] .workspace > :not(.section-top):not(#ex-intro):not(#ex-summary) {display:none}

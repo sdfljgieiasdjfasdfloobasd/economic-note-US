@@ -1,0 +1,26 @@
+{
+  "builtAt": "2026-10-17T03:45:43.847855+00:00",
+  "datasets": 10,
+  "explorerSeries": 16811,
+  "observations": 4931564,
+  "dataBytesBeforeCompression": 660174556,
+  "dataBytesAfterCompression": 74563453,
+  "siteBytes": 76347508,
+  "sourceUnchanged": true,
+  "publicationCounts": {
+    "included": 16811,
+    "held_for_review": 4300,
+    "permission_required": 59
+  },
+  "excluded": [
+    "原Excel",
+    "生の取得ファイル",
+    "改定履歴の保管庫",
+    "更新ログ",
+    "個人のお気に入り",
+    "ローカル設定・トークン",
+    "調査資料"
+  ],
+  "mode": "snapshot",
+  "automaticProviderUpdates": false
+}
