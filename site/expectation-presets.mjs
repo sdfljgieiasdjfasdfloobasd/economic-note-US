@@ -29,6 +29,7 @@ export function presetAvailability(preset,series){
 export const sceAttribution='Source: Survey of Consumer Expectations, © 2013–2026 Federal Reserve Bank of New York (FRBNY). The SCE data are available without charge at https://www.newyorkfed.org/microeconomics/sce and may be used subject to license terms posted there. FRBNY disclaims any responsibility for this analysis and interpretation of Survey of Consumer Expectations data.';
 export function seriesAttribution(s){
  const id=(s.id||'').replace(/^ex:/,''),label=s.label||'';
+ if(id==='fred:RRSFS')return 'Source: Federal Reserve Bank of St. Louis, Advance Real Retail and Food Services Sales [RRSFS], retrieved from FRED. https://fred.stlouisfed.org/series/RRSFS';
  if(id.startsWith('cleveland:')||label.startsWith('Cleveland '))return 'Source: Federal Reserve Bank of Cleveland, Inflation Expectations (model estimates). https://www.clevelandfed.org/our-research/indicators-and-data/inflation-expectations';
  if(id.startsWith('nyfed:')||label.startsWith('NY Fed SCE '))return sceAttribution;
  if(id.startsWith('spf:')||label.startsWith('SPF '))return 'Source: Survey of Professional Forecasters, Federal Reserve Bank of Philadelphia. https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters';

@@ -1,1 +1,677 @@
-{"format":1,"builtAt":"2026-10-17T11:02:37.425782+00:00","datasets":{"cpi":"data/daddec9850c8ef245a39cbbc841e9c5a893ad2b6d938ce20115a1c282974ce4c.json.gz","cpi_detail":"data/45a2a29c39ed6f50926e78fcb1240c42e71e7c9e9945ca34310435e992ac6542.json.gz","cpi3":"data/12a4f9fef0acdc13bce62cb98d985dbbc07fa4d8f4d207d3bfd728e4f72fb314.json.gz","cpi6":"data/5888377db36ace729490963f79d85c86f66815e63f2ba58a0d35ccfeb4592266.json.gz","pce":"data/49e245a05ddb1983a88116eec92d5f6f4ec6b7aa9753ce4575c71e66e74897a1.json.gz","ppi":"data/f38e7e888148390c7814876de6b0def5e9de29cb76dc38abd35a34bcf3810c52.json.gz","employment":"data/5bcdb63800dee0ddd47e79c39b3ce0f7da4890129c16618e38d7d48c89323452.json.gz","labor":"data/3308eb96b068dd0d7aaa79d9f34d4bca74e54b1ed9c4e36cbfa3572c1cc2d9eb.json.gz","wages":"data/821b3073e125cb38bf7a6b8d0903466ce40fd96e63d876f9cb23991c9653a1b1.json.gz","hours":"data/3cd861c77833dcbd4c09f0840b076646a742d7b74e26832c46be00996ad7eeb5.json.gz"},"manifest":"data/4148e79e4320435ca1b85a2943358b1ec71c7f37a4a9da1d0c27d880d442414a.json.gz","catalog":"data/aaf66209f40e8f11a89219bf61f392cffeea401ddf638a7b52ec890a111ca6ec.json.gz","updateReport":"data/b73868aef596625064ca8170255c36b08ef367383eec5ffa8d2d32372703896c.json.gz","analysisCatalog":"data/6d5dbc16a2692f69b9f3dd317918c48838a3347d6c7271b29a35cff61b5e9a81.json.gz","calendar":"data/9bcc877acb11ae4477ca2f46d1e21d3b66592d9b1a4ed715c6071009315fe2f6.json.gz","seriesIndex":"data/7bda58cc11ad9c335810ba42ef156544d770a3ede7cab01321668a2e21f43274.json.gz","cloudUpdate":{"schedule":"毎日04:00 JST（開始予定）","startedAt":"2026-10-17T04:24:37.314572+00:00","finishedAt":"2026-10-17T04:30:10.989994+00:00","changedSeries":1830,"checkedSeries":15188,"failedSources":84,"mode":"daily","sources":[{"source":"BLS CU","status":"failed","reason":"初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"},{"source":"BLS CE","status":"failed","reason":"初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"},{"source":"BLS LN","status":"failed","reason":"初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"},{"source":"BLS WP","status":"failed","reason":"初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"},{"source":"bls","status":"failed","series":0,"reason":"BLS公式系列を取得できなかったため保存値を保持"},{"source":"pce","status":"success","series":0},{"source":"cpi3","status":"failed","reason":"初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"},{"source":"revisions","status":"failed","series":8,"reason":"自動取得不可。公式表で照合済みの保存値を表示：初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"},{"source":"bea","status":"success","series":1784},{"source":"gdp","status":"success","series":4405},{"source":"retail","status":"success","series":102},{"source":"jolts","status":"failed","reason":"初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"},{"source":"g19","status":"success","series":118},{"source":"dsr","status":"success","series":3},{"source":"for","status":"success","series":4},{"source":"sloos","status":"success","series":638},{"source":"housing","status":"success","series":697},{"source":"g17","status":"success","series":2516},{"source":"vehicles","status":"success","series":31},{"source":"eia","status":"success","series":22},{"source":"cie","status":"success","series":2},{"source":"claims","status":"success","series":212},{"source":"diffusion","status":"failed","series":2,"reason":"自動取得不可。公式表照合済みの保存値を表示：初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"},{"source":"dfa","status":"success","series":298},{"source":"income","status":"success","series":361},{"source":"saving","status":"success","series":500},{"source":"scf","status":"success","series":999},{"source":"qss","status":"success","series":535},{"source":"m3","status":"success","series":760},{"source":"ressales","status":"success","series":33},{"source":"c30","status":"success","series":474},{"source":"steo","status":"success","series":125},{"source":"hvs","status":"success","series":18},{"source":"ft900","status":"success","series":466},{"source":"fred:ICSA","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:ICNSA","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:IC4WSA","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CCSA","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CCNSA","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CC4WSA","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:IURSA","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:IURNSA","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS11300060","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS12300060","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS12032194","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS12032195","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS12032196","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNU05026642","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNU05026645","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS12500000","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS12600000","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS12026619","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS12026620","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS14000012","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS14000036","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS14000089","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS14000091","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS14000093","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNU04000095","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNU04000097","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS14000003","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS14000006","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS14032183","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS14000009","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS13023621","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS13023705","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS13023557","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS13023569","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS13026638","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS13023653","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:LNS13025699","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:UEMPLT5","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:UEMP5TO14","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:UEMP15T26","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:UEMP27OV","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:UEMPMEAN","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:UEMPMED","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:AHETPI","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:AWHI","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CES0500000035","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:AWHAE","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CES0500000017","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIS1010000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIS1020000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIS1030000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIS2010000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIS2020000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIS2030000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIS3010000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:ECIGVTWAG","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:ECIGVTBEN","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIU1010000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIU1020000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIU1030000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIU2010000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIU2020000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIU2030000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIU3010000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIU3020000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:CIU3030000000000I","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:OPHNFB","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:HOANBS","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:OUTNFB","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:COMPNFB","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:COMPRNFB","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:ULCNFB","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:A132RC1Q027SBEA","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"fred:A463RC1Q027SBEA","status":"failed","series":1,"reason":"初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"},{"source":"derived","status":"success"},{"source":"macrocalc","status":"success"},{"source":"calendar:bls","status":"failed","reason":"初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"}],"held":[],"limitations":["CPI Table 6（発表時点の寄与度）と年次ベンチマークの保存系列は自動更新対象外。保存済みの観測を表示します。","公式サイトのアクセス制限・定義変更時は保存値を保持。公開許諾未確認の系列は追加しません。"]},"numericalRepair":{"at":"2026-10-17T06:04:14.330973+00:00","method":"保存済み公式資料との照合・修正（追加通信なし）","cpiApiSeries":500,"gdpDefinitions":42,"cpiMissingApiSeries":22},"publicationPolicy":"reviewed-only","revision":"horizon-comparisons-20261017T110237"}
+{
+  "format": 1,
+  "builtAt": "2026-10-17T11:02:37.425782+00:00",
+  "datasets": {
+    "cpi": "data/daddec9850c8ef245a39cbbc841e9c5a893ad2b6d938ce20115a1c282974ce4c.json.gz",
+    "cpi_detail": "data/45a2a29c39ed6f50926e78fcb1240c42e71e7c9e9945ca34310435e992ac6542.json.gz",
+    "cpi3": "data/12a4f9fef0acdc13bce62cb98d985dbbc07fa4d8f4d207d3bfd728e4f72fb314.json.gz",
+    "cpi6": "data/5888377db36ace729490963f79d85c86f66815e63f2ba58a0d35ccfeb4592266.json.gz",
+    "pce": "data/49e245a05ddb1983a88116eec92d5f6f4ec6b7aa9753ce4575c71e66e74897a1.json.gz",
+    "ppi": "data/f38e7e888148390c7814876de6b0def5e9de29cb76dc38abd35a34bcf3810c52.json.gz",
+    "employment": "data/5bcdb63800dee0ddd47e79c39b3ce0f7da4890129c16618e38d7d48c89323452.json.gz",
+    "labor": "data/3308eb96b068dd0d7aaa79d9f34d4bca74e54b1ed9c4e36cbfa3572c1cc2d9eb.json.gz",
+    "wages": "data/821b3073e125cb38bf7a6b8d0903466ce40fd96e63d876f9cb23991c9653a1b1.json.gz",
+    "hours": "data/3cd861c77833dcbd4c09f0840b076646a742d7b74e26832c46be00996ad7eeb5.json.gz"
+  },
+  "manifest": "data/4148e79e4320435ca1b85a2943358b1ec71c7f37a4a9da1d0c27d880d442414a.json.gz",
+  "catalog": "data/efd5946d55c98c0981401347956045d4024154fd28d8f276c923bb64eb54b920.json.gz",
+  "updateReport": "data/b73868aef596625064ca8170255c36b08ef367383eec5ffa8d2d32372703896c.json.gz",
+  "analysisCatalog": "data/6315142e4f69690919619afaa4b461e941d6b1b495b3a2a3085ae538b73407fd.json.gz",
+  "calendar": "data/9bcc877acb11ae4477ca2f46d1e21d3b66592d9b1a4ed715c6071009315fe2f6.json.gz",
+  "seriesIndex": "data/cb08ccc3a5589c3da17e360087957b441de51f25e7db55d7452c218870ab5668.json.gz",
+  "cloudUpdate": {
+    "schedule": "毎日04:00 JST（開始予定）",
+    "startedAt": "2026-10-17T04:24:37.314572+00:00",
+    "finishedAt": "2026-10-17T04:30:10.989994+00:00",
+    "changedSeries": 1830,
+    "checkedSeries": 15188,
+    "failedSources": 84,
+    "mode": "daily",
+    "sources": [
+      {
+        "source": "BLS CU",
+        "status": "failed",
+        "reason": "初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "BLS CE",
+        "status": "failed",
+        "reason": "初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "BLS LN",
+        "status": "failed",
+        "reason": "初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "BLS WP",
+        "status": "failed",
+        "reason": "初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "bls",
+        "status": "failed",
+        "series": 0,
+        "reason": "BLS公式系列を取得できなかったため保存値を保持"
+      },
+      {
+        "source": "pce",
+        "status": "success",
+        "series": 0
+      },
+      {
+        "source": "cpi3",
+        "status": "failed",
+        "reason": "初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "revisions",
+        "status": "failed",
+        "series": 8,
+        "reason": "自動取得不可。公式表で照合済みの保存値を表示：初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "bea",
+        "status": "success",
+        "series": 1784
+      },
+      {
+        "source": "gdp",
+        "status": "success",
+        "series": 4405
+      },
+      {
+        "source": "retail",
+        "status": "success",
+        "series": 102
+      },
+      {
+        "source": "jolts",
+        "status": "failed",
+        "reason": "初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "g19",
+        "status": "success",
+        "series": 118
+      },
+      {
+        "source": "dsr",
+        "status": "success",
+        "series": 3
+      },
+      {
+        "source": "for",
+        "status": "success",
+        "series": 4
+      },
+      {
+        "source": "sloos",
+        "status": "success",
+        "series": 638
+      },
+      {
+        "source": "housing",
+        "status": "success",
+        "series": 697
+      },
+      {
+        "source": "g17",
+        "status": "success",
+        "series": 2516
+      },
+      {
+        "source": "vehicles",
+        "status": "success",
+        "series": 31
+      },
+      {
+        "source": "eia",
+        "status": "success",
+        "series": 22
+      },
+      {
+        "source": "cie",
+        "status": "success",
+        "series": 2
+      },
+      {
+        "source": "claims",
+        "status": "success",
+        "series": 212
+      },
+      {
+        "source": "diffusion",
+        "status": "failed",
+        "series": 2,
+        "reason": "自動取得不可。公式表照合済みの保存値を表示：初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "dfa",
+        "status": "success",
+        "series": 298
+      },
+      {
+        "source": "income",
+        "status": "success",
+        "series": 361
+      },
+      {
+        "source": "saving",
+        "status": "success",
+        "series": 500
+      },
+      {
+        "source": "scf",
+        "status": "success",
+        "series": 999
+      },
+      {
+        "source": "qss",
+        "status": "success",
+        "series": 535
+      },
+      {
+        "source": "m3",
+        "status": "success",
+        "series": 760
+      },
+      {
+        "source": "ressales",
+        "status": "success",
+        "series": 33
+      },
+      {
+        "source": "c30",
+        "status": "success",
+        "series": 474
+      },
+      {
+        "source": "steo",
+        "status": "success",
+        "series": 125
+      },
+      {
+        "source": "hvs",
+        "status": "success",
+        "series": 18
+      },
+      {
+        "source": "ft900",
+        "status": "success",
+        "series": 466
+      },
+      {
+        "source": "fred:ICSA",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:ICNSA",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:IC4WSA",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CCSA",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CCNSA",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CC4WSA",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:IURSA",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:IURNSA",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS11300060",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS12300060",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS12032194",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS12032195",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS12032196",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNU05026642",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNU05026645",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS12500000",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS12600000",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS12026619",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS12026620",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS14000012",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS14000036",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS14000089",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS14000091",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS14000093",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNU04000095",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNU04000097",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS14000003",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS14000006",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS14032183",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS14000009",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS13023621",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS13023705",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS13023557",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS13023569",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS13026638",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS13023653",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:LNS13025699",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:UEMPLT5",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:UEMP5TO14",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:UEMP15T26",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:UEMP27OV",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:UEMPMEAN",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:UEMPMED",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:AHETPI",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:AWHI",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CES0500000035",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:AWHAE",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CES0500000017",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIS1010000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIS1020000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIS1030000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIS2010000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIS2020000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIS2030000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIS3010000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:ECIGVTWAG",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:ECIGVTBEN",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIU1010000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIU1020000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIU1030000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIU2010000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIU2020000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIU2030000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIU3010000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIU3020000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:CIU3030000000000I",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:OPHNFB",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:HOANBS",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:OUTNFB",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:COMPNFB",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:COMPRNFB",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:ULCNFB",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:A132RC1Q027SBEA",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "fred:A463RC1Q027SBEA",
+        "status": "failed",
+        "series": 1,
+        "reason": "初回試運転でFREDの応答待ちが継続。保存値を保持（GitHub上では毎回再試行）。"
+      },
+      {
+        "source": "derived",
+        "status": "success"
+      },
+      {
+        "source": "macrocalc",
+        "status": "success"
+      },
+      {
+        "source": "calendar:bls",
+        "status": "failed",
+        "reason": "初回試運転で公式サイトがアクセスを拒否。保存値を保持（GitHub上では毎回再試行）。"
+      }
+    ],
+    "held": [],
+    "limitations": [
+      "CPI Table 6（発表時点の寄与度）と年次ベンチマークの保存系列は自動更新対象外。保存済みの観測を表示します。",
+      "公式サイトのアクセス制限・定義変更時は保存値を保持。公開許諾未確認の系列は追加しません。"
+    ]
+  },
+  "numericalRepair": {
+    "at": "2026-10-17T06:04:14.330973+00:00",
+    "method": "保存済み公式資料との照合・修正（追加通信なし）",
+    "cpiApiSeries": 500,
+    "gdpDefinitions": 42,
+    "cpiMissingApiSeries": 22
+  },
+  "publicationPolicy": "reviewed-only",
+  "revision": "horizon-comparisons-20261017T110237"
+}

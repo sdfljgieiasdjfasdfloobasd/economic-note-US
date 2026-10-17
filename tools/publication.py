@@ -11,6 +11,7 @@ import json
 HERE = Path(__file__).resolve().parent
 REVIEW_DATE = '2026-10-17'
 RULES = {
+ 'fred_retail': {'name':'St. Louis Fed / Real Retail Sales', 'terms':'https://fred.stlouisfed.org/series/RRSFS', 'basis':'RRSFSのCopyrighted: Citation Required区分。系列別出典を画面・CSV・図に表示。Censusの売上高を総合CPIで実質化したSA系列。'},
  'cleveland_model': {'name':'Cleveland Fed / Inflation Expectations', 'terms':'https://www.clevelandfed.org/privacy', 'basis':'非商用・教育目的の掲載としてCleveland連銀自身の期待インフレ・モデル推計を出典付きで転載。元となる第三者データは配布しない。'},
  'nyfed_sce': {'name':'New York Fed / SCE', 'terms':'https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf', 'basis':'SCE公開データの利用・改変・再配布ライセンス。指定の出典・免責を画面と出力に記載。'},
  'philly_spf': {'name':'Philadelphia Fed / SPF', 'terms':'https://www.philadelphiafed.org/about-us/privacy-notice', 'basis':'情報・教育・研究目的の利用条件に基づくSPFの公表集計値。出典を表示し、本サイトの分析を同連銀の見解としない。'},

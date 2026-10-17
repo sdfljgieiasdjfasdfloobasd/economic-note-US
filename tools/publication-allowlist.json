@@ -114468,6 +114468,10 @@
     "cleveland:exp10": [
       "cleveland_model",
       "f2ad1e1f97ac47b152e265a8bc9340d871e6780582c6a5db044cf4c8fe4e664c"
+    ],
+    "fred:RRSFS": [
+      "fred_retail",
+      "9ee15588a41b3e5ac513d7e1cbeba631c44a695785e7dd9f8111dedb90f43235"
     ]
   },
   "datasets": {

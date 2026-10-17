@@ -22,7 +22,7 @@ BEA_DETAIL='https://apps.bea.gov/national/Release/XLS/Underlying/Section2All_xls
 PROVIDERS={'for':'Federal Reserve Board','bea':'Bureau of Economic Analysis','retail':'U.S. Census Bureau','g19':'Federal Reserve Board','dsr':'Federal Reserve Board','sloos':'Federal Reserve Board','vehicles':'Bureau of Economic Analysis','carts':'Federal Reserve Bank of Chicago','visa':'Visa','sceall':'Federal Reserve Bank of New York','nydebt':'Federal Reserve Bank of New York','cex':'Bureau of Labor Statistics','eia':'Energy Information Administration'}
 
 def item(prefix,code,label,source,publication,unit,frequency='Monthly',season='NSA',note='',**extra):
- return dict(id=f'{prefix}:{code}',label=label,page='pce-nonprice' if prefix=='bea' else 'consumption',category=publication,provider=PROVIDERS.get(prefix,prefix),source=source,publicationId=prefix+':'+publication,publicationLabel=publication,unit=unit,frequency=frequency,seasonal=season,definition=note,observations=[],**extra)
+ return dict(id=f'{prefix}:{code}',label=label,page='pce-nonprice' if prefix=='bea' else 'retail' if prefix in ('retail','carts') else 'consumption',category=publication,provider=PROVIDERS.get(prefix,prefix),source=source,publicationId=prefix+':'+publication,publicationLabel=publication,unit=unit,frequency=frequency,seasonal=season,definition=note,observations=[],**extra)
 
 def store(items):
  return [e.save(s) for s in items if any(r['raw'] is not None for r in s['observations'])]

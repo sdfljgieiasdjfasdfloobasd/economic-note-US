@@ -1,6 +1,7 @@
 // PCE's price page excludes real spending, income and saving tables.
 export const isPcePricePublication=g=>g.id==='price-table:pce'||/Table (?:2\.3\.4U|2\.4\.4U?|2\.8\.[478])(?:\.|\s|$)/.test(g.label||g.id||'');
-export const belongsToPage=(s,page)=>(s.page===page||(s.pages||[]).includes(page))&&(page!=='pce'||(s.publications||[statisticalGroup(s)]).some(isPcePricePublication));
+export const isRetailSeries=s=>/^(?:retail:|carts:|fred:RRSFS$|macrocalc:(?:retail_|gasoline_share:))/.test(s.id||'');
+export const belongsToPage=(s,page)=>page==='retail'?isRetailSeries(s):page==='consumption'&&isRetailSeries(s)?false:(s.page===page||(s.pages||[]).includes(page))&&(page!=='pce'||(s.publications||[statisticalGroup(s)]).some(isPcePricePublication));
 // Publication families: institutions with multiple surveys remain separate tables.
 export function statisticalGroup(s){
  if(s.id?.startsWith('retail:'))return {id:'retail',label:'米国国勢調査局 / 小売売上高（MRTS・MARTS 全収録項目）'};

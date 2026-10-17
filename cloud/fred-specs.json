@@ -822,5 +822,16 @@
     "category": "市場",
     "provider": "Federal Reserve / FRED",
     "definition": "TIPSのインフレ補償。期待インフレのほか、リスク・流動性プレミアムを含みます。"
+  },
+  {
+    "id": "fred:RRSFS",
+    "code": "RRSFS",
+    "page": "retail",
+    "category": "実質小売売上高",
+    "provider": "Federal Reserve Bank of St. Louis / FRED",
+    "definition": "小売・飲食サービス売上高（RSAFS）を総合CPI（CPIAUCSL、1982–84=100）で除して100倍した実質額。SAのみ。業種別の専用物価指数による実質化ではありません。FRED公表値。",
+    "publicationId": "retail-real",
+    "publicationLabel": "St. Louis Fed / 実質小売・飲食サービス売上高（RRSFS）",
+    "attribution": "Source: Federal Reserve Bank of St. Louis, Advance Real Retail and Food Services Sales [RRSFS], retrieved from FRED. https://fred.stlouisfed.org/series/RRSFS"
   }
 ]

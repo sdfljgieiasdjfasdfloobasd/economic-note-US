@@ -1,7 +1,7 @@
-import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=60b366f3c0ba61ddde70';
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=60b366f3c0ba61ddde70';
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=60b366f3c0ba61ddde70';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=60b366f3c0ba61ddde70';
+import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=17b2b4b6db30bdcab144';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=17b2b4b6db30bdcab144';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=17b2b4b6db30bdcab144';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=17b2b4b6db30bdcab144';
 export function publicationFilename(page,label,metric,dates){
  const table=label.match(/Table (\d+(?:\.\d+)*)/)?.[1],frequency=label.includes('Quarterly')?'Quarterly':label.includes('Annual')?'Annual':'';
  const name=table?`Table_${table}_${frequency}`:label;
@@ -14,10 +14,10 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
  const $=s=>panel.querySelector(s);let groups=[],selected=[],catalog,page,series=[],rows=[],dates=[],exportRows=[],seq=0,rendered=false,loading=false,loadedGroupKey='',pendingGroupKey='',exportSnapshot=null;
  $('#ex-table-metric').innerHTML=metrics.map(([id,label])=>`<option value="${id}">${label}</option>`).join('');
  function seasonControl(publishedPpi,displayMetric,metricSeries=series){
-  const control=$('#ex-table-season'),previous=control.value,pricePage=['cpi','pce','ppi'].includes(page);
+  const control=$('#ex-table-season'),previous=control.value;
   const actual=[...new Set(metricSeries.map(s=>s.seasonal||'非該当'))];
   const order=['SA','NSA','非該当','一部SAの合成'];
-  const choices=pricePage?[...order.filter(v=>actual.includes(v)),...actual.filter(v=>!order.includes(v))]:['',...order];
+  const choices=[...order.filter(v=>actual.includes(v)),...actual.filter(v=>!order.includes(v))];
   control.innerHTML=choices.map(v=>`<option value="${esc(v)}">${esc(v||'すべて')}</option>`).join('');
   control.value=choices.includes(previous)?previous:choices[0]||'';
   control.disabled=publishedPpi;
@@ -62,7 +62,7 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
    const missing=!r.s.observations.some(o=>o.value!=null),reason=r.incompatible?'この頻度・単位には選択した計算を適用できません（率・寄与度には変化率を重ねません）':missing?(r.s.error||r.s.definition||'数値未収録'):'';
    exportRows.push([g.label,r.s.label,r.s.seasonal,r.s.frequency,r.unit,choices.find(([id])=>id===displayMetric)?.[1]||m,...vals.map(o=>o?.raw??'')]);
    out+=`<tr><th title="${esc(reason||r.s.definition||'')}" style="padding-left:${8+Math.min(r.s.depth||0,7)*10}px">${esc(publishedPpi?r.s.matchLabel||r.s.label:r.s.sourceMetric&&r.s.sourceMetric!=='価格指数'?r.s.label:r.s.matchLabel||r.s.label)}<small class="hierarchy-trail">${esc(r.s.seasonal||'—')} · ${esc(r.s.sourceMetric||'')} · ${esc(r.s.frequency||'—')} · ${esc(r.unit||'—')}${reason?' · '+esc(reason):''}${/^(derived|macrocalc):/.test(r.s.id)?' · 計算系列':''}</small></th>`+vals.map((o,j)=>{const background=tableHeatColor(o?.value,r.heat,limits.get(r.heatKey));return `<td class="${o?.value==null?'missing':''}" ${background?`style="background:${background}"`:''}><button class="ex-cell" data-table-cell="${i},${j}" title="${esc(r.s.label)} · ${dates[j]} · ${fmt(o?.value)} ${esc(r.unit)}${r.heat?' · '+esc(r.heat.label)+(manual?'':' · 色の最大差 '+fmt(limits.get(r.heatKey))):''}">${fmt(o?.value)}</button></td>`}).join('')+(!dates.length?`<td>${esc(reason||'選択期間の数値なし')}</td>`:'')+'</tr>';
-  });$('#ex-table').innerHTML=out+'</tbody>';const revisionInputs=rows.map(r=>explorerRevisionInput(r.s,m));if(panel.append){mountRevisionView(panel,{inputs:revisionInputs,from:dates.at(-1)||from,to:dates[0]||to,csv});markRevisionCells([...$('#ex-table').querySelectorAll('[data-table-cell]')].map(b=>{const [i,j]=b.dataset.tableCell.split(',').map(Number);return {cell:b.parentElement,date:dates[j],input:revisionInputs[i]}}),$('#ex-detail'));}$('#ex-csv').disabled=!rows.length||!dates.length;rendered=true;exportSnapshot={key:loadedGroupKey,name:publicationFilename(page,g.label,[displayMetric,...(['cpi','pce','ppi'].includes(page)?[season]:[])].filter(Boolean).join('_'),dates),rows:rows.some(r=>seriesAttribution(r.s))?exportRows.map((r,i)=>[...r,i===0?'出典・利用条件':seriesAttribution(rows[i-1].s)]):exportRows};$('#ex-csv').title=g.label+' · '+(choices.find(([id])=>id===displayMetric)?.[1]||m);
+  });$('#ex-table').innerHTML=out+'</tbody>';const revisionInputs=rows.map(r=>explorerRevisionInput(r.s,m));if(panel.append){mountRevisionView(panel,{inputs:revisionInputs,from:dates.at(-1)||from,to:dates[0]||to,csv});markRevisionCells([...$('#ex-table').querySelectorAll('[data-table-cell]')].map(b=>{const [i,j]=b.dataset.tableCell.split(',').map(Number);return {cell:b.parentElement,date:dates[j],input:revisionInputs[i]}}),$('#ex-detail'));}$('#ex-csv').disabled=!rows.length||!dates.length;rendered=true;exportSnapshot={key:loadedGroupKey,name:publicationFilename(page,g.label,[displayMetric,...[season]].filter(Boolean).join('_'),dates),rows:rows.some(r=>seriesAttribution(r.s))?exportRows.map((r,i)=>[...r,i===0?'出典・利用条件':seriesAttribution(rows[i-1].s)]):exportRows};$('#ex-csv').title=g.label+' · '+(choices.find(([id])=>id===displayMetric)?.[1]||m);
  }
  panel.addEventListener('click',e=>{const b=e.target.closest('[data-table-cell]');if(!b)return;const [i,j]=b.dataset.tableCell.split(',').map(Number),r=rows[i],o=r.byDate.get(dates[j]);$('#ex-detail').innerHTML=`<b>${esc(r.s.label)} · ${dates[j]}</b><br>表示値 ${fmt(o?.value)} ${esc(r.unit)} / 元の精度 ${esc(o?.raw??'欠損・未収録')}${o?.sourceRaw&&o.sourceRaw!==o.raw?'（ファイルの原数値 '+esc(o.sourceRaw)+'）':''}<br>観測の季節調整 ${esc(o?.seasonal||r.s.seasonal)} / 観測の状態 ${esc(o?.status||'未収録')} / 公表日 ${esc(o?.releaseDate||'配布ファイルに記載なし・未確認')} / 取得日時 ${esc(r.s.retrievedAt||'保存Excel参照')}<br>${esc(r.s.definition||'')}${r.s.relativeImportance?' / ウェイト '+esc(r.s.relativeImportance.raw)+'%（'+esc(r.s.relativeImportance.reference)+'）':''}${r.s.error?'<br>'+esc(r.s.error):''}${r.s.source?`<br><a href="${esc(o?.source||r.s.source)}" target="_blank" rel="noopener noreferrer">系列の出典 ↗</a>`:''}`});
  panel.addEventListener('change',e=>{const field=e.target.dataset.heatField;if(!field)return;const key=e.target.closest('[data-heat-key]').dataset.heatKey;manualSettings.get(key)[field]=e.target.value;draw()});
