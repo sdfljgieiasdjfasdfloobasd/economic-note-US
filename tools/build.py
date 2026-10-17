@@ -14,6 +14,7 @@ import shutil
 import sys
 import zipfile
 import publication
+import version_assets
 
 ROOT = Path(__file__).resolve().parents[1]
 PRIVATE_KEYS = {'localFile', 'localPath', 'token', 'access_token', 'password', 'api_key'}
@@ -199,11 +200,12 @@ def build(source):
     release['publicationPolicy'] = 'reviewed-only'
     release['revision'] = hashlib.sha256(encoded(release)).hexdigest()
     (stage / 'release.json').write_bytes(encoded(release))
+    frontend_version = version_assets.version_site(stage)
     report = {'builtAt': release['builtAt'], 'datasets': len(datasets), 'explorerSeries': len(index), 'observations': observations,
               'dataBytesBeforeCompression': uncompressed_bytes, 'dataBytesAfterCompression': compressed_bytes,
               'siteBytes': sum(p.stat().st_size for p in stage.rglob('*') if p.is_file()),
               'sourceUnchanged': True, 'publicationCounts':scope['counts'], 'excluded': ['原Excel', '生の取得ファイル', '改定履歴の保管庫', '更新ログ', '個人のお気に入り', 'ローカル設定・トークン', '調査資料'],
-              'mode': 'snapshot', 'automaticProviderUpdates': bool(release.get('cloudUpdate'))}
+              'mode': 'snapshot', 'automaticProviderUpdates': bool(release.get('cloudUpdate')), 'frontendVersion': frontend_version}
     # Fail rather than publish a mixed snapshot if a live update changed input.
     for p, digest in seen.items():
         if hashlib.sha256(p.read_bytes()).hexdigest() != digest:

@@ -41,10 +41,13 @@ jobs:
         run: |
           python tests/cloud.py
           python tests/publication.py
+          python tests/version_assets.py
           python tools/verify.py
       - name: Refresh official data
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh)
         run: python cloud/refresh.py
+      - name: Version frontend assets to avoid stale browser caches
+        run: python tools/version_assets.py
       - name: Verify complete public artifact
         run: python tools/verify.py
       - name: Save refreshed snapshot

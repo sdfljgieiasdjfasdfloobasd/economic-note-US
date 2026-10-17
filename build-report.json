@@ -5,7 +5,7 @@
   "observations": 5517268,
   "dataBytesBeforeCompression": 778467162,
   "dataBytesAfterCompression": 84548723,
-  "siteBytes": 86371732,
+  "siteBytes": 86372951,
   "sourceUnchanged": true,
   "publicationCounts": {
     "included": 19626,
@@ -22,5 +22,6 @@
     "調査資料"
   ],
   "mode": "snapshot",
-  "automaticProviderUpdates": true
+  "automaticProviderUpdates": true,
+  "frontendVersion": "92e99c3be9d646d9fe77"
 }
