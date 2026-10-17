@@ -1,5 +1,5 @@
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=39155f021c64c774df4c';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=39155f021c64c774df4c';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=65acfcf9215c7acd36ec';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=65acfcf9215c7acd36ec';
 export function publicationFilename(page,label,metric,dates){
  const table=label.match(/Table (\d+(?:\.\d+)*)/)?.[1],frequency=label.includes('Quarterly')?'Quarterly':label.includes('Annual')?'Annual':'';
  const name=table?`Table_${table}_${frequency}`:label;
@@ -52,7 +52,9 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
   $('#ex-table-heat-note').textContent=$('#ex-table-heat').value==='off'?'色分けはオフです。':rules.length?'色：基準より上は青、下は赤、基準と同じ値は白、欠損は灰色。対象：'+rules.join('／')+'。良し悪しの判定ではありません。濃さは表示期間・観測数内の同じ単位と基準で共通にし、基準からの差の絶対値の90パーセンタイルで最大になります。水準・割合など対象外の行は無着色。'+(rows.some(r=>r.heat?.center===50)?'PMIの納期は50超が遅延、在庫判断は50超が過剰を表す場合があります。':''):'この表示は水準・割合などのため、自動色分けの対象外です。';
   if(manual)$('#ex-table-heat-note').textContent='手動色分け：入力した基準・上下限・色を使用します。基準は白、欠損は灰色。期間を変えても基準は固定です。良し悪しの判定ではありません。';
   exportRows=[['統計','系列','季節調整','頻度','単位','表示する値',...dates]];
-  let out='<thead><tr><th>品目 / 季節調整 / 単位</th>'+dates.map(d=>`<th>${esc(d)}</th>`).join('')+(!dates.length?'<th>収録状況</th>':'')+'</tr></thead><tbody>';
+  $('#ex-table').className=page==='ppi'?'ppi-compact-table':'';
+  const monthlyPpi=page==='ppi'&&rows.every(r=>r.s.frequency==='Monthly');
+  let out='<thead><tr><th>品目 / 季節調整 / 単位</th>'+dates.map(d=>`<th title="${esc(d)}">${esc(monthlyPpi?d.slice(0,7):d)}</th>`).join('')+(!dates.length?'<th>収録状況</th>':'')+'</tr></thead><tbody>';
   rows.forEach((r,i)=>{const byDate=new Map(r.rs.map(o=>[o.date,o])),vals=dates.map(d=>byDate.get(d));r.byDate=byDate;
    const missing=!r.s.observations.some(o=>o.value!=null),reason=r.incompatible?'この頻度・単位には選択した計算を適用できません（率・寄与度には変化率を重ねません）':missing?(r.s.error||r.s.definition||'数値未収録'):'';
    exportRows.push([g.label,r.s.label,r.s.seasonal,r.s.frequency,r.unit,choices.find(([id])=>id===displayMetric)?.[1]||m,...vals.map(o=>o?.raw??'')]);

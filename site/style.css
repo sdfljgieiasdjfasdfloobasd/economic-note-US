@@ -129,3 +129,11 @@
 .ex-hover-tooltip>div{justify-content:flex-start;gap:16px}.ex-hover-tooltip>div>span{max-width:none;flex:1}.ex-hover-tooltip.ex-hover-compact>div{justify-content:flex-start}
 .chart-wrap{max-height:none!important}.series-chip{display:inline-flex;align-items:stretch}.series-chip button:first-child{border-radius:7px 0 0 7px}.series-chip button:last-child{border-radius:0 7px 7px 0;border-left:0}.series-visibility{cursor:pointer;text-align:left}.series-visibility[aria-pressed=false]{text-decoration:line-through;opacity:.5}.legend button.legend-item{border:0;background:transparent;color:inherit;font:inherit;padding:4px 0}.an-row .series-visibility{min-width:0;overflow-wrap:anywhere}
 .axis-controls{display:flex;flex-wrap:wrap;align-items:end;gap:8px 12px;padding:10px 0;margin:8px 0;border-top:1px solid #e5ebf0;font-size:12px;color:#526679}.axis-controls>span{align-self:center;font-weight:600}.axis-controls label{display:grid;gap:4px}.axis-controls input{width:150px;max-width:100%;min-width:0;border:1px solid #d5dfe8;border-radius:5px;padding:7px;color:#243e50;background:white}.axis-controls p{flex-basis:100%;margin:0;font-size:11px}.axis-controls .axis-error{color:#a52c39}.axis-controls .axis-error:empty{display:none}
+
+/* PPI: do not stretch a short release table across the entire panel. */
+.ex-table .heat-scroll table.ppi-compact-table{width:max-content;table-layout:auto}
+.ex-table .ppi-compact-table th:first-child{width:220px;min-width:220px;max-width:220px}
+.ex-table .ppi-compact-table thead th:not(:first-child),.ex-table .ppi-compact-table td{min-width:64px;width:64px;padding-left:4px;padding-right:4px;white-space:nowrap}
+.ex-table .ppi-compact-table thead th{font-size:12px;letter-spacing:0}
+.ex-table .ppi-compact-table .ex-cell{min-width:0;width:100%;font-size:12px;font-variant-numeric:tabular-nums}
+@media(max-width:600px){.ex-table .ppi-compact-table th:first-child{width:160px;min-width:160px;max-width:160px}}
