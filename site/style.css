@@ -147,3 +147,8 @@
 .ex-presets .expectation-preset:disabled{opacity:1;color:#76818a;background:#f3f5f6;cursor:not-allowed}.expectation-preset em{color:#6b5961}
 #ex-preset-detail{padding:15px 18px;background:#f4f8fa;border-left:3px solid #008478;margin:16px 0;line-height:1.7}#ex-preset-detail strong{color:#244255}#ex-preset-detail p{margin:6px 0}#ex-preset-detail a{color:#007e72}
 @media(max-width:700px){#explorer-view .ex-presets:has(.expectation-presets){display:flex;overflow:visible}.expectation-preset-grid{grid-template-columns:1fr}.ex-presets .expectation-preset{white-space:normal}}
+
+/* Revision controls preserve the normal latest-value heat colors. */
+.revision-panel{margin:20px 0 0;padding:14px;border:1px solid #ccdce2;border-radius:10px;background:#fafcfd}.revision-panel>summary{cursor:pointer;color:#205266;font-weight:650}.revision-content{padding-top:12px}.revision-mark{font-size:10px;padding:1px 4px;margin-left:4px;border:1px solid #839aa6;border-radius:3px;background:white;color:#405c6b;cursor:pointer}.revision-list{max-height:380px;overflow:auto}.revision-plot svg{display:block;width:100%;min-height:220px}.revision-plot{min-width:0}.revision-content select{max-width:100%}.revision-cell-detail{white-space:normal}.revision-panel .ex-publication-controls{margin:8px 0}
+
+.revision-panel .ex-publication-controls{padding-left:0;padding-right:0}.revision-panel .ex-publication-controls label{min-width:0;max-width:100%}.revision-panel .ex-publication-controls label:first-child{flex:1 1 300px}.revision-panel .ex-publication-controls label:first-child select{width:100%}

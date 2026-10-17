@@ -1,12 +1,13 @@
-import {seriesAttributions} from './expectation-presets.mjs?v=893b38f3a0aae37a46af';
-import {chartPdf} from './static-pdf.mjs?v=893b38f3a0aae37a46af';
+import {seriesAttributions} from './expectation-presets.mjs?v=60b366f3c0ba61ddde70';
+import {chartPdf} from './static-pdf.mjs?v=60b366f3c0ba61ddde70';
 const NS='http://www.w3.org/2000/svg';
 const query=s=>document.querySelector(s),text=s=>query(s)?.textContent?.trim()||'',value=s=>query(s)?.value||'',choice=s=>query(s)?.selectedOptions?.[0]?.textContent?.trim()||'';
 export const filename=(title,format)=>`${title.replace(/[\\/:*?"<>|\x00-\x1f]/g,'_').slice(0,100)||'経済グラフ'}_${new Date().toISOString().slice(0,10)}.${format}`;
 function legend(nodes){return [...nodes].filter(n=>n.getAttribute('aria-pressed')!=='false').map(n=>{const dot=n.querySelector('.dot,.line-key');return {label:n.textContent.trim(),color:dot?(getComputedStyle(dot).backgroundColor!=='rgba(0, 0, 0, 0)'?getComputedStyle(dot).backgroundColor:getComputedStyle(dot).borderTopColor):n.style.color||'#17394a'}})}
 export function chartContext(svg){
  let title='',details=[],keys=[];const period=(from,to)=>[value(from),value(to)].filter(Boolean).join(' ～ ');
- if(svg.id==='chart'){title=text('#chart-heading');details=[period('#chart-from','#chart-to'),text('#chart-unit')];keys=legend(query('#legend').children)}
+ if(svg.closest('.revision-panel')){const panel=svg.closest('.revision-panel'),state=panel.revisionState;title='改定比較：'+(state?.inputs[state.series]?.label||'');details=[state?.from+' ～ '+state?.to,panel.querySelector('.revision-note')?.textContent||'',...seriesAttributions([state?.inputs[state.series]?.source||{}])];keys=legend(svg.parentElement.querySelectorAll('.legend > span'))}
+ else if(svg.id==='chart'){title=text('#chart-heading');details=[period('#chart-from','#chart-to'),text('#chart-unit')];keys=legend(query('#legend').children)}
  else if(svg.id==='contribution-svg'){title=text('#contribution-heading');details=[period('#contribution-from','#contribution-to'),'SA · 千人',text('[data-bar-mode][aria-pressed="true"]'),text('[data-contribution-view][aria-pressed="true"]')];keys=legend(document.querySelectorAll('#contribution-legend button,#contribution-line-key button'));keys.forEach(k=>{if(k.label.startsWith('Total')){const key=k.label.includes('3か月')?'totalMA3':'total';k.color=svg.querySelector(`[data-total-line="${key}"]`)?.getAttribute('stroke')||'#142b42'}})}
  else if(svg.closest('#industry-panel')){title=choice('[data-i="source"]');details=[period('[data-i="from"]','[data-i="to"]'),'SA · 千人',choice('[data-i="metric"]'),choice('[data-i="view"]')];keys=legend(document.querySelectorAll('[data-i="legend"] button'))}
  else if(svg.id==='scatter'){title='回帰分析';details=[period('#reg-from','#reg-to'),`Xのラグ ${value('#reg-lag')}か月 · ${choice('#reg-degree')}`,text('#reg-axes'),text('#reg-stats')];keys=[{label:'観測値',color:'#007e72'},{label:'近似曲線',color:'#d58b35'}]}
@@ -37,7 +38,7 @@ export async function downloadChart(svg,format,getToken){
  const name=filename(image.title,format),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),600000);return {url,name};
 }
 export function setupChartExports({getToken}){
- const selectors='#chart,#contribution-svg,#scatter,#ex-plots svg,[data-i="plot"] svg,#an-plots svg,#an-scatter svg',bars=new Map();let pending=false;
+ const selectors='#chart,#contribution-svg,#scatter,#ex-plots svg,[data-i="plot"] svg,#an-plots svg,#an-scatter svg,.revision-plot svg',bars=new Map();let pending=false;
  function scan(){pending=false;for(const [svg,bar] of bars)if(!svg.isConnected){bar.remove();bars.delete(svg)}for(const svg of document.querySelectorAll(selectors)){let bar=bars.get(svg);if(!bar){bar=document.createElement('div');bar.className='chart-export';bar.innerHTML='<span>図を保存</span><button type="button" class="text-button" data-image-format="png">PNG ↓</button><button type="button" class="text-button" data-image-format="svg">SVG ↓</button><button type="button" class="text-button" data-image-format="pdf">PDF ↓</button><small role="status"></small>';svg.before(bar);bars.set(svg,bar);for(const b of bar.querySelectorAll('button'))b.onclick=async()=>{const status=bar.querySelector('small');bar.querySelectorAll('button').forEach(b=>b.disabled=true);status.textContent='画像を作成中…';try{const saved=await downloadChart(svg,b.dataset.imageFormat,getToken);status.textContent='画像の保存を開始しました。';const link=document.createElement('a');link.href=saved.url;link.download=saved.name;link.textContent='もう一度保存';status.append(' ',link)}catch(e){status.textContent='保存できませんでした：'+e.message}finally{bar.querySelectorAll('button').forEach(b=>b.disabled=false)}}}const empty=!svg.querySelector('path,circle,rect');bar.hidden=empty;}}
  const observer=new MutationObserver(records=>{if(records.every(r=>r.target.nodeType===1&&r.target.closest('.chart-export')))return;if(!pending){pending=true;requestAnimationFrame(scan)}});observer.observe(document.querySelector('main'),{childList:true,subtree:true});scan();
 }

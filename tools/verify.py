@@ -68,7 +68,17 @@ def verify(root=ROOT, source=False):
         if s['id'].startswith('ex:'): assert s['id'][3:] in index
         else: assert s['descriptor'][0] in release['datasets']
     calendar=load(release['calendar']); assert calendar == publication.calendar_scope(calendar)
-    updates=load(release['updateReport']); assert not any(updates[k] for k in ('changed','unchanged','failures'))
+    updates=load(release['updateReport'])
+    if updates.get('format')==2:
+        workbook_keys={json.dumps([d['id'],s['name'],m],ensure_ascii=False) for ds,path in release['datasets'].items() for d in [load(path)] for s in d['series'] for m in s.get('bases' if d['kind']=='base' else 'values',{})}
+        def public_key(key):
+            if key.startswith('explorer:'):return key[9:] in index
+            return key in workbook_keys
+        assert all(public_key(k) for k in updates['checks']), '非公開系列の改定チェック混入'
+        assert all(public_key(s['id']) for s in updates['changed']), '非公開系列の改定混入'
+        assert all(k in updates['checks'] for k in updates['lookup'].values())
+        assert all(len(h)==64 for h in updates['checks'].values())
+    else:assert not any(updates[k] for k in ('changed','unchanged','failures'))
     referenced=set(index.values()) | set(release['datasets'].values()) | {release[k] for k in ('manifest','catalog','analysisCatalog','calendar','updateReport','seriesIndex')}
     assert set(decoded)==referenced, '参照されない古いデータファイルが残っています。'
     if source:

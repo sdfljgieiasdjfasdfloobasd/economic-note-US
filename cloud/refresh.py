@@ -8,6 +8,7 @@ sys.path.insert(0,str(ROOT/'tools'))
 import publication,verify
 import expansion as e
 import core
+import update_report as revisions
 
 def read(path):return json.loads(Path(path).read_text())
 def load(site,path):return json.loads(gzip.decompress((site/path).read_bytes()))
@@ -115,6 +116,16 @@ def alias_observations(meta,datasets):
 def finalize(root,original,datasets,catalog,metas,report,started,only):
     site=root/'site';index=load(site,original['seriesIndex']);rows=[];changed=[];checked=0
     allowed=set(index)
+    revision_report=revisions.make_report({}, {}, started=started, mode='official')
+    unchanged={}
+    def record_revision(before,after):
+        changed_rows,same=revisions.compare(before,after)
+        revision_report['changed'].extend(changed_rows)
+        for group,count in same.items():unchanged[group]=unchanged.get(group,0)+count
+        checks,lookup=revisions.revision_checks(after)
+        revision_report['checks'].update(checks);revision_report['lookup'].update(lookup)
+    for key,d in datasets.items():
+        record_revision(revisions.dataset_snapshot(load(site,original['datasets'][key])),revisions.dataset_snapshot(d))
     for meta in catalog['series']:
         sid=meta['id'];p=e.SERIES/e.key(sid);s=read(p)
         newmeta=metas.get(sid)
@@ -132,7 +143,9 @@ def finalize(root,original,datasets,catalog,metas,report,started,only):
         if meta.get('alias'):
             s['alias']=meta['alias'];s['observations']=alias_observations(meta,datasets)
         s=publication.clean(s,allowed)
-        if load(site,index[sid]).get('observations')!=s.get('observations'):changed.append(sid)
+        old_series=load(site,index[sid])
+        record_revision(revisions.explorer_snapshot(old_series),revisions.explorer_snapshot(s))
+        if old_series.get('observations')!=s.get('observations'):changed.append(sid)
         index[sid]=emit(site,s);rows.append(e.summary(s))
     cat={**catalog,'generatedAt':e.now(),'series':rows}
     publication.check_datasets(datasets)
@@ -169,6 +182,12 @@ def finalize(root,original,datasets,catalog,metas,report,started,only):
     release={**original,'builtAt':finished,'revision':'cloud-'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ'),'cloudUpdate':summary}
     release['datasets']={k:emit(site,d) for k,d in datasets.items()}
     for k,v in [('catalog',cat),('manifest',manifest),('seriesIndex',index),('analysisCatalog',analysis),('calendar',calendar)]:release[k]=emit(site,v)
+    revision_report.update(finishedAt=finished,unchanged=[dict(group=k,count=v) for k,v in sorted(unchanged.items())],
+        failures=[dict(group='公式取得',label=v['source'],error=v.get('reason','取得失敗')) for v in failures])
+    changes=revision_report['changed']
+    revision_report['counts']=dict(changed=len(changes),unchanged=sum(unchanged.values()),failed=len(failures),
+        **{kind:sum(bool(s['counts'][kind]) for s in changes) for kind in ('added','revised','removed','status')})
+    release['updateReport']=emit(site,revision_report)
     write(site/'release.json',release)
     esc=html.escape
     table=''.join('<tr><td>'+esc(v['source'])+'</td><td>'+esc(v['status'])+'</td><td>'+esc(v.get('reason',''))+'</td></tr>' for v in report)

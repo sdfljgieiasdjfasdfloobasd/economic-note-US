@@ -1,4 +1,4 @@
-import {statisticalGroup} from './explorer-groups.mjs?v=893b38f3a0aae37a46af';
+import {statisticalGroup} from './explorer-groups.mjs?v=60b366f3c0ba61ddde70';
 export const categoryNames={cpi:'物価',pce:'物価',ppi:'物価',employment:'労働市場',labor:'労働市場',expectations:'期待インフレ',sp:'企業活動・PMI',ism:'企業活動・PMI',gdp:'GDP・国内需要',consumption:'消費','pce-nonprice':'所得・消費・貯蓄',housing:'住宅建設',production:'鉱工業生産'};
 export function workbookPath(d,s){
  const publication=d.title===d.label?d.title:`${d.title} / ${d.label}`;

@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {observationHash,restoreObservations,compareRows,baseRevisionInput,setRevisionReport,revisionPair,entryKey} from '../site/revision-view.mjs';
+const obs=[{date:'2026-01-01',value:100},{date:'2026-02-01',value:120},{date:'2026-03-01',value:130}];
+const hash=createHash('sha256');for(const o of obs){hash.update(o.date+'\0');const b=Buffer.alloc(8);b.writeDoubleBE(o.value);hash.update(b);hash.update('\n')}
+assert.equal(await observationHash(obs),hash.digest('hex'));
+const details=[{date:'2026-02-01',kind:'revised',before:110,after:120},{date:'2026-03-01',kind:'added',before:null,after:130}];
+const restored=restoreObservations(obs,details);assert.deepEqual(restored.map(o=>o.value),[100,110]);
+assert.deepEqual(compareRows(obs,restored).map(r=>r.delta),[0,10,null]);
+const d={id:'employment',kind:'base',baseUnit:'千人',dates:['2026-01','2026-02','2026-03']},s={id:'0',label:'Total',bases:{SA:[100,120,130],NSA:[200,240,260]}};
+const input=baseRevisionInput(d,s,'SA','change'),key='["employment", "Total", "SA"]';
+setRevisionReport({id:'fixture',format:2,checks:{[key]:await observationHash(obs)},lookup:{'["employment","0","SA"]':key},changed:[{id:key,details,comparable:true}]});
+const pair=await revisionPair(input);assert.deepEqual(pair.rows.map(r=>r.delta),[null,10,null]);assert.equal(pair.rows[2].before,null);
+const growth=await revisionPair(baseRevisionInput(d,s,'SA','mom'));assert.ok(Math.abs(growth.rows[1].delta-10)<1e-10,'growth is recomputed separately from old and new levels');
+assert.equal((await revisionPair(baseRevisionInput(d,s,'NSA','change'))).rows,undefined,'SA revisions never attach to NSA');
+assert.equal(entryKey({alias:{dataset:'employment',series:'0',season:'SA'}},{lookup:{'["employment","0","SA"]':key}}),key);
+assert.equal(entryKey({alias:{dataset:'employment',series:'0',season:'SA',metric:'level'}},{lookup:{'["employment","0","SA"]':key}}),key);
+assert.equal(entryKey({descriptor:['employment','0','SA','level']},{lookup:{'["employment","0","SA"]':key}}),key);
+setRevisionReport({id:'stale',format:2,checks:{[key]:'0'.repeat(64)},changed:[],lookup:{'["employment","0","SA"]':key}});assert.match((await revisionPair(input)).reason,/一致しない/);
+setRevisionReport({id:'legacy',changed:[]});assert.match((await revisionPair(input)).reason,/次回更新/);
+console.log('Revision identity, exact hashes, gaps, changes of calculated monthly differences, SA/NSA and stale history passed.');
