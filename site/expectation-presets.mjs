@@ -29,6 +29,7 @@ export function presetAvailability(preset,series){
 export const sceAttribution='Source: Survey of Consumer Expectations, © 2013–2026 Federal Reserve Bank of New York (FRBNY). The SCE data are available without charge at https://www.newyorkfed.org/microeconomics/sce and may be used subject to license terms posted there. FRBNY disclaims any responsibility for this analysis and interpretation of Survey of Consumer Expectations data.';
 export function seriesAttribution(s){
  const id=(s.id||'').replace(/^ex:/,''),label=s.label||'';
+ if(id.startsWith('priceppi:')&&s.historySource)return 'Source: U.S. Bureau of Labor Statistics. '+s.historySource+' '+(s.historyUrl||s.source||'');
  if(id==='fred:RRSFS')return 'Source: Federal Reserve Bank of St. Louis, Advance Real Retail and Food Services Sales [RRSFS], retrieved from FRED. https://fred.stlouisfed.org/series/RRSFS';
  if(id.startsWith('cleveland:')||label.startsWith('Cleveland '))return 'Source: Federal Reserve Bank of Cleveland, Inflation Expectations (model estimates). https://www.clevelandfed.org/our-research/indicators-and-data/inflation-expectations';
  if(id.startsWith('nyfed:')||label.startsWith('NY Fed SCE '))return sceAttribution;
@@ -36,4 +37,4 @@ export function seriesAttribution(s){
  const code=['T5YIE','T10YIE','T5YIFR'].find(c=>id==='fred:'+c)||(/5-Year, 5-Year Forward Inflation/.test(label)?'T5YIFR':/10-Year Breakeven/.test(label)?'T10YIE':/5-Year Breakeven/.test(label)?'T5YIE':null);
  return code?'Source: Federal Reserve Bank of St. Louis, '+code+', retrieved from FRED. https://fred.stlouisfed.org/series/'+code:'';
 }
-export function seriesAttributions(series){return [...new Set(series.map(seriesAttribution).filter(Boolean))]}
+export function seriesAttributions(series){return [...new Set(series.map(s=>(s.id||'').replace(/^ex:/,'').startsWith('priceppi:')&&s.historySource?'Source: U.S. Bureau of Labor Statistics. 過去データの配布・保存元: FRED / FRASER（Federal Reserve Bank of St. Louis）。個別の出典はセルの詳細・CSVに記載。':seriesAttribution(s)).filter(Boolean))]}
