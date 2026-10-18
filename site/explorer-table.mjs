@@ -1,8 +1,8 @@
-import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=c4c7379114f9b20ce404';
-import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=c4c7379114f9b20ce404';
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=c4c7379114f9b20ce404';
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=c4c7379114f9b20ce404';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=c4c7379114f9b20ce404';
+import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=a42c5c2a96c6320bd783';
+import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=a42c5c2a96c6320bd783';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=a42c5c2a96c6320bd783';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=a42c5c2a96c6320bd783';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=a42c5c2a96c6320bd783';
 export function publicationFilename(page,label,metric,dates,series=[]){
  const table=label.match(/Table (\d+(?:\.\d+)*U?)/)?.[1];
  const fs=[...new Set(series.map(s=>s.frequency).filter(Boolean))];
@@ -55,9 +55,9 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
    // Legacy catalog classifies effect/core as non-applicable; these Table 6
    // observations describe seasonally adjusted monthly changes. Correct the view
    // metadata without transforming or rounding any observations.
-   displayedSeries=series.filter(s=>s.sourceMetric===source).map(s=>({...s,seasonal:season}));
+   displayedSeries=series.filter(s=>s.sourceMetric===source&&(kind!=='core'||s.coreApplicable!==false)).map(s=>({...s,seasonal:season}));
    valueLabel=kind==='mom'?'公表前月比（SA・%）':label+(kind==='ri'?'（%）':'（前月比・SA・ポイント）');exportMetric=(kind==='core'?'calculated_':'published_')+kind;
-   $('#ex-table-source-note').textContent=kind==='ri'?'相対的重要度は各品目のウェイト（%）です。寄与度とは異なります。小数第3位まで表示します。':kind==='mom'?'各品目そのものの季節調整済み前月比です。BLSの公表精度は小数第1位で、寄与度とは異なります。':label+'：季節調整済みの前月比を何ポイント押し上げ・押し下げたかを示します。小数第3位まで表示します。'+(kind==='core'?' 総合への寄与 ÷（コアの相対的重要度 / 100）で換算した計算値で、BLSの直接公表値ではありません。':'');
+   $('#ex-table-source-note').textContent=kind==='ri'?'相対的重要度は各品目のウェイト（%）です。寄与度とは異なります。小数第3位まで表示します。':kind==='mom'?'各品目そのものの季節調整済み前月比です。BLSの公表精度は小数第1位で、寄与度とは異なります。':label+'：季節調整済みの前月比を何ポイント押し上げ・押し下げたかを示します。小数第3位まで表示します。'+(kind==='core'?' 総合への寄与 ÷（コアの相対的重要度 / 100）で換算した計算値で、BLSの直接公表値ではありません。食品・エネルギーなど計算対象外の品目は非表示です。対象品目でも元の寄与度・ウェイトがない月は空欄のまま表示します。':'');
   }else{
    const sourceMetric=sourceChoices.find(([id])=>id===displayMetric)?.[1];displayedSeries=publishedPpi||publishedExtra?series.filter(s=>s.sourceMetric===sourceMetric):series;seasonControl(publishedPpi,displayMetric,displayedSeries);season=$('#ex-table-season').value;
   }

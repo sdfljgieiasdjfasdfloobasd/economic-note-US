@@ -3,9 +3,9 @@
   "datasets": 10,
   "explorerSeries": 30191,
   "observations": 5789003,
-  "dataBytesBeforeCompression": 869568182,
-  "dataBytesAfterCompression": 100294277,
-  "siteBytes": 102447301,
+  "dataBytesBeforeCompression": 869596394,
+  "dataBytesAfterCompression": 100193360,
+  "siteBytes": 102346598,
   "sourceUnchanged": true,
   "publicationCounts": {
     "included": 30191,
@@ -23,5 +23,5 @@
   ],
   "mode": "cloud",
   "automaticProviderUpdates": true,
-  "frontendVersion": "c4c7379114f9b20ce404"
+  "frontendVersion": "a42c5c2a96c6320bd783"
 }

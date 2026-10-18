@@ -5,7 +5,7 @@
     "cpi": "data/804d6582fcf27d257df80abca763c5acd744baa652bf54bc0ed6131f89eeec7d.json.gz",
     "cpi_detail": "data/80d1562f5381c58eda9ea8fb3cf8ef306b47847534e22d24633d5829a055e75c.json.gz",
     "cpi3": "data/12a4f9fef0acdc13bce62cb98d985dbbc07fa4d8f4d207d3bfd728e4f72fb314.json.gz",
-    "cpi6": "data/adce2687a8f13a5bd0dbb9af61169126e48aaa0a64e7abef603d65ea8c0ac56d.json.gz",
+    "cpi6": "data/b4a46defe72899775117f81d86c8a1c743a9e4feb71a41d17ea033d109937b92.json.gz",
     "pce": "data/a335901cea66958e2fcf90e67ea26cc55630905af3ec3bdb8ef24acb6874fca6.json.gz",
     "ppi": "data/f38e7e888148390c7814876de6b0def5e9de29cb76dc38abd35a34bcf3810c52.json.gz",
     "employment": "data/5bcdb63800dee0ddd47e79c39b3ce0f7da4890129c16618e38d7d48c89323452.json.gz",
@@ -14,11 +14,11 @@
     "hours": "data/3cd861c77833dcbd4c09f0840b076646a742d7b74e26832c46be00996ad7eeb5.json.gz"
   },
   "manifest": "data/0d57ea5b309e52f1d9f694b5b340713f3ee3a1c2ef56607cbf414bd7d0d55f70.json.gz",
-  "catalog": "data/ce1898c7bb46045a3593c2f557f49102c45934b14e4c09034d1148c6f2d828f5.json.gz",
+  "catalog": "data/3d85d14a38f592d1fac9df6a02b6c9b50cd14f3c30fd9faaee6e9bbb30c0f807.json.gz",
   "updateReport": "data/8045e2a1f60188333fd49d4b7d6a215d9a161e53dc17f7dbbc4c853b124e0436.json.gz",
   "analysisCatalog": "data/6111a0ec28ede0a29701b97069b9d45eb580459ad446f9ce071708aa51d97521.json.gz",
   "calendar": "data/d2f42ba8384cb8c8550b7e0a26c0cf74c26536b13298be7742d259049681cb64.json.gz",
-  "seriesIndex": "data/6dc4e6da303d45590849117180d0e916c0e3f4ae6c03eca3a88fb57b73d624a4.json.gz",
+  "seriesIndex": "data/e72556761e72c6dc7b6c3850685bd06b4f3499cab1c65bc70d2ad1ac772bb90e.json.gz",
   "cloudUpdate": {
     "changedDatasets": [
       "pce"
@@ -731,5 +731,5 @@
     "cpiMissingApiSeries": 22
   },
   "publicationPolicy": "reviewed-only",
-  "revision": "9e30a785250c42db311d1c77f1c460d95d034ad7c89864ab8dbabf53557e4c1e"
+  "revision": "a41975ce0aa52ec0a8261c94f86c745ac6823d4b5d97a2f7aff652334a7210a5"
 }
