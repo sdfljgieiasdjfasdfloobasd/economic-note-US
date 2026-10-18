@@ -1,8 +1,8 @@
-import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=5cfebd2ee193459a9510';
-import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=5cfebd2ee193459a9510';
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=5cfebd2ee193459a9510';
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=5cfebd2ee193459a9510';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=5cfebd2ee193459a9510';
+import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=4654e084883bbc964c2f';
+import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=4654e084883bbc964c2f';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=4654e084883bbc964c2f';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=4654e084883bbc964c2f';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=4654e084883bbc964c2f';
 export function publicationFilename(page,label,metric,dates){
  const table=label.match(/Table (\d+(?:\.\d+)*)/)?.[1],frequency=label.includes('Quarterly')?'Quarterly':label.includes('Annual')?'Annual':'';
  const name=table?`Table_${table}_${frequency}`:label;

@@ -1,0 +1,875 @@
+{
+  "EIUIR": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIREXFDFLS": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIREXPET": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIREXFUELS": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR0": {
+    "path": [
+      "総合（All commodities）"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR00": {
+    "path": [
+      "総合（All commodities）",
+      "Foods, feeds, & beverages"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR01": {
+    "path": [
+      "総合（All commodities）",
+      "Foods, feeds, & beverages"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR1": {
+    "path": [
+      "総合（All commodities）"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR1EXPET": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR1EXFUEL": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR1DUR": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR1NONDUR": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR10": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR100": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials",
+      "Fuels & lubricants"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR10000": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials",
+      "Fuels & lubricants",
+      "Petroleum & petroleum products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR101": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials",
+      "Fuels & lubricants"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR10110": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials",
+      "Fuels & lubricants",
+      "Fuels, n.e.s.-coals & gas"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR11": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR12": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR13": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR14": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR15": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR16": {
+    "path": [
+      "総合（All commodities）",
+      "Industrial supplies & materials"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR2": {
+    "path": [
+      "総合（All commodities）"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR21": {
+    "path": [
+      "総合（All commodities）",
+      "Capital goods"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR22": {
+    "path": [
+      "総合（All commodities）",
+      "Capital goods"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR3": {
+    "path": [
+      "総合（All commodities）"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR30": {
+    "path": [
+      "総合（All commodities）",
+      "Automotive vehicles, parts & engines"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR4": {
+    "path": [
+      "総合（All commodities）"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR40": {
+    "path": [
+      "総合（All commodities）",
+      "Consumer goods, excluding automotives"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR41": {
+    "path": [
+      "総合（All commodities）",
+      "Consumer goods, excluding automotives"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIR42": {
+    "path": [
+      "総合（All commodities）",
+      "Consumer goods, excluding automotives"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZNONMANU": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ11": {
+    "path": [
+      "Nonmanufacturing"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ111": {
+    "path": [
+      "Nonmanufacturing",
+      "Agriculture, forestry, fishing and hunting"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ112": {
+    "path": [
+      "Nonmanufacturing",
+      "Agriculture, forestry, fishing and hunting"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ113": {
+    "path": [
+      "Nonmanufacturing",
+      "Agriculture, forestry, fishing and hunting"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ114": {
+    "path": [
+      "Nonmanufacturing",
+      "Agriculture, forestry, fishing and hunting"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ21": {
+    "path": [
+      "Nonmanufacturing"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ211": {
+    "path": [
+      "Nonmanufacturing",
+      "Mining"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ212": {
+    "path": [
+      "Nonmanufacturing",
+      "Mining"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZMANU": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ31": {
+    "path": [
+      "Manufacturing"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ311": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 1"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ312": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 1"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ313": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 1"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ314": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 1"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ315": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 1"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ32": {
+    "path": [
+      "Manufacturing"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ321": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 2"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ322": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 2"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ324": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 2"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ325": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 2"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ326": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 2"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ327": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 2"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ33": {
+    "path": [
+      "Manufacturing"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ331": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 3"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ332": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 3"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ333": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 3"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ334": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 3"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ335": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 3"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ336": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 3"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIZ339": {
+    "path": [
+      "Manufacturing",
+      "Manufacturing, part 3"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPI": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP02": {
+    "path": [
+      "Live animals; animal products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP03": {
+    "path": [
+      "Live animals; animal products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP04": {
+    "path": [
+      "Live animals; animal products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPII": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP06": {
+    "path": [
+      "Vegetable products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP07": {
+    "path": [
+      "Vegetable products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP08": {
+    "path": [
+      "Vegetable products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP09": {
+    "path": [
+      "Vegetable products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP10": {
+    "path": [
+      "Vegetable products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP11": {
+    "path": [
+      "Vegetable products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP12": {
+    "path": [
+      "Vegetable products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPIII": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP15": {
+    "path": [
+      "Animal or vegetable fats and oils"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPIV": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP17": {
+    "path": [
+      "Prepared foodstuffs, beverages, and tobacco"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP18": {
+    "path": [
+      "Prepared foodstuffs, beverages, and tobacco"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP19": {
+    "path": [
+      "Prepared foodstuffs, beverages, and tobacco"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP20": {
+    "path": [
+      "Prepared foodstuffs, beverages, and tobacco"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP21": {
+    "path": [
+      "Prepared foodstuffs, beverages, and tobacco"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP22": {
+    "path": [
+      "Prepared foodstuffs, beverages, and tobacco"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP23": {
+    "path": [
+      "Prepared foodstuffs, beverages, and tobacco"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP24": {
+    "path": [
+      "Prepared foodstuffs, beverages, and tobacco"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPV": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP25": {
+    "path": [
+      "Mineral products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP26": {
+    "path": [
+      "Mineral products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP27": {
+    "path": [
+      "Mineral products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPVI": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP28": {
+    "path": [
+      "Products of the chemical or allied industries"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP29": {
+    "path": [
+      "Products of the chemical or allied industries"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP30": {
+    "path": [
+      "Products of the chemical or allied industries"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP31": {
+    "path": [
+      "Products of the chemical or allied industries"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP34": {
+    "path": [
+      "Products of the chemical or allied industries"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP35": {
+    "path": [
+      "Products of the chemical or allied industries"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP38": {
+    "path": [
+      "Products of the chemical or allied industries"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPVII": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP39": {
+    "path": [
+      "Plastics and articles thereof; rubber and articles thereof"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP40": {
+    "path": [
+      "Plastics and articles thereof; rubber and articles thereof"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPVIII": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP42": {
+    "path": [
+      "Raw hides, skins, leather, furskins, travel goods, etc"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPIX": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP44": {
+    "path": [
+      "Wood, wood charcoal, cork, straw, basketware and wickerwork"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPX": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP47": {
+    "path": [
+      "Woodpulp, recovered paper, and paper products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP48": {
+    "path": [
+      "Woodpulp, recovered paper, and paper products"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPXI": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP54": {
+    "path": [
+      "Textile and textile articles"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP55": {
+    "path": [
+      "Textile and textile articles"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP56": {
+    "path": [
+      "Textile and textile articles"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP61": {
+    "path": [
+      "Textile and textile articles"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP62": {
+    "path": [
+      "Textile and textile articles"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP63": {
+    "path": [
+      "Textile and textile articles"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPXII": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP64": {
+    "path": [
+      "Headgear, umbrellas, artificial flowers, etc."
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPXIII": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP68": {
+    "path": [
+      "Stone, plaster, cement, asbestos, ceramics, glass etc."
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP69": {
+    "path": [
+      "Stone, plaster, cement, asbestos, ceramics, glass etc."
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP70": {
+    "path": [
+      "Stone, plaster, cement, asbestos, ceramics, glass etc."
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPXIV": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP71": {
+    "path": [
+      "Pearls, stones, precious metals, imitation jewelry, and coins"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPXV": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP72": {
+    "path": [
+      "Base metals and articles of base metals"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP73": {
+    "path": [
+      "Base metals and articles of base metals"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP74": {
+    "path": [
+      "Base metals and articles of base metals"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP75": {
+    "path": [
+      "Base metals and articles of base metals"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP76": {
+    "path": [
+      "Base metals and articles of base metals"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP78": {
+    "path": [
+      "Base metals and articles of base metals"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP79": {
+    "path": [
+      "Base metals and articles of base metals"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP80": {
+    "path": [
+      "Base metals and articles of base metals"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP81": {
+    "path": [
+      "Base metals and articles of base metals"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP82": {
+    "path": [
+      "Base metals and articles of base metals"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP83": {
+    "path": [
+      "Base metals and articles of base metals"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPXVI": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP84": {
+    "path": [
+      "Machinery, electrical equipment, TV image and sound recorders, parts, etc."
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP85": {
+    "path": [
+      "Machinery, electrical equipment, TV image and sound recorders, parts, etc."
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPXVII": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP87": {
+    "path": [
+      "Vehicles, aircraft, vessels and associated transport equipment"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPXVIII": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP90": {
+    "path": [
+      "Optical, photo, measuring, medical & musical instruments; & timepieces"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIPXX": {
+    "path": [],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP95": {
+    "path": [
+      "Miscellaneous manufactured articles"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  },
+  "EIUIP96": {
+    "path": [
+      "Miscellaneous manufactured articles"
+    ],
+    "source": "https://www.bls.gov/news.release/ximpim.htm"
+  }
+}

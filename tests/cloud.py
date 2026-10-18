@@ -5,6 +5,25 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'cloud'),str(ROOT/'tools')]
 import expansion as e,core,publication,refresh
 class CloudTests(unittest.TestCase):
+ def test_import_price_failure_stops_requests_and_keeps_saved_values(self):
+  import import_price_source as mxp
+  site=ROOT/'site';rel=refresh.read(site/'release.json');index=refresh.load(site,rel['seriesIndex'])
+  sid='mxp:EIUIR';saved=refresh.load(site,index[sid])
+  with tempfile.TemporaryDirectory() as tmp:
+   e.initialize(tmp,{sid:saved});path=e.SERIES/e.key(sid);e.write(path,saved);before=path.read_bytes()
+   with patch.object(e,'get',side_effect=RuntimeError('HTTP 429')) as get:
+    with self.assertRaises(RuntimeError):mxp.update()
+    with self.assertRaisesRegex(ValueError,'24時間'):mxp.update()
+   self.assertEqual(get.call_count,1);self.assertEqual(path.read_bytes(),before)
+ def test_import_price_classifications_are_distinct_and_approved(self):
+  import import_price_source as mxp
+  site=ROOT/'site';rel=refresh.read(site/'release.json');cat=refresh.load(site,rel['catalog'])
+  items=[s for s in cat['series'] if s['id'].startswith('mxp:')]
+  self.assertEqual({s['indexCode'] for s in items},set(mxp.GROUPS))
+  self.assertTrue(all(s['seasonal']=='NSA' and s['page']=='import-prices' and s['count'] for s in items))
+  selected,_=publication.select({'series':items});self.assertEqual(len(selected['series']),len(items))
+  lookup={s['officialId']:s for s in items}
+  self.assertNotIn(lookup['EIUIREXFUELS']['label'],lookup['EIUIR10']['hierarchy'])
  def test_price_alias_levels_and_published_metrics(self):
   ds={'cpi3':dict(dates=['2026-08','2026-09'],series=[dict(id='0',values={'ri':[4.123,None],'mom':[.2,.3]})]),'pce':dict(dates=['2026-08'],series=[dict(id='0',bases={'SA':[120.123456]})])}
   for dataset,metric,season,want in [('cpi3','ri','非該当',[4.123,None]),('cpi3','mom','SA',[.2,.3]),('pce','level','SA',[120.123456])]:

@@ -62,6 +62,8 @@ def jobs(datasets,catalog,report):
     yield 'bea',m.bea
     yield 'gdp',a.gdp
     yield 'retail',retail_source.update
+    from import_price_source import update as import_price_update
+    yield 'mxp',import_price_update
     yield 'jolts',jolts_source.update
     for name in ('g19','dsr','for','sloos'):yield name,lambda n=name:m.fed(n)
     for name,fn in [('housing',a.housing),('g17',a.g17),('vehicles',m.vehicles),('eia',m.eia),('cie',ads.cie),('claims',cs.claims),('diffusion',cs.diffusion)]:yield name,fn

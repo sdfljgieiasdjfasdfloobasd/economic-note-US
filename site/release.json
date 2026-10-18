@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "builtAt": "2026-10-18T00:10:42.706762+00:00",
+  "builtAt": "2026-10-18T10:55:22.073173+09:00",
   "datasets": {
     "cpi": "data/804d6582fcf27d257df80abca763c5acd744baa652bf54bc0ed6131f89eeec7d.json.gz",
     "cpi_detail": "data/80d1562f5381c58eda9ea8fb3cf8ef306b47847534e22d24633d5829a055e75c.json.gz",
@@ -14,11 +14,11 @@
     "hours": "data/3cd861c77833dcbd4c09f0840b076646a742d7b74e26832c46be00996ad7eeb5.json.gz"
   },
   "manifest": "data/0d57ea5b309e52f1d9f694b5b340713f3ee3a1c2ef56607cbf414bd7d0d55f70.json.gz",
-  "catalog": "data/81c8adf10526de3ad84e3bb0359f8616526b66ba0b25dd48bc2f611f8ece5016.json.gz",
+  "catalog": "data/e301566b0a94c2662b9b06ceb6aaa87039fe8b87f35d3fecd251797432937697.json.gz",
   "updateReport": "data/8045e2a1f60188333fd49d4b7d6a215d9a161e53dc17f7dbbc4c853b124e0436.json.gz",
-  "analysisCatalog": "data/0709b590fdb564069f4542f7b83770956ebf2e5bfdd1f10f46f6c5adb5f7b3f3.json.gz",
+  "analysisCatalog": "data/96b9cd0036df36e7bf03590565b50447945f28485fc5e2ecb54698e35fd7e817.json.gz",
   "calendar": "data/d2f42ba8384cb8c8550b7e0a26c0cf74c26536b13298be7742d259049681cb64.json.gz",
-  "seriesIndex": "data/4480022941dfdcbfaf557884ed7da2a731c1794325699c561b0b496ba1306e46.json.gz",
+  "seriesIndex": "data/5a2541a68f0b8639b7ce0dc73fec56e35d020bd498d4b0f03fefd94601f2ae29.json.gz",
   "cloudUpdate": {
     "changedDatasets": [
       "pce"
@@ -731,5 +731,5 @@
     "cpiMissingApiSeries": 22
   },
   "publicationPolicy": "reviewed-only",
-  "revision": "merged-cpi6-e79a538e0c837528"
+  "revision": "32726b458589187679eb79c44ce20445169d38b0883780e3cedff33ca7c28298"
 }

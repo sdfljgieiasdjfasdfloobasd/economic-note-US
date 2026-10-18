@@ -1,6 +1,6 @@
-import {hierarchyMetadata} from './publication-hierarchy.mjs?v=5cfebd2ee193459a9510';
-import {statisticalGroup} from './explorer-groups.mjs?v=5cfebd2ee193459a9510';
-export const categoryNames={cpi:'物価',pce:'物価',ppi:'物価',employment:'労働市場',labor:'労働市場',expectations:'期待インフレ',sp:'企業活動・PMI',ism:'企業活動・PMI',gdp:'GDP・国内需要',retail:'小売売上高',consumption:'消費','pce-nonprice':'所得・消費・貯蓄',housing:'住宅建設',production:'鉱工業生産'};
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=4654e084883bbc964c2f';
+import {statisticalGroup} from './explorer-groups.mjs?v=4654e084883bbc964c2f';
+export const categoryNames={'import-prices':'物価',cpi:'物価',pce:'物価',ppi:'物価',employment:'労働市場',labor:'労働市場',expectations:'期待インフレ',sp:'企業活動・PMI',ism:'企業活動・PMI',gdp:'GDP・国内需要',retail:'小売売上高',consumption:'消費','pce-nonprice':'所得・消費・貯蓄',housing:'住宅建設',production:'鉱工業生産'};
 export function workbookPath(d,s){
  const publication=d.title===d.label?d.title:`${d.title} / ${d.label}`;
  return [categoryNames[d.group]||d.group,publication,s.hierarchy?.section,...(s.hierarchy?.path||[]),s.label].filter(Boolean);

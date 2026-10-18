@@ -1,11 +1,12 @@
-import {tableGroups} from './explorer-groups.mjs?v=5cfebd2ee193459a9510';
-import {hierarchyMetadata} from './publication-hierarchy.mjs?v=5cfebd2ee193459a9510';
+import {tableGroups} from './explorer-groups.mjs?v=4654e084883bbc964c2f';
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=4654e084883bbc964c2f';
 export const references=[['BEA NIPA Handbook（GDP・PCE・投資等の概念と推計方法）','https://www.bea.gov/resources/methodologies/nipa-handbook'],['BLS CPI Frequently Asked Questions（CPIの対象と指数の読み方）','https://www.bls.gov/cpi/questions-and-answers.htm']];
 export const GUIDE_VERSION='2026-10-18';
 export const pages=[
  {id:'cpi',title:'CPI｜消費者物価',route:'cpi',about:'家計が購入する財・サービスの価格変化を見るページ。BLSの表番号ごとに、価格指数、公表伸び率、相対的重要度、寄与度を区別します。',use:'総合とコア、食品・エネルギー、住居費などを比較する。指数から計算した伸び率と、発表資料に掲載された丸め済みの伸び率は同じものではありません。'},
  {id:'pce',title:'PCE｜個人消費の価格',route:'pce',about:'BEAの個人消費支出に関する価格指数と価格上昇率・寄与度。ここは価格関連の表を選ぶ入口です。',use:'総合・食品エネルギー除外・財・サービスなどのインフレを調べる。消費額や所得は「所得・消費額・貯蓄」、GDP内のPCE表も参照します。'},
  {id:'pce-nonprice',title:'PCE｜所得・消費額・貯蓄',route:'pce-nonprice',about:'PCEのもう一つの分析画面。個人所得、可処分所得、個人消費支出、貯蓄率と、名目・実質の主要／詳細品目を調べます。価格表が比較用に含まれる場合もあります。',use:'PCEの「従来のグラフ・回帰分析」から「所得・消費額・貯蓄」へ切り替える。貯蓄率（%）、支出額（金額）、指数、伸び率を混同しないでください。'},
+ {id:'import-prices',title:'輸入物価｜米国の輸入価格',route:'import-prices',about:'BLS MXPの詳細指数。用途別（BEA End Use）、産業別（NAICS）、品目別（HS）、原産国・地域別、輸入サービス、米国向け航空貨物を独立した表で収録。',use:'公表値は価格指数。前月比・前年比は指数から計算。NSAのみ。品目ごとに基準時点が異なるため指数水準の大小を価格の高低として比較しない。2025年10月は調査データを必要とする一部系列が非公表。公表値がある系列は保持し、欠損は穴埋めしない。初期は四半期などの疎な観測。Inbound航空貨物は運送事業者の居住地を問わず、輸入サービスと異なるので合算しない。BLSの一括ファイルを間隔を空けて更新し、APIは使わない。'},
  {id:'ppi',title:'PPI｜生産者物価',route:'ppi',about:'BLSの生産者物価。最終需要・中間需要、商品・サービス分類、産業別の価格を表ごとに確認します。',use:'公表前月比と公表前年比を選び分ける。需要区分・商品区分・産業区分は分類軸が異なるため、別の表同士を足し上げません。'},
  {id:'employment',title:'雇用統計｜雇用者数・失業率・賃金',route:'employment',about:'BLS雇用統計の基本画面。非農業部門雇用者数、失業率・労働参加率、平均時給、週平均労働時間を「データ表」で選択します。',use:'事業所調査CESの雇用者数と、家計調査CPSの失業率は調査が異なります。業種別の積み上げ・折れ線、前月差の3か月平均を使って増減の広がりを見ます。'},
  {id:'expectations',title:'期待インフレ｜家計・企業・専門家・市場',route:'expectations',about:'家計調査、企業調査、専門家予測、市場のインフレ補償、モデル推計を比較します。プリセットで代表的な組み合わせを一括選択できます。',use:'1年先・5年・10年という年限だけで同一定義とは限りません。特定年の期待と期間平均、CPIとPCE、中央値と平均値を確認してください。市場のBEIにはリスク・流動性等の要因も含まれます。'},
