@@ -1,6 +1,6 @@
-import {axisScale,axisControls} from './chart-axis.mjs?v=eef6ed9350225269286d';
-import {niceAxis} from './chart-axis.mjs?v=eef6ed9350225269286d';
-import {alignPairs,regress,seasons,availableMetrics,shiftMonth} from './analytics.mjs?v=eef6ed9350225269286d';
+import {axisScale,axisControls} from './chart-axis.mjs?v=c4c7379114f9b20ce404';
+import {niceAxis} from './chart-axis.mjs?v=c4c7379114f9b20ce404';
+import {alignPairs,regress,seasons,availableMetrics,shiftMonth} from './analytics.mjs?v=c4c7379114f9b20ce404';
 export function setupRegression({getDataset,getManifest,esc,fmt,opts,itemOpts,validate,seriesData,csv}){
  const $=s=>document.querySelector(s);let ready=false,initializing=false,result=null,points=[],exports=[],meta=null;const sides={x:{},y:{}};
  const message=(text,error=false)=>{$('#reg-message').textContent=text;$('#reg-message').classList.toggle('error',error)};
