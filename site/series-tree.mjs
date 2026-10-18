@@ -1,5 +1,5 @@
-import {hierarchyMetadata} from './publication-hierarchy.mjs?v=a42c5c2a96c6320bd783';
-import {statisticalGroup} from './explorer-groups.mjs?v=a42c5c2a96c6320bd783';
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=66208824662e05468854';
+import {statisticalGroup} from './explorer-groups.mjs?v=66208824662e05468854';
 export const categoryNames={'import-prices':'物価',cpi:'物価',pce:'物価',ppi:'物価',employment:'労働市場',labor:'労働市場',expectations:'期待インフレ',sp:'企業活動・PMI',ism:'企業活動・PMI',gdp:'GDP・国内需要',retail:'小売売上高',consumption:'消費','pce-nonprice':'所得・消費・貯蓄',housing:'住宅建設',production:'鉱工業生産'};
 export function workbookPath(d,s){
  const publication=d.title===d.label?d.title:`${d.title} / ${d.label}`;

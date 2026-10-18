@@ -1,8 +1,8 @@
-import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=a42c5c2a96c6320bd783';
-import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=a42c5c2a96c6320bd783';
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=a42c5c2a96c6320bd783';
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=a42c5c2a96c6320bd783';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=a42c5c2a96c6320bd783';
+import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=66208824662e05468854';
+import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=66208824662e05468854';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=66208824662e05468854';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=66208824662e05468854';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=66208824662e05468854';
 export function publicationFilename(page,label,metric,dates,series=[]){
  const table=label.match(/Table (\d+(?:\.\d+)*U?)/)?.[1];
  const fs=[...new Set(series.map(s=>s.frequency).filter(Boolean))];
@@ -12,11 +12,30 @@ export function publicationFilename(page,label,metric,dates,series=[]){
  const name=table?['Table',table,freq].filter(Boolean).join('_'):label;
  return [page,name,metric,dates.at(-1),dates[0]].filter(Boolean).join('_').replace(/[\\/:*?"<>|\x00-\x1f]/g,'-').slice(0,180);
 }
+const cpiLinkedChoices=[['cpi_effect','総合への寄与（前月比・SA）'],['cpi_core','コアへの寄与（前月比・SA・計算値）'],['cpi_ri','相対的重要度（ウェイト）']];
+const isCpiIndex=id=>['price-table:cpi','price-table:cpi_detail'].includes(id);
+const linkedKind=metric=>cpiLinkedChoices.some(([id])=>id===metric)?metric.slice(4):null;
+// Match exact, unique item labels. Never substitute a nearby aggregate or infer values.
+export function cpiAnalysisMatches(catalog,items,kind){
+ const byLabel=new Map();
+ for(const s of catalog.series){if(s.alias?.dataset!=='cpi6'||s.alias.metric!==kind)continue;const key=s.matchLabel||s.label;if(!byLabel.has(key))byLabel.set(key,[]);byLabel.get(key).push(s)}
+ return new Map(items.map(s=>{const key=s.matchLabel||s.label,matches=byLabel.get(key)||[];return [key,matches.length===1?matches[0]:null]}));
+}
+export function cpiAnalysisRows(items,analyses,matches,kind){
+ const loaded=new Map(analyses.map(s=>[s.id,s])),unique=new Map();
+ for(const s of items){const key=s.matchLabel||s.label;if(!unique.has(key))unique.set(key,s)}
+ return [...unique].flatMap(([key,base])=>{
+  const meta=matches.get(key),source=meta&&loaded.get(meta.id);
+  if(kind==='core'&&meta?.coreApplicable===false)return [];
+  const missing={id:'cpi-unmatched:'+base.id,observations:[],source:'',definition:'Table 6に一意に対応する品目がないため空欄です。',error:'Table 6の対応品目なし',unit:kind==='ri'?'%':'ポイント',frequency:'Monthly',status:'unavailable'};
+  return [{...(source||missing),label:base.matchLabel||base.label,matchLabel:base.matchLabel||base.label,hierarchy:base.hierarchy,depth:base.depth,sourceOrder:base.sourceOrder,hierarchySection:base.hierarchySection,seasonal:kind==='ri'?'非該当':'SA',sourceMetric:kind==='ri'?'相対的重要度（RI）':kind==='core'?'コアへの寄与':'総合への寄与'}];
+ });
+}
 export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
  const panel=root.querySelector('.ex-table');
  panel.innerHTML=`<div class="panel-heading"><div><p class="eyebrow">ALL SERIES BY PUBLICATION</p><h2>公式表・統計ごとの全系列</h2></div><button id="ex-csv" class="text-button">表示中の表をCSV保存 ↓</button></div><p id="ex-export-status" class="source-note" role="status"></p><div class="ex-publication-controls"><label class="ex-publication-picker">表番号・表名<select id="ex-table-publication"></select></label><label>表示する値<select id="ex-table-metric"></select></label><label><span id="ex-table-season-label">季節調整</span><select id="ex-table-season"><option value="">すべて</option><option>SA</option><option>NSA</option><option>非該当</option><option>一部SAの合成</option></select></label><label>色分け<select id="ex-table-heat"><option value="auto">指標に合わせて自動</option><option value="manual">数値を指定</option><option value="off">なし</option></select></label><label>観測数<select id="ex-count"><option>24</option><option>60</option><option value="all">全期間</option></select></label><label>開始日<input id="ex-table-from" type="date"></label><label>終了日<input id="ex-table-to" type="date"></label></div><p class="source-note">グラフの比較系列とは独立して、選んだ統計の収録カタログ内の全系列を表示します。左が最新。数値は小数第3位、セルを選ぶと元の精度・出典を確認できます。未取得の値は補完しません。段差は分類上の親子関係です。内訳の合計が親の値と一致するとは限りません。</p><div id="ex-heat-manual" hidden></div><p id="ex-heat-error" class="source-note" role="alert"></p><p id="ex-table-source-note" class="source-note"></p><p id="ex-table-attributions" class="source-note"></p><p id="ex-table-summary" class="source-note" role="status"></p><p id="ex-table-heat-note" class="source-note"></p><div class="heat-scroll"><table id="ex-table"></table></div><div id="ex-detail" class="ex-detail" role="status">セルを選択すると、観測の詳細をここに表示します。</div>`;
  const manualSettings=new Map();
- const $=s=>panel.querySelector(s);let groups=[],selected=[],catalog,page,series=[],rows=[],dates=[],exportRows=[],seq=0,rendered=false,loading=false,loadedGroupKey='',pendingGroupKey='',exportSnapshot=null;
+ const $=s=>panel.querySelector(s);let groups=[],selected=[],catalog,page,series=[],rows=[],dates=[],exportRows=[],seq=0,rendered=false,loading=false,loadedGroupKey='',pendingGroupKey='',exportSnapshot=null;let analysisSeries=[],analysisMatches=new Map(),loadedAnalysisMetric='';
  $('#ex-table-metric').innerHTML=metrics.map(([id,label])=>`<option value="${id}">${label}</option>`).join('');
  function seasonControl(publishedPpi,displayMetric,metricSeries=series){
   const control=$('#ex-table-season'),previous=control.value;
@@ -35,16 +54,17 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
  async function refresh(reset=true){const token=++seq,g=group(),key=groupKey();pendingGroupKey=key;loadedGroupKey='';loading=true;series=[];rows=[];clearExport();$('#ex-detail').textContent='セルを選択すると、観測の詳細をここに表示します。';if(!g){loading=false;pendingGroupKey='';return}
   $('#ex-table-source-note').innerHTML=g.note?esc(g.note)+(g.source?` <a href="${esc(g.source)}" target="_blank" rel="noopener noreferrer">公式の表 ↗</a>`:''):'';
   $('#ex-table-summary').textContent=g.label+' の全 '+g.series.length+' 系列を読み込み中…';$('#ex-table').innerHTML='';$('#ex-table-heat-note').textContent='';
-  try{const values=await loadMany(g.series.map(s=>s.id));if(token!==seq)return;series=values.map((s,i)=>({...s,...(g.series[i]?.tableView||{})}));loading=false;loadedGroupKey=key;pendingGroupKey='';
+  try{const kind=isCpiIndex(g.id)?linkedKind($('#ex-table-metric').value):null,matches=kind?cpiAnalysisMatches(catalog,g.series,kind):new Map(),extra=[...new Set([...matches.values()].filter(Boolean).map(s=>s.id))];
+   const values=await loadMany([...g.series.map(s=>s.id),...extra]);if(token!==seq)return;series=values.slice(0,g.series.length).map((s,i)=>({...s,...(g.series[i]?.tableView||{})}));analysisSeries=values.slice(g.series.length);analysisMatches=matches;loadedAnalysisMetric=kind||'';loading=false;loadedGroupKey=key;pendingGroupKey='';
    if(reset){const ds=series.flatMap(s=>s.observations.filter(o=>o.value!=null).map(o=>o.date)).sort();$('#ex-table-from').value=ds[0]||'';$('#ex-table-to').value=ds.at(-1)||''}
    draw();
   }catch(e){if(token!==seq)return;loading=false;pendingGroupKey='';series=[];rows=[];clearExport();$('#ex-table-summary').textContent='統計表を読み込めませんでした。'+e.message}
  }
  function draw(){if(loading)return;clearExport();if(loadedGroupKey!==groupKey())return;const g=group();if(!g)return;if(!series.length){$('#ex-table-summary').textContent=g.label+' · 未収録';$('#ex-table').innerHTML='';$('#ex-table-heat-note').textContent='';$('#ex-heat-manual').hidden=true;$('#ex-heat-error').textContent='';return}const cpi6=g.id==='price-table:cpi6',publishedPpi=g.id==='ppi:table1',publishedExtra=['ppi:table2','cpi:table4','cpi:table5','cpi:table7'].includes(g.id);
   const sourceChoices=[['published_mom','公表前月比'],['published_yoy','公表前年比'],['published_two','公表2か月前比'],['published_effect','前年比寄与度'],['published_ri','相対的重要度'],['published_se','標準誤差']];
-  const previousMetric=$('#ex-table-metric').value,choices=cpi6?[['cpi_analysis','寄与度・ウェイト'],['cpi_mom','SA（前月比）']]:publishedPpi?[['published_mom','公表前月比（SA・%）'],['published_yoy','公表前年比（NSA・%）']]:publishedExtra?sourceChoices.filter(([,label])=>series.some(s=>s.sourceMetric===label)):pageMetrics(page,series,true);
+  const previousMetric=$('#ex-table-metric').value,choices=cpi6?[['cpi_analysis','寄与度・ウェイト'],['cpi_mom','SA（前月比）']]:publishedPpi?[['published_mom','公表前月比（SA・%）'],['published_yoy','公表前年比（NSA・%）']]:publishedExtra?sourceChoices.filter(([,label])=>series.some(s=>s.sourceMetric===label)):[...pageMetrics(page,series,true),...(isCpiIndex(g.id)?cpiLinkedChoices:[])];
   $('#ex-table-metric').innerHTML=choices.map(([id,label])=>`<option value="${id}">${label}</option>`).join('');$('#ex-table-metric').value=choices.some(([id])=>id===previousMetric)?previousMetric:choices[0][0];
-  const displayMetric=$('#ex-table-metric').value,m=cpi6||publishedPpi||publishedExtra?'level':displayMetric;
+  const displayMetric=$('#ex-table-metric').value,analysisKind=isCpiIndex(g.id)?linkedKind(displayMetric):null,m=cpi6||publishedPpi||publishedExtra||analysisKind?'level':displayMetric;
   let valueLabel=choices.find(([id])=>id===displayMetric)?.[1]||m,exportMetric=displayMetric,displayedSeries,season;
   $('#ex-table-season-label').textContent=cpi6?'内訳':'季節調整';
   if(cpi6){
@@ -58,7 +78,15 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
    displayedSeries=series.filter(s=>s.sourceMetric===source&&(kind!=='core'||s.coreApplicable!==false)).map(s=>({...s,seasonal:season}));
    valueLabel=kind==='mom'?'公表前月比（SA・%）':label+(kind==='ri'?'（%）':'（前月比・SA・ポイント）');exportMetric=(kind==='core'?'calculated_':'published_')+kind;
    $('#ex-table-source-note').textContent=kind==='ri'?'相対的重要度は各品目のウェイト（%）です。寄与度とは異なります。小数第3位まで表示します。':kind==='mom'?'各品目そのものの季節調整済み前月比です。BLSの公表精度は小数第1位で、寄与度とは異なります。':label+'：季節調整済みの前月比を何ポイント押し上げ・押し下げたかを示します。小数第3位まで表示します。'+(kind==='core'?' 総合への寄与 ÷（コアの相対的重要度 / 100）で換算した計算値で、BLSの直接公表値ではありません。食品・エネルギーなど計算対象外の品目は非表示です。対象品目でも元の寄与度・ウェイトがない月は空欄のまま表示します。':'');
+  }else if(analysisKind){
+   season=analysisKind==='ri'?'非該当':'SA';
+   $('#ex-table-season').innerHTML=`<option value="${season}">${analysisKind==='ri'?'非該当（ウェイト）':'SA（前月比への寄与）'}</option>`;$('#ex-table-season').value=season;$('#ex-table-season').disabled=true;
+   displayedSeries=cpiAnalysisRows(series,analysisSeries,analysisMatches,analysisKind);
+   valueLabel=choices.find(([id])=>id===displayMetric)[1]+(analysisKind==='ri'?'（%）':'（ポイント）');
+   exportMetric='table6_'+(analysisKind==='core'?'calculated_':'published_')+analysisKind;
+   $('#ex-table-source-note').textContent='Table 1・Table 2の品目・階層に、Table 6の同名品目の値を対応づけています。'+(analysisKind==='ri'?'相対的重要度は総合CPIに占めるウェイト（%）です。寄与度ではありません。':'季節調整済み前月比への寄与（ポイント）です。指数から計算した前月比とは公表・改定時点が異なる場合があります。')+(analysisKind==='core'?' コアへの寄与は総合への寄与 ÷（コアの相対的重要度 / 100）の計算値です。食品・エネルギーなど計算対象外の品目は非表示です。':'')+' 対応する値がない月は空欄です。小数第3位まで表示し、CSVは元の精度を保持します。';
   }else{
+   $('#ex-table-source-note').textContent=g.note||'';
    const sourceMetric=sourceChoices.find(([id])=>id===displayMetric)?.[1];displayedSeries=publishedPpi||publishedExtra?series.filter(s=>s.sourceMetric===sourceMetric):series;seasonControl(publishedPpi,displayMetric,displayedSeries);season=$('#ex-table-season').value;
   }
   const from=$('#ex-table-from').value,to=$('#ex-table-to').value;
@@ -94,11 +122,12 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
  panel.addEventListener('change',e=>{const field=e.target.dataset.heatField;if(!field)return;const key=e.target.closest('[data-heat-key]').dataset.heatKey;manualSettings.get(key)[field]=e.target.value;draw()});
  const switchPublication=()=>{if(pendingGroupKey===groupKey()||(!loading&&loadedGroupKey===groupKey()))return;$('#ex-table-season').value='';$('#ex-table-season').disabled=false;if(group()?.id==='price-table:cpi6')$('#ex-table-metric').value='cpi_analysis';return refresh(true)};
  $('#ex-table-publication').oninput=switchPublication;$('#ex-table-publication').onchange=switchPublication;
- for(const id of ['#ex-table-metric','#ex-table-heat','#ex-table-season','#ex-count','#ex-table-from','#ex-table-to'])$(id).onchange=draw;
+ $('#ex-table-metric').onchange=()=>isCpiIndex(group()?.id)&&(loading||(linkedKind($('#ex-table-metric').value)||'')!==loadedAnalysisMetric)?refresh(false):draw();
+ for(const id of ['#ex-table-heat','#ex-table-season','#ex-count','#ex-table-from','#ex-table-to'])$(id).onchange=draw;
  $('#ex-csv').onclick=async()=>{
   // Reconcile native select/input values at save time, even before a change event.
   if(loading)return;
-  if(loadedGroupKey!==groupKey())await refresh(true);else draw();
+  if(loadedGroupKey!==groupKey())await refresh(true);else if(isCpiIndex(group()?.id)&&(linkedKind($('#ex-table-metric').value)||'')!==loadedAnalysisMetric)await refresh(false);else draw();
   if(loading||!exportSnapshot||exportSnapshot.key!==groupKey()||$('#ex-csv').disabled)return;
   const snapshot=exportSnapshot;
   csv(snapshot.name,snapshot.rows);
