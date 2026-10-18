@@ -1,4 +1,4 @@
-import {setRevisionReport} from './revision-view.mjs?v=375c20d3ba941ab6ace4';
+import {setRevisionReport} from './revision-view.mjs?v=5cfebd2ee193459a9510';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const kinds={added:'追加',revised:'改定',removed:'欠損・削除',status:'公表状態の変更'};
 const fmt=v=>v==null?'—':Number(v).toLocaleString('ja-JP',{minimumFractionDigits:3,maximumFractionDigits:3});

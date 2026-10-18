@@ -1,5 +1,5 @@
-import {tableGroups} from './explorer-groups.mjs?v=375c20d3ba941ab6ace4';
-import {hierarchyMetadata} from './publication-hierarchy.mjs?v=375c20d3ba941ab6ace4';
+import {tableGroups} from './explorer-groups.mjs?v=5cfebd2ee193459a9510';
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=5cfebd2ee193459a9510';
 export const references=[['BEA NIPA Handbook（GDP・PCE・投資等の概念と推計方法）','https://www.bea.gov/resources/methodologies/nipa-handbook'],['BLS CPI Frequently Asked Questions（CPIの対象と指数の読み方）','https://www.bls.gov/cpi/questions-and-answers.htm']];
 export const GUIDE_VERSION='2026-10-18';
 export const pages=[
@@ -18,7 +18,7 @@ export const pages=[
  {id:'housing',title:'住宅建設',route:'housing',about:'住宅の許可・着工・建設中・完成、新築／中古販売、空室率、住宅市場指数、住宅ローン申請と金利を調べます。',use:'一戸建て／集合住宅、地域、SAAR／NSAを確認。許可・着工・完成は別段階で、同月の同じ案件ではありません。住宅ローン申請指数は申請件数そのものとは異なります。'},
  {id:'production',title:'鉱工業生産｜設備投資・建設・エネルギー',route:'production',about:'FRB G.17の生産・能力・稼働率、Census M3の受注等、C30建設支出、企業融資、電力・エネルギーの補完統計を調べます。',use:'生産指数・設備能力・設備稼働率は別指標。STEOの予測と実績を区別。LBNL Queued Upは発電・蓄電設備の系統接続待ちであり、データセンターの電力需要や需要家の接続待ちではありません。'},
  {id:'analysis',title:'比較・お気に入り',route:'analysis',about:'異なる統計から最大8系列を選び、期間や頻度・表示方法をそろえて比較・回帰分析し、分析条件を保存します。',use:'金額と指数など異なる単位を、そのまま上下で比べないでください。期間集計方法、ラグ、共通観測数を確認。お気に入りは条件の保存で、元データの固定コピーではありません。'},
- {id:'calendar',title:'発表カレンダー',route:'calendar',about:'保存された公式公表予定と、サイトへの反映状況を確認します。予定日時と実際のデータ収録は別です。',use:'予定が過ぎた＝取得完了ではありません。日本時間表示、公表対象期、元の公表日を確認し、必要なら公式リンクを参照してください。'}
+ {id:'calendar',title:'発表カレンダー',route:'calendar',about:'月間カレンダーに保存された公式公表予定を日本時間で表示します。前月・翌月・今月・表示月で移動し、日付や予定を押すと下に対象期・反映状況・公式出典の詳細が開きます。一覧表示にも切り替えられます。',use:'指標の分類と反映状況で絞り込めます。同日に4件以上ある場合は「ほか○件を見る」で全件を確認。狭い画面ではカレンダーを横にスクロールできます。予定が過ぎた＝取得完了ではありません。日本時間表示、公表対象期、元の公表日を確認し、必要なら公式リンクを参照してください。'}
 ];
 export const chapters=[
  {id:'start',title:'1. このサイトと最初の使い方',paragraphs:[
