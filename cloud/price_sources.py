@@ -31,14 +31,20 @@ def parse(blob,number):
    mm=datetime.strptime(target[1][:3],'%b').month;year=int(month[:4])-(mm>int(month[5:7]));dates.append(f'{year}-{mm:02}-01')
  if not dates or dates[-1]!=month or dates!=sorted(set(dates)):raise ValueError('PPI列の年月と公表月が不一致')
  out=[];seen=set()
+ # Official HTML headers name each row's parents, including alternate aggregates.
+ row_labels={c.get("id"):re.sub(r"\(\d+\)",""," ".join(c.text_content().split())).strip() for c in table.xpath(".//th[@id]")}
  for pos,tr in enumerate(rows[2:]):
   cells=[' '.join(c.text_content().split()) for c in tr.xpath('./th|./td')]
   if len(cells)!=(4+len(dates) if number==3 else 5+len(dates)):continue
   start=2 if number==3 else 1;group,code=cells[start:start+2]
-  if not re.fullmatch(r'[A-Z]{2}',group) or not re.fullmatch(r'[A-Z0-9]+',code):continue
+  if not group and not code:continue
+  if not re.fullmatch(r'(?:FD|ID5|ID6)',group) or not re.fullmatch(r'[A-Z0-9]+',code):raise ValueError('未知のPPI商品コード: '+group+code)
   official='WPS'+group+code;name=re.sub(r'\(\d+\)','',cells[0]).strip()
   if official in seen:raise ValueError('同一表内で商品コード重複: '+official)
   seen.add(official)
+  header=tr.xpath('./th|./td')[0]
+  parents=[row_labels[k] for k in header.get('headers','').split() if '.r.' in k and k in row_labels]
+  section={'FD':'最終需要','ID6':'中間需要：商品分類別','ID5':'中間需要：生産段階別'}[group]
   specs=[('level','指数','SA',list(zip(dates,cells[4:]))) ] if number==3 else [('mom','%','SA',list(zip(dates,cells[5:]))),('yoy','%','NSA',[(month,cells[4])])]
   for metric,unit,season,points in specs:
    sid='priceppi:'+group+code+':'+metric
@@ -49,11 +55,12 @@ def parse(blob,number):
     if raw not in ['-','–','—',''] and e.dec(raw) is None:raise ValueError('PPI数値の形式が不明: '+v)
     rs.append(e.obs(d,raw,'published',source=URL.format(number)))
    out.append(dict(id=sid,label=name+(' / 前月比' if metric=='mom' else ' / 前年比' if metric=='yoy' else ''),matchLabel=name,page='ppi',category=pub,publicationId='ppi:table'+str(number),publicationLabel=pub,provider='Bureau of Labor Statistics',source=URL.format(number),officialId=official if season=='SA' else 'WPU'+group+code,frequency='Monthly',seasonal=season,unit=unit,sourceMetric={'level':'価格指数','mom':'公表前月比','yoy':'公表前年比'}[metric],sourceOrder=pos,definition=('BLS公表のSA指数。指数の基準は品目により異なります。' if number==3 else 'BLSが丸めて公表した変化率。指数から再計算した伸び率とは別の系列です。ウェイトは系列詳細のrelativeImportanceに公表基準時点とともに保持。'),relativeImportance=None if number==3 else dict(raw=cells[3],reference=re.search(r'Dec\.?\s*(20\d{2})',table.text_content()).group(0) if re.search(r'Dec\.?\s*(20\d{2})',table.text_content()) else '公式表見出し参照'),observations=rs))
+  for s in out[-len(specs):]:
+   s.update(depth=len(parents),hierarchy=parents,hierarchySection=section)
+   s['publications']=[dict(id=s['publicationId'],label=s['publicationLabel'])]
+   s['publicationViews']={s['publicationId']:dict(sourceOrder=pos,matchLabel=name,label=s['label'],hierarchy=parents,depth=len(parents),hierarchySection=section)}
+ if not all(any(code.startswith(g) for code in seen) for g in ['WPSFD','WPSID5','WPSID6']):raise ValueError('PPIの需要分類が欠けています')
  if len(seen)<100:raise ValueError('PPI全品目を確認できません: '+str(len(seen)))
- names={s['officialId'][3:]:s['matchLabel'] for s in out}
- for s in out:
-  code=s['officialId'][3:];parents=sorted([k for k in names if k!=code and code.startswith(k)],key=len)
-  s.update(depth=len(parents),hierarchy=[names[k] for k in parents])
  return out
 
 def store(items,bulk=None):

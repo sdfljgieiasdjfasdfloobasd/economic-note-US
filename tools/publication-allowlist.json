@@ -118512,6 +118512,2258 @@
     "mxp:EIUIZNONMANU": [
       "bls",
       "cc0537ad71c288eb1945a233d70f92e9178817187e6857d33fa7503db7468cff"
+    ],
+    "priceppi:ID61:level": [
+      "bls",
+      "07f4d3b2a5924881c9b018babff00a6a16e7efc9413dbb1d7cf41b68c9a43b77"
+    ],
+    "priceppi:ID611:level": [
+      "bls",
+      "cb0f2975c088fa73e87df5b9abc4f6cb2459e2de8b23439484396080c48da1e7"
+    ],
+    "priceppi:ID6111:level": [
+      "bls",
+      "7e1d3da76c4813bfa002bb420bdec751e7fcd07bedcf7f0d8c893411ea84b5c7"
+    ],
+    "priceppi:ID61111:level": [
+      "bls",
+      "02054fe164606a9a35bde6c9c257e90a429fffa068365f2ce30bd71d3018551e"
+    ],
+    "priceppi:ID61112:level": [
+      "bls",
+      "886ee2bb27b962be5f2480fb3925859a0e6a1609461495d9e97147f9a0bd6f37"
+    ],
+    "priceppi:ID61113:level": [
+      "bls",
+      "60b12c49b6471667fa16c196b0a15c7d824bc27fd0df4a197fdc59edb319f132"
+    ],
+    "priceppi:ID6112:level": [
+      "bls",
+      "cab605d150b52cb358d4acb33e242cdbc8f335dd8936d51aaeb6dfe5e1800e55"
+    ],
+    "priceppi:ID61121:level": [
+      "bls",
+      "07e5265ff5bc3bdf9c59de66eef115e482e89d9f296605d523509ee37810504e"
+    ],
+    "priceppi:ID61122:level": [
+      "bls",
+      "7af035ccfda7f51fdda0de7812e767ae91abf2715507f7ff8bafe74072df4af7"
+    ],
+    "priceppi:ID612:level": [
+      "bls",
+      "7850b37cc8c646a9561ff60d88dc5c50d9a36beb11cd9df3d8f935d40b107f00"
+    ],
+    "priceppi:ID6121:level": [
+      "bls",
+      "c1f4c540874fde150b6d3b8b3747a7f838c490311ebcdeeb9926a7fe55b14afd"
+    ],
+    "priceppi:ID6122:level": [
+      "bls",
+      "922277cb54ce3a5c378fb72fd822716a773909033d45cd0eeda9327ba23f431f"
+    ],
+    "priceppi:ID613:level": [
+      "bls",
+      "1144dcd86551ed9ba507a6e42efa1ca97589688081b4518d790ea989bcfca839"
+    ],
+    "priceppi:ID6131:level": [
+      "bls",
+      "7b744c7f4a1ab7af874a514846390a5de5d24d3920251e26aa64371d06d7f242"
+    ],
+    "priceppi:ID6132:level": [
+      "bls",
+      "c0345771babb239cbf2067160e81681bbe59bc10b483c5ec8d1e67de5b4f5c16"
+    ],
+    "priceppi:ID614:level": [
+      "bls",
+      "96bbcf9537ed26e7fefcc47ee775c7f9c0ff5285479e389deba01d7e89bb2b7b"
+    ],
+    "priceppi:ID615:level": [
+      "bls",
+      "486591997f19db1543629e2bea2de9dcfd243e37ae9e3f386e68eedadf01a7fc"
+    ],
+    "priceppi:ID6151:level": [
+      "bls",
+      "27c132d50758c902c55f16fc1342323f01c729cb00a6046eecdf951d5de68966"
+    ],
+    "priceppi:ID6152:level": [
+      "bls",
+      "09e666308da4495fc2d2d71ffd6cb2d0b76b1d1a803d8d4013c022ce5f12bff2"
+    ],
+    "priceppi:ID61521:level": [
+      "bls",
+      "6ecaeffa99ec793f6ed370f60aa1d8d0c63031c5397303a3727acd90684e49c4"
+    ],
+    "priceppi:ID61522:level": [
+      "bls",
+      "92e59d7472b2a83ced19882a93cba77d2e5aa14bd36d7c8713b8e1a53f823ba7"
+    ],
+    "priceppi:ID62:level": [
+      "bls",
+      "99ab4aeb97a06dda5955f0b0c0f03f5708da72d976c1ebc93097801a4f04abee"
+    ],
+    "priceppi:ID621:level": [
+      "bls",
+      "3d7afe7a6fe8b02d53fa04bcd280076c0d1660c85c835322687f0c39625f1e1d"
+    ],
+    "priceppi:ID622:level": [
+      "bls",
+      "bbc57b4b47ba555b973fe57a1b2326f47c29b16dad4f7aa314bce82de914a8e3"
+    ],
+    "priceppi:ID6221:level": [
+      "bls",
+      "eb86012564044b0b6994b98a1670f4df0505658bef01d5e2009ac22b963915d9"
+    ],
+    "priceppi:ID62211:level": [
+      "bls",
+      "c2a95bad866f0762c9a141a162ed81142782dc99a8f950f1fcbee1114c619479"
+    ],
+    "priceppi:ID62212:level": [
+      "bls",
+      "1371aace703c43cdc86e8b9ba940ece6faad05266a8a62d176d7d28cffb9cf0b"
+    ],
+    "priceppi:ID6222:level": [
+      "bls",
+      "06e62a1998f9fddd8f80f577ea2d37b0ea80a4e2b84b1868db42c589c46c4ead"
+    ],
+    "priceppi:ID62221:level": [
+      "bls",
+      "c0cf89fd1826ab34e4cc334006fd140ccb6ad57dfe22abe9bef2a565fba617c5"
+    ],
+    "priceppi:ID62222:level": [
+      "bls",
+      "ded0b75600eadaa4e0073fc308e0a9af35faa2063cd69b985564a9e6edd0b88f"
+    ],
+    "priceppi:ID63:level": [
+      "bls",
+      "88a5955abacfe00b401997b1caec415b66769ee04a38fc6106e396c816d35dfb"
+    ],
+    "priceppi:ID633:level": [
+      "bls",
+      "ec1f9b2f230b049f3d1d9354b66cd907c5bf565c9627773bf32ed7250c2d1a51"
+    ],
+    "priceppi:ID6331:level": [
+      "bls",
+      "ffcc345c6d34fc5a2f7bba8564de43b2b9982774675fda81b1c03cb2f289cfa3"
+    ],
+    "priceppi:ID6332:level": [
+      "bls",
+      "f16a39baab9810402a99ac73132a158bc43486277e83059df8c2189302eead36"
+    ],
+    "priceppi:ID632:level": [
+      "bls",
+      "4b025e85a22d5cb1643df687655ffd25bfe946611e0c5b06b8fb11d4048bbf3b"
+    ],
+    "priceppi:ID6321:level": [
+      "bls",
+      "d690dd8266725c5680887cbaf96efae5c15cf6def63164d1d2b2e4d5c203d563"
+    ],
+    "priceppi:ID63211:level": [
+      "bls",
+      "670b83f8cce5ebb42e54bcd7f033e831d518ec1b9ee86e86fb2e59dc81ce42f8"
+    ],
+    "priceppi:ID63212:level": [
+      "bls",
+      "9cf0eb4617d07b20bd8c8e90208c312e50fa4055d3bfb59e21bf9769c513d201"
+    ],
+    "priceppi:ID6322:level": [
+      "bls",
+      "f983ba2ec4b0ad8230f32fe8ebd817700ad7a042be527327e96d498e8b96ba84"
+    ],
+    "priceppi:ID63221:level": [
+      "bls",
+      "adcc6efdf8fb2cb3558cdad5d3a8dbd47b9e9098ebb57a61c650c36eb7b0acc8"
+    ],
+    "priceppi:ID63222:level": [
+      "bls",
+      "df0d5c5e02717be2bfa98467cdf8a162024febcdb024325c957ef49017336ca0"
+    ],
+    "priceppi:ID631:level": [
+      "bls",
+      "15b913e3fb6207fb274c9924fd0c44052e89e96e243c91b0ddc21008b3adb7a9"
+    ],
+    "priceppi:ID6311:level": [
+      "bls",
+      "f196f6fc99309e5774c3a53fac0fba228250240972969d1f84419a65fe370c46"
+    ],
+    "priceppi:ID6312:level": [
+      "bls",
+      "676c0815c74c96fda86faacf2209cd8fef55c08dc48cbaecb767bad0e6555206"
+    ],
+    "priceppi:ID64:level": [
+      "bls",
+      "9fc24cd9b9e7771f91590ef52ee1ca7ab29ad514004ecff8d5f4d1e29b7d07fb"
+    ],
+    "priceppi:ID69111:level": [
+      "bls",
+      "57170b34eafa5dd1927398ebe2da38d9ced0123bf1f3d5705dd19808c0b3815c"
+    ],
+    "priceppi:ID69112:level": [
+      "bls",
+      "9cf467182d48e98645129eaf12683ee3ea1474fd6ee8ae7514db891365974d0e"
+    ],
+    "priceppi:ID69113:level": [
+      "bls",
+      "c3df3020abc0dc762bbf255740a9a9e2844c4b603f0dbb07f2462e5cae44d37d"
+    ],
+    "priceppi:ID69118:level": [
+      "bls",
+      "729f8e49725845afc3894866368c7d3910eae481d2a54616979e8b2fb7b5b5a0"
+    ],
+    "priceppi:ID69115:level": [
+      "bls",
+      "0668dcb480fc453e1a0ab879cbe97cf25c010b9cefcd19e108b92875e784d58f"
+    ],
+    "priceppi:ID69116:level": [
+      "bls",
+      "c6597452aa144ded435697a9b3ad33b5d05e705c75b0d872dac5c07f1aa2f1c4"
+    ],
+    "priceppi:ID69117:level": [
+      "bls",
+      "20669aae6b372f550ee490c1f66d6762941c939c3ecb301a0960df031b29e282"
+    ],
+    "priceppi:ID69211:level": [
+      "bls",
+      "84b991c4d7517a41b0ebae2d276795352199046e6ce60844a164489acb7ec511"
+    ],
+    "priceppi:ID69212:level": [
+      "bls",
+      "7f4f26a3264da44a7c65c77ad5a9393d2de18837216ed184d8cee56fdd6135ee"
+    ],
+    "priceppi:ID69213:level": [
+      "bls",
+      "75d6e980b263bc6912c2bdfa3e380df1eb3e1648b7547462b52b51990dc9bf8a"
+    ],
+    "priceppi:ID69216:level": [
+      "bls",
+      "4413a4c662d9983ade819eedb4a57bfcaa37b2b074b70ccc841451f350ed8216"
+    ],
+    "priceppi:ID54:level": [
+      "bls",
+      "6d46eb193410985c7b9f8e2bd7cb5a52a2a9d9144b1201dde3ede0fc6b2a827b"
+    ],
+    "priceppi:ID541:level": [
+      "bls",
+      "1c84ecc867c9c666572a7db31ebf7b1c3a85fd404dadcc28afe5808581eac63a"
+    ],
+    "priceppi:ID5411:level": [
+      "bls",
+      "9ca02b66398ee8ff3c04bd141f1bf470f99cfc3d10d5aadb6409f373e707908a"
+    ],
+    "priceppi:ID54111:level": [
+      "bls",
+      "796a3bb5ab626e9d4f673af6e7344884fb7a7f25ffc72d2b4c71da9734c7d3a3"
+    ],
+    "priceppi:ID54112:level": [
+      "bls",
+      "d2f8084841fee650c3420ca8bd28b5d5a81a0064e21930906b51a5f5da69d87f"
+    ],
+    "priceppi:ID54113:level": [
+      "bls",
+      "113ffe62e6f91d893083a897ba7f6cf6e5d2cc9bdaf326a6fcbb50c4182658bd"
+    ],
+    "priceppi:ID5412:level": [
+      "bls",
+      "e1d44dd4ee6bbda0c2bd1bd8b14152de7b676c2c954e5368c288fb2114eee939"
+    ],
+    "priceppi:ID54123:level": [
+      "bls",
+      "2c04b704d0c17807a09097dac6af72f3424d8277b5b65ed24d5694532ae70ebb"
+    ],
+    "priceppi:ID54122:level": [
+      "bls",
+      "1b3ba105514f1e61b2644371d11d8bf7a3b96e63e635dcc72d2b5dab5b120e36"
+    ],
+    "priceppi:ID541221:level": [
+      "bls",
+      "c1596dae6fab5c66703b4b926d26370721b557df55ec9b29e079be480a43c4ab"
+    ],
+    "priceppi:ID541222:level": [
+      "bls",
+      "9333868ef3d824589a5cab1ef51dc26bdbaa820e5acc514aa67701b6f3bb6d7f"
+    ],
+    "priceppi:ID54121:level": [
+      "bls",
+      "0e831a57b57fa8456458560e2f7f4697e8206fd22fce3a8842a4399cbfffac25"
+    ],
+    "priceppi:ID542:level": [
+      "bls",
+      "20bcc75fecdf8774d3b6625f3b606ad5bf220fe1ab569a12a876c4b0e93c6e84"
+    ],
+    "priceppi:ID5421:level": [
+      "bls",
+      "379b84d586a5ecf39daae0b0187c57112e5a1bbde27b4430b1648affe63bee9d"
+    ],
+    "priceppi:ID54211:level": [
+      "bls",
+      "b0d7b90a9edcc23c3a7843ebfbc16aff80efe67d22fb59b8bd55cc6162c7d75f"
+    ],
+    "priceppi:ID54212:level": [
+      "bls",
+      "71e8871c49a316acfd2c8f77eea246bedd64a66e0381580e5379dc580934f602"
+    ],
+    "priceppi:ID54213:level": [
+      "bls",
+      "c511bc39d4d5515e0e0d641be743a4f8a043e6335f4087f150c9f934662c5219"
+    ],
+    "priceppi:ID5422:level": [
+      "bls",
+      "c9ef828e5323e99c357e78312cf1481dd9c0409e191ab2536cf4ced8ce4feb46"
+    ],
+    "priceppi:ID54223:level": [
+      "bls",
+      "eb62c8ae1f4664d95bea08d227ff916a28fa7b2501fdab391a69d985c5e82e8b"
+    ],
+    "priceppi:ID54222:level": [
+      "bls",
+      "5e76c0bc26b0675cf3789d42a84cf5df735b475d17f7d4c6bb19889ceedfb935"
+    ],
+    "priceppi:ID542221:level": [
+      "bls",
+      "bc5b53c9a14f2ddd52892f15e40f3c4169ea7a33b7e4a4b7fa154f0e2c8c134c"
+    ],
+    "priceppi:ID542222:level": [
+      "bls",
+      "9eaa4268404f4a0c76fd4cdb963f43056ef96931bb8b4088d504bdeb235c574e"
+    ],
+    "priceppi:ID54221:level": [
+      "bls",
+      "aea488eb433824e6d8518c2a13b63c377412a489bdab52c2ae829cdcf7105917"
+    ],
+    "priceppi:ID5423:level": [
+      "bls",
+      "f642105f9ecaedf20a5328d98a8c4765b841c96f0739ed1cda307fce70c38331"
+    ],
+    "priceppi:ID543:level": [
+      "bls",
+      "834274979b458d4530542841ea8156bfc9c10ea7b6603ab3f6ad75c72fe15415"
+    ],
+    "priceppi:ID5431:level": [
+      "bls",
+      "a0af88c574409457b450eb85e3857dd3bf74c40a7195d5fb9fabd1d6b2d547a2"
+    ],
+    "priceppi:ID54312:level": [
+      "bls",
+      "0bb0d4142d37028e050d14a2feca8b67a3241af31f5dc551e24e6d274de5922f"
+    ],
+    "priceppi:ID54313:level": [
+      "bls",
+      "1b5b7acb6affea3fc423cd665c375c968fc5f1a66a917be3aff72f5dabbfbd8d"
+    ],
+    "priceppi:ID5432:level": [
+      "bls",
+      "30b0fb7607e2e78574c9833fc70feea018bc8523eca62ea5bb600939c5c235b6"
+    ],
+    "priceppi:ID54323:level": [
+      "bls",
+      "4c78f3a05ddb2bb84b1cf73ea154a56024f93001a0f2bd5b281bc6fdee45f750"
+    ],
+    "priceppi:ID54322:level": [
+      "bls",
+      "79549dae7d27bc0d7f96883f84c2a2610e38466471f029b172ba421d92ae11c2"
+    ],
+    "priceppi:ID543222:level": [
+      "bls",
+      "203d8473cd3e5367c3795cfd38afe43c24d7bd022d488b0de4073b35d1e1dc2d"
+    ],
+    "priceppi:ID54321:level": [
+      "bls",
+      "6bd560fd7506c5ee76d3e8a947f75261c9642fe7b1dbf4aed00e037b4a76975e"
+    ],
+    "priceppi:ID53:level": [
+      "bls",
+      "67b60c77d871f49cf741486c472e8656f8c95b4b5c7b13a4c9538a2d615ac07e"
+    ],
+    "priceppi:ID531:level": [
+      "bls",
+      "324be652ff01c5f7a28efcf1fafaddd950787cef7f170e7e72d561fdf80afb59"
+    ],
+    "priceppi:ID5311:level": [
+      "bls",
+      "b7488f13d32b0473c95c16ee5c45bce1651649a5e8b8ed69f5836bdc292a76dc"
+    ],
+    "priceppi:ID53111:level": [
+      "bls",
+      "34a8303dbf1d7e2d1125f58898cee8bc112da3d4d40bc208ecc6f7ab9e9a3edb"
+    ],
+    "priceppi:ID53112:level": [
+      "bls",
+      "fb02ca434df4c78bf322dd2d74c8ed42f4c0a5a9c8b479799021922bfdcd5e4d"
+    ],
+    "priceppi:ID53113:level": [
+      "bls",
+      "ade1b3ebe14340732cee8801ca5b6acf33471f4b551692163606ef40f908aa75"
+    ],
+    "priceppi:ID5312:level": [
+      "bls",
+      "b87c785eeddc1cb92f975496a1cb2b5e5a62579b7972846bcc8a437dea0387c8"
+    ],
+    "priceppi:ID53123:level": [
+      "bls",
+      "210b8ee3b2150b1fe29d110e43b7d73fcaeca3b8d6e8750d3ab18bf8b83cdbd0"
+    ],
+    "priceppi:ID53122:level": [
+      "bls",
+      "6f5e7b3c902bb70c63a04cfd8579eca41cf2d70ac7e862513ff98b9d509a6d7d"
+    ],
+    "priceppi:ID531221:level": [
+      "bls",
+      "161395a719ef5bb9d6af57b1b82bd283d0a0ff68b031aa2de221856c396a341a"
+    ],
+    "priceppi:ID531222:level": [
+      "bls",
+      "074441293f2ff18fca50b7c58d1efa25412a5f55b8868998e2e2e4aed5f11d0e"
+    ],
+    "priceppi:ID53121:level": [
+      "bls",
+      "758c3669b9b524b943cec234f1387cc8afb9d9c72f8ac7ae94c6c47089df8c85"
+    ],
+    "priceppi:ID532:level": [
+      "bls",
+      "1fcfa3707f773864973ec5af7bf026360c1af0725c1188328697c43d649c9148"
+    ],
+    "priceppi:ID5321:level": [
+      "bls",
+      "b8a5d292d02cd0deea75aa2ad08f6da4df11cf794ab11416b468bbc8cdc78717"
+    ],
+    "priceppi:ID53211:level": [
+      "bls",
+      "99736a6e1d60484cbbaf8b32a18bc44badfd2c4e0fd9825dd89c5fb20e247617"
+    ],
+    "priceppi:ID53212:level": [
+      "bls",
+      "7aaa2745814e2f092724f428a0bb6561d2c34a7c00b2a390684b9d8a603195c8"
+    ],
+    "priceppi:ID53213:level": [
+      "bls",
+      "218338605c68068ca8babcd4a689f3058ddb9c6b2eb840148e83f8a724639168"
+    ],
+    "priceppi:ID5322:level": [
+      "bls",
+      "a6a3acd67fcfbde03ebf48de01e8f4afbbcb283eb9667973659d0980da13a0f3"
+    ],
+    "priceppi:ID53223:level": [
+      "bls",
+      "d6d5c3b6dc07c03d7c3069e02daddb5f32261cb16bb387d8876023fcbde02896"
+    ],
+    "priceppi:ID53222:level": [
+      "bls",
+      "64e2a345d7d6aa7546efca09fc063a90cbfc03714964aff25b1515f086025337"
+    ],
+    "priceppi:ID532221:level": [
+      "bls",
+      "f3df1e2ec21c1ee6aad2584c448c9c4616bcc7bd187a602c049a262449c86af4"
+    ],
+    "priceppi:ID532222:level": [
+      "bls",
+      "882561645542858de0950b138ff29be6f4e6cf7b2596964ba24b42b6e9c29bf2"
+    ],
+    "priceppi:ID53221:level": [
+      "bls",
+      "d425c959727ee8c4371ad03664565c79e27aca57e939f613fe981d056a0e39b6"
+    ],
+    "priceppi:ID5323:level": [
+      "bls",
+      "57f20752947278190799d555b9a43425d29073d25fddf10dccd65a4b4b688a9d"
+    ],
+    "priceppi:ID533:level": [
+      "bls",
+      "2ad3980d8adfff2bcc5ee4f638c3cc63668e0a48b9f993c0e7d92133e87dfbe2"
+    ],
+    "priceppi:ID5331:level": [
+      "bls",
+      "63cfb770744f41238ef37dc70c25c00a8cfa18c2692fccbfd61742f4ff81575e"
+    ],
+    "priceppi:ID53313:level": [
+      "bls",
+      "8a33bff36cc54ab7326dccb26c1d09fd1b72a26a3f5d601f6de00916161cfd91"
+    ],
+    "priceppi:ID5332:level": [
+      "bls",
+      "5ed4037a54225b5ce5ad6d278e93fe92a91444949cbab85ebc2208404f3766a3"
+    ],
+    "priceppi:ID53323:level": [
+      "bls",
+      "20dd227869bcb3f00aded4be16c9f875e2a81f5596da946408c7a891b71774d6"
+    ],
+    "priceppi:ID53322:level": [
+      "bls",
+      "bed2e89a10846ab920e6c709bc92fc30130ad7c58a4f4b52efbb78d7bf792bde"
+    ],
+    "priceppi:ID533222:level": [
+      "bls",
+      "d1695629291bef48b152ace8bcaf828dba331f8e4441d2dc148857325bacd487"
+    ],
+    "priceppi:ID53321:level": [
+      "bls",
+      "4369e8900fef691e2b562e47ca231dda8c93a06c69eeb0dcd376d7ec3f891a9e"
+    ],
+    "priceppi:ID52:level": [
+      "bls",
+      "3ddb13996d497e7aca96d525c8182669f799f5cf01d1c20dc6617d3318e705a9"
+    ],
+    "priceppi:ID521:level": [
+      "bls",
+      "13c3baa4669f1dce0bfedf0474f96a32168eb1f5d9f817afa4f4b7991ef60958"
+    ],
+    "priceppi:ID5211:level": [
+      "bls",
+      "2111bd2ff1ce721aff9e3bd2709dee4077bcc4a7217e8892df6069fbfe7e670d"
+    ],
+    "priceppi:ID52111:level": [
+      "bls",
+      "9123b55a80774b55123784679261ee2660feccb3bfa190e87288d27b3db8bc59"
+    ],
+    "priceppi:ID52112:level": [
+      "bls",
+      "77a27ad2aceebb15370cdd01f0f8f35ab8a6c07c4169a7ea810e6bd30fe2a139"
+    ],
+    "priceppi:ID52113:level": [
+      "bls",
+      "221800a38fbcd64b14854efbfddbf38b670395316f63a94326081d15db66270d"
+    ],
+    "priceppi:ID5212:level": [
+      "bls",
+      "6d9074921995555d1b5fc7459a18c33562da0395551ba2937d857c46e4d4834d"
+    ],
+    "priceppi:ID52123:level": [
+      "bls",
+      "89814cf11b1d1d86395881d6c2756f35ef9cd81b8d0b9279496e4618f6ac92c9"
+    ],
+    "priceppi:ID52122:level": [
+      "bls",
+      "510de23e096f65c8e4a70fd6324cad4cbdbc99fedf59dcbc7878c63139be4101"
+    ],
+    "priceppi:ID521221:level": [
+      "bls",
+      "4814ec6606ed7144c18eed9220993529c8c58490144fe8df37fbdbeece724356"
+    ],
+    "priceppi:ID521222:level": [
+      "bls",
+      "204c1540050ce0a974deea6f36e135abab04f8dc4dab4ece6fe232ef233f0ebf"
+    ],
+    "priceppi:ID52121:level": [
+      "bls",
+      "cf915e798a8d6a31b1270279f33a2011e1d391a563a37a7ba498aec51d346d1f"
+    ],
+    "priceppi:ID5213:level": [
+      "bls",
+      "078cc2170658de2de3628833c065d40c74cce2ea1a952ff4a07faa653d8850f2"
+    ],
+    "priceppi:ID522:level": [
+      "bls",
+      "bbd738daf3cfd3fe44f09ba2df5f169f97ea2772918ab6885c256aff6fea2029"
+    ],
+    "priceppi:ID5221:level": [
+      "bls",
+      "7f63186e63803ad88e41ef36fb258059c5fa3f101f118c3cc6fb8a09e2cb1885"
+    ],
+    "priceppi:ID52211:level": [
+      "bls",
+      "f0f57a3853d6e73e0fdbffa652f34b772481515ddaecaef620c692840885590e"
+    ],
+    "priceppi:ID52212:level": [
+      "bls",
+      "13c2c0375eb09193a378f898628d66b0feb08daf9045db4068657e692ca7caca"
+    ],
+    "priceppi:ID52213:level": [
+      "bls",
+      "03eaf44693b593c3a6a386b97279334e18d614eb3fc414674bdaa8231906d1bd"
+    ],
+    "priceppi:ID5222:level": [
+      "bls",
+      "d7d690aa0b827d2a8d922307c28bbf113f481109d31ae6239498ad18e0e6ec64"
+    ],
+    "priceppi:ID52223:level": [
+      "bls",
+      "504e509c99f7b940dc4241a40fc2f53c409625ce962dcb3e79105c762078219d"
+    ],
+    "priceppi:ID52222:level": [
+      "bls",
+      "6076879347d1a133f14b6603ff4b7608e244512ede9b08dce53b94080490e4c1"
+    ],
+    "priceppi:ID522221:level": [
+      "bls",
+      "bf59f116e8083fb78cb5402eaef2800283c0ee6f21f5df9da1a2e4eea0d7eac9"
+    ],
+    "priceppi:ID522222:level": [
+      "bls",
+      "96e41eb3959d4cf03eab1cf77250e731a4206688c8053e23704faa40110fd711"
+    ],
+    "priceppi:ID52221:level": [
+      "bls",
+      "6660836da9133a3156fcfef6bc1e80e5367384af6c6eddba5c0c1f77e13f4d84"
+    ],
+    "priceppi:ID5223:level": [
+      "bls",
+      "f122db0f62db8a6f5f44267c624c72520b7a045a8a1e40a4a9ae5ddb4fe967a4"
+    ],
+    "priceppi:ID51:level": [
+      "bls",
+      "26a461d37cc886101c610047ab86b40380ccd634ea1953d35ad62fd70a68244c"
+    ],
+    "priceppi:ID511:level": [
+      "bls",
+      "9dfccbd0ae7e01244c1ef6536a98938f519988a9872c7bb0a13399bb6c8f26e5"
+    ],
+    "priceppi:ID5111:level": [
+      "bls",
+      "350da153eda60dd0faf4100847c1d1a431ce57d89c031a0ac3cb6ae0804db17d"
+    ],
+    "priceppi:ID51111:level": [
+      "bls",
+      "3c2a5efeb2ca528d3cf440a9db45ef10377a008a3cd137a3fc2d2e4fa45d8f46"
+    ],
+    "priceppi:ID51112:level": [
+      "bls",
+      "eea127354c7e6aa5d423b2c4592a7761691d65eebdc0a2035c77c25f8cfe5937"
+    ],
+    "priceppi:ID51113:level": [
+      "bls",
+      "7a83484cad8090e2b258e15f71276eaab1c48eb9b470bcc9d76b2927419adf0b"
+    ],
+    "priceppi:ID5112:level": [
+      "bls",
+      "35b4376b3131cd780cca6aae34a6e61753234bb131ab3e6964979e427b65ee5f"
+    ],
+    "priceppi:ID51123:level": [
+      "bls",
+      "710dee08a9c0e1aabb3484189c784f13b5b784884a1f447e8b10cb0b07123273"
+    ],
+    "priceppi:ID51122:level": [
+      "bls",
+      "ca7a239a31219734def81bebff7564b9f103772e774ff08720f7173080f013d7"
+    ],
+    "priceppi:ID511221:level": [
+      "bls",
+      "0cf2df95170d490986fdf7b83d92568b7c4bcfef5277313805620a178bc0831e"
+    ],
+    "priceppi:ID511222:level": [
+      "bls",
+      "51dde276207f2df603573b616cb9f34a37395a533550b91865b2f7d55a9ed9fc"
+    ],
+    "priceppi:ID51121:level": [
+      "bls",
+      "edea492810be807885d4b342ed6029c5e9ef31711bdc5669bb705885394eae4d"
+    ],
+    "priceppi:ID512:level": [
+      "bls",
+      "6077c1fef877f61935d361a4887f7d6a24f70074fa72bb1b949da3a7bd2b8c7b"
+    ],
+    "priceppi:ID5121:level": [
+      "bls",
+      "fb9dd76f57447e9d01a11d85328c62ebd4ee4ba2b1d21f6b5fab14886f99016c"
+    ],
+    "priceppi:ID51211:level": [
+      "bls",
+      "d8d9c2b7aab271f87d68dfd451cbdf6110cfbc1ff7924a419f3d2c5b73c7ba25"
+    ],
+    "priceppi:ID51212:level": [
+      "bls",
+      "a97206ff827085231589ad57d279639b5fafdedb286997f057b139204dd0b363"
+    ],
+    "priceppi:ID51213:level": [
+      "bls",
+      "406560e8a0f3d9be53d7eba42a248fc7cc14884338a4de72c3f785c7da346059"
+    ],
+    "priceppi:ID5122:level": [
+      "bls",
+      "3d6f140a61c78da99b73c9e295776c71ec65206900011e5c37ceaa8e87545a60"
+    ],
+    "priceppi:ID51223:level": [
+      "bls",
+      "037056b86c0eaa4a1fb98fe2d407f62ec30fb7d983a1463ff05b0702aaa54bfe"
+    ],
+    "priceppi:ID51222:level": [
+      "bls",
+      "9e3f77deb8f039145f8b3318f8185e4d69fbc8d3b570f9605a550da323d92efd"
+    ],
+    "priceppi:ID512221:level": [
+      "bls",
+      "0fa78f2085a4ecc3c2c21c0bcfcfe62d902e43584bd9008cc06d273981637649"
+    ],
+    "priceppi:ID512222:level": [
+      "bls",
+      "077356a583eb98ff95e57a250bf88f05acbaaa67acd266afdc25364dbea56da7"
+    ],
+    "priceppi:ID51221:level": [
+      "bls",
+      "8b2fa65ac2c7cee65234de051d1bb95cc0a01a2425653ade406f80c04f3287ed"
+    ],
+    "priceppi:ID5123:level": [
+      "bls",
+      "3b5e92402247513c8aaaf2e4daf961a9af0d39cd3c47a850934c437d10279627"
+    ],
+    "priceppi:ID513:level": [
+      "bls",
+      "c6ecc8ba35a2d7cae8e5c841eab8022c156cb1b6fca49d3aa74810d910c831a0"
+    ],
+    "priceppi:ID5131:level": [
+      "bls",
+      "f90fbff52a1c815e7200a9f909dba266113c585b77f71a1252adf5d689209021"
+    ],
+    "priceppi:ID51312:level": [
+      "bls",
+      "124bf5dd261912a98f98c26103db872420106bf2a2fbbbff95db49afa1ca3e40"
+    ],
+    "priceppi:ID51313:level": [
+      "bls",
+      "d7f78c2eb24345ebe02fdd598b4be07362c7df17440f314634f3ca1edf473806"
+    ],
+    "priceppi:ID5132:level": [
+      "bls",
+      "929d3d1863952730fbf216634f3962cced2736aa16a4222b042f61ac6e1494a5"
+    ],
+    "priceppi:ID51323:level": [
+      "bls",
+      "fd58d5cc685842107ed9842b5d5384ffbdfccf336ee189782234a6951fcb12cc"
+    ],
+    "priceppi:ID51322:level": [
+      "bls",
+      "a04cbc50b41583d1fe36453e9621785a6fee7ce08983b94fba49d9b1b3422f12"
+    ],
+    "priceppi:ID513222:level": [
+      "bls",
+      "a4a3a3c8521cc1dad6e23a28b49459decf94dd244b20b9739f32b23f27c65c27"
+    ],
+    "priceppi:ID51321:level": [
+      "bls",
+      "5e4a430adeb335e7c0ba0da2557f96884b1b0ff5b8916bf9293222a2e6e0befa"
+    ],
+    "priceppi:ID59411:level": [
+      "bls",
+      "98d1494ecf70fc988a575a01db68b81532cdb3ca869b64f5a61442fda74acd6a"
+    ],
+    "priceppi:ID59412:level": [
+      "bls",
+      "d390548df65c7bdb6d55de5c9876cd9a08438741d63921fcca7959db8cfad107"
+    ],
+    "priceppi:ID59413:level": [
+      "bls",
+      "5a313656b7f5c8f65ade3ace065d5121f7a68de3419c5027b339ba74d7dc652c"
+    ],
+    "priceppi:ID59414:level": [
+      "bls",
+      "1cbd9bbaf7ae141a8821197f847cc755296f5e4940dac07d02a2e05f62d6eca1"
+    ],
+    "priceppi:ID59415:level": [
+      "bls",
+      "b884207250537cb74327291eab7bbd8d5822f8eed1cfdce3b2481c2c5ca1967e"
+    ],
+    "priceppi:ID59416:level": [
+      "bls",
+      "58339462495124ee64407669936d4ca24b0dd927537a38b177dbdbdf9f0800a8"
+    ],
+    "priceppi:ID59311:level": [
+      "bls",
+      "b23ef3402cc79e8cfbb1e3925b23b4f36b01e7b7edee534a7f17395c07cfb45e"
+    ],
+    "priceppi:ID59312:level": [
+      "bls",
+      "78f5fbea01fbc4018536b1533d2e5c113a802926972ef3b50a9c254706bfcc76"
+    ],
+    "priceppi:ID59313:level": [
+      "bls",
+      "e8004fcc783df972dd6494d5b12ded72a3688ff9f1d2a2cf074504b47fe4a778"
+    ],
+    "priceppi:ID59314:level": [
+      "bls",
+      "21bfc8a0a41c5e49c50ef7cc9eddf2b72af36e6c6d3e50190c2ee49dc39d4dd9"
+    ],
+    "priceppi:ID59315:level": [
+      "bls",
+      "8b0665a88d1672bab41d4d3c48a1b6eebbc84f3963c9692617ba15d1be7a1dd4"
+    ],
+    "priceppi:ID59316:level": [
+      "bls",
+      "984858226e2ba131c2036a944fd3354381f68a8c87d135513d0ce68f059bd4f2"
+    ],
+    "priceppi:ID59211:level": [
+      "bls",
+      "531510c38048c6953db63d2ba356dbfcab45f24eddfebd1608fa018063aa94a8"
+    ],
+    "priceppi:ID59212:level": [
+      "bls",
+      "fcbd082d5cdc570dbac4234de96c10f304c64f5cf8b88dfa97163c2f1d82eb31"
+    ],
+    "priceppi:ID59213:level": [
+      "bls",
+      "651a62d1d166e84f01df030ceff1055ffcd4f168043783a789457d808a560808"
+    ],
+    "priceppi:ID59214:level": [
+      "bls",
+      "c77b4a4ebffdb4e7f5da0a2b48bc5c3ede10618a38cfd6d17bae2e18a94dc3f5"
+    ],
+    "priceppi:ID59215:level": [
+      "bls",
+      "1d9e9b4e9bd54a4e1d4cc3f05d3920941caa5f71a697a7febcff2eff33163d90"
+    ],
+    "priceppi:ID59216:level": [
+      "bls",
+      "be3ea915d309322bf2e17a069064d02a9ae0e6e814d1b44b2bf3f244a8eeb7ec"
+    ],
+    "priceppi:ID59111:level": [
+      "bls",
+      "8b4c13238faae1f97beae021f5f8c111d7551861c982c55d94bc73622f518759"
+    ],
+    "priceppi:ID59112:level": [
+      "bls",
+      "ba168ce0e9555cfd851c88d4991f719693278dab50d9b716ae5366133cef1c76"
+    ],
+    "priceppi:ID59117:level": [
+      "bls",
+      "960d469b393e17e121c7767804a3e7084ceaed84010cb82cf4f53e7c46386ae8"
+    ],
+    "priceppi:ID59114:level": [
+      "bls",
+      "ebf2c55f2ea9cf55920cc1780fa65d73c259b739fdd7dbb1d988a10fb7f52d18"
+    ],
+    "priceppi:ID59115:level": [
+      "bls",
+      "43a0369a1cf58f14f48d3582b2e326e9fbefe8cf30fd47d2ab063bf736320e81"
+    ],
+    "priceppi:ID59116:level": [
+      "bls",
+      "1e04fb72098fd37a49dbfc5e0b319917d3977c3407f282487d330843597ecac5"
+    ],
+    "priceppi:ID611:mom": [
+      "bls",
+      "99a4057eab633336f4b54be9a8d0d883e28dd66163b6ce234c44f4f5d952fff2"
+    ],
+    "priceppi:ID611:yoy": [
+      "bls",
+      "ece3e9cf10c0be76031cff9942b8f3515720bfe17b3ec111ecc30d46c5ca4952"
+    ],
+    "priceppi:ID6111:mom": [
+      "bls",
+      "6ba6066b6c8a520c50c0591a6f9d8768ff3a8b2e5b21f5eeaf75408e1951db03"
+    ],
+    "priceppi:ID6111:yoy": [
+      "bls",
+      "78b447326fcacf930dff761c7a6b21d1e3221f16f15659695b50adf93341601d"
+    ],
+    "priceppi:ID61111:mom": [
+      "bls",
+      "852362acfb09316c0485f694f4e4de08934135dd657679936f9898a55e43b96b"
+    ],
+    "priceppi:ID61111:yoy": [
+      "bls",
+      "54f26483a35cdeb883e1f4a5e8c9473ca1fc69707d062dde8ec19b8c7c1e84e6"
+    ],
+    "priceppi:ID61112:mom": [
+      "bls",
+      "cad589f099f4daf0035671ae0f92c76eb3bfb6c74d73b0fc7a7a482391233710"
+    ],
+    "priceppi:ID61112:yoy": [
+      "bls",
+      "89f4c64af7d48f9103c39415e633f98aabaff3f19345f3d3845db88a060e6c0a"
+    ],
+    "priceppi:ID61113:mom": [
+      "bls",
+      "6ce07299ea215c06e0417e30acbc5c648efe9c223a4c9d09a20aa96100acd355"
+    ],
+    "priceppi:ID61113:yoy": [
+      "bls",
+      "393e689688a4525c6cf226fd7a267a4ad9c23257d590fad2b134c5a5a9417539"
+    ],
+    "priceppi:ID6112:mom": [
+      "bls",
+      "d3c41cf746a7705be72cf2457c87f49fa24804388ce717383e6868bff2dee1d9"
+    ],
+    "priceppi:ID6112:yoy": [
+      "bls",
+      "d320a0af9c438412c20f6c884f3154b9095ff2f4cc26fd127125dee4e1c4d10c"
+    ],
+    "priceppi:ID61121:mom": [
+      "bls",
+      "3fa470d769b3c4b61134c25776234e288da2516d975f22cd575ceddfa8fd57ab"
+    ],
+    "priceppi:ID61121:yoy": [
+      "bls",
+      "76d5916821524c67d9eb4fa6b81d3a981a33cb0ad610f2a367259e94358f169d"
+    ],
+    "priceppi:ID61122:mom": [
+      "bls",
+      "8b5b82067c634d886bede79e7bceff44397391f339564f59275e3ef258fd0ff4"
+    ],
+    "priceppi:ID61122:yoy": [
+      "bls",
+      "eb54dc0238236a5690c5bec8b14acd0a791234d949d6f41d3834af23cd3d4d9d"
+    ],
+    "priceppi:ID612:mom": [
+      "bls",
+      "6c4296feb24ff47a6fd85d30391ba039983f6beda65a21f94e4b5baa7d1d9d2f"
+    ],
+    "priceppi:ID612:yoy": [
+      "bls",
+      "10c7a473dc67f903091069c39ab949e178b060784df0ab69f5825ea689716b92"
+    ],
+    "priceppi:ID6121:mom": [
+      "bls",
+      "4c095fd2bfe5f1f78838cf771e955ae6a414732e06c22f40f1af40a721285341"
+    ],
+    "priceppi:ID6121:yoy": [
+      "bls",
+      "a2aa9f1d8eab31d8c397c5b9a2e9df006724ab1926b6104f4e114c01471bb880"
+    ],
+    "priceppi:ID6122:mom": [
+      "bls",
+      "82faa78401d7fe945de9321ca196f3c00697059d3c15acd6f719f078835ef45e"
+    ],
+    "priceppi:ID6122:yoy": [
+      "bls",
+      "4117c745813d29f1a499ecd020ad5d9c2b96b101568352f177b2b8590b49f628"
+    ],
+    "priceppi:ID613:mom": [
+      "bls",
+      "a2975eca26b73008865f8485f5ebc78c9e55df7d14ab0a553a573401692fa4dd"
+    ],
+    "priceppi:ID613:yoy": [
+      "bls",
+      "91a6399bb9f4478664cef77c87ec50140af15463466eb4ca5c9ff015d939d97a"
+    ],
+    "priceppi:ID6131:mom": [
+      "bls",
+      "ed38359696c3447eb67cd224ba03c193eb9cca90d87b4e3e0506ac91bf98cda5"
+    ],
+    "priceppi:ID6131:yoy": [
+      "bls",
+      "66c034d8f4ba02e21d29ba452955ed97256c3eef1324f954646c2b286b0efc82"
+    ],
+    "priceppi:ID6132:mom": [
+      "bls",
+      "5ac5ccac6ee8ae85a6a44cc98f581f07bc7e43cbf47e4577d186cc2bb4e29c00"
+    ],
+    "priceppi:ID6132:yoy": [
+      "bls",
+      "4ccb1c9fce9d76e1a44fdebf92646827cdb8f212d5d71ecb9d366702a7ca9c61"
+    ],
+    "priceppi:ID614:mom": [
+      "bls",
+      "ec3e7236955b0ec1e3e8ba73619cb6c2d4c8792a4229a291f125c5df0b78d6b5"
+    ],
+    "priceppi:ID614:yoy": [
+      "bls",
+      "4fd05de5f10b4e2f08e1f95b6ddadc6414698531d242ced8d3f68ff134f4e0ac"
+    ],
+    "priceppi:ID615:mom": [
+      "bls",
+      "6eab6e99da641a2f8e562835de63f279bf5800d1bb3aae3d82ed026cb2911c07"
+    ],
+    "priceppi:ID615:yoy": [
+      "bls",
+      "f144ff4cb79fe2f0df8d279a5fe5b3556814e876a53994ce7fd51079d15b438b"
+    ],
+    "priceppi:ID6151:mom": [
+      "bls",
+      "dc3f7565c685faf0623b947fc7988c624f913fcd509088a337255c1a34566175"
+    ],
+    "priceppi:ID6151:yoy": [
+      "bls",
+      "c5115f8e22956569e16be321572a65379fcdac6aa91683ea70dca92d37b9a6a5"
+    ],
+    "priceppi:ID6152:mom": [
+      "bls",
+      "d351f481c9dfc93d09ec86a4b92c621f13ed66ba9549a2d9ba63b25bc9b34c76"
+    ],
+    "priceppi:ID6152:yoy": [
+      "bls",
+      "3039ca35ef04f70a667550c36220f3546b5199fe4c3b78d1378a284081c35334"
+    ],
+    "priceppi:ID61521:mom": [
+      "bls",
+      "54856b776e8e2e98ccdb66f536e20a9c976e9a30c312d94cdf579893a9099a52"
+    ],
+    "priceppi:ID61521:yoy": [
+      "bls",
+      "3844879a685f2276cf05ff37494f6ce08af3709dbd762c716dc9a5167779914d"
+    ],
+    "priceppi:ID61522:mom": [
+      "bls",
+      "36a94a409478e8bcd9e785d0e88b425383ed6f39ab33fd38c4e68ae479269ebf"
+    ],
+    "priceppi:ID61522:yoy": [
+      "bls",
+      "a5a7ed68384a561769d0e716462158f8a951c675e3dbc29e9d17b9cb554f4a35"
+    ],
+    "priceppi:ID6221:mom": [
+      "bls",
+      "399ccf15a8ad2c1d89c88235ff56994f0f30301ff41413abbfbf0a9f08ca87d2"
+    ],
+    "priceppi:ID6221:yoy": [
+      "bls",
+      "985d8addc112b1b47ac41ac6480b713e115555bd83fc372ab2749e418858eb98"
+    ],
+    "priceppi:ID62211:mom": [
+      "bls",
+      "b117baf1dd598e66f87abadc781d1ee6579a473b153373559d3a746810c822f9"
+    ],
+    "priceppi:ID62211:yoy": [
+      "bls",
+      "d1f2c1157fd75e9f621a4a1cf0591adaea629bb19c2048214457d898fc779f94"
+    ],
+    "priceppi:ID62212:mom": [
+      "bls",
+      "c73fb1e5ad3bc0dc9c1d46ed500c13a7f20166dfb25b36abbb77788441598098"
+    ],
+    "priceppi:ID62212:yoy": [
+      "bls",
+      "9f2aa611d97e8c86192bd24c6405da032f476b74b670fa5ccce5e4b8f3d66c83"
+    ],
+    "priceppi:ID6222:mom": [
+      "bls",
+      "680dea71adc0309d0bdd9c5481eb7db8efb07558d274aeecd46eea981a160255"
+    ],
+    "priceppi:ID6222:yoy": [
+      "bls",
+      "4ca70cf630b9f6e02dc633dd26329514f7fac531fa507c22821cba600bcb15de"
+    ],
+    "priceppi:ID62221:mom": [
+      "bls",
+      "a3cf1f10c7f7760007ebb484d29295372ea9c4271b05ecdafc89ea215229df33"
+    ],
+    "priceppi:ID62221:yoy": [
+      "bls",
+      "2bfa3213d248e0350abeefe9ca87ddaa6d575f4f8ddedc50e546ad0665a44bd3"
+    ],
+    "priceppi:ID62222:mom": [
+      "bls",
+      "986d5fe27726654a575e9c05c16fd0e1b0a8fc46d7fa745cea9f962f9c918d94"
+    ],
+    "priceppi:ID62222:yoy": [
+      "bls",
+      "5eaac72e6838855d2680f392d7cc06feb32378b4fe3d58d15ddbdffeb9660d95"
+    ],
+    "priceppi:ID6331:mom": [
+      "bls",
+      "54b85beea83611ab6eda8803cf1f4c452df4b834ad64480f0be03792fe84ef0b"
+    ],
+    "priceppi:ID6331:yoy": [
+      "bls",
+      "edb4ea88d01b43002f157e3cf7326f9742f6eba88bfe669c3850dfae63955f21"
+    ],
+    "priceppi:ID6332:mom": [
+      "bls",
+      "5541f6510330e67cbd70db208e7ca5703a739aa37db0c50e365ccca3c3779cc5"
+    ],
+    "priceppi:ID6332:yoy": [
+      "bls",
+      "295eb973c2b527db5a01e40be53470f123aa71bebbbebd4cc6089bc1f98478e5"
+    ],
+    "priceppi:ID6321:mom": [
+      "bls",
+      "3aa236f0f4a1954c5f580a84c3bd9afc41773e889137fe1f0b298f088291d0e7"
+    ],
+    "priceppi:ID6321:yoy": [
+      "bls",
+      "4cac13d85eb112817924b36a127690f15f47d22304b273a2d17825f5de9dc61a"
+    ],
+    "priceppi:ID63211:mom": [
+      "bls",
+      "8ac56e68390362f5ea10bce0d5cbf7ae9817e64608de9fa45d24d5472204f1ac"
+    ],
+    "priceppi:ID63211:yoy": [
+      "bls",
+      "ba22c78d618580b8ce1d861d4860df05d5dd5d6dc1aefeab668a9937b3317ca8"
+    ],
+    "priceppi:ID63212:mom": [
+      "bls",
+      "b6b39f3ea78540695a153049079abf91c9051fcb47ab623b030cfbd5495fea65"
+    ],
+    "priceppi:ID63212:yoy": [
+      "bls",
+      "81d98d1f5cfb374f0d57c1a9fa8f1e20ed3c604d4ca58675ae58c982b1f151a9"
+    ],
+    "priceppi:ID6322:mom": [
+      "bls",
+      "e99df6500b2dfc8e6ecd24eafdb6949e670897f0334962d77fa881f311428485"
+    ],
+    "priceppi:ID6322:yoy": [
+      "bls",
+      "5ba995357c7da12a09c11936e123af64fba6e94a4261063e62f114e0e0404655"
+    ],
+    "priceppi:ID63221:mom": [
+      "bls",
+      "b4703e92df6bf5c80901b15256fd5f235d64353dba444bd81447bef616d06090"
+    ],
+    "priceppi:ID63221:yoy": [
+      "bls",
+      "04bdf5549d941ba3dcba45178dd472b9b857015a8f33250af5046b0bf3af1018"
+    ],
+    "priceppi:ID63222:mom": [
+      "bls",
+      "afde4b070f0603206107728a071a98e4dcd78cc5997b071d0bedefbe39ed7b89"
+    ],
+    "priceppi:ID63222:yoy": [
+      "bls",
+      "a7efb1c595d4961d788ed54666bea370ecaa4bcf10468b01939a441a26d1c10d"
+    ],
+    "priceppi:ID6311:mom": [
+      "bls",
+      "dfe6acfed1b7cbf38f9006261078acbddaa95ceb1dcf317c92dacbe8aee1f79d"
+    ],
+    "priceppi:ID6311:yoy": [
+      "bls",
+      "289dc8b7de22ac42269c22e808db8c35e320f9577f9778e43e24ee034549db8e"
+    ],
+    "priceppi:ID6312:mom": [
+      "bls",
+      "46bc69a98bb8c26e104bca54dcbbfeb8b1f6db57ebd43826c6f78b0900658df7"
+    ],
+    "priceppi:ID6312:yoy": [
+      "bls",
+      "9f56d77f7b58146d7ab655cba9f1dcc4f3a4bf31d6286a4d52674269d8abae47"
+    ],
+    "priceppi:ID69113:mom": [
+      "bls",
+      "50bfe566927c6101089f7aee0fcc9fa3f7c01d1b9b56eedbd1366945559c4e26"
+    ],
+    "priceppi:ID69113:yoy": [
+      "bls",
+      "f403f76a53b511091499dbee91294a9a541976270f99096ac7dbaf9f9edaa258"
+    ],
+    "priceppi:ID69118:mom": [
+      "bls",
+      "aba108b677a94343b09a4d4ebd6744c3409d7f803eca180ec10d318c5dca1a20"
+    ],
+    "priceppi:ID69118:yoy": [
+      "bls",
+      "9fea24db7726103b1cc1b09aafb1e75edfd9875ad5113fd6640cbfe2bf4bd5c9"
+    ],
+    "priceppi:ID69115:mom": [
+      "bls",
+      "fefeb930cf8094f83c0549a89305acd673cfabb7c0c53a2b9c0611485739f412"
+    ],
+    "priceppi:ID69115:yoy": [
+      "bls",
+      "6a1991bae761afc9d0a3f25bb6a925762653b84f8a32244dfe5450360da452b2"
+    ],
+    "priceppi:ID69116:mom": [
+      "bls",
+      "1fca7febe986ab0b0f89e6f5f76d60a270a8e7780f494bdd84ddf3a8519c0c66"
+    ],
+    "priceppi:ID69116:yoy": [
+      "bls",
+      "d3003de7d9a067b9156f159017df50760ce0a6527bc4f5c748a33c9f81bd10aa"
+    ],
+    "priceppi:ID69117:mom": [
+      "bls",
+      "75a82248322eff4fe759a00217d449171056f1312b0c1618bef3a3986b4a0cf9"
+    ],
+    "priceppi:ID69117:yoy": [
+      "bls",
+      "f7db15ecce7636b7ce07f5c51ccef6d19eb1588d2465cf5ceaacc11bb4cd2abb"
+    ],
+    "priceppi:ID69211:mom": [
+      "bls",
+      "47be27a75fe4ecec5844dc14b07166b91665c97168688114714db20178157d31"
+    ],
+    "priceppi:ID69211:yoy": [
+      "bls",
+      "9474bf7fa0d4e50d8c3bb8aed9640d9a0bfbb1aaa80bf39c051e512cf49bff29"
+    ],
+    "priceppi:ID69212:mom": [
+      "bls",
+      "0271d7b72bd28b5813d02b2fc92a313e06470be34570028c03ee57a6c1bbfcc2"
+    ],
+    "priceppi:ID69212:yoy": [
+      "bls",
+      "696e76ea16dd6348e843e7db2a79fb832d5adc2c0043dd4e6b235aec766d1946"
+    ],
+    "priceppi:ID69213:mom": [
+      "bls",
+      "53126d007c8b1ce852fe77616e34147eac2239ff840ecef3d2301cdced4d8c10"
+    ],
+    "priceppi:ID69213:yoy": [
+      "bls",
+      "162c9896389a6f26e463778e392cc96412a1cb80ab632c32fab9de59cc1b1a97"
+    ],
+    "priceppi:ID69216:mom": [
+      "bls",
+      "e1d959260a1f0cd157551e90fdc6d03c41ee9bf1092f67ad850602cc36e0a634"
+    ],
+    "priceppi:ID69216:yoy": [
+      "bls",
+      "2afbcbc47203e4963bcb2ed2ce237b44cd0450bb323bc23ca33cd66180f00e77"
+    ],
+    "priceppi:ID541:mom": [
+      "bls",
+      "de793580a61d5e29eaa612bbaaf2bde07a662d02a7a6726f48d51f083a566ad6"
+    ],
+    "priceppi:ID541:yoy": [
+      "bls",
+      "819770ab55114321eecd4c01ab582f63784972562778b40706d7d3199383e2f6"
+    ],
+    "priceppi:ID5411:mom": [
+      "bls",
+      "f796cc51f22fe6f91c95327b3863a313d7647f8000d865e1e64e84bb882bedde"
+    ],
+    "priceppi:ID5411:yoy": [
+      "bls",
+      "515d1eec267393ae42dc87a4625164623e1ba9e055ed80eacc868965c87dc639"
+    ],
+    "priceppi:ID54111:mom": [
+      "bls",
+      "4c343d051cc58f9cf8df1600c7c2fe7162e7d1cd2b41ac5e26ab63a5e3750755"
+    ],
+    "priceppi:ID54111:yoy": [
+      "bls",
+      "6e261765741f728d37ccb2289a4a983155c687b156f9f1a2e846b9d96a75c2a3"
+    ],
+    "priceppi:ID54112:mom": [
+      "bls",
+      "67316a4870ee475133b96e9bcd10504b30d3de26a7d5aabcb42386200b4b76ce"
+    ],
+    "priceppi:ID54112:yoy": [
+      "bls",
+      "5d3c8c9388d2b4ecb3411290f7f656e3f56272fd03ba60607e7c1c64fd2ce872"
+    ],
+    "priceppi:ID54113:mom": [
+      "bls",
+      "3de6ab36450bb62d6afde36da3ef30e9618260340a318a8bca2e11fdc7e35240"
+    ],
+    "priceppi:ID54113:yoy": [
+      "bls",
+      "f06f7ab8de54f10c93bf6793e1fa802dc5537e6401884898877bb7812348c2c3"
+    ],
+    "priceppi:ID5412:mom": [
+      "bls",
+      "216a777ef44553cbe1c9f5085ab756b83266e917750fc06d9f7dedc41732e9d1"
+    ],
+    "priceppi:ID5412:yoy": [
+      "bls",
+      "6721f70adf7c881e9a1fb8f7b126a120538043d66305bca34e90c696f945d2ea"
+    ],
+    "priceppi:ID54123:mom": [
+      "bls",
+      "89024928f995386c52051c46f63d51349234c842752ad4639a0af45be09e9adf"
+    ],
+    "priceppi:ID54123:yoy": [
+      "bls",
+      "36dc5b91b0707bec3c80bf94db8008f40419198b6abb632f3decd39124c14286"
+    ],
+    "priceppi:ID54122:mom": [
+      "bls",
+      "212e133399d38bc9fac50773bad87fd062851768c30102305ca1679667a2723c"
+    ],
+    "priceppi:ID54122:yoy": [
+      "bls",
+      "9ab72bb912c77c8f7391c8feb645b89c0acbe48596eb77fb241a95dbda6da37f"
+    ],
+    "priceppi:ID541221:mom": [
+      "bls",
+      "45a1d490ba5b54c97db480d8fcac41b3564b6c5c7a61e775e012db5905e9239c"
+    ],
+    "priceppi:ID541221:yoy": [
+      "bls",
+      "1060e2ab962a172356918ac0b3f126f08320c236f9e6b0d777defd1d0bec59d0"
+    ],
+    "priceppi:ID541222:mom": [
+      "bls",
+      "d83c5667c6faaaa1865d63c95b8105a6ef1e2f9abf9bc514616a1ee4fcc1936f"
+    ],
+    "priceppi:ID541222:yoy": [
+      "bls",
+      "d14429eedc1859dcad81f35121a2b810f3e257e8baaabc13406a9dd137c93c6b"
+    ],
+    "priceppi:ID54121:mom": [
+      "bls",
+      "7ffe4db44972d24497b49711b73d9ec86c2349e27748e6748186fed6cfe3e33d"
+    ],
+    "priceppi:ID54121:yoy": [
+      "bls",
+      "c6443521f030201306dfcb0630c9b5ebfa5e7796f4a8da3709618416b380f43d"
+    ],
+    "priceppi:ID542:mom": [
+      "bls",
+      "8b1e435cba6a81734f6188fe4d1ae91df149c5b873ef5a3fb981f7379eac0da2"
+    ],
+    "priceppi:ID542:yoy": [
+      "bls",
+      "a7683c7da644ba21d5da9fdb84b7d743ac876f9aa659a44d136c27cafca8daf7"
+    ],
+    "priceppi:ID5421:mom": [
+      "bls",
+      "038feda82c3890f3fa7c4566eeba7b97d1ab747e00af293c664172215c61f136"
+    ],
+    "priceppi:ID5421:yoy": [
+      "bls",
+      "af6862c31a22ff927ba19840ee985a2d1cf9c51cf09e1d0241c47e6d645cf85d"
+    ],
+    "priceppi:ID54211:mom": [
+      "bls",
+      "d25e31fb042fcac4ecfae4f3ead528ad466b6811e933f4a2df3665cec6a53d53"
+    ],
+    "priceppi:ID54211:yoy": [
+      "bls",
+      "cb8ac6c38805a0a66c5993256065815f31159f46a551ba016744ca791ad1adf1"
+    ],
+    "priceppi:ID54212:mom": [
+      "bls",
+      "b0f6c14a934c9064f813dbb02d57d1f0dc9a6fc476108423e43ffe2d461da766"
+    ],
+    "priceppi:ID54212:yoy": [
+      "bls",
+      "4c0fad9b559206f2e554a3f6fb80f2df04f604bbf1f5cd055f2ffbae87fe8899"
+    ],
+    "priceppi:ID54213:mom": [
+      "bls",
+      "5723cef19660b7f960c5843b1326f9320451374f0cee9f020d5033d02d8f4d9c"
+    ],
+    "priceppi:ID54213:yoy": [
+      "bls",
+      "5176bc19ff8ecf2ff29d3e08c65e98a5cceb5b7c98ba6eeb7e7d50bd5873bbc1"
+    ],
+    "priceppi:ID5422:mom": [
+      "bls",
+      "133559ced5bf0c187e69c4f2a95ec49b16048976c5101008061c97344f003574"
+    ],
+    "priceppi:ID5422:yoy": [
+      "bls",
+      "d1d2907c0a9c27bfeac0b285e9d9e06cbb6c80bedd7fc4db72c07c2da9fe0b5e"
+    ],
+    "priceppi:ID54223:mom": [
+      "bls",
+      "cac5a733bac9a1fd1434440b7d0228b2a3e5f4d88f2e33ec65834e874b584a7b"
+    ],
+    "priceppi:ID54223:yoy": [
+      "bls",
+      "01515c1ff2fccb5db6c7df7ee9547884c45d8af70c9d6b30f3ceb4d003614f63"
+    ],
+    "priceppi:ID54222:mom": [
+      "bls",
+      "7866d10b4fcf7f5e3572332db31ac509e80da839f663682fd9c45385f1b8c9de"
+    ],
+    "priceppi:ID54222:yoy": [
+      "bls",
+      "4a5a32a1543e80e2bb30b0474603aa046ff2ff6d85a62ef5430f6a57510c4c44"
+    ],
+    "priceppi:ID542221:mom": [
+      "bls",
+      "79be0acd63ce590c03dc7216a2911295d2ffdc5b363cba34744f6abf324495cf"
+    ],
+    "priceppi:ID542221:yoy": [
+      "bls",
+      "8d75b9cd481f9a40c7ca025ddc60f037d9f0be26e601e342cdc0d8ee247661d4"
+    ],
+    "priceppi:ID542222:mom": [
+      "bls",
+      "17aea74beb1fbef15461693cce95786e9e3a230986a33c71b1b24aeb93918bed"
+    ],
+    "priceppi:ID542222:yoy": [
+      "bls",
+      "feb5bc40f1d1f3393eb1b734fa1cecaf5df752edf784a0f6a80c7b914c1ef60a"
+    ],
+    "priceppi:ID54221:mom": [
+      "bls",
+      "ef6acbf97cf7e74e7fa3e302051e54d6e15e363c76ae172bd744eba07a6eabca"
+    ],
+    "priceppi:ID54221:yoy": [
+      "bls",
+      "a7a92babe9b3c89f9cf7cf9acbc58c320e1baad9cfd710a64098bd42f843b09e"
+    ],
+    "priceppi:ID5423:mom": [
+      "bls",
+      "96ba2be8895561e59d601481551cf233a61ddb4868bf49471aac9aca48b861d2"
+    ],
+    "priceppi:ID5423:yoy": [
+      "bls",
+      "3f8b503097bc40c89abc7a299b9102a656c2164684df1bc51ba54db39ac6f2bd"
+    ],
+    "priceppi:ID543:mom": [
+      "bls",
+      "74f8a113f075438f989e619d9511200c105d05a47d92cc3b28ed21cde271d3b2"
+    ],
+    "priceppi:ID543:yoy": [
+      "bls",
+      "76fb57e5cbe89b311899752771304d4fe973fb547b1e8a9dad799e792adaae98"
+    ],
+    "priceppi:ID5431:mom": [
+      "bls",
+      "78bf8bf79a952137648921f7072f3e21ba35fcf5f8e30af5f1c9fa988790541a"
+    ],
+    "priceppi:ID5431:yoy": [
+      "bls",
+      "3e73f3a5fc6fd95f7a6c999d7b81c49a5806972bcbc20a9ae94bce36b42f676d"
+    ],
+    "priceppi:ID54312:mom": [
+      "bls",
+      "803991cc21c9a0df127ec2b6f20343e52b388741695d2a39544c09257fd34330"
+    ],
+    "priceppi:ID54312:yoy": [
+      "bls",
+      "d7cb794e68ac1f7f574cc922349bc7dddf9bc2feca81fabed1856c0afe0357ca"
+    ],
+    "priceppi:ID54313:mom": [
+      "bls",
+      "8a82d09dadf97039da919778677a643c966ae5b250244e314ca91539d047205d"
+    ],
+    "priceppi:ID54313:yoy": [
+      "bls",
+      "94a9bfa1187430e9b5589007d2b698193d9b91922a0e53fc8c0ffde744c9d781"
+    ],
+    "priceppi:ID5432:mom": [
+      "bls",
+      "d486134b950c3d6bf1aac89a0e1cc55e14438ef7017940c809b3680859b929f7"
+    ],
+    "priceppi:ID5432:yoy": [
+      "bls",
+      "8e9618c0e58c2baff7f0db14b04137a893b57a35a6295c2cf497d86bfe9fa55c"
+    ],
+    "priceppi:ID54323:mom": [
+      "bls",
+      "7e238d96e33380ce413125617e27b55888e905ebf5fa995d63c6be125927c2c5"
+    ],
+    "priceppi:ID54323:yoy": [
+      "bls",
+      "bf5aa334db273c373e7d462f827a09679e30c79ac9e22b87724107b9e9df328e"
+    ],
+    "priceppi:ID54322:mom": [
+      "bls",
+      "2cfb061dd4bc5eb3398bff3ffc5624249539027227710f8adde4e1cee09af5c9"
+    ],
+    "priceppi:ID54322:yoy": [
+      "bls",
+      "c884261729ec30f0e21d71e4f9db14765cd7988668335897f7ccc28c0cafda59"
+    ],
+    "priceppi:ID543222:mom": [
+      "bls",
+      "92381c02d082e92589710bb9f21a0fc22f0826fc1ace6c6cda1c7e6a06b17467"
+    ],
+    "priceppi:ID543222:yoy": [
+      "bls",
+      "387b7e7a387592f5a2632fb8f59f858062555a97b4fe5bef570ed03d8335a0e8"
+    ],
+    "priceppi:ID54321:mom": [
+      "bls",
+      "2cb793f868d6ca92b4322b1513edfdac8c2c6be6bc2eba19e285428e0459b718"
+    ],
+    "priceppi:ID54321:yoy": [
+      "bls",
+      "41f26cda5e52f6742c49f2d42ce476d5399aa1be4345609236c15e7e76988e6b"
+    ],
+    "priceppi:ID531:mom": [
+      "bls",
+      "d98f602c6acab2b56079d559f3048422401de4d7e39d47ae972aa8dca9950427"
+    ],
+    "priceppi:ID531:yoy": [
+      "bls",
+      "d8b59821c226a9e1bec8b475035ecd87fbea9dbf69d8845b74f3d6db10d0b84f"
+    ],
+    "priceppi:ID5311:mom": [
+      "bls",
+      "17f0293e7337cfc9322a4d0a7642503cb723af6948d7394e12c95c1ccb94253d"
+    ],
+    "priceppi:ID5311:yoy": [
+      "bls",
+      "81c52bf327c54e19a341272410e48fa5f1a4505605cf68044c62490af3c6706d"
+    ],
+    "priceppi:ID53111:mom": [
+      "bls",
+      "19990f33a58051a53fa0438e2606ce58b0943018ec036ad494e26a2cc83facac"
+    ],
+    "priceppi:ID53111:yoy": [
+      "bls",
+      "86a4fa6f82f40c97c6d6345c544681e069983091992fde1d629773e653300f1c"
+    ],
+    "priceppi:ID53112:mom": [
+      "bls",
+      "b37f24aa5117dc72aeba5aeacb886ee68e64c07f1baefda3bd32c3a5468082b8"
+    ],
+    "priceppi:ID53112:yoy": [
+      "bls",
+      "b11bffd1c8f5b15b3e9deae0125fd645fb4c9ad4a5ec5dc46e583d3a181d9644"
+    ],
+    "priceppi:ID53113:mom": [
+      "bls",
+      "3aeb3a446795dca6c93a7863408ca8e9d1aa533618939ca48a10fc924332919b"
+    ],
+    "priceppi:ID53113:yoy": [
+      "bls",
+      "99537f355bee7ffde5b1812e6819309e3155a79e2e573774257b619fad8ad826"
+    ],
+    "priceppi:ID5312:mom": [
+      "bls",
+      "9fe57248558287af3a88f3abc97588dc26011daf8e228d7e0425f0ac96048fbd"
+    ],
+    "priceppi:ID5312:yoy": [
+      "bls",
+      "d750194373f8944d753d31fb5bc339450aae23d67b6e2eac3861df4f97a44917"
+    ],
+    "priceppi:ID53123:mom": [
+      "bls",
+      "84ceb0ad58ce54154995f453c9aa5c39309997f6becb9005bd3446717fb5ec40"
+    ],
+    "priceppi:ID53123:yoy": [
+      "bls",
+      "49e4080a0fc6ebaf9c47d98d00436f3356c03d6875338061f7b8bbda584f4f95"
+    ],
+    "priceppi:ID53122:mom": [
+      "bls",
+      "e598bbaf6d6cd525340bd2e037c049028960c6f059fbd7910626dbcd55f237ee"
+    ],
+    "priceppi:ID53122:yoy": [
+      "bls",
+      "5f75a671c884de91e45434bd930a2d091158dbc66f26374810586842d6896e27"
+    ],
+    "priceppi:ID531221:mom": [
+      "bls",
+      "1ff7911dbc34edfc79815e2f12cd3354f217cfde6178a56400ac38e8345b85bc"
+    ],
+    "priceppi:ID531221:yoy": [
+      "bls",
+      "4c8e3aa7a5be40c37b58d0b40a594f43a1b6c7d6ebb70bb66371e2abff3566a3"
+    ],
+    "priceppi:ID531222:mom": [
+      "bls",
+      "323ca94eb76544460f6bda4df76a7019758a22618feab35181ada1d3abe59fef"
+    ],
+    "priceppi:ID531222:yoy": [
+      "bls",
+      "bb8fe35cbfd55545ac9ef219e517a84a1bbe51ea816781fa59a67488cc97af62"
+    ],
+    "priceppi:ID53121:mom": [
+      "bls",
+      "9d51decbff688c69077c3ffffbe94883c05af269b35cbb1af74960af6fb392b6"
+    ],
+    "priceppi:ID53121:yoy": [
+      "bls",
+      "96a70a48a76f773c2edaefe887952ff416fd7b5c3590e1f756654010915da3a5"
+    ],
+    "priceppi:ID532:mom": [
+      "bls",
+      "4a694ae5782fa1ed0353d1f48d10a002ba491b4b05a2fa8e3968de75931268c5"
+    ],
+    "priceppi:ID532:yoy": [
+      "bls",
+      "d3dead9a495c432cdd58ea2895129839f272dac498e86476aee015aa836aad06"
+    ],
+    "priceppi:ID5321:mom": [
+      "bls",
+      "3fdb5d7168d72190bc2aa91c10e8beac831557062bad244ee3edca88750650aa"
+    ],
+    "priceppi:ID5321:yoy": [
+      "bls",
+      "a569b4e802d644d495868b73c5391f821d6abf5bc5ba03c6f31e6c088766f089"
+    ],
+    "priceppi:ID53211:mom": [
+      "bls",
+      "d43af597794b6f2702bebf96abd00a798e5a427a1395984cb61e04a1e37ad129"
+    ],
+    "priceppi:ID53211:yoy": [
+      "bls",
+      "46e9ef3027c2e6da37e8ad0817e2a66b3502c1394a96be234d0ca8253984239c"
+    ],
+    "priceppi:ID53212:mom": [
+      "bls",
+      "3ff6fa67aa469a0330432804b50cbcd90a272e29cbd117029681aab9e6779b81"
+    ],
+    "priceppi:ID53212:yoy": [
+      "bls",
+      "c50740aa9ef97121a0001ca272a4323ee77a9a5ad78ba743fbb6549d560a25c6"
+    ],
+    "priceppi:ID53213:mom": [
+      "bls",
+      "1be95e8d1db140c140005fc57450d9248e788798ed72b4bbd6f2a7c3e5d20201"
+    ],
+    "priceppi:ID53213:yoy": [
+      "bls",
+      "4e151f48d433b366a6024a5b2f403f2c666f53456c31b8e631c988fed43efb0c"
+    ],
+    "priceppi:ID5322:mom": [
+      "bls",
+      "0bc87b6a205fb5f0409f4629e6603799460a1b24d28cee25384bc13b5d4a280e"
+    ],
+    "priceppi:ID5322:yoy": [
+      "bls",
+      "46dff4d57c612463121f9ac4474e0cf49ca3b34a6b7540e46f28d1de51829fbb"
+    ],
+    "priceppi:ID53223:mom": [
+      "bls",
+      "5a11670faff968b23346426444d5ddfba01f2986f5a53aeb96b5c0eed2e1b000"
+    ],
+    "priceppi:ID53223:yoy": [
+      "bls",
+      "46cc3c9f2d9312c8e0487136acc888d2f7c5291f3027b8fcd3be90c75bfbf0b0"
+    ],
+    "priceppi:ID53222:mom": [
+      "bls",
+      "bea4224670441eaa7e227b28c7cc4568924fbce1532ca5005e3ad519c1201f60"
+    ],
+    "priceppi:ID53222:yoy": [
+      "bls",
+      "496415e60e51240bdc5bc582cef4047fca4bebd726529e1bf435a870568a81b3"
+    ],
+    "priceppi:ID532221:mom": [
+      "bls",
+      "04fff5a7efe15ea49310952da5d8a453f1e19ad496f7a00515f42b43a6588a93"
+    ],
+    "priceppi:ID532221:yoy": [
+      "bls",
+      "ff134267ded2dd6ec3415217664f192fb8cd3550fc8dfb1abb5bf595ba95beb2"
+    ],
+    "priceppi:ID532222:mom": [
+      "bls",
+      "1000a7709e4496b8dece5733c41a1f561ffa22d6f2987870977875e6515c0353"
+    ],
+    "priceppi:ID532222:yoy": [
+      "bls",
+      "d868aa6943be6f13a74b3edeea7218df9f8d4ab4ebfeaf4617c2947fe73c8dc6"
+    ],
+    "priceppi:ID53221:mom": [
+      "bls",
+      "3962f0f9341dec79b9d774dc34d7418f59795b3fb9c334352b9cfb68794c166d"
+    ],
+    "priceppi:ID53221:yoy": [
+      "bls",
+      "b66e2c3048085db4727111072ad75972fe68b3c8a25eec9f189aa0e2bb190bcb"
+    ],
+    "priceppi:ID5323:mom": [
+      "bls",
+      "e0b62655f63b6c71996f4f288724ee495e92895b0d262d9d40926091db4c54ec"
+    ],
+    "priceppi:ID5323:yoy": [
+      "bls",
+      "e3d94952bf8c31f2887f835b9c9e4434d0a3971ae6a5cc088ed103f8621da452"
+    ],
+    "priceppi:ID533:mom": [
+      "bls",
+      "ab5588da37b8919b25b2ac4373344b120b163201a2f889fc537c91ecb6e95929"
+    ],
+    "priceppi:ID533:yoy": [
+      "bls",
+      "4158955d4901434a72398f77abbf2bb7611d818eec3a99293bcc7891923ed8e7"
+    ],
+    "priceppi:ID5331:mom": [
+      "bls",
+      "264541e228c0de76c8dc1aecb060431b4f6a21b97a27807dd2709ab5a94a55ad"
+    ],
+    "priceppi:ID5331:yoy": [
+      "bls",
+      "56553fbdf7e6d319a4cb08ac2f40f573136c49a7fd5f788ca06a5043f22dcc66"
+    ],
+    "priceppi:ID53313:mom": [
+      "bls",
+      "7a157917a3450de94fe2934dedbfa87d82c685df31c78f667e39e0d4127d4a21"
+    ],
+    "priceppi:ID53313:yoy": [
+      "bls",
+      "dadc1631a3d941739b70cae164a3e5e29931c408078ab91aeffee91cd084a11a"
+    ],
+    "priceppi:ID5332:mom": [
+      "bls",
+      "9cff57e71797e80d47975d4eaf85352e09cfc84a48a44f730708ade4fbfeee33"
+    ],
+    "priceppi:ID5332:yoy": [
+      "bls",
+      "1ff3819b64ff89f6244ad699befc35c9d2ef323ab3594071fe9a49bc71c38a25"
+    ],
+    "priceppi:ID53323:mom": [
+      "bls",
+      "f1e2132befe16db0dd187972a6c3d85e999d5760c78b6166cadbc9bc2b9b3caa"
+    ],
+    "priceppi:ID53323:yoy": [
+      "bls",
+      "af341a595f2126d8a748a97017b352b83cea780575f727ad7ef8d1312bcaedfa"
+    ],
+    "priceppi:ID53322:mom": [
+      "bls",
+      "4a79a1c567705d140301ec466e3f4cf5b9b05a96034dd7e65ceffeae506e9f26"
+    ],
+    "priceppi:ID53322:yoy": [
+      "bls",
+      "665b39e9cb70e769e1de835f8dc8f911244bd59567d03c7897027b1b3066cef9"
+    ],
+    "priceppi:ID533222:mom": [
+      "bls",
+      "ff5c834ca1f7a7f1bc5e94a5a5169efe59bfaf4252305046182ba590b4ff02e7"
+    ],
+    "priceppi:ID533222:yoy": [
+      "bls",
+      "bec20044b3035fd0182f5762ddcc043030c6a3dd274b0c185f076eb1fd5e6c41"
+    ],
+    "priceppi:ID53321:mom": [
+      "bls",
+      "84cbeb53659e69a574588f1d5474e119e3ea8bcf8decbfac5f2239300c41981f"
+    ],
+    "priceppi:ID53321:yoy": [
+      "bls",
+      "cfa8c5bc7826851607bc6482218e864e9fdc2169df70f760b9109101fae307d9"
+    ],
+    "priceppi:ID521:mom": [
+      "bls",
+      "cedefce2178b803beaa801076738df84c034b022d273d6149c0249d5f5f119c9"
+    ],
+    "priceppi:ID521:yoy": [
+      "bls",
+      "db261678450f76c8c0456bbf0aa4f4a74aad0f41f200b10e6594819be86d0087"
+    ],
+    "priceppi:ID5211:mom": [
+      "bls",
+      "4ae4a2422b637bf5d03452b6b5b4dfa05cdee73a30edb413f8fc0942552d33a6"
+    ],
+    "priceppi:ID5211:yoy": [
+      "bls",
+      "34f23520ac03fff285582c89757df23836b6c9bc80467f654d1a7d54001a87fb"
+    ],
+    "priceppi:ID52111:mom": [
+      "bls",
+      "bef1946324c95a7306052d7c1a2e52b5b1af5307ed89ec6147e98177ea2c8ed5"
+    ],
+    "priceppi:ID52111:yoy": [
+      "bls",
+      "6ce012f4d4973a9dfe09d85a7ed87df800163cc995abee3835f5ff797f26d574"
+    ],
+    "priceppi:ID52112:mom": [
+      "bls",
+      "9217ffc3cfa399ea3351968c05e8fa9dd84cbc5a7eafd6cf1cf7e534455e6530"
+    ],
+    "priceppi:ID52112:yoy": [
+      "bls",
+      "df9c9c636de4fac5ab7195aef190ad3dbc9becbf7cebf302a66130336a2e557a"
+    ],
+    "priceppi:ID52113:mom": [
+      "bls",
+      "0dd123b8ca96493d58f2269e2cb9c8c66def29547bc80301fd1093df250f1a1c"
+    ],
+    "priceppi:ID52113:yoy": [
+      "bls",
+      "2521aa66d359871cf0588315e76f3a9c658ca8dc13926d0982f354dbee275ac8"
+    ],
+    "priceppi:ID5212:mom": [
+      "bls",
+      "b6a33fbd55ec1b7115f71ea8886328d80d0ef7f78d50676ff4b077d543abcb9b"
+    ],
+    "priceppi:ID5212:yoy": [
+      "bls",
+      "f7a3f6035c98269dc4c250bd18622f9a4a98950a83714f3e78edf39c95008f38"
+    ],
+    "priceppi:ID52123:mom": [
+      "bls",
+      "25277460290ca5375d9a7be9684fdbf092016e1c21750ee6d0313803d8898a6e"
+    ],
+    "priceppi:ID52123:yoy": [
+      "bls",
+      "738d96ae4dea2007abac3abd1fbb23a1be1d9bc9c5b9572dd947e3caa338790d"
+    ],
+    "priceppi:ID52122:mom": [
+      "bls",
+      "691391ef18acf98eaa6458fcd7ed2043ec7aa4d49175d8dd3712bffbdeb1463c"
+    ],
+    "priceppi:ID52122:yoy": [
+      "bls",
+      "fdacf704b8bff90fdd3eae2cd1a373bec58188d86b396084ae3a8b62611aa6d3"
+    ],
+    "priceppi:ID521221:mom": [
+      "bls",
+      "302458de10d355ecdd65b9457c1c77b28b43df498a7c03c4461f8f04f194054a"
+    ],
+    "priceppi:ID521221:yoy": [
+      "bls",
+      "afdfe25f85adcd42632d239344206679a111ae2a4031e4d59930de6f90f24cb7"
+    ],
+    "priceppi:ID521222:mom": [
+      "bls",
+      "b2c87f6c0a89f7dd1e8b29cffcf9fa4d9989d6a904fbad0fe62ea564e8d3d934"
+    ],
+    "priceppi:ID521222:yoy": [
+      "bls",
+      "ec7173fb0570b51585866e282a5687226be4ff77d07c250f77439a6de670da29"
+    ],
+    "priceppi:ID52121:mom": [
+      "bls",
+      "e17e4fae6ac1560a67f3ddba7f50212c7c3dcc11b0482cd7c9106a385edd8b20"
+    ],
+    "priceppi:ID52121:yoy": [
+      "bls",
+      "fd5951e7b727273337276eef200ae9c79014e6b8f43d47b5c362578c0493f612"
+    ],
+    "priceppi:ID5213:mom": [
+      "bls",
+      "a1c93a5a24eb34bb6f68f34fd4d8d39e573eaf0bfb655a5002bfbfdfdd6641d3"
+    ],
+    "priceppi:ID5213:yoy": [
+      "bls",
+      "501f8ca777686947fe0a137127f3b01cbf4e264c66b04030fb6d940cacd3877d"
+    ],
+    "priceppi:ID522:mom": [
+      "bls",
+      "c64d94d7a26a5f6f497f0f1d945a4a08f01753b4f521134a2bd54e871eecf116"
+    ],
+    "priceppi:ID522:yoy": [
+      "bls",
+      "aba60bd5520b5c35045d832d0e1c8902c593983b87b294f82f7d2e6aa99c7047"
+    ],
+    "priceppi:ID5221:mom": [
+      "bls",
+      "91cce2cb6fda929d182fe0673c605fb3117cb01fbc1bc39da0764295203540be"
+    ],
+    "priceppi:ID5221:yoy": [
+      "bls",
+      "16c14a4d37fd118b95856b788502bb92c630cf2724ea5902c1f94cf8c1a61d38"
+    ],
+    "priceppi:ID52211:mom": [
+      "bls",
+      "82ef011da79b3331d42716003d626093056a90bd46d5fcc5ce74fac3d4a6ef6a"
+    ],
+    "priceppi:ID52211:yoy": [
+      "bls",
+      "70d53ad09e39044d053c0fb608540f196bbd821f52b77c62bfb099445c445ad8"
+    ],
+    "priceppi:ID52212:mom": [
+      "bls",
+      "31269f137077248389c7c5a0327ca89dd8cdddc505202f5329d5a80327098455"
+    ],
+    "priceppi:ID52212:yoy": [
+      "bls",
+      "a67f4249fd46eb18a6393da4d6290836d015e4a72da9391d7e9523150747bdd0"
+    ],
+    "priceppi:ID52213:mom": [
+      "bls",
+      "8e6fe9514f83a5ae7dfd5cfe346c402cca107bdb229999db7b967373465200c0"
+    ],
+    "priceppi:ID52213:yoy": [
+      "bls",
+      "32935ce338cc611ba0b19198e8732ab59c9a966fcb6aca3a38962b3181f73e0a"
+    ],
+    "priceppi:ID5222:mom": [
+      "bls",
+      "48ba9f55b38b4269f1d977073099ce1b42b7318746c72640d2b485e1211b9dc2"
+    ],
+    "priceppi:ID5222:yoy": [
+      "bls",
+      "5f5900bbff5ce63def32e5932426f82eb37cd032a40f6cae1ac64a69ef974c45"
+    ],
+    "priceppi:ID52223:mom": [
+      "bls",
+      "183a30f72f137bdc1907225e2fdd0f2930c516a99be86ab1d00d0b449c0b1f42"
+    ],
+    "priceppi:ID52223:yoy": [
+      "bls",
+      "379b97977d8a59a925711281097425e54507dcffdd32f50c58683d598b874f55"
+    ],
+    "priceppi:ID52222:mom": [
+      "bls",
+      "239146466948f1b2851e9812f6b2b66b018eb1554dea340919c9bbbdd37622be"
+    ],
+    "priceppi:ID52222:yoy": [
+      "bls",
+      "8217605f91dca1c7025221153ebdb288cfd6b114c49c79ef0c784817971a6896"
+    ],
+    "priceppi:ID522221:mom": [
+      "bls",
+      "b0b3b13f0579f1d50368efdfc303eaba283b1d362e18eed08a42295b6798f8bf"
+    ],
+    "priceppi:ID522221:yoy": [
+      "bls",
+      "3b238646199ac08bbf72e4f89dd229e7a54c5f941e12a6baa9b2d0bed8a49f1d"
+    ],
+    "priceppi:ID522222:mom": [
+      "bls",
+      "a4510b052e50d541458a17a05e0eb8b30bb4c0eba6e97dbb0a5ea55cc7ce31fe"
+    ],
+    "priceppi:ID522222:yoy": [
+      "bls",
+      "ef8ba8229b49ee20131328e032ff82bba9eaa11e4ff8c1819621885661050f58"
+    ],
+    "priceppi:ID52221:mom": [
+      "bls",
+      "f72916b859c7bc9a15634082c49731ed6123f2a1028c96e0e530b3c648bd4c07"
+    ],
+    "priceppi:ID52221:yoy": [
+      "bls",
+      "41a890789e389c040db32603fc37bab8591b72ac911f38f9b98bfda3021ca728"
+    ],
+    "priceppi:ID5223:mom": [
+      "bls",
+      "7f62bdd75387b94b9848561691a2e55cd62ab2045fc094a7dffe492b427de26b"
+    ],
+    "priceppi:ID5223:yoy": [
+      "bls",
+      "da33a502bc331501860c74935bb204ee509f457eac2c92d6d10f7d58d65e57d7"
+    ],
+    "priceppi:ID511:mom": [
+      "bls",
+      "baefa28f18a5ec01f9e1568c815dc7de33d67dcc98fb5d9376315492437c09b9"
+    ],
+    "priceppi:ID511:yoy": [
+      "bls",
+      "32cd906dd1486987bf33be8ac37c755bc96f6ddaff2bb98c52c124236b0fdfe6"
+    ],
+    "priceppi:ID5111:mom": [
+      "bls",
+      "bb581750a43fd91998aa0753d864f4cbd4d1c2bb88867ae73232e80d1c6e87b1"
+    ],
+    "priceppi:ID5111:yoy": [
+      "bls",
+      "62edd5d37c4ae6c60f87ee6a2b03e30ce010021081b42390696fcc3fa5057bd1"
+    ],
+    "priceppi:ID51111:mom": [
+      "bls",
+      "f7e629095ec98e1b2d8b23b0426831cae9f44d1e8ab5efab818f146995d72900"
+    ],
+    "priceppi:ID51111:yoy": [
+      "bls",
+      "76c9b198fe12e1d651e626841eb487a6734e6e0e3f25727152793485446fc13d"
+    ],
+    "priceppi:ID51112:mom": [
+      "bls",
+      "e6d7f199480a406d8bc29d00345b04b3ec8a36cf505d1841cc58c33ac942c002"
+    ],
+    "priceppi:ID51112:yoy": [
+      "bls",
+      "54bd4b8688854aead35fc52e5c3acfd6fa18d63c5aa88d705d15ea2fe586d863"
+    ],
+    "priceppi:ID51113:mom": [
+      "bls",
+      "2b2a0699dbafed18546e74cd03a7556a00227de8d7645aae9213a059d4f02e88"
+    ],
+    "priceppi:ID51113:yoy": [
+      "bls",
+      "2ad52df57117628528a3da35c1a549162bccad308a01e938633679e94890ea49"
+    ],
+    "priceppi:ID5112:mom": [
+      "bls",
+      "ea301b6b7dee1c70308ece80bb3cb5e4fa322e584c7bef775543c3fc70d84e31"
+    ],
+    "priceppi:ID5112:yoy": [
+      "bls",
+      "acb89012720e0b1be506215e5572465f612b4dfad6b8d552eea1a15619593066"
+    ],
+    "priceppi:ID51123:mom": [
+      "bls",
+      "5e2e6d50d463cb3deee58ec7f3e53635a066d9213009bde831a51dffe22a2d7f"
+    ],
+    "priceppi:ID51123:yoy": [
+      "bls",
+      "4e6850679bffd4b179222682178cfd6352502afd850f7379524e530bedc4d180"
+    ],
+    "priceppi:ID51122:mom": [
+      "bls",
+      "4d3ca93973d4ee6c7dae3a66d106c74dfb4ac9eba48345dc13fc1ed515eaf536"
+    ],
+    "priceppi:ID51122:yoy": [
+      "bls",
+      "367c45272234ac11ea801baa1fa9c66fee3a6bcbe81e738d583391a4ed8d316c"
+    ],
+    "priceppi:ID511221:mom": [
+      "bls",
+      "8a988d1a2260b2b885ae15f373fcea80afca5d637c991dc4509e171fbcce64de"
+    ],
+    "priceppi:ID511221:yoy": [
+      "bls",
+      "53ead46c8c830fae31a5f358f88b856b025f8b5dc97b95d072d6d4e9d2efd703"
+    ],
+    "priceppi:ID511222:mom": [
+      "bls",
+      "b576fa07ccfdf171ed536c234aaa1c3974fe285b1e1934f516c342ae2837003b"
+    ],
+    "priceppi:ID511222:yoy": [
+      "bls",
+      "25a208b8a4448fe9c5edaf446497b97261585f022263b0e48bc28b6be00d1d92"
+    ],
+    "priceppi:ID51121:mom": [
+      "bls",
+      "d265fb94ab8f021dc8db3173f378678745ba6898d7fffe48c81965c651562540"
+    ],
+    "priceppi:ID51121:yoy": [
+      "bls",
+      "c51a7b39b435d34e0d1477400d422987e197c7d23b867c5f79b0f2b56561463c"
+    ],
+    "priceppi:ID512:mom": [
+      "bls",
+      "2c1aea03aae1f1b188e1dc1739d9fdd0d823141ba84d24517d4a103b42bf616e"
+    ],
+    "priceppi:ID512:yoy": [
+      "bls",
+      "039a6a23904a3dbe09a21d9ca405cc046776d2bc723906b40d9af1fce70acd90"
+    ],
+    "priceppi:ID5121:mom": [
+      "bls",
+      "095cdd15fdb9ef8955e89417e02eb59c8636fef6f71b1c7bc7060bed86ca4f7c"
+    ],
+    "priceppi:ID5121:yoy": [
+      "bls",
+      "68a02091efc586bf80e27b3ff6490e6ac898c6d67af75503e8c82cf27964ef3b"
+    ],
+    "priceppi:ID51211:mom": [
+      "bls",
+      "da36898ef438d71273d0f613d3bdcffddeed2b49ee5ddc9ca277c9e844b60d28"
+    ],
+    "priceppi:ID51211:yoy": [
+      "bls",
+      "0a6cd08407d948442b76f181ad2d02ac63055596f88989ddbf9b37ef97b380c8"
+    ],
+    "priceppi:ID51212:mom": [
+      "bls",
+      "0b65ab5966813bb9559095e067851ebebcf92dfae06f4af360f656257d431794"
+    ],
+    "priceppi:ID51212:yoy": [
+      "bls",
+      "dac870d35b2c96c8857f7a053e84cb088b0563984d0209f1fa17dfc9d0ee833c"
+    ],
+    "priceppi:ID51213:mom": [
+      "bls",
+      "843ef229c2462e99b8eab17191dd17b967624897b708193daff536c0185b03cc"
+    ],
+    "priceppi:ID51213:yoy": [
+      "bls",
+      "7c28bbed2da60fbc4dd8523a8bf1b485a11781c3e5b3c6ddac29a619b6cf7d87"
+    ],
+    "priceppi:ID5122:mom": [
+      "bls",
+      "6643e636aaf333fef341ef4e1bb998f5f9b942fe876a737ea7f1cacb329e5d75"
+    ],
+    "priceppi:ID5122:yoy": [
+      "bls",
+      "280cf07a98c6ad719307d511a1e61ad71f31caf2529b528384d4ccebcbf7526d"
+    ],
+    "priceppi:ID51223:mom": [
+      "bls",
+      "e720fd6716920d41c479d96278c3d3ec647bd4b70de1b1bf6de6baf98d17a915"
+    ],
+    "priceppi:ID51223:yoy": [
+      "bls",
+      "a3a705f8320b9414a2beda4a4beb008667eb28a44ccf7708ff17e85f14a90375"
+    ],
+    "priceppi:ID51222:mom": [
+      "bls",
+      "ba95624c86d3ac458b453c54949916a777b9b7a98bc65a25f0cfa3443b3ee5f9"
+    ],
+    "priceppi:ID51222:yoy": [
+      "bls",
+      "407c830e4eeddb5a9d5ac924bc1a6a1ef1f94f0b375869756a9583a959d74637"
+    ],
+    "priceppi:ID512221:mom": [
+      "bls",
+      "031f5d148da80b3d9f9cbe14bf21cad6a3ec7ed09315c21b3602695b09e0b50a"
+    ],
+    "priceppi:ID512221:yoy": [
+      "bls",
+      "d375458af2f1c709e4e6e54fc20141f33f6acc682c634c43678c9560a9f3d641"
+    ],
+    "priceppi:ID512222:mom": [
+      "bls",
+      "1bb982d18df6e3fbcfb85f5fe0c31f16b753ac38f714c2359f777134b3fd0aa4"
+    ],
+    "priceppi:ID512222:yoy": [
+      "bls",
+      "0a559f40e9f8371e5b79d2dbb20ac2a4700cbd6c31e2905f53fb18442a0c041d"
+    ],
+    "priceppi:ID51221:mom": [
+      "bls",
+      "16de2480b9b23c8e0d5b6f5d951c797e0a3a2414c8b927ead1193f60ee3d5b05"
+    ],
+    "priceppi:ID51221:yoy": [
+      "bls",
+      "9c9bcfd883fdaa6b2a2cf72e6102e8af407f159adb68a33430d3a7cc7d365884"
+    ],
+    "priceppi:ID5123:mom": [
+      "bls",
+      "e771faffc33982464f62d6fdfd53a11fad99fb4056eda43c1b308143787d5cf4"
+    ],
+    "priceppi:ID5123:yoy": [
+      "bls",
+      "8d1e9e428c684df53cca22521861013ba1b5abd868b2fd740bddf62b9a9be606"
+    ],
+    "priceppi:ID513:mom": [
+      "bls",
+      "e7f89c604a71133bcaf08d1e22784f8889e690dd411bd5be24f14068995c9a4f"
+    ],
+    "priceppi:ID513:yoy": [
+      "bls",
+      "54601bb1088287da39b177deb99da86ebf1a67d2f7d47ba51d14a6cf3090fb7c"
+    ],
+    "priceppi:ID5131:mom": [
+      "bls",
+      "9dc7e2a612bf555060b966e96d43d73bea5ed0b47a3fc67fa3dbb20d65e3b775"
+    ],
+    "priceppi:ID5131:yoy": [
+      "bls",
+      "5d37c9cacc30daeafd07021958e1b02606de05501a49b1e6ddb7644428bf991d"
+    ],
+    "priceppi:ID51312:mom": [
+      "bls",
+      "f53b01b48793e3c0f93403967ba0a9b5a28e7ad0f1185741bb4eda0aef10e70e"
+    ],
+    "priceppi:ID51312:yoy": [
+      "bls",
+      "4b9b29889aae1ae8822d7cdd232affcac20022d719c626349af4698441ad7987"
+    ],
+    "priceppi:ID51313:mom": [
+      "bls",
+      "0ebbe6f55a3edbb2c3f33df81f0a5b8d7306bc2ac355de4bc7e9e4ce2daad188"
+    ],
+    "priceppi:ID51313:yoy": [
+      "bls",
+      "c170d3bb706a52139884081bbf528bb61d9f83a9f18b78955a9892c9aa765f53"
+    ],
+    "priceppi:ID5132:mom": [
+      "bls",
+      "d673d81c36ceda5d228ad665c65031ccca4757692343c18367dbca5563407897"
+    ],
+    "priceppi:ID5132:yoy": [
+      "bls",
+      "24d895827ac05622540a486e3818632a3c4d14c1d4e209d50f401c6e756c3689"
+    ],
+    "priceppi:ID51323:mom": [
+      "bls",
+      "60b821941dfd3dd5d126926c04f7274a0fd4f46e810752bcbe88ef2fff41880a"
+    ],
+    "priceppi:ID51323:yoy": [
+      "bls",
+      "db037a69fccbac0357fe2ba1f066ba6fb3287d9d04a16d7c0324db8581f2e3c9"
+    ],
+    "priceppi:ID51322:mom": [
+      "bls",
+      "73c8bff7119f4f1b898420a3aab5c2d9be5059d5ffd4d368d439fed9a36b100e"
+    ],
+    "priceppi:ID51322:yoy": [
+      "bls",
+      "ab8ddf3dc18c093471a04cb49658c136cc6d5ccb83304c8e867d5c66ec6e948f"
+    ],
+    "priceppi:ID513222:mom": [
+      "bls",
+      "2b56eca68880bfcc12e3fb3367868430245224d9bdbd9799225a7fe6c7202fba"
+    ],
+    "priceppi:ID513222:yoy": [
+      "bls",
+      "ee6640243eaa71ffd437801abe20e27480773747e52ad22e33820e58050e923e"
+    ],
+    "priceppi:ID51321:mom": [
+      "bls",
+      "ed3e54ed09ab3e1c10df8e78e586363d9b37b00779327136105b448b035e77fa"
+    ],
+    "priceppi:ID51321:yoy": [
+      "bls",
+      "d2112e4d7a9427605d49e221be8cdbf39c25ac04c07e15c827783bb56a3bcbf3"
+    ],
+    "priceppi:ID59413:mom": [
+      "bls",
+      "23f4e59a847f75d933cd5062694827416bf136eb1a19544f0368c222878073ee"
+    ],
+    "priceppi:ID59413:yoy": [
+      "bls",
+      "cb4849d86379c120579f2eb60a807dcf6e85f99dd69f3e6e5123dc5523e88e61"
+    ],
+    "priceppi:ID59414:mom": [
+      "bls",
+      "a72dda231893383283d72f5eeabf7ee01216655916361d36d3bf163e33320caf"
+    ],
+    "priceppi:ID59414:yoy": [
+      "bls",
+      "0bae1076a24ae04e3431b0b751fd9f857450b38b29fc3bf6ae81deab1f693445"
+    ],
+    "priceppi:ID59415:mom": [
+      "bls",
+      "a1ebe73584cce361b32daf74ebd85d1ae83534a77d810e1b0a7f4b21a0a7ad68"
+    ],
+    "priceppi:ID59415:yoy": [
+      "bls",
+      "90de2d8d506f2ef15d10334442bd1563bca480f3decb608a60a7a2c85bd7848a"
+    ],
+    "priceppi:ID59416:mom": [
+      "bls",
+      "19fe246ed3447fbad8874e36ceae0baae56e7b8b448a67738dcf1e09118c5e1d"
+    ],
+    "priceppi:ID59416:yoy": [
+      "bls",
+      "b29e3fc978cc45030a1d730e91b54a174239ab9fc37050a4c0489b881df8a166"
+    ],
+    "priceppi:ID59313:mom": [
+      "bls",
+      "70f9dcf66a4a4535c945bb843357021199d1ed71d9954ef35ca8fbf680c9f29a"
+    ],
+    "priceppi:ID59313:yoy": [
+      "bls",
+      "0b0d5fb32f21ce278bd38e85370d060099337eef01adfa5abb768605651d7b36"
+    ],
+    "priceppi:ID59314:mom": [
+      "bls",
+      "33b8d6f3bf8339d8040d2b0c2613453adb0ff0ae0f1e02f6cd855c2f3419902f"
+    ],
+    "priceppi:ID59314:yoy": [
+      "bls",
+      "ff013abe4e989506834bd812117f7d0258fb8820b01133aa2e7756ed460e62e6"
+    ],
+    "priceppi:ID59315:mom": [
+      "bls",
+      "2cb43beabd729d93a3867d6fe06bf478766323d8a284b5597882ee67df9c2fcc"
+    ],
+    "priceppi:ID59315:yoy": [
+      "bls",
+      "026722a0c19effd2cd78d5bb466eab5bcfd7be69b6290bbd946385d3452ac6ee"
+    ],
+    "priceppi:ID59316:mom": [
+      "bls",
+      "3a52b99b048e6fd22ca398371306d2ccd7978ac781270b2360e6d001216b5d4c"
+    ],
+    "priceppi:ID59316:yoy": [
+      "bls",
+      "dd36df6adb8861197448a67720fc2b9b071f17b60df8daa8fb567e4a6777172b"
+    ],
+    "priceppi:ID59213:mom": [
+      "bls",
+      "24a7d4a103c41f110eb1b36617be4744189d9ae14ea930ebddda1059185621ac"
+    ],
+    "priceppi:ID59213:yoy": [
+      "bls",
+      "79d96742a78da4ddcdf56db2885ec8c57dd787fa36616e3e44fc4ce98a36e01d"
+    ],
+    "priceppi:ID59214:mom": [
+      "bls",
+      "54fa3427ca2aa30be1d8ec0c8f173a933d6d9a9719322a8b9a7e52bde271a694"
+    ],
+    "priceppi:ID59214:yoy": [
+      "bls",
+      "39fa4ccee5b919cb495f4741f4031f66fd263b78ef5b9f0b7bc4d7d0f8876416"
+    ],
+    "priceppi:ID59215:mom": [
+      "bls",
+      "ddac3702470935c1c62b04d5af8a1a2cb44ba7cd7bbccecf88710d5276dfbc05"
+    ],
+    "priceppi:ID59215:yoy": [
+      "bls",
+      "2b7e5eeb678cc6d21a6f08462dfb8226e3fe9128e9008de5bcbdfaad8a482aa9"
+    ],
+    "priceppi:ID59216:mom": [
+      "bls",
+      "fc394ea08c3d7358802112b5b69cb39f714767f8a1a285542c081cfd8a77a912"
+    ],
+    "priceppi:ID59216:yoy": [
+      "bls",
+      "6929d12a1e586ee5a244a686b87f4a94e381bf5fee461bcac99e16bc80122d85"
+    ],
+    "priceppi:ID59117:mom": [
+      "bls",
+      "2f7df02cafb298fe6078a4baaf24f02e3411fe51ff0458de2ed53feaebe3ed58"
+    ],
+    "priceppi:ID59117:yoy": [
+      "bls",
+      "cfd958c83fecd28ef217c6cfddcb0f94fa48931a9303053d746e185a4ae35279"
+    ],
+    "priceppi:ID59114:mom": [
+      "bls",
+      "f765829f5605bcf06a6ffffe2d25b49fe190e2379abb27d8880371cf721fac97"
+    ],
+    "priceppi:ID59114:yoy": [
+      "bls",
+      "304a1f3f379f9715e30c144b5cdb2691ad0e0548877f6a1baf550fdfd213127d"
+    ],
+    "priceppi:ID59115:mom": [
+      "bls",
+      "9fd653d9840ea4ce3117d686635db23fb85db36381048f9e2ef9691b01e1e7b7"
+    ],
+    "priceppi:ID59115:yoy": [
+      "bls",
+      "2fa209d32e2a6f8b0e65b7fd15ff5b662612e529a17282488c6d2c8fed28349d"
+    ],
+    "priceppi:ID59116:mom": [
+      "bls",
+      "dac2a40eae2b0362faba94d28e7f10f9774c9b40164d2cd6ceebdcf07e371e32"
+    ],
+    "priceppi:ID59116:yoy": [
+      "bls",
+      "0c74eafbf2dbdcb4548cd68195109aec4893914244f6cfb1f4ab25ac46308722"
     ]
   },
   "datasets": {

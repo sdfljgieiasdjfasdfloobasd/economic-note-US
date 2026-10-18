@@ -5,6 +5,19 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'cloud'),str(ROOT/'tools')]
 import expansion as e,core,publication,refresh
 class CloudTests(unittest.TestCase):
+ def test_ppi_includes_intermediate_demand_and_official_parent_rows(self):
+  import price_sources
+  for n in [1,3]:
+   items=price_sources.parse((ROOT/f'tests/fixtures/ppi-table{n}-202609.html').read_bytes(),n)
+   self.assertEqual(len(items),618 if n==1 else 309)
+   codes={s['officialId'][3:] for s in items}
+   self.assertEqual(sum(c.startswith('FD') for c in codes),106)
+   self.assertEqual(sum(c.startswith('ID6') for c in codes),56)
+   self.assertEqual(sum(c.startswith('ID5') for c in codes),147)
+   child=next(s for s in items if s['officialId']=='WPSID6111')
+   self.assertEqual(child['hierarchy'],['Processed goods for intermediate demand','Materials and components for manufacturing'])
+   self.assertIn(f'ppi:table{n}',child['publicationViews'])
+   self.assertEqual(child['observations'][-1]['date'],'2026-09-01')
  def test_import_price_failure_stops_requests_and_keeps_saved_values(self):
   import import_price_source as mxp
   site=ROOT/'site';rel=refresh.read(site/'release.json');index=refresh.load(site,rel['seriesIndex'])

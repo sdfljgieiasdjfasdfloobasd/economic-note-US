@@ -1,14 +1,14 @@
 {
-  "builtAt": "2026-10-18T10:55:22.073173+09:00",
+  "builtAt": "2026-10-18T11:34:35.651480+09:00",
   "datasets": 10,
-  "explorerSeries": 29628,
-  "observations": 5731943,
-  "dataBytesBeforeCompression": 857886017,
-  "dataBytesAfterCompression": 99235538,
-  "siteBytes": 101385914,
+  "explorerSeries": 30191,
+  "observations": 5789003,
+  "dataBytesBeforeCompression": 869568182,
+  "dataBytesAfterCompression": 100294277,
+  "siteBytes": 102445079,
   "sourceUnchanged": true,
   "publicationCounts": {
-    "included": 29628,
+    "included": 30191,
     "held_for_review": 4282,
     "permission_required": 59
   },
@@ -23,5 +23,5 @@
   ],
   "mode": "cloud",
   "automaticProviderUpdates": true,
-  "frontendVersion": "4654e084883bbc964c2f"
+  "frontendVersion": "eef6ed9350225269286d"
 }

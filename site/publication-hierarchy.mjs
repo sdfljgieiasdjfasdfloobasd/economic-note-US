@@ -1,9 +1,9 @@
-import {complementHierarchy} from './complement-hierarchy-data.mjs?v=4654e084883bbc964c2f';
-import {retailHierarchy,joltsHierarchy,cesHierarchy} from './publication-hierarchy-data.mjs?v=4654e084883bbc964c2f';
+import {complementHierarchy} from './complement-hierarchy-data.mjs?v=eef6ed9350225269286d';
+import {retailHierarchy,joltsHierarchy,cesHierarchy} from './publication-hierarchy-data.mjs?v=eef6ed9350225269286d';
 // Ancestry is explicit metadata, never a count of digits or a guess from words.
 export function hierarchyMetadata(s){
  const id=s.sourceId||s.id?.replace(/^ex:/,'')||'',h=s.hierarchy;
- let path=Array.isArray(h)?h:h?.path,section=h?.section||'',order=s.sourceOrder??s.sourceRow;
+ let path=Array.isArray(h)?h:h?.path,section=h?.section||s.hierarchySection||'',order=s.sourceOrder??s.sourceRow;
  let label=s.matchLabel||s.label,kind=path?'source-path':'flat';
  if(id.startsWith('gdp:')&&!path&&s.depth>0){const parts=s.label.split(' / ');if(parts.length===s.depth+1){path=parts.slice(0,-1);label=parts.at(-1);kind='bea-source-path'}}
  if(id.startsWith('retail:')){const meta=retailHierarchy[s.officialId];if(meta){path=meta.path;section=meta.section;label=meta.label;kind='census-classification'}else{path=[];section='分類未確認';kind='unverified'}}
