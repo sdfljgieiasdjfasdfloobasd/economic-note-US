@@ -154,3 +154,6 @@
 .revision-panel .ex-publication-controls{padding-left:0;padding-right:0}.revision-panel .ex-publication-controls label{min-width:0;max-width:100%}.revision-panel .ex-publication-controls label:first-child{flex:1 1 300px}.revision-panel .ex-publication-controls label:first-child select{width:100%}
 /* Publication classification headings must remain readable over sticky labels. */
 .ex-table .heat-scroll tbody .hierarchy-section th{position:static;min-width:0;max-width:none;background:#e8f0f4;color:#19374a;font-weight:650;padding-top:8px;padding-bottom:8px;white-space:normal;text-align:left}
+
+/* Guide remains reachable below the navigation, including on mobile. */
+.sidebar .guide-link{display:block;margin-top:auto;padding:12px 8px;color:#bdeee4;text-decoration:none;font-size:14px;flex-shrink:0;border-top:1px solid #355064}.sidebar .guide-link small{display:block;font-size:10px;color:#9fb4c4;margin-top:4px}.sidebar .side-bottom{margin-top:12px}.sidebar nav{min-height:0;flex-shrink:1}@media(max-width:1000px){.sidebar .guide-link{margin-top:8px;padding:7px 10px;font-size:13px}.sidebar .guide-link small{display:inline;margin-left:12px}}

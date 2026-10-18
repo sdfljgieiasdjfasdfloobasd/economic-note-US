@@ -42,6 +42,13 @@ def replace_once(text, old, new):
 
 
 def patch_frontend(stage):
+    guide = stage / 'guide.mjs'
+    if guide.exists():
+        guide_text = guide.read_text()
+        request_line = next(line for line in guide_text.splitlines() if line.startswith('async function request('))
+        guide_text = guide_text.replace(request_line, "import {request} from './static-api.mjs';")
+        guide_text = guide_text.replace("const MODE='local';", "const MODE='public';")
+        guide.write_text(guide_text)
     p = stage / 'app.js'
     text = p.read_text()
     old = next(line for line in text.splitlines() if line.startswith('async function request('))
