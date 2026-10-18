@@ -1,11 +1,11 @@
 {
-  "builtAt": "2026-10-18T11:34:35.651480+09:00",
+  "builtAt": "2026-10-18T19:30:18.094332+09:00",
   "datasets": 10,
   "explorerSeries": 30191,
-  "observations": 5789003,
-  "dataBytesBeforeCompression": 869596394,
-  "dataBytesAfterCompression": 100193360,
-  "siteBytes": 102351277,
+  "observations": 5789363,
+  "dataBytesBeforeCompression": 869622636,
+  "dataBytesAfterCompression": 100217473,
+  "siteBytes": 102375390,
   "sourceUnchanged": true,
   "publicationCounts": {
     "included": 30191,
