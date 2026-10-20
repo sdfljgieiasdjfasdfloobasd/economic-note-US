@@ -1,5 +1,5 @@
-import {tableGroups} from './explorer-groups.mjs?v=ebf3f8b7cd9353377979';
-import {hierarchyMetadata} from './publication-hierarchy.mjs?v=ebf3f8b7cd9353377979';
+import {tableGroups} from './explorer-groups.mjs?v=7fc030020fc0ed6ed7f1';
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=7fc030020fc0ed6ed7f1';
 export const references=[['BEA NIPA Handbook（GDP・PCE・投資等の概念と推計方法）','https://www.bea.gov/resources/methodologies/nipa-handbook'],['BLS CPI Frequently Asked Questions（CPIの対象と指数の読み方）','https://www.bls.gov/cpi/questions-and-answers.htm']];
 export const GUIDE_VERSION='2026-10-18';
 export const pages=[
@@ -16,7 +16,7 @@ export const pages=[
  {id:'consumption',title:'消費｜家計・所得階層・信用・サービス',route:'consumption',about:'家計支出、所得・貯蓄の分布、金融資産・負債、延滞、消費者心理、サービス売上、消費者信用など。小売売上高は独立ページにあります。',use:'BLS消費支出調査の年次、DFAやNY連銀の四半期、SCFの3年ごとを区別します。資産階層と所得階層は同じ区分ではありません。研究統計・旧手法の系列もラベルで区別します。'},
  {id:'retail',title:'小売売上高',route:'retail',about:'CensusのMRTS・MARTSによる名目売上高、コントロールグループ等の計算指標、セントルイス連銀の実質小売、Chicago連銀CARTSをまとめたページです。',use:'MARTS速報とMRTS詳細は公表時期が異なり、最新月の詳細が空欄でも取得失敗とは限りません。コア／除外系列と、物価調整した実質系列を混同しません。'},
  {id:'gdp',title:'GDP｜国民経済計算・投資・貿易',route:'gdp',about:'BEA NIPAの表番号・年次／四半期ごとの収録。GDPの主要・詳細項目、消費、固定投資、所得、価格等に加え、貿易や財政の補完表があります。',use:'実質成長率は1.1.1／詳細1.5.1、寄与度は1.1.2／詳細1.5.2、名目額は1.1.5／詳細1.5.5、実質額は1.1.6／詳細1.5.6。四半期前年同期比を計算するには実質水準の表を選びます。'},
- {id:'housing',title:'住宅建設',route:'housing',about:'住宅の許可・着工・建設中・完成、新築／中古販売、空室率、住宅市場指数、住宅ローン申請と金利を調べます。',use:'一戸建て／集合住宅、地域、SAAR／NSAを確認。許可・着工・完成は別段階で、同月の同じ案件ではありません。住宅ローン申請指数は申請件数そのものとは異なります。'},
+ {id:'housing',title:'住宅｜需要・供給・価格・金融',route:'housing',about:'供給：Census NRCの許可・着工・未着工・建設中・完成（地域・建物戸数・用途別）。需要：Census NRSの新築販売、価格帯・融資方法・地域別詳細。需給：販売用在庫・消化月数、HVS空室率・住宅ストック・持ち家率（地域・年齢・人種・所得別）。価格：新築成約価格、空き住宅の募集家賃・売出価格、FHFA住宅価格指数。MHS工場生産住宅の価格・出荷月別販売設置状況も収録。既存の住宅投資・住宅建設支出・住宅向け融資・住宅債務も同じ系列を再利用します。',use:'表を選ぶか、上の比較ボタンから着工／在庫／価格等を選んでください。季節調整済み年率（SAAR）は実際の月間戸数ではありません。住宅価格指数はドル価格でも地域間の価格水準比較でもありません。NRSは新築一戸建ての契約で中古販売ではありません。HVSの募集値は成約値と別です。FHFAは購入取引のみ・借換鑑定込み・拡張データで対象が違い、実験系列は定義に記載。月次・四半期・年次と旧価格帯を区別します。MHSの状態は出荷月別のコホートで、全国の当月在庫ではありません。NAHB・PMMS等は公開許諾の確認範囲により版で異なります。NAR中古販売の機械取得可能な無料原表、SOMAの登録不要APIは未収録。取得制限時は過去値を保持し、収録状況に理由を表示します。'},
  {id:'production',title:'鉱工業生産｜設備投資・建設・エネルギー',route:'production',about:'FRB G.17の生産・能力・稼働率、Census M3の受注等、C30建設支出、企業融資、電力・エネルギーの補完統計を調べます。',use:'生産指数・設備能力・設備稼働率は別指標。STEOの予測と実績を区別。LBNL Queued Upは発電・蓄電設備の系統接続待ちであり、データセンターの電力需要や需要家の接続待ちではありません。'},
  {id:'analysis',title:'比較・お気に入り',route:'analysis',about:'異なる統計から最大8系列を選び、期間や頻度・表示方法をそろえて比較・回帰分析し、分析条件を保存します。',use:'金額と指数など異なる単位を、そのまま上下で比べないでください。期間集計方法、ラグ、共通観測数を確認。お気に入りは条件の保存で、元データの固定コピーではありません。'},
  {id:'calendar',title:'発表カレンダー',route:'calendar',about:'月間カレンダーに保存された公式公表予定を日本時間で表示します。前月・翌月・今月・表示月で移動し、日付や予定を押すと下に対象期・反映状況・公式出典の詳細が開きます。一覧表示にも切り替えられます。',use:'指標の分類と反映状況で絞り込めます。同日に4件以上ある場合は「ほか○件を見る」で全件を確認。狭い画面ではカレンダーを横にスクロールできます。予定が過ぎた＝取得完了ではありません。日本時間表示、公表対象期、元の公表日を確認し、必要なら公式リンクを参照してください。'}

@@ -9,8 +9,9 @@ import html
 import json
 
 HERE = Path(__file__).resolve().parent
-REVIEW_DATE = '2026-10-17'
+REVIEW_DATE = '2026-10-20'
 RULES = {
+ 'fhfa': {'name':'Federal Housing Finance Agency', 'terms':'https://www.fhfa.gov/about/fhfa-policies/website-privacy-policy', 'basis':'FHFA作成の住宅価格指数の公表集計値。公式public-domain方針に基づき出典・指数区分を保持。第三者素材・個票は含まない。'},
  'fred_retail': {'name':'St. Louis Fed / Real Retail Sales', 'terms':'https://fred.stlouisfed.org/series/RRSFS', 'basis':'RRSFSのCopyrighted: Citation Required区分。系列別出典を画面・CSV・図に表示。Censusの売上高を総合CPIで実質化したSA系列。'},
  'cleveland_model': {'name':'Cleveland Fed / Inflation Expectations', 'terms':'https://www.clevelandfed.org/privacy', 'basis':'非商用・教育目的の掲載としてCleveland連銀自身の期待インフレ・モデル推計を出典付きで転載。元となる第三者データは配布しない。'},
  'nyfed_sce': {'name':'New York Fed / SCE', 'terms':'https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/frbny-sce-survey-housing-module-public-questionnaire.pdf', 'basis':'SCE公開データの利用・改変・再配布ライセンス。指定の出典・免責を画面と出力に記載。'},

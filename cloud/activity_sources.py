@@ -103,10 +103,12 @@ def gdp():
  return result
 
 def housing():
- page='https://www.census.gov/construction/nrc/data/series.html';t=html.fromstring(e.get(page));urls=list(dict.fromkeys(urljoin(page,a.get('href')) for a in t.xpath('//a[@href]') if a.get('href').endswith('.xlsx')))
- if len(urls)<8:raise ValueError('住宅建設の公式履歴リンクを確認できません')
- with ThreadPoolExecutor(max_workers=3) as pool:blocks=list(pool.map(lambda u:housing_parse(e.get(u),u),urls))
- return store([s for block in blocks for s in block])
+ # Fixed official URLs; serial requests and independent failure handling avoid
+ # losing all construction tables when a single workbook is temporarily down.
+ from housing_sources import jobs as extra_jobs,refresh_jobs
+ names=('permits','authnot','starts','under','comps','starts_permits','under_permits','comps_permits','starts_quarterly','comps_quarterly')
+ jobs=[('nrc:'+name,'https://www.census.gov/construction/nrc/xls/'+name+'_cust.xlsx',housing_parse) for name in names]
+ return refresh_jobs([*jobs,*extra_jobs()])
 
 def g17():
  b,url=fed_zip('g17','https://www.federalreserve.gov/datadownload/Choose.aspx?rel=G17')

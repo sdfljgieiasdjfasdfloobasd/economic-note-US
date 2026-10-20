@@ -72,7 +72,7 @@ def census_parse(b,program,url):
   assert r['is_adj'] in ['0','1'];sa='SA' if r['is_adj']=='1' else 'NSA'
   key=':'.join([c['cat_code'],t['dt_code'],g['geo_code'],sa])
   unit={'MLN$':'million USD','DOL':'USD','K':'千','MO':'月','RATIO':'比率'}[t['dt_unit']]
-  if program=='RESSALES' and unit=='千':unit='千戸'+('・年率' if sa=='SA' and c['cat_code']=='SOLD' else '')
+  if program=='RESSALES' and unit=='千':unit='千戸'+('・年率' if sa=='SA' and c['cat_code'] in ('SOLD','ASOLD') else '')
   if program=='QSS' and unit=='千':unit='千件 / 千日（'+t['dt_desc']+'）'
   s=out.setdefault(key,make(program.lower(),key,' / '.join([c['cat_desc'],t['dt_desc'],g['geo_desc']]),url,pub, freq=freq,unit=unit,season=sa,page=page,note='公式一括履歴。名目金額・実数・比率を区別。改定を含む全履歴。非公表は空欄。'+('QSSは消費者向けだけでなく企業・政府向け売上も含みます。' if program=='QSS' else ''),officialId=key,sourceVintage=vintage,sourceCategory=c['cat_code'],sourceMeasure=t['dt_code'],sourceGeo=g['geo_code']))
   s['observations'].append(observation(dates[r['per_idx']],r['val'],sourceVintage=vintage))

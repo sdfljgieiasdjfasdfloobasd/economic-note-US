@@ -25,6 +25,10 @@ def summary(s):
 def fred(spec):
  id=spec['code'];source='https://fred.stlouisfed.org/series/'+id
  try:
+  from fred_history import refresh as refresh_known_fred
+  import sys
+  known=refresh_known_fred(sys.modules[__name__],spec)
+  if known is not None:return known
   t=html.fromstring(get(source));title=t.xpath('string(//meta[@name="citation_title"]/@content)') or t.xpath('string(//title)').split(' | ')[0]
   units=t.xpath('string(//*[contains(@class,"series-meta-value-units")])').strip()
   freq=t.xpath('string(//*[contains(@class,"series-meta-value-frequency")])').strip()

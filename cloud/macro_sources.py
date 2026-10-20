@@ -113,6 +113,8 @@ def fed_parse(b,release,url):
   season=attrs.get('SA') or ('SA' if 'seasonally adjusted' in label.lower() else '非該当')
   pub={'g19':'FRB / G.19 Consumer Credit','sloos':'FRB / SLOOS 消費者・住宅向け融資','dsr':'FRB / Household Debt Service Ratios','for':'FRB / Financial Obligations・旧DSR（旧手法）'}[release]
   x=item(release,attrs['SERIES_NAME'],label,url,pub,unit,freq,season,note=annotations.get('Long Description',label)+'。SDMXの公表単位・精度を保持。',officialId=attrs['SERIES_NAME'],dimensions=attrs)
+  if release=='sloos' and unit=='Number' and label.lower().startswith('net percentage') and re.search(r'mortgage|residential',label,re.I):
+   x.update(unit='%',sourceUnit='Number',unitNote='公式系列名のNet percentage（回答割合の差）に基づく表示。SDMXのUNIT=Numberはdimensionsに保持し、銀行数として扱いません。')
   if business or release=='sloos' and re.search(r'commercial real estate|construction and land|nonfarm nonresidential|multifamily',label,re.I):
    x.update(page='production',publicationId='sloos:business',publicationLabel='FRB / SLOOS 企業・商業不動産向け融資',category='FRB / SLOOS 企業・商業不動産向け融資')
   x['observations']=[e.obs(v.get('TIME_PERIOD'),v.get('OBS_VALUE'),v.get('OBS_STATUS','published')) for v in s.xpath('./*[local-name()="Obs"]')]
