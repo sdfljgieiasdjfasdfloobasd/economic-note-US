@@ -1,30 +1,30 @@
 {
   "format": 1,
-  "builtAt": "2026-10-20T11:43:34.178289+00:00",
+  "builtAt": "2026-10-20T21:18:16.423498+00:00",
   "datasets": {
-    "cpi": "data/f83afa615c3843a115069fd5c58f83614db8082fcec998f0ed9e98c26d024c09.json.gz",
-    "cpi_detail": "data/75e515cec2d3766bbfeea8817b97ae2e590728d992537949fd83f038b9c70cfe.json.gz",
+    "cpi": "data/ca52856bcc4bcf35599118d11e593171fddf4b3f0d64a86040aa1f4e17b4a006.json.gz",
+    "cpi_detail": "data/d58f0055741608f2eaf2ec9118cdf09b2f33640f4b0832888bea94b5637a00c1.json.gz",
     "cpi3": "data/12a4f9fef0acdc13bce62cb98d985dbbc07fa4d8f4d207d3bfd728e4f72fb314.json.gz",
     "cpi6": "data/b4a46defe72899775117f81d86c8a1c743a9e4feb71a41d17ea033d109937b92.json.gz",
-    "pce": "data/b1d4edc5a444db1ab70e70b4db9ab70c8fc08a17651cfc3ea93ee16895b29862.json.gz",
+    "pce": "data/120701501c606f5907043958a4bc4fc547eae3d561bbb0813fe90280c08690d0.json.gz",
     "ppi": "data/f38e7e888148390c7814876de6b0def5e9de29cb76dc38abd35a34bcf3810c52.json.gz",
     "employment": "data/5bcdb63800dee0ddd47e79c39b3ce0f7da4890129c16618e38d7d48c89323452.json.gz",
     "labor": "data/3308eb96b068dd0d7aaa79d9f34d4bca74e54b1ed9c4e36cbfa3572c1cc2d9eb.json.gz",
     "wages": "data/821b3073e125cb38bf7a6b8d0903466ce40fd96e63d876f9cb23991c9653a1b1.json.gz",
     "hours": "data/3cd861c77833dcbd4c09f0840b076646a742d7b74e26832c46be00996ad7eeb5.json.gz"
   },
-  "manifest": "data/f2e4c7381f4091c6b6ac8929f4c1832c9eaa8c97187c12370ee6550222f17932.json.gz",
-  "catalog": "data/95578656864f0a1660dcb7f62d89f281e22795f1c686159388ee2d33522ef2ec.json.gz",
-  "updateReport": "data/77c91274bf901c89f73348336d840ae0c9bf6f2eb99eae06dc12f4b810766a77.json.gz",
-  "analysisCatalog": "data/60067a27d514454e0f7c2d910b07c75000d84199af8b7a3e132f1981e071f2e2.json.gz",
-  "calendar": "data/4ff91daa8938f9b71fb6d775a526374a1e5f18de8b2b1e710bba5298dca9d9ad.json.gz",
-  "seriesIndex": "data/f72237e01cf678d118e6b5326d3becf5e6c404e7c45def94bc81112312873fb0.json.gz",
+  "manifest": "data/295fd55fdd3db6481af358cc782afd1d8acf55ae6503eea1ee3cf36cee3e730f.json.gz",
+  "catalog": "data/c3c790a1caadd30012424a229a17406d3ebcd4e260e8f2f9b7d4cf5323399373.json.gz",
+  "updateReport": "data/8ccc32947a2b19b6121886a742b7f5a5e57b2911fb0f50fc1095a0c0fa758a5d.json.gz",
+  "analysisCatalog": "data/bce3f05d0f4f91dc5238ebe9e252a7c075f3cbb038c517905f02bb9bd7e6dcca.json.gz",
+  "calendar": "data/7f81bbeee1d08d562e11e6a1664b62c247690539318d94291e04032081c20b4d.json.gz",
+  "seriesIndex": "data/9769d69dc856c229996a176b837cb87e69582ffd84678ba9a63dc0cfc9b3ed9f.json.gz",
   "cloudUpdate": {
     "changedDatasets": [],
     "schedule": "毎日04:00 JST（開始予定）",
-    "startedAt": "2026-10-19T19:28:03.974396+00:00",
-    "finishedAt": "2026-10-19T19:37:32.951192+00:00",
-    "changedSeries": 0,
+    "startedAt": "2026-10-20T19:28:18.790570+00:00",
+    "finishedAt": "2026-10-20T19:37:55.035188+00:00",
+    "changedSeries": 256,
     "checkedSeries": 15732,
     "failedSources": 92,
     "mode": "daily",
@@ -53,7 +53,7 @@
         "source": "BLS CPI API fallback",
         "status": "failed",
         "series": 522,
-        "reason": "BLS APIの保護用待機中。プログラム側の再試行可能時刻: 2026-10-20T19:28:41.908496+00:00（BLSが保証した解除時刻ではありません）。保存値を保持。"
+        "reason": "BLS APIの保護用待機中。プログラム側の再試行可能時刻: 2026-10-20T19:28:58.270183+00:00（BLSが保証した解除時刻ではありません）。保存値を保持。"
       },
       {
         "source": "bls",
@@ -734,7 +734,7 @@
     "cpiMissingApiSeries": 22
   },
   "publicationPolicy": "reviewed-only",
-  "revision": "housing-e5331829465397c5",
+  "revision": "housing-merge-21b9d89b0a4f8a36",
   "manualUpdate": {
     "scope": "住宅の詳細・取得失敗FREDの復旧",
     "newHousingSeries": 2530,

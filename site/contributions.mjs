@@ -1,4 +1,4 @@
-import {valuesFor} from './analytics.mjs?v=7fc030020fc0ed6ed7f1';
+import {valuesFor} from './analytics.mjs?v=b26d7008b17e7954f8f0';
 // Fixed identities/colors. These are a disjoint frontier of the saved BLS tree.
 export const industryDefinitions = [
  ['Mining and logging','鉱業・伐採業','#998260'],
