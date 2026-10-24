@@ -1,18 +1,18 @@
-import {request} from './static-api.mjs?v=10b75e075c10f99d8fe9';
-import {initRevisions,mountRevisionView,baseRevisionInput,markRevisionCells} from './revision-view.mjs?v=10b75e075c10f99d8fe9';
-import {axisScale,axisControls} from './chart-axis.mjs?v=10b75e075c10f99d8fe9';
-import {workbookPickerItems,workbookSelection} from './series-tree.mjs?v=10b75e075c10f99d8fe9';
-import {setupSeriesPicker} from './series-picker.mjs?v=10b75e075c10f99d8fe9';
-import {setupChartExports} from './chart-export.mjs?v=10b75e075c10f99d8fe9';
-import {niceAxis} from './chart-axis.mjs?v=10b75e075c10f99d8fe9';
-import {setupAnalysis} from './analysis-ui.mjs?v=10b75e075c10f99d8fe9';
-import {setupCalendar} from './calendar-ui.mjs?v=10b75e075c10f99d8fe9';
-import {setupUpdateReport} from './update-report.mjs?v=10b75e075c10f99d8fe9';
-import {setupExplorer} from './explorer-ui.mjs?v=10b75e075c10f99d8fe9';
-import {setupContributions} from './contributions-ui.mjs?v=10b75e075c10f99d8fe9';
-import {orderedSeries,breadcrumb,itemOptions} from './hierarchy.mjs?v=10b75e075c10f99d8fe9';
-import {availableMetrics,seasons,valuesFor,heatColor,shiftMonth} from './analytics.mjs?v=10b75e075c10f99d8fe9';
-import {setupRegression} from './regression-ui.mjs?v=10b75e075c10f99d8fe9';
+import {request} from './static-api.mjs?v=7caff030e0bc1a5ca317';
+import {initRevisions,mountRevisionView,baseRevisionInput,markRevisionCells} from './revision-view.mjs?v=7caff030e0bc1a5ca317';
+import {axisScale,axisControls} from './chart-axis.mjs?v=7caff030e0bc1a5ca317';
+import {workbookPickerItems,workbookSelection} from './series-tree.mjs?v=7caff030e0bc1a5ca317';
+import {setupSeriesPicker} from './series-picker.mjs?v=7caff030e0bc1a5ca317';
+import {setupChartExports} from './chart-export.mjs?v=7caff030e0bc1a5ca317';
+import {niceAxis} from './chart-axis.mjs?v=7caff030e0bc1a5ca317';
+import {setupAnalysis} from './analysis-ui.mjs?v=7caff030e0bc1a5ca317';
+import {setupCalendar} from './calendar-ui.mjs?v=7caff030e0bc1a5ca317';
+import {setupUpdateReport} from './update-report.mjs?v=7caff030e0bc1a5ca317';
+import {setupExplorer} from './explorer-ui.mjs?v=7caff030e0bc1a5ca317';
+import {setupContributions} from './contributions-ui.mjs?v=7caff030e0bc1a5ca317';
+import {orderedSeries,breadcrumb,itemOptions} from './hierarchy.mjs?v=7caff030e0bc1a5ca317';
+import {availableMetrics,seasons,valuesFor,heatColor,shiftMonth} from './analytics.mjs?v=7caff030e0bc1a5ca317';
+import {setupRegression} from './regression-ui.mjs?v=7caff030e0bc1a5ca317';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)],colors=['#007e72','#d58b35','#526bc4','#bd527f','#8a6b42','#299bb0','#7845a1','#656b75'];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=v=>v==null||!Number.isFinite(v)?'—':new Intl.NumberFormat('ja-JP',{minimumFractionDigits:3,maximumFractionDigits:3}).format(Math.abs(v)<.0005?0:v);
@@ -54,8 +54,8 @@ const seriesPicker=setupSeriesPicker({host:$('#series-picker-host'),search:true,
  await switchGroup('analysis',preset);
 }});
 function pickerItems(){return manifest.datasets.filter(m=>m.group===dataset.group).flatMap(m=>workbookPickerItems(datasets.get(m.id)))}
-function renderControls(){seriesPicker.update(pickerItems(),dataset.id);seriesPicker.root.querySelector('.source-note').textContent='分類 → 統計名 → 品目の順に ▸ で内訳を開けます。このページに収録したすべての表から選べます。別の表の系列を追加すると、現在の系列・表示値・期間を引き継いで「比較・お気に入り」に表示します。';$('#series-controls').innerHTML=configs.map((c,i)=>{const s=dataset.series.find(s=>s.id===c.id),ss=seasons(dataset,s);return `<div class="series-row"><span class="dot" style="background:${colors[i]}"></span><label>系列 ${i+1}<select data-config="${i}" data-field="id" aria-label="系列${i+1}の品目">${itemOpts(dataset,c.id)}</select></label><label>季節調整<select data-config="${i}" data-field="season" aria-label="系列${i+1}の季節調整">${['SA','NSA'].map(k=>`<option value="${k}" ${k===c.season?'selected':''} ${ss.includes(k)?'':'disabled'}>${k}${ss.includes(k)?'':'（未収録）'}</option>`).join('')}</select></label><label>表示する値<select data-config="${i}" data-field="metric" aria-label="系列${i+1}の表示値">${opts(availableMetrics(dataset,s,c.season),c.metric)}</select></label><button class="remove-series" data-remove="${i}" aria-label="系列${i+1}を削除" ${configs.length===1?'disabled':''}>×</button></div>`}).join('');
- $$('[data-config]').forEach(el=>el.onchange=()=>{const i=Number(el.dataset.config);configs[i][el.dataset.field]=el.value;configs[i]=validate(dataset,configs[i]);renderControls();render()});$$('[data-remove]').forEach(b=>b.onclick=()=>{configs.splice(Number(b.dataset.remove),1);renderControls();render()});$('#add-series').disabled=false;}
+function renderControls(){seriesPicker.update(pickerItems(),dataset.id);seriesPicker.root.querySelector('.source-note').textContent='分類 → 統計名 → 品目の順に ▸ で内訳を開けます。このページに収録したすべての表から選べます。別の表の系列を追加すると、現在の系列・表示値・期間を引き継いで「比較・お気に入り」に表示します。';$('#series-controls').innerHTML=configs.map((c,i)=>{const s=dataset.series.find(s=>s.id===c.id),ss=seasons(dataset,s);return `<div class="series-row"><span class="dot" style="background:${colors[i]}"></span><label>系列 ${i+1}<select data-config="${i}" data-field="id" aria-label="系列${i+1}の品目">${itemOpts(dataset,c.id)}</select></label><label>季節調整<select data-config="${i}" data-field="season" aria-label="系列${i+1}の季節調整">${['SA','NSA'].map(k=>`<option value="${k}" ${k===c.season?'selected':''} ${ss.includes(k)?'':'disabled'}>${k}${ss.includes(k)?'':'（未収録）'}</option>`).join('')}</select></label><label>表示する値<select data-config="${i}" data-field="metric" aria-label="系列${i+1}の表示値">${opts(availableMetrics(dataset,s,c.season),c.metric)}</select></label><button class="text-button copy-series" data-copy="${i}" ${configs.length>=8?'disabled':''} aria-label="系列${i+1}に別の計算を追加">別の計算を追加</button><button class="remove-series" data-remove="${i}" aria-label="系列${i+1}を削除" ${configs.length===1?'disabled':''}>×</button></div>`}).join('');
+ $$('[data-config]').forEach(el=>el.onchange=()=>{const i=Number(el.dataset.config);configs[i][el.dataset.field]=el.value;configs[i]=validate(dataset,configs[i]);renderControls();render()});$$('[data-copy]').forEach(b=>b.onclick=()=>{if(configs.length>=8)return;const c=configs[Number(b.dataset.copy)],s=dataset.series.find(s=>s.id===c.id),ms=availableMetrics(dataset,s,c.season),used=configs.filter(v=>v.id===c.id&&v.season===c.season).map(v=>v.metric),metric=['mom','m3','yoy','change',...ms.map(v=>v.id)].find(id=>ms.some(v=>v.id===id)&&!used.includes(id))||ms.find(v=>v.id!==c.metric)?.id||c.metric;configs.push({...c,metric,hidden:false});renderControls();render()});$$('[data-remove]').forEach(b=>b.onclick=()=>{configs.splice(Number(b.dataset.remove),1);renderControls();render()});$('#add-series').disabled=false;}
 function render(){if(!dataset)return;const from=$('#chart-from').value,to=$('#chart-to').value;if(!from||!to||from>to){alertMessage('開始月と終了月を確認してください。',true);return}selected=configs.map(c=>seriesData(dataset,c));chartRows=dataset.dates.map((date,i)=>({date,values:selected.map(s=>s.values[i]??null)})).filter(r=>r.date>=from&&r.date<=to);
  $('#legend').innerHTML=selected.map((s,i)=>`<button class="legend-item series-visibility" data-series-toggle="${i}" aria-pressed="${!configs[i].hidden}" title="クリックで表示・一時非表示"><span class="dot" style="background:${colors[i]}"></span>${esc(s.label)}</button>`).join('');$$('[data-series-toggle]').forEach(b=>b.onclick=()=>{const c=configs[Number(b.dataset.seriesToggle)];c.hidden=!c.hidden;render()});$$('[data-range]').forEach(b=>{b.classList.toggle('active',b.dataset.range===range);b.setAttribute('aria-pressed',String(b.dataset.range===range))});$('#chart-period').textContent=chartRows.length?`${chartRows[0].date} — ${chartRows.at(-1).date}`:'対象期間なし';drawChart();drawTable();drawHeat();mountRevisionView($('#chart').closest('.workspace'),{inputs:configs.filter(c=>!c.hidden).map(c=>baseRevisionInput(dataset,dataset.series.find(s=>s.id===c.id),c.season,c.metric)),from,to,csv});contributions?.setDataset(dataset);
  const r=chartRows.at(-1),prev=chartRows.at(-2),unit=selected[0]?.met?.unit||'',delta=r?.values[0]!=null&&prev?.values[0]!=null?r.values[0]-prev.values[0]:null;

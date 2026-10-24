@@ -1,4 +1,4 @@
-import {transform,frequency,lagDate,periodKey,compatibleUnit} from './explorer-math.mjs?v=10b75e075c10f99d8fe9';
+import {pageMetrics,transform,frequency,lagDate,periodKey,compatibleUnit} from './explorer-math.mjs?v=7caff030e0bc1a5ca317';
 export function prepare(s,metric,target='native',aggregation='mean'){
  const f=frequency(s);if(metric.startsWith('eight')&&f!=='Q'||/^(growth|annual)[36]$/.test(metric)&&f!=='M'||s.alreadySmoothed&&/^(?:delta_)?ma/.test(metric)||metric.startsWith('bp')&&(f!=='D'||!['%','Percent'].includes(s.unit))||f==='F'&&!['level','delta1','yoy'].includes(metric))throw Error('この頻度・単位には選択した変換を適用できません。');let rs=transform(s,metric);let out={...s,unit:compatibleUnit(s,metric),observations:rs};
  if(target==='native'){out.observations=rs.map(r=>{const date=f==='M'?r.date.slice(0,7)+'-01':f==='Q'?r.date.slice(0,4)+'-'+String(Math.floor((Number(r.date.slice(5,7))-1)/3)*3+1).padStart(2,'0')+'-01':f==='A'?r.date.slice(0,4)+'-01-01':r.date;return {...r,date,sourceDate:r.date}});return out;}
@@ -18,4 +18,33 @@ export function pairSeries(x,y,from,to,lag){
  if(!Number.isInteger(lag)||Math.abs(lag)>120)throw Error('ラグは−120〜120期の整数です。');
  const map=new Map(x.observations.map(r=>[periodKey(x,r.date),r]));const pairs=[];let missing=0;
  for(const r of y.observations){if(r.date<from||r.date>to)continue;const d=lagDate(y,r.date,lag),a=map.get(periodKey(x,d));if(!Number.isFinite(a?.value)||!Number.isFinite(r.value)){missing++;continue}pairs.push({date:r.date,xDate:a.date,x:a.value,y:r.value})}return {pairs,missing};
+}
+
+
+export function metricLabel(source,metric){
+ return pageMetrics('',[source]).find(([id])=>id===metric)?.[1]||metric;
+}
+
+// Each entry is an independent plot, even when its source ID is shared.
+export function comparisonCopy(entry,source,siblings=[]){
+ const choices=pageMetrics('',[source]).map(([id])=>id);
+ const used=new Set(siblings.filter(s=>s.id===entry.id).map(s=>s.metric));
+ used.add(entry.metric);
+ const preferred=['qoq','growth3','yoy','delta1','level',...choices];
+ const metric=preferred.find(id=>choices.includes(id)&&!used.has(id))
+   ||choices.find(id=>id!==entry.metric)||entry.metric;
+ return {...entry,metric,hidden:false};
+}
+
+export function explorerSelection(source,metric='level',hidden=false){
+ const a=source.alias;
+ const id=a?'wb:'+JSON.stringify([a.dataset,a.series,a.season,a.metric||'level']):'ex:'+source.id;
+ return {id,metric,hidden};
+}
+
+export function comparisonTable(series){
+ const dates=[...new Set(series.flatMap(s=>s.observations.map(r=>r.date)))].sort().reverse();
+ const maps=series.map(s=>new Map(s.observations.map(r=>[r.date,r.value])));
+ return {headers:series.map(s=>`${s.label} · ${s.seasonal||'非該当'} · ${s.unit}`),
+   rows:dates.map(date=>[date,...maps.map(m=>m.get(date)??null)])};
 }

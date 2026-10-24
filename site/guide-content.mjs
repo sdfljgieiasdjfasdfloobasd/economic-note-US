@@ -1,5 +1,5 @@
-import {tableGroups} from './explorer-groups.mjs?v=10b75e075c10f99d8fe9';
-import {hierarchyMetadata} from './publication-hierarchy.mjs?v=10b75e075c10f99d8fe9';
+import {tableGroups} from './explorer-groups.mjs?v=7caff030e0bc1a5ca317';
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=7caff030e0bc1a5ca317';
 export const references=[['BEA NIPA Handbook（GDP・PCE・投資等の概念と推計方法）','https://www.bea.gov/resources/methodologies/nipa-handbook'],['BLS CPI Frequently Asked Questions（CPIの対象と指数の読み方）','https://www.bls.gov/cpi/questions-and-answers.htm']];
 export const GUIDE_VERSION='2026-10-18';
 export const pages=[
@@ -44,6 +44,8 @@ export const chapters=[
  '「収録状況」は系列の存在・最新観測・取得状況を確認する場所です。表に値がない理由には、未公表、過去履歴の未収録、公表終了、抑制値、取得失敗、計算に必要な比較期の欠損などがあります。灰色だけで原因を断定できません。',
  '表辞典の収録期間は、少なくとも1系列にデータがある期間の外枠です。期間内の全品目が連続して揃う保証ではありません。系列ごとの初回・最新観測、観測数は系列定義CSVで確認できます。']},
  {id:'charts',title:'4. グラフ・系列の追加・軸・保存',paragraphs:[
+ '同じ系列を異なる計算で比較できます。各統計の選択済み系列の「別の計算で比較」を押すと、現在の選択・SA／NSA・期間を「比較・お気に入り」に引き継いで複製します。比較画面と従来のグラフには「別の計算を追加」があり、各行の表示値を個別に指定できます。例：同じ月次指数の1行目を前月比、2行目を3か月前比にすると、同じ図に別の色で表示します。複製も含め最大8本です。',
+ '比較画面の「比較中の数値表」では各計算が別の列に並びます。凡例・表・表示値CSVには計算方法・季節調整・単位が付きます。3か月前比は3か月前からの累積変化率、3か月前比・年率換算は別の計算です。欠損は補完せず、表示期間の開始前の観測も変化率の計算に利用します。単位が異なる場合はグラフを分けます。複製した行は個別に非表示・削除でき、お気に入りにも別々の計算として保存できます。',
  '「系列一覧からまとめて追加」を開き、分類→統計名→品目→詳細品目の順に開きます。品目を複数選んで「選んだ系列を追加」。親項目と詳細項目は個別に選択します。検索欄には日本語・英語の品目名を使えます。',
  '追加済みの系列名を押すと一時的に非表示になり、取り消し線が付きます。再度押せば戻せます。「×」は比較から削除する操作なので、再表示には追加し直しが必要です。',
  'グラフ上を指す・タップする・対応するグラフで左右キーを使うと、対象日の値が図の外の説明欄に出ます。色と系列名を照合してください。欠損をまたいで線をつなげないグラフがあります。',

@@ -165,3 +165,10 @@
 
 /* Indentation guides stay in the label gutter, including wrapped/sticky rows. */
 .ex-table .heat-scroll tbody th.publication-tree-label::before{content:"";position:absolute;left:8px;top:0;bottom:-1px;width:calc(var(--hierarchy-depth,0)*14px);background:repeating-linear-gradient(to right,transparent 0 5px,#ccd8e1 5px 6px,transparent 6px 14px);pointer-events:none}
+
+/* Independent transformations of one source remain separate comparison rows. */
+.series-row{grid-template-columns:12px minmax(150px,1fr) 115px 190px auto 32px}.copy-series{min-height:40px;white-space:nowrap}
+.an-row .series-visibility{flex:1;min-width:140px}.an-row [data-an-copy]{white-space:nowrap}.an-row>label{max-width:260px}
+.series-chip{flex-wrap:wrap}.series-chip [data-ex-compare]{font-size:12px}
+#an-values{margin-top:22px}#an-values summary{font-weight:600;cursor:pointer;margin-bottom:12px}#an-values>label{display:flex;align-items:center;gap:10px;font-size:13px;margin-bottom:10px}#an-values-table{max-height:500px}#an-values-table table{font-size:13px}#an-values-table th{white-space:normal;min-width:150px}#an-values-table td{white-space:nowrap;font-variant-numeric:tabular-nums}#an-values-table thead th{position:sticky;top:0;z-index:1;background:#f3f7fa}
+@media(max-width:1100px){.series-row{grid-template-columns:10px minmax(0,1fr) 32px}.series-row label:nth-child(3),.series-row label:nth-child(4),.series-row .copy-series{grid-column:2}.series-row .remove-series{grid-column:3}.an-row{flex-wrap:wrap}}
