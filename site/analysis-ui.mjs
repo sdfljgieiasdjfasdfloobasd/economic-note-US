@@ -1,13 +1,13 @@
-import {mountRevisionView} from './revision-view.mjs?v=ad1e65271257d2f906ac';
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=ad1e65271257d2f906ac';
-import {axisScale,axisControls} from './chart-axis.mjs?v=ad1e65271257d2f906ac';
-import {explorerPickerItem} from './series-tree.mjs?v=ad1e65271257d2f906ac';
-import {setupSeriesPicker} from './series-picker.mjs?v=ad1e65271257d2f906ac';
-import {niceAxis} from './chart-axis.mjs?v=ad1e65271257d2f906ac';
-import {metrics,pageMetrics,frequency} from './explorer-math.mjs?v=ad1e65271257d2f906ac';
-import {prepare,displaySeries,pairSeries} from './analysis-math.mjs?v=ad1e65271257d2f906ac';
-import {regress} from './analytics.mjs?v=ad1e65271257d2f906ac';
-import {attachTooltip} from './explorer-tooltip.mjs?v=ad1e65271257d2f906ac';
+import {mountRevisionView} from './revision-view.mjs?v=e9a5fc4f79cb90e1932f';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=e9a5fc4f79cb90e1932f';
+import {axisScale,axisControls} from './chart-axis.mjs?v=e9a5fc4f79cb90e1932f';
+import {explorerPickerItem} from './series-tree.mjs?v=e9a5fc4f79cb90e1932f';
+import {setupSeriesPicker} from './series-picker.mjs?v=e9a5fc4f79cb90e1932f';
+import {niceAxis} from './chart-axis.mjs?v=e9a5fc4f79cb90e1932f';
+import {metrics,pageMetrics,frequency} from './explorer-math.mjs?v=e9a5fc4f79cb90e1932f';
+import {prepare,displaySeries,pairSeries} from './analysis-math.mjs?v=e9a5fc4f79cb90e1932f';
+import {regress} from './analytics.mjs?v=e9a5fc4f79cb90e1932f';
+import {attachTooltip} from './explorer-tooltip.mjs?v=e9a5fc4f79cb90e1932f';
 const colors=['#007e72','#d58b35','#526bc4','#bd527f','#8a6b42','#299bb0','#7845a1','#656b75'];
 export function setupAnalysis({request,esc,fmt,csv,getToken}){
  const root=document.createElement('section');root.id='analysis-view';root.hidden=true;document.querySelector('main footer').before(root);
