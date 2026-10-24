@@ -1,8 +1,8 @@
-import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=e9a5fc4f79cb90e1932f';
-import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=e9a5fc4f79cb90e1932f';
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=e9a5fc4f79cb90e1932f';
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=e9a5fc4f79cb90e1932f';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=e9a5fc4f79cb90e1932f';
+import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=10b75e075c10f99d8fe9';
+import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=10b75e075c10f99d8fe9';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=10b75e075c10f99d8fe9';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=10b75e075c10f99d8fe9';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=10b75e075c10f99d8fe9';
 export function publicationFilename(page,label,metric,dates,series=[]){
  const table=label.match(/Table (\d+(?:\.\d+)*U?)/)?.[1];
  const fs=[...new Set(series.map(s=>s.frequency).filter(Boolean))];
@@ -31,9 +31,21 @@ export function cpiAnalysisRows(items,analyses,matches,kind){
   return [{...(source||missing),label:base.matchLabel||base.label,matchLabel:base.matchLabel||base.label,hierarchy:base.hierarchy,depth:base.depth,sourceOrder:base.sourceOrder,hierarchySection:base.hierarchySection,seasonal:kind==='ri'?'非該当':'SA',sourceMetric:kind==='ri'?'相対的重要度（RI）':kind==='core'?'コアへの寄与':'総合への寄与'}];
  });
 }
+// Contribution tables include an aggregate growth-rate row; its difference is
+// also measured in percentage points. Weights and item inflation are not contributions.
+export function isContributionSeries(s){
+ if(s.sourceMetric)return /寄与|contribution/i.test(s.sourceMetric);
+ const table=[s.publicationLabel,s.publication].filter(Boolean).join(' ');
+ return /寄与|contribution/i.test(table)&&/ポイント|percentage points|^%$|^Percent$/i.test(s.unit||'')||/寄与|contribution/i.test(s.label||'')&&/ポイント|percentage points/i.test(s.unit||'');
+}
+export const hasContributions=series=>series.some(isContributionSeries);
+export function contributionPeriod(series){
+ const fs=[...new Set(series.map(frequency))],f=fs.length===1?fs[0]:null;
+ return ({M:['当月','前月'],Q:['当四半期','前四半期'],A:['当年','前年'],W:['当週','前週']})[f]||['当期','前期'];
+}
 export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
  const panel=root.querySelector('.ex-table');
- panel.innerHTML=`<div class="panel-heading"><div><p class="eyebrow">ALL SERIES BY PUBLICATION</p><h2>公式表・統計ごとの全系列</h2></div><button id="ex-csv" class="text-button">表示中の表をCSV保存 ↓</button></div><p id="ex-export-status" class="source-note" role="status"></p><div class="ex-publication-controls"><label class="ex-publication-picker">表番号・表名<select id="ex-table-publication"></select></label><label>表示する値<select id="ex-table-metric"></select></label><label><span id="ex-table-season-label">季節調整</span><select id="ex-table-season"><option value="">すべて</option><option>SA</option><option>NSA</option><option>非該当</option><option>一部SAの合成</option></select></label><label>色分け<select id="ex-table-heat"><option value="auto">指標に合わせて自動</option><option value="manual">数値を指定</option><option value="off">なし</option></select></label><label>観測数<select id="ex-count"><option>24</option><option>60</option><option value="all">全期間</option></select></label><label>開始日<input id="ex-table-from" type="date"></label><label>終了日<input id="ex-table-to" type="date"></label></div><p class="source-note">グラフの比較系列とは独立して、選んだ統計の収録カタログ内の全系列を表示します。左が最新。数値は小数第3位、セルを選ぶと元の精度・出典を確認できます。未取得の値は補完しません。段差は分類上の親子関係です。内訳の合計が親の値と一致するとは限りません。</p><div id="ex-heat-manual" hidden></div><p id="ex-heat-error" class="source-note" role="alert"></p><p id="ex-table-source-note" class="source-note"></p><p id="ex-table-attributions" class="source-note"></p><p id="ex-table-summary" class="source-note" role="status"></p><p id="ex-table-heat-note" class="source-note"></p><div class="heat-scroll"><table id="ex-table"></table></div><div id="ex-detail" class="ex-detail" role="status">セルを選択すると、観測の詳細をここに表示します。</div>`;
+ panel.innerHTML=`<div class="panel-heading"><div><p class="eyebrow">ALL SERIES BY PUBLICATION</p><h2>公式表・統計ごとの全系列</h2></div><button id="ex-csv" class="text-button">表示中の表をCSV保存 ↓</button></div><p id="ex-export-status" class="source-note" role="status"></p><div class="ex-publication-controls"><label class="ex-publication-picker">表番号・表名<select id="ex-table-publication"></select></label><label>表示する値<select id="ex-table-metric"></select></label><label><span id="ex-table-season-label">季節調整</span><select id="ex-table-season"><option value="">すべて</option><option>SA</option><option>NSA</option><option>非該当</option><option>一部SAの合成</option></select></label><label id="ex-contribution-control" hidden>寄与度の表示<select id="ex-contribution-view"><option value="level">当期の寄与度</option><option value="delta1">前期からの変化（ポイント）</option></select></label><label>色分け<select id="ex-table-heat"><option value="auto">指標に合わせて自動</option><option value="manual">数値を指定</option><option value="off">なし</option></select></label><label>観測数<select id="ex-count"><option>24</option><option>60</option><option value="all">全期間</option></select></label><label>開始日<input id="ex-table-from" type="date"></label><label>終了日<input id="ex-table-to" type="date"></label></div><p class="source-note">グラフの比較系列とは独立して、選んだ統計の収録カタログ内の全系列を表示します。左が最新。数値は小数第3位、セルを選ぶと元の精度・出典を確認できます。未取得の値は補完しません。段差は分類上の親子関係です。内訳の合計が親の値と一致するとは限りません。</p><div id="ex-heat-manual" hidden></div><p id="ex-heat-error" class="source-note" role="alert"></p><p id="ex-table-source-note" class="source-note"></p><p id="ex-contribution-note" class="source-note" hidden></p><p id="ex-table-attributions" class="source-note"></p><p id="ex-table-summary" class="source-note" role="status"></p><p id="ex-table-heat-note" class="source-note"></p><div class="heat-scroll"><table id="ex-table"></table></div><div id="ex-detail" class="ex-detail" role="status">セルを選択すると、観測の詳細をここに表示します。</div>`;
  const manualSettings=new Map();
  const $=s=>panel.querySelector(s);let groups=[],selected=[],catalog,page,series=[],rows=[],dates=[],exportRows=[],seq=0,rendered=false,loading=false,loadedGroupKey='',pendingGroupKey='',exportSnapshot=null;let analysisSeries=[],analysisMatches=new Map(),loadedAnalysisMetric='';
  $('#ex-table-metric').innerHTML=metrics.map(([id,label])=>`<option value="${id}">${label}</option>`).join('');
@@ -50,7 +62,7 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
  function options(){$('#ex-table-publication').innerHTML=groups.map(g=>`<option value="${esc(g.id)}">${esc(g.label)}（${g.id==='ppi:table1'?g.series.filter(s=>s.sourceMetric==='公表前月比').length+'品目・前月比／前年比':g.series.length?g.series.length+'系列':'未収録'}）</option>`).join('')+'<option value="__selected">グラフで比較中の系列</option>';}
  function group(){return $('#ex-table-publication').value==='__selected'?{label:'グラフで比較中の系列',series:selected.map(id=>catalog.series.find(s=>s.id===id)).filter(Boolean)}:groups.find(g=>g.id===$('#ex-table-publication').value)}
  function groupKey(){return JSON.stringify([page,$('#ex-table-publication').value,$('#ex-table-publication').value==='__selected'?selected:[]])}
- function clearExport(){$('#ex-table-attributions').textContent='';exportRows=[];exportSnapshot=null;rendered=false;$('#ex-csv').disabled=true;$('#ex-export-status').textContent=''}
+ function clearExport(){$('#ex-contribution-control').hidden=true;$('#ex-contribution-note').hidden=true;$('#ex-table-attributions').textContent='';exportRows=[];exportSnapshot=null;rendered=false;$('#ex-csv').disabled=true;$('#ex-export-status').textContent=''}
  async function refresh(reset=true){const token=++seq,g=group(),key=groupKey();pendingGroupKey=key;loadedGroupKey='';loading=true;series=[];rows=[];clearExport();$('#ex-detail').textContent='セルを選択すると、観測の詳細をここに表示します。';if(!g){loading=false;pendingGroupKey='';return}
   $('#ex-table-source-note').innerHTML=g.note?esc(g.note)+(g.source?` <a href="${esc(g.source)}" target="_blank" rel="noopener noreferrer">公式の表 ↗</a>`:''):'';
   $('#ex-table-summary').textContent=g.label+' の全 '+g.series.length+' 系列を読み込み中…';$('#ex-table').innerHTML='';$('#ex-table-heat-note').textContent='';
@@ -64,7 +76,7 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
   const sourceChoices=[['published_mom','公表前月比'],['published_yoy','公表前年比'],['published_two','公表2か月前比'],['published_effect','前年比寄与度'],['published_ri','相対的重要度'],['published_se','標準誤差']];
   const previousMetric=$('#ex-table-metric').value,choices=cpi6?[['cpi_analysis','寄与度・ウェイト'],['cpi_mom','SA（前月比）']]:publishedPpi?[['published_mom','公表前月比（SA・%）'],['published_yoy','公表前年比（NSA・%）']]:publishedExtra?sourceChoices.filter(([,label])=>series.some(s=>s.sourceMetric===label)):[...pageMetrics(page,series,true),...(isCpiIndex(g.id)?cpiLinkedChoices:[])];
   $('#ex-table-metric').innerHTML=choices.map(([id,label])=>`<option value="${id}">${label}</option>`).join('');$('#ex-table-metric').value=choices.some(([id])=>id===previousMetric)?previousMetric:choices[0][0];
-  const displayMetric=$('#ex-table-metric').value,analysisKind=isCpiIndex(g.id)?linkedKind(displayMetric):null,m=cpi6||publishedPpi||publishedExtra||analysisKind?'level':displayMetric;
+  const displayMetric=$('#ex-table-metric').value,analysisKind=isCpiIndex(g.id)?linkedKind(displayMetric):null;let m=cpi6||publishedPpi||publishedExtra||analysisKind?'level':displayMetric;
   let valueLabel=choices.find(([id])=>id===displayMetric)?.[1]||m,exportMetric=displayMetric,displayedSeries,season;
   $('#ex-table-season-label').textContent=cpi6?'内訳':'季節調整';
   if(cpi6){
@@ -89,6 +101,19 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
    $('#ex-table-source-note').textContent=(g.note||'')+(page==='ppi'&&series.some(s=>s.historySource)?(['ppi:table1','ppi:table2'].includes(g.id)?' 過去の公表変化率は当時のBLS公表資料（FRASER保存版）から補完しています。全期間を最新改定値に統一した値ではありません。':' 過去の指数はFRED配布履歴をBLS公式表の重複月と照合し、未収録部分は同じコード・指数基準のBLS保存資料で補完しています。保存資料分は当時の公表値です。非公表の値は埋めません。'):'');
    const sourceMetric=sourceChoices.find(([id])=>id===displayMetric)?.[1];displayedSeries=publishedPpi||publishedExtra?series.filter(s=>s.sourceMetric===sourceMetric):series;seasonControl(publishedPpi,displayMetric,displayedSeries);season=$('#ex-table-season').value;
   }
+  const contributionControl=$('#ex-contribution-control'),contributionView=$('#ex-contribution-view'),contributionNote=$('#ex-contribution-note');
+  const contributionSeries=displayedSeries.filter(s=>(!season||(s.seasonal||'非該当')===season)&&isContributionSeries(s));
+  const contributionAvailable=m==='level'&&contributionSeries.length>0;
+  contributionControl.hidden=!contributionAvailable;contributionNote.hidden=true;contributionNote.textContent='';
+  if(contributionAvailable){
+   const previous=contributionView.value,[current,prior]=contributionPeriod(contributionSeries);
+   contributionView.innerHTML=`<option value="level">${displayedSeries.every(isContributionSeries)?current+'の寄与度':'公表値（全項目）'}</option><option value="delta1">${prior}からの変化（ポイント）</option>`;
+   contributionView.value=previous==='delta1'?'delta1':'level';
+   if(contributionView.value==='delta1'){
+    displayedSeries=contributionSeries;m='delta1';valueLabel+=' / 寄与度の'+prior+'差（ポイント）';exportMetric+='_contribution_delta1';
+    contributionNote.hidden=false;contributionNote.textContent=`${current}の寄与度 − ${prior}の寄与度（ポイント差）。例：0.3 → 0.1 は −0.2ポイント。どちらかが欠損なら空欄です。過去値の改定幅とは異なります。総額の成長率行がある表では、その行も同じ期間のポイント差を表示します。`;
+   }
+  }else contributionView.value='level';
   const from=$('#ex-table-from').value,to=$('#ex-table-to').value;
   if(from&&to&&from>to){$('#ex-table-summary').textContent='表の開始日と終了日を確認してください。';$('#ex-table').innerHTML='';$('#ex-csv').disabled=true;return}
   rows=layoutPublicationSeries(displayedSeries.filter(s=>!season||(s.seasonal||'非該当')===season)).map(s=>{const incompatible=!metricApplicable(s,m);return {s,unit:compatibleUnit(s,m),incompatible,heat:$('#ex-table-heat').value==='off'||incompatible?null:tableHeatRule(s,m),rs:(incompatible?[]:transform(s,m)).filter(o=>(!from||o.date>=from)&&(!to||o.date<=to))}});
@@ -123,7 +148,7 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
  const switchPublication=()=>{if(pendingGroupKey===groupKey()||(!loading&&loadedGroupKey===groupKey()))return;$('#ex-table-season').value='';$('#ex-table-season').disabled=false;if(group()?.id==='price-table:cpi6')$('#ex-table-metric').value='cpi_analysis';return refresh(true)};
  $('#ex-table-publication').oninput=switchPublication;$('#ex-table-publication').onchange=switchPublication;
  $('#ex-table-metric').onchange=()=>isCpiIndex(group()?.id)&&(loading||(linkedKind($('#ex-table-metric').value)||'')!==loadedAnalysisMetric)?refresh(false):draw();
- for(const id of ['#ex-table-heat','#ex-table-season','#ex-count','#ex-table-from','#ex-table-to'])$(id).onchange=draw;
+ for(const id of ['#ex-contribution-view','#ex-table-heat','#ex-table-season','#ex-count','#ex-table-from','#ex-table-to'])$(id).onchange=draw;
  $('#ex-csv').onclick=async()=>{
   // Reconcile native select/input values at save time, even before a change event.
   if(loading)return;

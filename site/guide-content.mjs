@@ -1,5 +1,5 @@
-import {tableGroups} from './explorer-groups.mjs?v=e9a5fc4f79cb90e1932f';
-import {hierarchyMetadata} from './publication-hierarchy.mjs?v=e9a5fc4f79cb90e1932f';
+import {tableGroups} from './explorer-groups.mjs?v=10b75e075c10f99d8fe9';
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=10b75e075c10f99d8fe9';
 export const references=[['BEA NIPA Handbook（GDP・PCE・投資等の概念と推計方法）','https://www.bea.gov/resources/methodologies/nipa-handbook'],['BLS CPI Frequently Asked Questions（CPIの対象と指数の読み方）','https://www.bls.gov/cpi/questions-and-answers.htm']];
 export const GUIDE_VERSION='2026-10-18';
 export const pages=[
@@ -60,6 +60,7 @@ export const chapters=[
  '年率換算は「直近の伸びが1年間続くと仮定した率」です。四半期前期比年率は[(X(t)/X(t−1))^4−1]×100、月次前月比年率は12乗です。前年同期比とは異なります。たとえば四半期が1%増えた場合、年率は約4.06%、前年比は前年同期の水準がないと分かりません。',
  'SAAR（季節調整済み年率の金額・戸数）は年換算された水準です。成長率の年率換算と別概念です。四半期のSAAR額を4期そのまま足すと年額を4倍にしてしまいます。系列の単位表示を優先してください。',
  '3期平均は当期を含む直近3期の単純平均。前期差の3期平均は各期の差を平均します。月次なら3か月、四半期なら3四半期です。必要な観測が欠けると空欄になる計算があります。',
+ '寄与度を表示している表では「寄与度の表示」で当月の寄与度と前月からの変化を切り替えます。変化は当月−前月のポイント差です。四半期表は前四半期、年次表は前年との差です。比較するどちらかが欠損なら空欄にし、ゼロ補完や直近の非欠損値への置き換えはしません。CSVも選択中の値で保存します。過去値の改定幅とは異なります。',
  '寄与度は、合計の変化のうちある項目がどれだけ寄与したかを表します。単位は通常パーセントポイント。項目自身の伸び率とは異なります。価格指数の相対的重要度はウェイトに相当する割合で、寄与度そのものではありません。',
  '保存する数値は可能な限り元の精度を保持します。ただし、元の公表資料の丸め、浮動小数点計算、資料の改定時点の違いまで消えるわけではありません。公表値と指数からの再計算値に小さな差が出ることがあります。']},
  {id:'heat',title:'6. 色分け・ヒートマップ',paragraphs:[
