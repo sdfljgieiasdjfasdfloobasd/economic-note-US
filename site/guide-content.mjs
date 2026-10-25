@@ -1,9 +1,9 @@
-import {tableGroups} from './explorer-groups.mjs?v=d59325125e4b4fc0788c';
-import {hierarchyMetadata} from './publication-hierarchy.mjs?v=d59325125e4b4fc0788c';
+import {tableGroups} from './explorer-groups.mjs?v=8bfaf7d5fb5131231270';
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=8bfaf7d5fb5131231270';
 export const references=[['BEA NIPA Handbook（GDP・PCE・投資等の概念と推計方法）','https://www.bea.gov/resources/methodologies/nipa-handbook'],['BLS CPI Frequently Asked Questions（CPIの対象と指数の読み方）','https://www.bls.gov/cpi/questions-and-answers.htm']];
 export const GUIDE_VERSION='2026-10-18';
 export const pages=[
- {id:'cpi',title:'CPI｜消費者物価',route:'cpi',about:'家計が購入する財・サービスの価格変化を見るページ。BLSの表番号ごとに、価格指数、公表伸び率、相対的重要度、寄与度を区別します。',use:'総合とコア、食品・エネルギー、住居費などを比較する。指数から計算した伸び率と、発表資料に掲載された丸め済みの伸び率は同じものではありません。'},
+ {id:'cpi',title:'CPI｜消費者物価',route:'cpi',about:'家計が購入する財・サービスの価格変化を見るページ。BLSの表番号ごとに、価格指数、公表伸び率、相対的重要度、寄与度を区別します。',use:'CPI Table 1・2・6の「表示する値」で「コアへの寄与（前年比・NSA・推計値）」を選ぶと、コアCPIの前年比を各品目が何ポイント押し上げ／押し下げたかを確認できます。独立した「CPI コア前年比への寄与度（NSA・推計値）」表もあります。SAの前月比への寄与とは別です。原指数と各年のウェイトを接続した推計値で、BLSの直接公表値ではありません。表示は小数第3位、食品・エネルギーは除外、必要な値がない月は空欄。総合とコア、食品・エネルギー、住居費などを比較する。指数から計算した伸び率と、発表資料に掲載された丸め済みの伸び率は同じものではありません。'},
  {id:'pce',title:'PCE｜個人消費の価格',route:'pce',about:'BEAの個人消費支出に関する価格指数と価格上昇率・寄与度。ここは価格関連の表を選ぶ入口です。',use:'総合・食品エネルギー除外・財・サービスなどのインフレを調べる。消費額や所得は「所得・消費額・貯蓄」、GDP内のPCE表も参照します。'},
  {id:'pce-nonprice',title:'PCE｜所得・消費額・貯蓄',route:'pce-nonprice',about:'PCEのもう一つの分析画面。個人所得、可処分所得、個人消費支出、貯蓄率と、名目・実質の主要／詳細品目を調べます。価格表が比較用に含まれる場合もあります。',use:'PCEの「従来のグラフ・回帰分析」から「所得・消費額・貯蓄」へ切り替える。貯蓄率（%）、支出額（金額）、指数、伸び率を混同しないでください。'},
  {id:'import-prices',title:'輸入物価｜米国の輸入価格',route:'import-prices',about:'BLS MXPの詳細指数。用途別（BEA End Use）、産業別（NAICS）、品目別（HS）、原産国・地域別、輸入サービス、米国向け航空貨物を独立した表で収録。',use:'公表値は価格指数。前月比・前年比は指数から計算。NSAのみ。品目ごとに基準時点が異なるため指数水準の大小を価格の高低として比較しない。2025年10月は調査データを必要とする一部系列が非公表。公表値がある系列は保持し、欠損は穴埋めしない。初期は四半期などの疎な観測。Inbound航空貨物は運送事業者の居住地を問わず、輸入サービスと異なるので合算しない。BLSの一括ファイルを間隔を空けて更新し、APIは使わない。'},

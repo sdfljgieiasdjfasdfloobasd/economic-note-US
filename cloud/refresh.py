@@ -261,6 +261,15 @@ def run(root=ROOT,only=None):
                         if m['id'] in approved:metas[m['id']]=m
                     report.append(dict(source=name,status='success'))
                 except Exception as ex:report.append(dict(source=name,status='failed',reason=str(ex)))
+        # Recompute from refreshed NSA indices and saved RI; no additional requests.
+        if not only or set(only) & {'bls', 'cpi_core_yoy'}:
+            try:
+                from cpi_nsa_contributions import update as core_yoy
+                computed=core_yoy(datasets)
+                for m in computed:metas[m['id']]=m
+                report.append(dict(source='cpi_core_yoy',status='success',series=len(computed)))
+            except Exception as ex:
+                report.append(dict(source='cpi_core_yoy',status='failed',reason=str(ex)))
         summary=finalize(stage,rel,datasets,catalog,metas,report,started,only)
         # The workflow commits only this validated public state, never raw downloads.
         old=root/'.cloud-previous'
