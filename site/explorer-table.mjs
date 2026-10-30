@@ -1,8 +1,8 @@
-import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=73f950e8781d1b24ff12';
-import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=73f950e8781d1b24ff12';
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=73f950e8781d1b24ff12';
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=73f950e8781d1b24ff12';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=73f950e8781d1b24ff12';
+import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=cda8403669651c01da97';
+import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=cda8403669651c01da97';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=cda8403669651c01da97';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=cda8403669651c01da97';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=cda8403669651c01da97';
 export function publicationFilename(page,label,metric,dates,series=[]){
  const table=label.match(/Table (\d+(?:\.\d+)*U?)/)?.[1];
  const fs=[...new Set(series.map(s=>s.frequency).filter(Boolean))];
