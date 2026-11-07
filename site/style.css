@@ -210,12 +210,12 @@
 .heat-panel>.employment-table-shortcuts{padding:0 24px}
 
 .employment-chart-controls{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:end;padding:12px 24px;border-top:1px solid #e3ebef}
-.employment-chart-controls[hidden],#employment-table-charts[hidden]{display:none}
+.employment-chart-controls[hidden],.employment-charts-host[hidden]{display:none}
 .employment-chart-controls label{display:grid;gap:5px;font-size:12px;color:#60758a}
 .employment-chart-views{display:flex;gap:6px}
 .employment-chart-views button{padding:8px 12px;border:1px solid #c7ddda;background:#f7fbfa;color:#176d68;border-radius:5px;cursor:pointer}
 .employment-chart-views button[aria-pressed="true"]{background:#e4f2ee;border-color:#258b7e;font-weight:600}
-#employment-table-charts{padding:0 24px 20px}
+.employment-charts-host{padding:0 24px 20px}
 .employment-chart-note{margin:8px 0 14px}
 .employment-chart-legend{gap:6px 16px;margin:12px 0}
 .employment-chart-legend button{font-size:12px}
@@ -224,10 +224,28 @@
 .employment-chart-card h3{margin:0 0 6px;font-size:15px}
 .employment-chart-card>svg{display:block;width:100%;height:auto}
 .employment-card-axis summary{cursor:pointer;font-size:12px;color:#176d68}
-#employment-table-charts .ex-hover-tooltip:not([hidden]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 20px;max-height:none;overflow:visible;font-size:12px}
-#employment-table-charts .ex-hover-tooltip>strong,#employment-table-charts .ex-hover-tooltip>small{grid-column:1/-1}
-#employment-table-charts .ex-hover-tooltip>div{min-width:0;gap:8px;padding:2px 0}
-#employment-table-charts .ex-hover-tooltip>div>span{min-width:0;overflow-wrap:anywhere}
-#employment-table-charts .ex-hover-tooltip b{white-space:nowrap}
-#employment-table-charts .ex-hover-compact:not([hidden]){grid-template-columns:1fr}
-@media(max-width:700px){.employment-chart-grid{grid-template-columns:1fr}#employment-table-charts{padding:0 12px 16px}#employment-table-charts .ex-hover-tooltip:not([hidden]){grid-template-columns:1fr}}
+.employment-charts-host .ex-hover-tooltip:not([hidden]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 20px;max-height:none;overflow:visible;font-size:12px}
+.employment-charts-host .ex-hover-tooltip>strong,.employment-charts-host .ex-hover-tooltip>small{grid-column:1/-1}
+.employment-charts-host .ex-hover-tooltip>div{min-width:0;gap:8px;padding:2px 0}
+.employment-charts-host .ex-hover-tooltip>div>span{min-width:0;overflow-wrap:anywhere}
+.employment-charts-host .ex-hover-tooltip b{white-space:nowrap}
+.employment-charts-host .ex-hover-compact:not([hidden]){grid-template-columns:1fr}
+@media(max-width:700px){.employment-chart-grid{grid-template-columns:1fr}.employment-charts-host{padding:0 12px 16px}.employment-charts-host .ex-hover-tooltip:not([hidden]){grid-template-columns:1fr}}
+
+.jolts-mode,.jolts-measures{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.jolts-mode[hidden],#jolts-overview[hidden]{display:none}
+.jolts-mode button,.jolts-measures button{padding:10px 18px;background:#f6faf9;border:1px solid #c8dcda;border-radius:6px;color:#176d68;cursor:pointer}
+.jolts-mode button[aria-pressed="true"],.jolts-measures button[aria-pressed="true"]{background:#e0f1ed;border-color:#258b7e;font-weight:700}
+#explorer-view[data-jolts-view="overview"]>.workspace:not(#jolts-overview),#explorer-view[data-jolts-view="overview"]>.ex-table,#explorer-view[data-jolts-view="overview"]>.ex-metadata,#explorer-view[data-jolts-view="overview"]>.ex-coverage{display:none}
+#jolts-overview .employment-chart-views,#jolts-overview [data-j="total"] .employment-chart-controls{display:none}
+.jolts-chart-panel{margin-bottom:26px;min-width:0}
+#jolts-overview .employment-charts-host{padding:0}
+#jolts-overview table{font-variant-numeric:tabular-nums}
+#jolts-overview td,#jolts-overview th{padding:9px 12px;white-space:nowrap}
+#jolts-overview tbody th{position:sticky;left:0;background:#f8fbfc;min-width:265px;text-align:left;z-index:1}
+#jolts-overview th small{display:block;color:#718598;font-size:11px;font-weight:400}
+.jolts-industry-label{display:block;padding-left:calc(var(--j-depth)*16px);background:repeating-linear-gradient(to right,transparent 0,transparent 14px,#dfe8ed 14px,#dfe8ed 15px,transparent 15px,transparent 16px);background-size:calc(var(--j-depth)*16px) 100%;background-repeat:no-repeat}
+.jolts-missing{background:#f0f2f4;color:#8c99a5}
+
+#jolts-overview [data-j="total"] .employment-chart-note,#jolts-overview [data-j="total"] .employment-chart-legend{display:none}
+#jolts-overview .date-controls{gap:12px;flex-wrap:wrap}

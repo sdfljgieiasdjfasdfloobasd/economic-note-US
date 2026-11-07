@@ -1,17 +1,17 @@
-import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=1bce27e8bf0ce6e9e98c';
-import {attachTooltip} from './explorer-tooltip.mjs?v=1bce27e8bf0ce6e9e98c';
-import {industryDefinitions} from './contributions.mjs?v=1bce27e8bf0ce6e9e98c';
+import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=7420257563a5c4284646';
+import {attachTooltip} from './explorer-tooltip.mjs?v=7420257563a5c4284646';
+import {industryDefinitions} from './contributions.mjs?v=7420257563a5c4284646';
 
 const majorNames=new Set(['Total nonfarm','Total private',...industryDefinitions.map(s=>s.name)]);
 const palette=['#007e72','#526bc4','#d58b35','#bd527f','#299bb0','#7845a1','#8a6b42','#5b8451','#bb603e','#607e9b','#ab8321','#aa4f62','#387ea3','#776b9f','#48785c','#bd713d','#9a5d98','#4a8585','#707784'];
 export function chartItems(items,scope){return scope==='major'?items.filter(item=>majorNames.has(item.s.name)):items;}
 
 // Uses the table's already calculated values and dates: no independent data fetch.
-export function setupEmploymentCharts({panel,esc,fmt}){
+export function setupEmploymentCharts({panel,esc,fmt,chartId="employment-table-charts",noteSelector="#heat-note",compactAxis=false}){
  const controls=document.createElement('div');controls.className='employment-chart-controls';controls.hidden=true;
  controls.innerHTML='<div class="employment-chart-views" role="group" aria-label="表とグラフの表示"><button type="button" data-ec-view="both" aria-pressed="true">表＋グラフ</button><button type="button" data-ec-view="chart" aria-pressed="false">グラフ</button><button type="button" data-ec-view="table" aria-pressed="false">表</button></div><label>グラフの形式<select data-ec="layout"><option value="overlay">重ねて比較</option><option value="separate">品目別</option></select></label><label data-ec="scope-label">グラフの品目<select data-ec="scope"><option value="major">総合・主要業種</option><option value="all">全品目</option></select></label>';
- const host=document.createElement('div');host.id='employment-table-charts';host.hidden=true;
- const table=panel.querySelector('.heat-scroll'),tableNote=panel.querySelector('#heat-note');table.before(controls,host);
+ const host=document.createElement('div');host.id=chartId;host.className='employment-charts-host';host.hidden=true;
+ const table=panel.querySelector('.heat-scroll'),tableNote=panel.querySelector(noteSelector);table.before(controls,host);
  const $=s=>controls.querySelector(`[data-ec="${s}"]`);
  let model,view='both',key='',hidden=new Set();
  controls.querySelectorAll('[data-ec-view]').forEach(b=>b.onclick=()=>{view=b.dataset.ecView;draw()});
@@ -55,8 +55,8 @@ export function setupEmploymentCharts({panel,esc,fmt}){
   for(const date of dateTicks(model.dates,w-L-R)){const i=model.dates.indexOf(date);body+=`<text x="${x(i)}" y="${h-7}" text-anchor="${i===0?'start':i===model.dates.length-1?'end':'middle'}" font-size="11">${date}</text>`}
   const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.setAttribute('role','img');svg.setAttribute('aria-label',title+' '+context.textContent);svg.innerHTML=body;card.append(svg);
   axisControls(svg,{key:axisKey,unit,axis,left:L,right:w-R,top:T,bottom:h-B,redraw:draw});
-  if(separate){const axes=svg.previousElementSibling;const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='縦軸の範囲';details.className='employment-card-axis';details.append(summary);axes.before(details);details.append(axes)}
-  attachTooltip(svg,{esc,fmt,left:L,right:w-R,top:T,bottom:h-B,compact:separate,points:model.dates.map((date,j)=>({x:x(j),label:date,values:items.map(item=>({label:item.label,value:item.values[model.indices[j]]??null,color:item.color,unit:item.met?.unit||''}))}))});
+  if(separate||compactAxis){const axes=svg.previousElementSibling;const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='縦軸の範囲';details.className='employment-card-axis';details.append(summary);axes.before(details);details.append(axes)}
+  attachTooltip(svg,{esc,fmt,left:L,right:w-R,top:T,bottom:h-B,compact:separate,points:model.dates.map((date,j)=>({x:x(j),label:date,values:items.map(item=>({label:item.label||item.s.label,value:item.values[model.indices[j]]??null,color:item.color,unit:item.met?.unit||''}))}))});
  }
  return {update(next){const nextKey=next.dataset.id;if(key!==nextKey){key=nextKey;hidden.clear();$('scope').value=nextKey==='employment'?'major':'all';$('layout').value=nextKey==='labor'?'separate':'overlay'}model=next;draw()},resize(){if(!host.hidden)draw()}};
 }
