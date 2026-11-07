@@ -188,3 +188,12 @@
 @media(max-width:1000px){.sidebar #nav{align-items:flex-start}.sidebar #nav .nav-group{flex:0 0 170px}.sidebar #nav .nav-group summary{white-space:nowrap}.sidebar #nav .nav-children{display:grid}.sidebar #nav .nav-children button{width:100%;white-space:normal}}
 
 #explorer-view[data-empty-section="true"]>.workspace~*,#explorer-view[data-empty-section="true"]>.workspace #ex-summary~*{display:none!important}
+
+/* Industry readouts: keep the plot width and show all values in two columns. */
+#contribution-tooltip:not([hidden]),#industry-panel .ex-hover-tooltip:not([hidden]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 24px;max-height:none;overflow:visible;padding:10px 12px;font-size:13px}
+#contribution-tooltip>strong,#contribution-tooltip>p,#industry-panel .ex-hover-tooltip>strong,#industry-panel .ex-hover-tooltip>small{grid-column:1/-1;margin:2px 0 4px}
+#contribution-tooltip .contribution-tip-row,#industry-panel .ex-hover-tooltip>div{min-width:0;gap:8px;padding:2px 0;line-height:1.45;margin:0}
+#contribution-tooltip .contribution-tip-row>span:first-child,#industry-panel .ex-hover-tooltip>div>span{min-width:0;overflow-wrap:anywhere}
+#contribution-tooltip .contribution-tip-row>:last-child,#industry-panel .ex-hover-tooltip>div>b{flex-shrink:0;white-space:nowrap}
+#contribution-tooltip .dot,#industry-panel .ex-hover-tooltip i{flex-shrink:0}
+@media(max-width:600px){#contribution-tooltip:not([hidden]),#industry-panel .ex-hover-tooltip:not([hidden]){grid-template-columns:minmax(0,1fr);gap:2px;padding:8px 10px}}
