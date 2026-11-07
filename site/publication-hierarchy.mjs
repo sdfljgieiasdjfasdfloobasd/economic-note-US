@@ -1,5 +1,5 @@
-import {complementHierarchy} from './complement-hierarchy-data.mjs?v=ca2c619c98299e155434';
-import {retailHierarchy,joltsHierarchy,cesHierarchy} from './publication-hierarchy-data.mjs?v=ca2c619c98299e155434';
+import {complementHierarchy} from './complement-hierarchy-data.mjs?v=7c7fce8f8b909fbca769';
+import {retailHierarchy,joltsHierarchy,cesHierarchy} from './publication-hierarchy-data.mjs?v=7c7fce8f8b909fbca769';
 // Ancestry is explicit metadata, never a count of digits or a guess from words.
 export function hierarchyMetadata(s){
  const id=s.sourceId||s.id?.replace(/^ex:/,'')||'',h=s.hierarchy;

@@ -1,9 +1,9 @@
-import {tableGroups} from './explorer-groups.mjs?v=ca2c619c98299e155434';
-import {hierarchyMetadata} from './publication-hierarchy.mjs?v=ca2c619c98299e155434';
+import {tableGroups} from './explorer-groups.mjs?v=7c7fce8f8b909fbca769';
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=7c7fce8f8b909fbca769';
 export const references=[['BEA NIPA Handbook（GDP・PCE・投資等の概念と推計方法）','https://www.bea.gov/resources/methodologies/nipa-handbook'],['BLS CPI Frequently Asked Questions（CPIの対象と指数の読み方）','https://www.bls.gov/cpi/questions-and-answers.htm']];
 export const GUIDE_VERSION='2026-10-18';
 export const pages=[
- {id:'adp',title:'雇用 / ADP雇用統計',route:'adp',about:'民間雇用の全国・業種・企業規模・地域別系列、Pay Insights、週次指標。',use:'左メニューの「雇用」を開き「ADP雇用統計」を選択。公式表、比較グラフ、業種別推移を使えます。BLS雇用統計とは別調査です。'},
+ {id:'adp',title:'雇用 / ADP雇用統計',route:'adp',about:'民間雇用の全国・業種・企業規模・地域別系列、Pay Insights、週次指標。',use:'左メニューの「雇用」を開き「ADP雇用統計」を選択。月次／週次を選び、全国合計・業種別（10業種）・事業所規模別（5区分）・地域別（9地域）を押すと、全国と内訳のグラフ・表が一括表示されます。SA／NSA、前月差・前週差、水準・増減率を切り替えられます。週次速報NER Pulseは全国の週次増減の4週平均なので別表示です。「自由に系列を比較・賃金（Pay Insights）」から従来の公式表と賃金系列も選べます。BLS雇用統計とは別調査です。公開版では再配布対象外のADPデータは表示しません。'},
  {id:'claims',title:'雇用 / 失業保険申請',route:'claims',about:'新規申請・継続受給・4週移動平均・被保険者失業率と州別系列。',use:'左メニューの「雇用」から選択。週次の対象日とSA・NSAを確認し、新規申請と継続受給の対象週の違いに注意してください。'},
  {id:'jolts',title:'雇用 / JOLTS',route:'jolts',about:'V/Uレシオと6つの指標ボタン（求人数・採用数・自発的離職・解雇／レイオフ・その他離職・総離職）で、全体のグラフ、主要11業種のグラフ、全28業種・集計区分の表を一括で切り替えます。SA／NSA、人数／率、公表値／前月差／前年差／3か月平均を選択。人数は前月比・前年比も選択できます。開始月・終了月・表示月数は表と図に共通。業種別グラフは全業種・集計区分や品目別表示にも変更できます。「自由に系列を比較」で従来の個別選択を利用でき、指標別表示との往復で比較選択は保持されます。V/Uレシオは同じ月・SA/NSAのJOLTS求人数をCPS失業者数で割った全国の倍率です。グラフと計算元2系列の表を表示し、片方が未公表の月は補完しません。業種別V/Uは計算しません。業種別グラフ直上の表示選択も全体・表と連動します。CSVは現在表示する表を保存します。親項目と内訳は重複するため合算しません。',use:'左メニューの「雇用」から選択。公式表と比較グラフ、業種別推移を使えます。求人は月末残高、採用・離職は月間フローです。'},
  {id:'cpi',title:'CPI｜消費者物価',route:'cpi',about:'家計が購入する財・サービスの価格変化を見るページ。BLSの表番号ごとに、価格指数、公表伸び率、相対的重要度、寄与度を区別します。',use:'CPI Table 1・2・6の「表示する値」で「コアへの寄与（前年比・NSA・推計値）」を選ぶと、コアCPIの前年比を各品目が何ポイント押し上げ／押し下げたかを確認できます。独立した「CPI コア前年比への寄与度（NSA・推計値）」表もあります。SAの前月比への寄与とは別です。原指数と各年のウェイトを接続した推計値で、BLSの直接公表値ではありません。表示は小数第3位、食品・エネルギーは除外、必要な値がない月は空欄。総合とコア、食品・エネルギー、住居費などを比較する。指数から計算した伸び率と、発表資料に掲載された丸め済みの伸び率は同じものではありません。'},

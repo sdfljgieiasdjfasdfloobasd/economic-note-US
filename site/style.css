@@ -262,3 +262,17 @@
 #household-overview tbody th{position:sticky;left:0;min-width:250px;background:#f8fbfc;text-align:left;z-index:1}
 #household-overview th small{display:block;color:#718598;font-size:11px;font-weight:400}
 #household-overview .date-controls{gap:12px;flex-wrap:wrap}
+
+/* ADP overview keeps the existing comparison workspace available on demand. */
+#explorer-view[data-adp-view="overview"]>.workspace,#explorer-view[data-adp-view="overview"]>.ex-table,#explorer-view[data-adp-view="overview"]>.ex-metadata,#explorer-view[data-adp-view="overview"]>.ex-coverage{display:none}
+#adp-overview [data-a="table"] th:first-child{min-width:220px;max-width:280px}
+#adp-overview [data-a="table"] small{display:block;font-weight:400;color:#65798d;font-size:11px}
+#adp-overview [data-a="table"] .missing{background:#f0f2f4;color:#8996a2}
+#adp-overview [data-a="details"]{margin-top:28px}
+#adp-overview{padding:24px;min-width:0}
+#adp-overview[hidden],#adp-overview [hidden]{display:none}
+#adp-overview .date-controls{gap:12px;flex-wrap:wrap}
+#adp-overview .employment-charts-host{padding:0}
+#adp-overview [data-a="total"] .employment-chart-controls,#adp-overview [data-a="total"] .employment-chart-note,#adp-overview [data-a="total"] .employment-chart-legend{display:none}
+#adp-overview th,#adp-overview td{padding:9px 12px;white-space:nowrap;font-variant-numeric:tabular-nums}
+#adp-overview tbody th{position:sticky;left:0;background:#f8fbfc;text-align:left;z-index:1}
