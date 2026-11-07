@@ -1,7 +1,9 @@
-import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=7420257563a5c4284646';
-import {attachTooltip} from './explorer-tooltip.mjs?v=7420257563a5c4284646';
-import {industryDefinitions} from './contributions.mjs?v=7420257563a5c4284646';
+import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=433e68738fdb03dd1d03';
+import {attachTooltip} from './explorer-tooltip.mjs?v=433e68738fdb03dd1d03';
+import {industryDefinitions} from './contributions.mjs?v=433e68738fdb03dd1d03';
 
+const industryMap=new Map(industryDefinitions.map(s=>[s.name,s]));
+const industryDatasets=new Set(['employment','wages','hours']);
 const majorNames=new Set(['Total nonfarm','Total private',...industryDefinitions.map(s=>s.name)]);
 const palette=['#007e72','#526bc4','#d58b35','#bd527f','#299bb0','#7845a1','#8a6b42','#5b8451','#bb603e','#607e9b','#ab8321','#aa4f62','#387ea3','#776b9f','#48785c','#bd713d','#9a5d98','#4a8585','#707784'];
 export function chartItems(items,scope){return scope==='major'?items.filter(item=>majorNames.has(item.s.name)):items;}
@@ -20,10 +22,10 @@ export function setupEmploymentCharts({panel,esc,fmt,chartId="employment-table-c
   const active=model?.dataset.group==='employment';controls.hidden=!active;host.hidden=!active||view==='table';table.hidden=active&&view==='chart';tableNote.hidden=table.hidden;
   controls.querySelectorAll('[data-ec-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.ecView===view)));
   for(const el of controls.querySelectorAll('label'))el.hidden=view==='table';
-  $('scope-label').hidden=view==='table'||model?.dataset.id!=='employment'||model?.selected;
+  $('scope-label').hidden=view==='table'||!industryDatasets.has(model?.dataset.id)||model?.selected;
   host.replaceChildren();if(host.hidden)return;
-  const scope=model.dataset.id==='employment'&&!model.selected?$('scope').value:'all';
-  const items=chartItems(model.items,scope).map(item=>({...item,color:palette[model.items.indexOf(item)%palette.length]}));
+  const scope=industryDatasets.has(model.dataset.id)&&!model.selected?$('scope').value:'all';
+  const items=chartItems(model.items,scope).map(item=>{const industry=industryMap.get(item.s.name),label=industry?.label||item.s.label;return {...item,s:{...item.s,label},label:industry?label:item.label,color:industry?.color||(['Total nonfarm','Total private'].includes(item.s.name)?'#142b42':palette[model.items.indexOf(item)%palette.length])}});
   const separate=$('layout').value==='separate';
   const note=document.createElement('p');note.className='source-note employment-chart-note';note.textContent=`${items.length}品目を一括表示。表と同じ季節調整・表示値・表示月数です。`+(separate?'各図の縦軸は個別です。目盛りを確認して比較してください。':'凡例を押すと一時的に非表示にできます。')+' 親項目と内訳を含み、積み上げ・合算はしていません。';host.append(note);
   if(!model.dates.length){note.textContent='選択期間にデータがありません。開始月・終了月を確認してください。';return}
@@ -58,5 +60,5 @@ export function setupEmploymentCharts({panel,esc,fmt,chartId="employment-table-c
   if(separate||compactAxis){const axes=svg.previousElementSibling;const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='縦軸の範囲';details.className='employment-card-axis';details.append(summary);axes.before(details);details.append(axes)}
   attachTooltip(svg,{esc,fmt,left:L,right:w-R,top:T,bottom:h-B,compact:separate,points:model.dates.map((date,j)=>({x:x(j),label:date,values:items.map(item=>({label:item.label||item.s.label,value:item.values[model.indices[j]]??null,color:item.color,unit:item.met?.unit||''}))}))});
  }
- return {update(next){const nextKey=next.dataset.id;if(key!==nextKey){key=nextKey;hidden.clear();$('scope').value=nextKey==='employment'?'major':'all';$('layout').value=nextKey==='labor'?'separate':'overlay'}model=next;draw()},resize(){if(!host.hidden)draw()}};
+ return {update(next){const nextKey=next.dataset.id;if(key!==nextKey){key=nextKey;hidden.clear();$('scope').value=industryDatasets.has(nextKey)?'major':'all';$('layout').value=nextKey==='labor'?'separate':'overlay'}model=next;draw()},resize(){if(!host.hidden)draw()}};
 }

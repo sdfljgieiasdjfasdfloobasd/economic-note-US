@@ -1,19 +1,19 @@
-import {setupEmploymentCharts} from './employment-charts.mjs?v=7420257563a5c4284646';
-import {request} from './static-api.mjs?v=7420257563a5c4284646';
-import {initRevisions,mountRevisionView,baseRevisionInput,markRevisionCells} from './revision-view.mjs?v=7420257563a5c4284646';
-import {axisScale,axisControls} from './chart-axis.mjs?v=7420257563a5c4284646';
-import {workbookPickerItems,workbookSelection} from './series-tree.mjs?v=7420257563a5c4284646';
-import {setupSeriesPicker} from './series-picker.mjs?v=7420257563a5c4284646';
-import {setupChartExports} from './chart-export.mjs?v=7420257563a5c4284646';
-import {niceAxis} from './chart-axis.mjs?v=7420257563a5c4284646';
-import {setupAnalysis} from './analysis-ui.mjs?v=7420257563a5c4284646';
-import {setupCalendar} from './calendar-ui.mjs?v=7420257563a5c4284646';
-import {setupUpdateReport} from './update-report.mjs?v=7420257563a5c4284646';
-import {setupExplorer} from './explorer-ui.mjs?v=7420257563a5c4284646';
-import {setupContributions} from './contributions-ui.mjs?v=7420257563a5c4284646';
-import {orderedSeries,breadcrumb,itemOptions} from './hierarchy.mjs?v=7420257563a5c4284646';
-import {availableMetrics,seasons,valuesFor,heatColor,shiftMonth} from './analytics.mjs?v=7420257563a5c4284646';
-import {setupRegression} from './regression-ui.mjs?v=7420257563a5c4284646';
+import {setupEmploymentCharts} from './employment-charts.mjs?v=433e68738fdb03dd1d03';
+import {request} from './static-api.mjs?v=433e68738fdb03dd1d03';
+import {initRevisions,mountRevisionView,baseRevisionInput,markRevisionCells} from './revision-view.mjs?v=433e68738fdb03dd1d03';
+import {axisScale,axisControls} from './chart-axis.mjs?v=433e68738fdb03dd1d03';
+import {workbookPickerItems,workbookSelection} from './series-tree.mjs?v=433e68738fdb03dd1d03';
+import {setupSeriesPicker} from './series-picker.mjs?v=433e68738fdb03dd1d03';
+import {setupChartExports} from './chart-export.mjs?v=433e68738fdb03dd1d03';
+import {niceAxis} from './chart-axis.mjs?v=433e68738fdb03dd1d03';
+import {setupAnalysis} from './analysis-ui.mjs?v=433e68738fdb03dd1d03';
+import {setupCalendar} from './calendar-ui.mjs?v=433e68738fdb03dd1d03';
+import {setupUpdateReport} from './update-report.mjs?v=433e68738fdb03dd1d03';
+import {setupExplorer} from './explorer-ui.mjs?v=433e68738fdb03dd1d03';
+import {setupContributions} from './contributions-ui.mjs?v=433e68738fdb03dd1d03';
+import {orderedSeries,breadcrumb,itemOptions} from './hierarchy.mjs?v=433e68738fdb03dd1d03';
+import {availableMetrics,seasons,valuesFor,heatColor,shiftMonth} from './analytics.mjs?v=433e68738fdb03dd1d03';
+import {setupRegression} from './regression-ui.mjs?v=433e68738fdb03dd1d03';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)],colors=['#007e72','#d58b35','#526bc4','#bd527f','#8a6b42','#299bb0','#7845a1','#656b75'];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=v=>v==null||!Number.isFinite(v)?'—':new Intl.NumberFormat('ja-JP',{minimumFractionDigits:3,maximumFractionDigits:3}).format(Math.abs(v)<.0005?0:v);
@@ -50,16 +50,17 @@ async function loadDataset(id,pref=null){const token=++sequence;try{const d=awai
  $('#calculation-note').textContent=d.id==='labor'?d.note:d.kind==='release'?'発表時点の掲載値。未収録の指標は補完しません。':'通常の変化率と年率換算を系列ごとに切り替えできます。';cards();renderControls();heatControls(true);render();
  }catch(e){alertMessage(e.message,true)}}
 const employmentCharts=setupEmploymentCharts({panel:$('.heat-panel'),esc,fmt});
-const employmentTableNames={employment:'雇用者数',wages:'平均時給',hours:'週平均労働時間',labor:'失業率・労働参加率'};
+const employmentTableNames={employment:'雇用者数',wages:'平均時給',hours:'週平均労働時間',labor:'家計調査・労働力'};
 async function openFullTable(id){
  if(!Object.hasOwn(employmentTableNames,id))return;
+ if(id==='labor'){analysis?.hide();calendar?.hide();$('#pce-sections').hidden=true;$('#price-sections').hidden=true;$$('#nav button').forEach(b=>{b.classList.toggle('active',b.dataset.group==='employment');b.setAttribute('aria-current',b.dataset.group==='employment'?'page':'false')});$('#time-view').hidden=true;$('#reg-view').hidden=true;document.querySelector('.view-tabs').hidden=true;await explorer.show('household');document.querySelector('#household-overview').scrollIntoView({block:'start'});return}
  await getDataset(id);
  const from=$('#chart-from').value,to=$('#chart-to').value,season=$('#heat-season').value;
  if(dataset.id!==id){await loadDataset(id,{from,to});if(dataset.id!==id)throw new Error('表を読み込めませんでした。もう一度お試しください。')}
  view('time');$('#heat-scope').value='all';$('#heat-season').value=season;collapsed.clear();heatControls(true);drawHeat();
  const heading=$('#heat-heading');heading.focus({preventScroll:true});heading.closest('.heat-panel').scrollIntoView({block:'start'});
 }
-function renderEmploymentTables(){for(const host of $$('.employment-table-shortcuts')){host.hidden=dataset.group!=='employment';host.replaceChildren();if(host.hidden)continue;for(const [id,label] of Object.entries(employmentTableNames)){const b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.fullTable=id;b.setAttribute('aria-pressed',String(dataset.id===id));b.onclick=async()=>{b.disabled=true;try{await openFullTable(id)}catch(e){alertMessage(e.message,true)}finally{b.disabled=false}};host.append(b)}}}
+function renderEmploymentTables(){for(const host of $$('.employment-table-shortcuts:not(#household-overview .employment-table-shortcuts)')){host.hidden=dataset.group!=='employment';host.replaceChildren();if(host.hidden)continue;for(const [id,label] of Object.entries(employmentTableNames)){const b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.fullTable=id;b.setAttribute('aria-pressed',String(dataset.id===id));b.onclick=async()=>{b.disabled=true;try{await openFullTable(id)}catch(e){alertMessage(e.message,true)}finally{b.disabled=false}};host.append(b)}}}
 const seriesPicker=setupSeriesPicker({onOpenTable:openFullTable,tableDatasetIds:Object.keys(employmentTableNames),host:$('#series-picker-host'),search:true,getCurrent:()=>configs.map(c=>workbookSelection(dataset,c).id),onApply:async items=>{
  const additions=items.map(item=>{const d=datasets.get(item.datasetId);return {d,c:validate(d,{...(d.id===dataset.id?configs[0]:{metric:d.group==='employment'?'level':'yoy'}),...item.config})}});
  if(additions.every(({d})=>d.id===dataset.id)){configs.push(...additions.map(({c})=>c));renderControls();render();return}
@@ -95,7 +96,7 @@ function drawHeat(){if(!dataset)return;const season=$('#heat-season').value,metr
  $$('[data-fold]').forEach(b=>b.onclick=()=>{const id=b.dataset.fold;if(collapsed.has(id))collapsed.delete(id);else collapsed.add(id);drawHeat();$(`[data-fold="${id}"]`)?.focus()});
  $('#heat-note').textContent=scope==='selected'?'比較中の各系列の設定を表示。単位や変化率が異なる系列の色の濃さは直接比較できません。':`${ss.length} / ${dataset.series.length}品目を表示・${dates.length}か月。${colored?'色は±'+fmt(limit)+'で飽和します。':'水準は数値表で表示します。'}灰色は欠損または未収録です。CSVには表示中の品目を出力します。`;$('#heat-season').disabled=scope==='selected';$('#heat-metric').disabled=scope==='selected';}
 async function getStatus(){try{status=await request('/api/status');await calendar?.sync(status);const reportChanged=await updateReport.sync(status);if(reportChanged){await explorer?.invalidate();analysis?.invalidate();}$('#checked').textContent=status.lastOfficial?`公開用データ作成 ${when(status.lastOfficial)}`:'保存済みデータを表示';$('#update').disabled=status.running;$('#update').textContent=status.running?'更新しています…':'↻ 公開データを再読込';$('#auto').checked=!!status.auto;$('#next-update').textContent=status.auto?'次の確認：'+when(status.nextOfficial):'自動更新はオフ';$('#update-log').textContent=status.message||'まだ更新していません。';if(status.running)alertMessage('公式データを確認しています。表示中のデータはそのまま閲覧できます。');else if(status.message&&status.lastResult!==lastResult){lastResult=status.lastResult;alertMessage(status.message,status.failed)}if(manifest&&status.fingerprint!==fingerprint){const p={configs,from:$('#chart-from').value,to:$('#chart-to').value};manifest=await request('/api/manifest');fingerprint=manifest.fingerprint;datasets.clear();const active=$$('#nav button').find(b=>b.classList.contains('active'))?.dataset.group;if($('#explorer-view')?.hidden!==false)await loadDataset(dataset.id,p);if(active&&['calendar','expectations','sp','ism','labor-market','adp','claims','jolts','consumption','retail','import-prices','gdp','housing','production','analysis','pce'].includes(active))$$('#nav button').forEach(b=>{b.classList.toggle('active',b.dataset.group===active);b.setAttribute('aria-current',b.dataset.group===active?'page':'false')});regression?.invalidate();}}catch{$('#checked').textContent='サイトへの接続を確認してください';}}
-async function init(){try{setupChartExports({getToken:()=>status.token});analysis=setupAnalysis({request,esc,fmt,csv,getToken:()=>status.token});calendar=setupCalendar({request,getToken:()=>status.token,openGroup:switchGroup,updateData:()=>$('#update').click()});explorer=setupExplorer({esc,fmt,request,csv,openGroup:switchGroup,openExisting:async a=>{view('time');await loadDataset(a.dataset,{configs:[{id:a.series,season:a.season,metric:'level'}]})}});manifest=await request('/api/manifest');fingerprint=manifest.fingerprint;let p={};try{p=JSON.parse(localStorage.getItem('economic-note-pages-v2')||'{}')}catch{}range=p.range||'5';contributions=setupContributions({esc,fmt});regression=setupRegression({getDataset,getManifest:()=>manifest,esc,fmt,opts,itemOpts,validate,seriesData,csv});await loadDataset(manifest.datasets.some(d=>d.id===p.dataset)?p.dataset:'cpi',p.configs?p:null);await getStatus();const guidePage=new URLSearchParams(location.hash.slice(1)).get('page');if(['cpi','pce','pce-nonprice','ppi','employment','expectations','sp','ism','labor-market','adp','claims','jolts','consumption','retail','import-prices','gdp','housing','production','analysis','calendar'].includes(guidePage))await switchGroup(guidePage);else if(['cpi','pce','ppi'].includes(dataset.group))await switchGroup(dataset.group);registerTools();}catch(e){alertMessage('データを読み込めませんでした。'+e.message,true)}}
+async function init(){try{setupChartExports({getToken:()=>status.token});analysis=setupAnalysis({request,esc,fmt,csv,getToken:()=>status.token});calendar=setupCalendar({request,getToken:()=>status.token,openGroup:switchGroup,updateData:()=>$('#update').click()});explorer=setupExplorer({esc,fmt,request,csv,openEmploymentTable:openFullTable,openGroup:switchGroup,openExisting:async a=>{view('time');await loadDataset(a.dataset,{configs:[{id:a.series,season:a.season,metric:'level'}]})}});manifest=await request('/api/manifest');fingerprint=manifest.fingerprint;let p={};try{p=JSON.parse(localStorage.getItem('economic-note-pages-v2')||'{}')}catch{}range=p.range||'5';contributions=setupContributions({esc,fmt});regression=setupRegression({getDataset,getManifest:()=>manifest,esc,fmt,opts,itemOpts,validate,seriesData,csv});await loadDataset(manifest.datasets.some(d=>d.id===p.dataset)?p.dataset:'cpi',p.configs?p:null);await getStatus();const guidePage=new URLSearchParams(location.hash.slice(1)).get('page');if(['cpi','pce','pce-nonprice','ppi','employment','expectations','sp','ism','labor-market','adp','claims','jolts','consumption','retail','import-prices','gdp','housing','production','analysis','calendar'].includes(guidePage))await switchGroup(guidePage);else if(['cpi','pce','ppi'].includes(dataset.group))await switchGroup(dataset.group);registerTools();}catch(e){alertMessage('データを読み込めませんでした。'+e.message,true)}}
 function registerTools(){const c=document.modelContext;if(!c?.registerTool)return;try{Promise.resolve(c.registerTool({name:'read_economic_view',description:'Read displayed economic chart series, dates, values and regression results. Does not update files.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute:()=>({dataset:dataset.id,from:$('#chart-from').value,to:$('#chart-to').value,series:selected.map(s=>s.label),latest:chartRows.at(-1),regression:regression?.summary(),contributions:contributions?.summary()})})).catch(()=>{})}catch{}}
 $$('[data-pce-view]').forEach(b=>b.onclick=()=>switchGroup(b.dataset.pceView));$$('#nav button').forEach(b=>b.onclick=()=>switchGroup(b.dataset.group));$('#dataset').onchange=e=>loadDataset(e.target.value);$('#add-series').onclick=()=>seriesPicker.toggle();
 $$('[data-range]').forEach(b=>b.onclick=()=>{range=b.dataset.range;$('#chart-to').value=dataset.latest;$('#chart-from').value=range==='all'?dataset.dates[0]:shiftMonth(dataset.latest,-Number(range)*12+1);render()});['chart-from','chart-to'].forEach(id=>$('#'+id).onchange=()=>{range='custom';render()});$('#rows').onchange=drawTable;$('#csv').onclick=()=>csv(dataset.id+'_comparison',[['Date',...selected.map(s=>s.label+' / '+s.met?.unit)],...chartRows.map(r=>[r.date,...r.values])]);

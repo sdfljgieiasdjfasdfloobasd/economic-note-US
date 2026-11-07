@@ -1,7 +1,7 @@
-import {setupEmploymentCharts} from './employment-charts.mjs?v=7420257563a5c4284646';
-import {transform,compatibleUnit} from './explorer-math.mjs?v=7420257563a5c4284646';
-import {joltsHierarchy} from './publication-hierarchy-data.mjs?v=7420257563a5c4284646';
-import {industryDefinitions} from './contributions.mjs?v=7420257563a5c4284646';
+import {setupEmploymentCharts} from './employment-charts.mjs?v=433e68738fdb03dd1d03';
+import {transform,compatibleUnit} from './explorer-math.mjs?v=433e68738fdb03dd1d03';
+import {joltsHierarchy} from './publication-hierarchy-data.mjs?v=433e68738fdb03dd1d03';
+import {industryDefinitions} from './contributions.mjs?v=433e68738fdb03dd1d03';
 export const joltsMeasures=[['JO','求人数'],['HI','採用数'],['QU','自発的離職'],['LD','解雇・レイオフ'],['OS','その他離職'],['TS','総離職']];
 const major=new Set(industryDefinitions.map(s=>s.name));
 const translations=new Map([['Total nonfarm','非農業部門全体'],['Total private','民間部門全体'],...industryDefinitions.map(s=>[s.name,s.label]),['Durable goods manufacturing','耐久財製造業'],['Nondurable goods manufacturing','非耐久財製造業'],['Wholesale trade','卸売業'],['Retail trade','小売業'],['Transportation, warehousing, and utilities','運輸・倉庫・公益'],['Finance and insurance','金融・保険'],['Real estate and rental and leasing','不動産・賃貸'],['Private educational services','民間教育'],['Health care and social assistance','医療・社会扶助'],['Arts, entertainment, and recreation','芸術・娯楽'],['Accommodation and food services','宿泊・飲食'],['Federal','連邦政府'],['State and local','州・地方政府'],['State and local government education','州・地方政府の教育'],['State and local government, excluding education','州・地方政府（教育除く）']]);

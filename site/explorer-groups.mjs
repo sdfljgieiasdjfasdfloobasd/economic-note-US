@@ -2,7 +2,8 @@
 export const isPcePricePublication=g=>g.id==='price-table:pce'||/Table (?:2\.3\.4U|2\.4\.4U?|2\.8\.[478])(?:\.|\s|$)/.test(g.label||g.id||'');
 export const isRetailSeries=s=>/^(?:retail:|carts:|fred:RRSFS$|macrocalc:(?:retail_|gasoline_share:))/.test(s.id||'');
 export const employmentSection=(s,page)=>page==='adp'?/^(?:adp:|adppay:|adppulse:|macrocalc:adp_)/.test(s.id||''):page==='claims'?/^(?:claims:|derived:claims_|fred:(?:ICSA|ICNSA|IC4WSA|CCSA|CCNSA|CC4WSA|IURSA|IURNSA)$)/.test(s.id||''):page==='jolts'?s.category==='求人・採用（JOLTS）':false;
-export const belongsToPage=(s,page)=>['adp','claims','jolts'].includes(page)?employmentSection(s,page):page==='retail'?isRetailSeries(s):page==='consumption'&&isRetailSeries(s)?false:(s.page===page||(s.pages||[]).includes(page))&&(page!=='pce'||(s.publications||[statisticalGroup(s)]).some(isPcePricePublication));
+import {isHousehold} from './household-ui.mjs?v=433e68738fdb03dd1d03';
+export const belongsToPage=(s,page)=>page==='household'?isHousehold(s):['adp','claims','jolts'].includes(page)?employmentSection(s,page):page==='retail'?isRetailSeries(s):page==='consumption'&&isRetailSeries(s)?false:(s.page===page||(s.pages||[]).includes(page))&&(page!=='pce'||(s.publications||[statisticalGroup(s)]).some(isPcePricePublication));
 // Publication families: institutions with multiple surveys remain separate tables.
 export function statisticalGroup(s){
  if(/^macrocalc:(?:retail_control:|retail_breadth:|gasoline_share:)/.test(s.id||''))return {id:'macrocalc:小売 / 派生指標',label:'小売 / コントロールグループ・増加業種の割合・ガソリン売上構成比'};
