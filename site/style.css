@@ -208,3 +208,26 @@
 .picker-open-table{margin-left:auto;padding:5px 9px;font-size:12px;white-space:nowrap}
 .heat-panel{scroll-margin-top:18px}
 .heat-panel>.employment-table-shortcuts{padding:0 24px}
+
+.employment-chart-controls{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:end;padding:12px 24px;border-top:1px solid #e3ebef}
+.employment-chart-controls[hidden],#employment-table-charts[hidden]{display:none}
+.employment-chart-controls label{display:grid;gap:5px;font-size:12px;color:#60758a}
+.employment-chart-views{display:flex;gap:6px}
+.employment-chart-views button{padding:8px 12px;border:1px solid #c7ddda;background:#f7fbfa;color:#176d68;border-radius:5px;cursor:pointer}
+.employment-chart-views button[aria-pressed="true"]{background:#e4f2ee;border-color:#258b7e;font-weight:600}
+#employment-table-charts{padding:0 24px 20px}
+.employment-chart-note{margin:8px 0 14px}
+.employment-chart-legend{gap:6px 16px;margin:12px 0}
+.employment-chart-legend button{font-size:12px}
+.employment-chart-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.employment-chart-card{min-width:0;border:1px solid #e0e9ed;border-radius:8px;padding:12px;background:#fff}
+.employment-chart-card h3{margin:0 0 6px;font-size:15px}
+.employment-chart-card>svg{display:block;width:100%;height:auto}
+.employment-card-axis summary{cursor:pointer;font-size:12px;color:#176d68}
+#employment-table-charts .ex-hover-tooltip:not([hidden]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 20px;max-height:none;overflow:visible;font-size:12px}
+#employment-table-charts .ex-hover-tooltip>strong,#employment-table-charts .ex-hover-tooltip>small{grid-column:1/-1}
+#employment-table-charts .ex-hover-tooltip>div{min-width:0;gap:8px;padding:2px 0}
+#employment-table-charts .ex-hover-tooltip>div>span{min-width:0;overflow-wrap:anywhere}
+#employment-table-charts .ex-hover-tooltip b{white-space:nowrap}
+#employment-table-charts .ex-hover-compact:not([hidden]){grid-template-columns:1fr}
+@media(max-width:700px){.employment-chart-grid{grid-template-columns:1fr}#employment-table-charts{padding:0 12px 16px}#employment-table-charts .ex-hover-tooltip:not([hidden]){grid-template-columns:1fr}}
