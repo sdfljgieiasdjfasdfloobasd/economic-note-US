@@ -197,3 +197,14 @@
 #contribution-tooltip .contribution-tip-row>:last-child,#industry-panel .ex-hover-tooltip>div>b{flex-shrink:0;white-space:nowrap}
 #contribution-tooltip .dot,#industry-panel .ex-hover-tooltip i{flex-shrink:0}
 @media(max-width:600px){#contribution-tooltip:not([hidden]),#industry-panel .ex-hover-tooltip:not([hidden]){grid-template-columns:minmax(0,1fr);gap:2px;padding:8px 10px}}
+
+/* One-click complete employment tables, independent of chart selection. */
+.employment-table-shortcuts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
+.employment-table-shortcuts[hidden]{display:none}
+.employment-table-shortcuts button,.picker-open-table{border:1px solid #bfd9d8;border-radius:6px;background:#f5faf9;color:#176d68;padding:8px 13px;font:inherit;font-size:13px;cursor:pointer}
+.employment-table-shortcuts button[aria-pressed="true"]{background:#e4f2ee;border-color:#258b7e;color:#11594f;font-weight:600}
+.employment-table-shortcuts button:hover,.picker-open-table:hover{background:#e4f2ee}
+.employment-table-shortcuts button:focus-visible,.picker-open-table:focus-visible{outline:2px solid #258b7e;outline-offset:3px}
+.picker-open-table{margin-left:auto;padding:5px 9px;font-size:12px;white-space:nowrap}
+.heat-panel{scroll-margin-top:18px}
+.heat-panel>.employment-table-shortcuts{padding:0 24px}
