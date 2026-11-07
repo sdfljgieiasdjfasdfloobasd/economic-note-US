@@ -5,7 +5,7 @@
   "observations": 8638906,
   "dataBytesBeforeCompression": 1395682403,
   "dataBytesAfterCompression": 142795230,
-  "siteBytes": 145014961,
+  "siteBytes": 145020915,
   "sourceUnchanged": true,
   "publicationCounts": {
     "included": 32925,
@@ -23,5 +23,5 @@
   ],
   "mode": "cloud",
   "automaticProviderUpdates": true,
-  "frontendVersion": "433e68738fdb03dd1d03"
+  "frontendVersion": "ca2c619c98299e155434"
 }
