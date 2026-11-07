@@ -1,8 +1,8 @@
-import {axisScale,axisControls} from './chart-axis.mjs?v=be54039c59b9032c0b50';
-import {transform,monthShift} from './explorer-math.mjs?v=be54039c59b9032c0b50';
-import {niceAxis,dateTicks} from './chart-axis.mjs?v=be54039c59b9032c0b50';
-import {industryDefinitions} from './contributions.mjs?v=be54039c59b9032c0b50';
-import {attachTooltip} from './explorer-tooltip.mjs?v=be54039c59b9032c0b50';
+import {axisScale,axisControls} from './chart-axis.mjs?v=aa2f71845e10da50705b';
+import {transform,monthShift} from './explorer-math.mjs?v=aa2f71845e10da50705b';
+import {niceAxis,dateTicks} from './chart-axis.mjs?v=aa2f71845e10da50705b';
+import {industryDefinitions} from './contributions.mjs?v=aa2f71845e10da50705b';
+import {attachTooltip} from './explorer-tooltip.mjs?v=aa2f71845e10da50705b';
 export const joltsIndustries=['110099','230000','300000','400000','510000','510099','540099','600000','700000','810000','900000'];
 export function industryIds(catalog,type){
  if(type==='adp')return {total:'adp:M:National:U.S.:SA',industries:industryDefinitions.slice(0,10).map(s=>({...s,id:'adp:M:Industry:'+({'Mining and logging':'Natural resources and mining','Private education and health services':'Education and health services'}[s.name]||s.name)+':SA'}))};
@@ -39,5 +39,5 @@ export function setupIndustry({root,loadMany,esc,fmt,csv}){
  $('source').onchange=()=>load(true);$('metric').onchange=()=>load(false);$('view').onchange=draw;$('from').onchange=draw;$('to').onchange=draw;
  panel.querySelectorAll('[data-ir]').forEach(b=>b.onclick=()=>{const latest=model.filter(r=>r.complete).at(-1)?.date;if(!latest)return;$('to').value=latest.slice(0,7);$('from').value=(b.dataset.ir==='all'?model[0].date:monthShift(latest,1-Number(b.dataset.ir))).slice(0,7);draw()});
  $('csv').onclick=()=>csv('industry_'+$('source').value,[['年月','計算','単位','Total',...definition.industries.map(s=>s.name),'Total−業種合計'],...rows.map(r=>[r.date,$('metric').value,'千人',r.total,...r.values,r.residual])]);
- return {show(c,page){catalog=c;panel.hidden=page!=='labor';if(!panel.hidden)return load()},resize(){draw()}};
+ return {show(c,page){ticket++;catalog=c;panel.hidden=!['labor','adp','jolts'].includes(page);panel.querySelector('h2').textContent=page==='adp'?'ADP 業種別の推移':page==='jolts'?'JOLTS 業種別の推移':'ADP・JOLTS 業種別の推移';const options=[...$('source').options];for(const option of options){option.hidden=page==='adp'?option.value!=='adp':page==='jolts'?option.value==='adp':false;option.disabled=option.hidden}if(options.find(o=>o.value===$('source').value)?.disabled)$('source').value=options.find(o=>!o.disabled).value;if(!panel.hidden)return load()},resize(){draw()}};
 }

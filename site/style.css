@@ -172,3 +172,19 @@
 .series-chip{flex-wrap:wrap}.series-chip [data-ex-compare]{font-size:12px}
 #an-values{margin-top:22px}#an-values summary{font-weight:600;cursor:pointer;margin-bottom:12px}#an-values>label{display:flex;align-items:center;gap:10px;font-size:13px;margin-bottom:10px}#an-values-table{max-height:500px}#an-values-table table{font-size:13px}#an-values-table th{white-space:normal;min-width:150px}#an-values-table td{white-space:nowrap;font-variant-numeric:tabular-nums}#an-values-table thead th{position:sticky;top:0;z-index:1;background:#f3f7fa}
 @media(max-width:1100px){.series-row{grid-template-columns:10px minmax(0,1fr) 32px}.series-row label:nth-child(3),.series-row label:nth-child(4),.series-row .copy-series{grid-column:2}.series-row .remove-series{grid-column:3}.an-row{flex-wrap:wrap}}
+
+/* Nested price and employment navigation. */
+.sidebar #nav .nav-group{margin:0;border:0;border-radius:6px;color:#c3cfdc;font-size:14px;min-width:0}
+.sidebar #nav .nav-group summary{padding:12px 10px;font-size:16px;font-weight:650;color:#eef4fb;list-style:none;display:flex;align-items:center;gap:9px;border-radius:6px}
+.sidebar #nav .nav-group summary::-webkit-details-marker{display:none}
+.sidebar #nav .nav-group summary::before{content:'›';color:#8ba4b8;display:inline-block;transition:transform .15s}
+.sidebar #nav .nav-group[open] summary::before{transform:rotate(90deg)}
+.sidebar #nav .nav-group:has(button.active) summary{color:#75e4cd}
+.sidebar #nav .nav-group summary:hover{background:#1b3348}
+.sidebar #nav .nav-children{display:grid;gap:3px;margin:0 0 8px 9px;padding-left:8px;border-left:1px solid #355064}
+.sidebar #nav .nav-children button{width:100%;padding:10px 8px;font-size:14px;line-height:1.4;white-space:normal}
+.sidebar #nav .nav-children button small{margin:3px 0 0;font-size:11px}
+.sidebar #nav summary:focus-visible,.sidebar #nav button:focus-visible{outline:2px solid #75e4cd;outline-offset:-2px}
+@media(max-width:1000px){.sidebar #nav{align-items:flex-start}.sidebar #nav .nav-group{flex:0 0 170px}.sidebar #nav .nav-group summary{white-space:nowrap}.sidebar #nav .nav-children{display:grid}.sidebar #nav .nav-children button{width:100%;white-space:normal}}
+
+#explorer-view[data-empty-section="true"]>.workspace~*,#explorer-view[data-empty-section="true"]>.workspace #ex-summary~*{display:none!important}

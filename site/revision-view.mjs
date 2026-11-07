@@ -1,8 +1,8 @@
-import {valuesFor} from './analytics.mjs?v=be54039c59b9032c0b50';
-import {transform,compatibleUnit,frequency} from './explorer-math.mjs?v=be54039c59b9032c0b50';
-import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=be54039c59b9032c0b50';
-import {attachTooltip} from './explorer-tooltip.mjs?v=be54039c59b9032c0b50';
-import {seriesAttributions} from './expectation-presets.mjs?v=be54039c59b9032c0b50';
+import {valuesFor} from './analytics.mjs?v=aa2f71845e10da50705b';
+import {transform,compatibleUnit,frequency} from './explorer-math.mjs?v=aa2f71845e10da50705b';
+import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=aa2f71845e10da50705b';
+import {attachTooltip} from './explorer-tooltip.mjs?v=aa2f71845e10da50705b';
+import {seriesAttributions} from './expectation-presets.mjs?v=aa2f71845e10da50705b';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=v=>v==null||!Number.isFinite(v)?'—':Number(v).toLocaleString('ja-JP',{minimumFractionDigits:3,maximumFractionDigits:3});
 const date=d=>d.length===7?d+'-01':d;
