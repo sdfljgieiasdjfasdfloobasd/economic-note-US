@@ -1,7 +1,7 @@
-import {axisScale,axisControls} from './chart-axis.mjs?v=7c7fce8f8b909fbca769';
-import {niceAxis} from './chart-axis.mjs?v=7c7fce8f8b909fbca769';
-import {buildContributions,stackContributions} from './contributions.mjs?v=7c7fce8f8b909fbca769';
-import {shiftMonth} from './analytics.mjs?v=7c7fce8f8b909fbca769';
+import {axisScale,axisControls} from './chart-axis.mjs?v=42ae5157bcce5fdd2981';
+import {niceAxis} from './chart-axis.mjs?v=42ae5157bcce5fdd2981';
+import {buildContributions,stackContributions} from './contributions.mjs?v=42ae5157bcce5fdd2981';
+import {shiftMonth} from './analytics.mjs?v=42ae5157bcce5fdd2981';
 export function setupContributions({esc,fmt}){
  const $=s=>document.querySelector(s),panel=$('#contribution-panel');
  let model=null,dataRef=null,rows=[],barMode='monthly',lineMode='ma3',chartType='stacked',range='36',hidden=new Set(),hiddenTotals=new Set(),active=-1,geometry=null;

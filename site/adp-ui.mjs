@@ -1,5 +1,5 @@
-import {setupEmploymentCharts} from './employment-charts.mjs?v=7c7fce8f8b909fbca769';
-import {transform,compatibleUnit} from './explorer-math.mjs?v=7c7fce8f8b909fbca769';
+import {setupEmploymentCharts} from './employment-charts.mjs?v=42ae5157bcce5fdd2981';
+import {transform,compatibleUnit} from './explorer-math.mjs?v=42ae5157bcce5fdd2981';
 export const adpGroups=[['National','全国合計'],['Industry','業種別'],['Establishment Size','事業所規模別'],['Census Divisions','地域別']];
 const orders={National:['U.S.'],Industry:['Natural resources and mining','Construction','Manufacturing','Trade, transportation, and utilities','Information','Financial activities','Professional and business services','Education and health services','Leisure and hospitality','Other services'],'Establishment Size':['1-19 employees','20-49 employees','50-249 employees','250-499 employees','500+ employees'],'Census Divisions':['New England','Mid-Atlantic','East North Central','West North Central','South Atlantic','East South Central','West South Central','Mountain','Pacific']};
 const labels=['全国・民間部門','天然資源・鉱業','建設業','製造業','商業・運輸・公益','情報産業','金融関連','専門・事業サービス','教育・医療','娯楽・宿泊・飲食','その他サービス','1〜19人','20〜49人','50〜249人','250〜499人','500人以上','ニューイングランド','中部大西洋岸','東北中部','西北中部','南部大西洋岸','東南中部','西南中部','山岳部','太平洋岸'];
