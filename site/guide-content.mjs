@@ -1,5 +1,5 @@
-import {tableGroups} from './explorer-groups.mjs?v=54a36504b97861cc70d1';
-import {hierarchyMetadata} from './publication-hierarchy.mjs?v=54a36504b97861cc70d1';
+import {tableGroups} from './explorer-groups.mjs?v=2b52e4552b85333b725b';
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=2b52e4552b85333b725b';
 export const references=[['BEA NIPA Handbook（GDP・PCE・投資等の概念と推計方法）','https://www.bea.gov/resources/methodologies/nipa-handbook'],['BLS CPI Frequently Asked Questions（CPIの対象と指数の読み方）','https://www.bls.gov/cpi/questions-and-answers.htm']];
 export const GUIDE_VERSION='2026-10-18';
 export const pages=[
@@ -90,7 +90,7 @@ export const chapters=[
  {id:'examples',title:'9. よくある質問と分析の入り口',paragraphs:[
  '「GDP Table 1.5.1を前年同期比で見たい」：1.5.1の四半期公表値は前期比年率です。実質額の1.5.6（Quarterly）など、目的の項目と同一定義の実質水準を選び「前年比（%）」にします。1.5.1の公表成長率に4四半期前との差を適用すると、成長率同士の差になり、実質GDPの前年同期比にはなりません。1.1.11は公表の実質前年同期比の表ですが、詳細範囲は別途確認します。',
  '「小売のコア＝実質？」：違います。小売の「除く自動車」「除く自動車・ガソリン」等は名目売上から特定業種を除外した系列です。コントロールグループは一般に自動車・同部品、ガソリンスタンド、建材等、飲食サービスを除いた集計で、サイトでは元水準から計算する系列です。具体的な計算は系列定義を優先します。',
- '「小売の実質はどこ？」：「小売売上高」の「実質」ボタンで、財CPI＋外食CPI・13業種別CPI・PCE価格調整（旧BEA未接続の試算）・Control／コア財CPIの4方式を選びます。前月比・前年比・3か月前比・前月比3か月平均・3か月前比年率・共通基準の指数をグラフと表で切替できます。寄与度と入力系列・計算方法は折りたたみ表示。CPI欠損をまたぐ連鎖値は空欄です。従来のSt. Louis Fedの実質小売・飲食サービス売上高（RRSFS）はCensusの名目表とは別の加工系列です。CARTSもChicago連銀の推計・補完指標であり、Census公式売上の詳細品目ではありません。',
+ '「小売の実質はどこ？」：「小売売上高」の「実質」ボタンで、財CPI＋外食CPI・13業種別CPI・PCE価格調整（旧BEA未接続の試算）・Control／コア財CPIの独自試算4方式と、従来の実質総合（RRSFS）の5方式を一括比較できます。個別選択も可能です。前月比・前年比・3か月前比・前月比3か月平均・3か月前比年率・共通基準の指数をグラフと表で切替できます。寄与度と入力系列・計算方法は折りたたみ表示。CPI欠損をまたぐ連鎖値は空欄です。従来のSt. Louis Fedの実質小売・飲食サービス売上高（RRSFS）はCensusの名目表とは別の加工系列です。CARTSもChicago連銀の推計・補完指標であり、Census公式売上の詳細品目ではありません。',
  '「失業率を小数3桁で見ると正確？」：公式公表の丸め精度と、保存人数から再計算した比率を区別します。サイトの再計算系列は公表失業率の隠れた桁を復元するものではありません。',
  '「期待インフレの5年は全部同じ？」：今後5年間の平均、5年先のある期間、5年先から5年間、5〜10年の長期期待などがあります。家計・企業・専門家・市場も測るものが違うため、年限と定義の双方を照合します。',
  '「表の右側が見えない」：表は横にスクロールできます。観測数を減らすと比較しやすくなります。「最新月が空欄」なら、他の行だけ先に公表されている可能性もあり、系列別最新日を確認します。',
