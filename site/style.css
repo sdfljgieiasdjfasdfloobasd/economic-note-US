@@ -284,4 +284,4 @@
 
 #adp-overview[data-pay="true"] [data-a="total"] .employment-chart-legend{display:flex}
 
-[data-other-group][aria-pressed="true"]{background:#e5f3f0;border-color:#008477;color:#12584f;box-shadow:inset 3px 0 #008477}
+[data-productivity][aria-pressed="true"],[data-other-group][aria-pressed="true"]{background:#e5f3f0;border-color:#008477;color:#12584f;box-shadow:inset 3px 0 #008477}

@@ -1,8 +1,8 @@
-import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=54a5152d66899c86edba';
-import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=54a5152d66899c86edba';
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=54a5152d66899c86edba';
-import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=54a5152d66899c86edba';
-import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=54a5152d66899c86edba';
+import {layoutPublicationSeries} from './publication-hierarchy.mjs?v=ba19a266df1738b4e259';
+import {mountRevisionView,explorerRevisionInput,markRevisionCells} from './revision-view.mjs?v=ba19a266df1738b4e259';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=ba19a266df1738b4e259';
+import {tableGroups,statisticalGroup} from './explorer-groups.mjs?v=ba19a266df1738b4e259';
+import {transform,metrics,pageMetrics,metricApplicable,compatibleUnit,frequency,tableHeatRule,tableHeatLimit,tableHeatColor,manualHeatRule} from './explorer-math.mjs?v=ba19a266df1738b4e259';
 export function publicationFilename(page,label,metric,dates,series=[]){
  const table=label.match(/Table (\d+(?:\.\d+)*U?)/)?.[1];
  const fs=[...new Set(series.map(s=>s.frequency).filter(Boolean))];
@@ -165,5 +165,5 @@ export function setupPublicationTable({root,esc,fmt,csv,loadMany}){
   csv(snapshot.name,snapshot.rows);
   $('#ex-export-status').textContent='保存を開始しました：'+snapshot.name+'.csv';
  };
- return {async show(c,p,ids,preferredGroup=null){catalog=c;page=p;selected=ids;groups=tableGroups(c,p);const preferred=preferredGroup||(ids[0]?statisticalGroup(c.series.find(s=>s.id===ids[0])||{}).id:'');options();if(groups.some(g=>g.id===preferred))$('#ex-table-publication').value=preferred;$('#ex-table-season').value='';$('#ex-table-metric').value='level';$('#ex-count').value='24';await refresh(true)},selection(ids){selected=ids;if($('#ex-table-publication').value==='__selected')refresh(false)},async invalidate(c){const oldLatest=series.flatMap(s=>s.observations.filter(o=>o.value!=null).map(o=>o.date)).sort().at(-1),followLatest=$('#ex-table-to').value===oldLatest;const previous=$('#ex-table-publication').value;catalog=c;groups=tableGroups(c,page);options();if(previous==='__selected'||groups.some(g=>g.id===previous))$('#ex-table-publication').value=previous;const latest=group()?.series.map(s=>s.latest?.date).filter(Boolean).sort().at(-1);if(followLatest&&latest&&latest>oldLatest)$('#ex-table-to').value=latest;await refresh(false)},cancel(){seq++;loading=false;loadedGroupKey='';pendingGroupKey='';clearExport()},summary(){return rendered?{publication:group()?.label,series:rows.length,dates:dates.length}:null}};
+ return {async show(c,p,ids,preferredGroup=null){catalog=c;page=p;selected=ids;groups=tableGroups(c,p);const preferred=preferredGroup||(ids[0]?statisticalGroup(c.series.find(s=>s.id===ids[0])||{}).id:'');options();if(preferred==='__selected'||groups.some(g=>g.id===preferred))$('#ex-table-publication').value=preferred;$('#ex-table-season').value='';$('#ex-table-metric').value='level';$('#ex-count').value='24';await refresh(true)},selection(ids){selected=ids;if($('#ex-table-publication').value==='__selected')refresh(false)},async invalidate(c){const oldLatest=series.flatMap(s=>s.observations.filter(o=>o.value!=null).map(o=>o.date)).sort().at(-1),followLatest=$('#ex-table-to').value===oldLatest;const previous=$('#ex-table-publication').value;catalog=c;groups=tableGroups(c,page);options();if(previous==='__selected'||groups.some(g=>g.id===previous))$('#ex-table-publication').value=previous;const latest=group()?.series.map(s=>s.latest?.date).filter(Boolean).sort().at(-1);if(followLatest&&latest&&latest>oldLatest)$('#ex-table-to').value=latest;await refresh(false)},cancel(){seq++;loading=false;loadedGroupKey='';pendingGroupKey='';clearExport()},summary(){return rendered?{publication:group()?.label,series:rows.length,dates:dates.length}:null}};
 }

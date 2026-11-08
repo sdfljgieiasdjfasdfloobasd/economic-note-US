@@ -1,7 +1,16 @@
 
+export const productivityIndicators=[
+ ['fred:ULCNFB','単位労働コスト（ULC）'],
+ ['fred:OPHNFB','労働生産性'],
+ ['fred:OUTNFB','実質産出量'],
+ ['fred:HOANBS','総労働時間'],
+ ['fred:COMPNFB','時間当たり報酬'],
+ ['fred:COMPRNFB','実質時間当たり報酬']
+];
 // Additional entry point only: existing page memberships and series IDs are unchanged.
 export function employmentOtherKind(s){
  const id=s.id||'';
+ if(productivityIndicators.some(([key])=>key===id))return 'productivity';
  if(/^ism:(Manufacturing|Services):Employment$/.test(id))return 'ism';
  if(id.startsWith('nfib:'))return 'nfib';
  if(id.startsWith('challenger:'))return 'challenger';
@@ -11,6 +20,7 @@ export function employmentOtherKind(s){
  return null;
 }
 export const employmentOtherGroups=[
+ {id:'productivity',label:'BLS 生産性・費用統計',note:'非農業企業部門・四半期・季節調整済み。指標ボタンでグラフと表を切替。公表値は2017年＝100の指数です。前期比年率・前年同期比も選べます。総労働時間は働いた時間の合計で、週平均労働時間とは異なります。',series:['fred:ULCNFB']},
  {id:'ism',label:'ISM雇用指数',note:'製造業・サービス業の雇用DI。50が前月からの増減の境目です。',series:['ism:Manufacturing:Employment','ism:Services:Employment']},
  {id:'nfib',label:'NFIB中小企業雇用調査',note:'未充足求人・採用計画・報酬引上げ実績・計画。保存済みの短い履歴を表示します。',series:['nfib:openings','nfib:plans','nfib:compensation','nfib:compensation_plans']},
  {id:'challenger',label:'Challenger解雇計画',note:'企業が発表した人員削減計画。実際の解雇人数ではありません。保存済みの総数のみです。',series:['challenger:cuts']},
@@ -22,7 +32,7 @@ export const employmentOtherGroups=[
 export const isPcePricePublication=g=>g.id==='price-table:pce'||/Table (?:2\.3\.4U|2\.4\.4U?|2\.8\.[478])(?:\.|\s|$)/.test(g.label||g.id||'');
 export const isRetailSeries=s=>/^(?:retail:|carts:|fred:RRSFS$|macrocalc:(?:retail_|gasoline_share:))/.test(s.id||'');
 export const employmentSection=(s,page)=>page==='adp'?/^(?:adp:|adppay:|adppulse:|macrocalc:adp_)/.test(s.id||''):page==='claims'?/^(?:claims:|derived:claims_|fred:(?:ICSA|ICNSA|IC4WSA|CCSA|CCNSA|CC4WSA|IURSA|IURNSA)$)/.test(s.id||''):page==='jolts'?s.category==='求人・採用（JOLTS）':false;
-import {isHousehold} from './household-ui.mjs?v=54a5152d66899c86edba';
+import {isHousehold} from './household-ui.mjs?v=ba19a266df1738b4e259';
 export const belongsToPage=(s,page)=>page==='labor-other'?!!employmentOtherKind(s):page==='household'?isHousehold(s):['adp','claims','jolts'].includes(page)?employmentSection(s,page):page==='retail'?isRetailSeries(s):page==='consumption'&&isRetailSeries(s)?false:(s.page===page||(s.pages||[]).includes(page))&&(page!=='pce'||(s.publications||[statisticalGroup(s)]).some(isPcePricePublication));
 // Publication families: institutions with multiple surveys remain separate tables.
 export function statisticalGroup(s){
