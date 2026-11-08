@@ -11,6 +11,7 @@ import json
 HERE = Path(__file__).resolve().parent
 REVIEW_DATE = '2026-10-20'
 RULES = {
+ 'indeed': {'name':'Indeed Hiring Lab', 'terms':'https://github.com/hiring-lab/job_postings_tracker/blob/master/LICENSE', 'basis':'公式米国全国求人指数CSV。CC BY 4.0。出典・ライセンスURLと指数の定義を画面・CSVに表示し、変化率などサイトによる計算と区別。'},
  'fhfa': {'name':'Federal Housing Finance Agency', 'terms':'https://www.fhfa.gov/about/fhfa-policies/website-privacy-policy', 'basis':'FHFA作成の住宅価格指数の公表集計値。公式public-domain方針に基づき出典・指数区分を保持。第三者素材・個票は含まない。'},
  'fred_retail': {'name':'St. Louis Fed / Real Retail Sales', 'terms':'https://fred.stlouisfed.org/series/RRSFS', 'basis':'RRSFSのCopyrighted: Citation Required区分。系列別出典を画面・CSV・図に表示。Censusの売上高を総合CPIで実質化したSA系列。'},
  'cleveland_model': {'name':'Cleveland Fed / Inflation Expectations', 'terms':'https://www.clevelandfed.org/privacy', 'basis':'非商用・教育目的の掲載としてCleveland連銀自身の期待インフレ・モデル推計を出典付きで転載。元となる第三者データは配布しない。'},

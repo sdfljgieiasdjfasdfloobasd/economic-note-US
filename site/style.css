@@ -283,3 +283,5 @@
 #adp-overview [data-a="table"] thead th:not(:first-child){font-size:12px}
 
 #adp-overview[data-pay="true"] [data-a="total"] .employment-chart-legend{display:flex}
+
+[data-other-group][aria-pressed="true"]{background:#e5f3f0;border-color:#008477;color:#12584f;box-shadow:inset 3px 0 #008477}

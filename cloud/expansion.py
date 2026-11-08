@@ -74,7 +74,7 @@ def xseries(id,label,page,category,provider,source,rows,col,datecol=0,scale=1,fr
 # The cloud worker is rooted in a TemporaryDirectory supplied by the caller.
 # It cannot discover or write the Mac dashboard or Excel files.
 HERE = CACHE = RAW = SERIES = None
-ALLOWED = ('bea.gov','bls.gov','census.gov','federalreserve.gov','eia.gov','dol.gov','doleta.gov','stlouisfed.org','newyorkfed.org','philadelphiafed.org','clevelandfed.org')
+ALLOWED = ('raw.githubusercontent.com','bea.gov','bls.gov','census.gov','federalreserve.gov','eia.gov','dol.gov','doleta.gov','stlouisfed.org','newyorkfed.org','philadelphiafed.org','clevelandfed.org')
 FRED = json.loads((Path(__file__).parent/'fred-specs.json').read_text())
 APPROVED = {}; ATTEMPTED = set(); REJECTED = {}; CANDIDATES = None
 _downloads = {}; _blocked = set()

@@ -1,9 +1,29 @@
+
+// Additional entry point only: existing page memberships and series IDs are unchanged.
+export function employmentOtherKind(s){
+ const id=s.id||'';
+ if(/^ism:(Manufacturing|Services):Employment$/.test(id))return 'ism';
+ if(id.startsWith('nfib:'))return 'nfib';
+ if(id.startsWith('challenger:'))return 'challenger';
+ if(id.startsWith('wgt:'))return 'wgt';
+ if(/^sceall:(Job separation expectation|Job finding expectations|Unemployment Expectations|Earnings growth|Earnings uncertainty)( Demo)?:/.test(id))return 'sce';
+ if(id.startsWith('indeed:'))return 'indeed';
+ return null;
+}
+export const employmentOtherGroups=[
+ {id:'ism',label:'ISM雇用指数',note:'製造業・サービス業の雇用DI。50が前月からの増減の境目です。',series:['ism:Manufacturing:Employment','ism:Services:Employment']},
+ {id:'nfib',label:'NFIB中小企業雇用調査',note:'未充足求人・採用計画・報酬引上げ実績・計画。保存済みの短い履歴を表示します。',series:['nfib:openings','nfib:plans','nfib:compensation','nfib:compensation_plans']},
+ {id:'challenger',label:'Challenger解雇計画',note:'企業が発表した人員削減計画。実際の解雇人数ではありません。保存済みの総数のみです。',series:['challenger:cuts']},
+ {id:'wgt',label:'Atlanta Fed 賃金上昇率',note:'Wage Growth Tracker：同一労働者の前年比賃金上昇率。グラフは全体・継続勤務者・転職者の3か月平均。表には12か月平均も収録。',series:['wgt:data_overall:1','wgt:data_overall:8','wgt:data_overall:9']},
+ {id:'sce',label:'NY連銀SCE 労働見通し',note:'月次SCEの失職・自発的離職・再就職・失業率・賃金の見通しと属性別集計。4か月ごとの専用労働市場調査は未収録です。',series:['sceall:Job separation expectation:1','sceall:Job separation expectation:2','sceall:Job finding expectations:1']},
+ {id:'indeed',label:'Indeed求人指数',note:'全国の総求人・新規求人。2020年2月1日＝100、7日移動平均の日次指数（公表更新は週次）。人数ではありません。グラフはSA、表はSA／NSAを切替。',series:['indeed:total:SA','indeed:new:SA']}
+];
 // PCE's price page excludes real spending, income and saving tables.
 export const isPcePricePublication=g=>g.id==='price-table:pce'||/Table (?:2\.3\.4U|2\.4\.4U?|2\.8\.[478])(?:\.|\s|$)/.test(g.label||g.id||'');
 export const isRetailSeries=s=>/^(?:retail:|carts:|fred:RRSFS$|macrocalc:(?:retail_|gasoline_share:))/.test(s.id||'');
 export const employmentSection=(s,page)=>page==='adp'?/^(?:adp:|adppay:|adppulse:|macrocalc:adp_)/.test(s.id||''):page==='claims'?/^(?:claims:|derived:claims_|fred:(?:ICSA|ICNSA|IC4WSA|CCSA|CCNSA|CC4WSA|IURSA|IURNSA)$)/.test(s.id||''):page==='jolts'?s.category==='求人・採用（JOLTS）':false;
-import {isHousehold} from './household-ui.mjs?v=af9e599ab6d624cf9415';
-export const belongsToPage=(s,page)=>page==='household'?isHousehold(s):['adp','claims','jolts'].includes(page)?employmentSection(s,page):page==='retail'?isRetailSeries(s):page==='consumption'&&isRetailSeries(s)?false:(s.page===page||(s.pages||[]).includes(page))&&(page!=='pce'||(s.publications||[statisticalGroup(s)]).some(isPcePricePublication));
+import {isHousehold} from './household-ui.mjs?v=54a5152d66899c86edba';
+export const belongsToPage=(s,page)=>page==='labor-other'?!!employmentOtherKind(s):page==='household'?isHousehold(s):['adp','claims','jolts'].includes(page)?employmentSection(s,page):page==='retail'?isRetailSeries(s):page==='consumption'&&isRetailSeries(s)?false:(s.page===page||(s.pages||[]).includes(page))&&(page!=='pce'||(s.publications||[statisticalGroup(s)]).some(isPcePricePublication));
 // Publication families: institutions with multiple surveys remain separate tables.
 export function statisticalGroup(s){
  if(/^macrocalc:(?:retail_control:|retail_breadth:|gasoline_share:)/.test(s.id||''))return {id:'macrocalc:小売 / 派生指標',label:'小売 / コントロールグループ・増加業種の割合・ガソリン売上構成比'};
@@ -24,6 +44,7 @@ export function statisticalGroup(s){
  return {id:(s.provider||p)+':'+s.category,label:(s.provider||'収録範囲の注記')+' / '+s.category};
 }
 export function tableGroups(catalog,page){
+ if(page==='labor-other')return employmentOtherGroups.map(g=>({id:'labor-other:'+g.id,label:g.label,series:catalog.series.filter(s=>employmentOtherKind(s)===g.id)})).filter(g=>g.series.length);
  const groups=new Map();
  for(const s of catalog.series.filter(s=>belongsToPage(s,page))){
   const memberships=s.id?.startsWith('retail:')?[statisticalGroup(s)]:(s.publications||[statisticalGroup(s)]);
