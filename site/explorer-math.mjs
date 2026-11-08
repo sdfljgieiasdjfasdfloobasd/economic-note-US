@@ -39,13 +39,19 @@ export function pageMetrics(page,series=[],table=false){
 }
 // Keep every observation within a period: a later survey must not leak into an earlier calculation.
 function periodRows(s,rows){const out=new Map();for(const r of rows){const k=periodKey(s,r.date);if(!out.has(k))out.set(k,[]);out.get(k).push(r)}for(const group of out.values())group.sort((a,b)=>a.date.localeCompare(b.date));return out}
-export function transform(s,metric){const rs=s.observations,f=frequency(s),map=periodRows(s,rs);if(metric==='level')return rs;if(!metricApplicable(s,metric))return rs.map(r=>({...r,value:null,raw:null,status:'incompatible'}));if(s.alreadySmoothed&&/^(?:delta_)?ma/.test(metric)||s.frequency==='4-monthly'&&!['level','yoy','delta1'].includes(metric))return rs.map(r=>({...r,value:null,raw:null,status:'incompatible'}));
+function numericObservations(s){
+ const id=(s.sourceId||s.id||'').replace(/^ex:/,'');
+ if(!id.startsWith('g19:'))return s.observations;
+ // Also protect saved pre-fix vintages. Source codes belong in provenance, not numeric cells.
+ return s.observations.map(r=>['ND','NA','NC'].includes(r.status)?{...r,value:null,raw:null,sourceRaw:r.sourceRaw??r.raw,sourceMissingCode:r.status,missingReason:r.missingReason||`FRB G.19の公表欠損（${r.status}）`}:r);
+}
+export function transform(s,metric){const rs=numericObservations(s),f=frequency(s),map=periodRows(s,rs);if(metric==='level')return rs;if(!metricApplicable(s,metric))return rs.map(r=>({...r,value:null,raw:null,status:'incompatible'}));if(s.alreadySmoothed&&/^(?:delta_)?ma/.test(metric)||s.frequency==='4-monthly'&&!['level','yoy','delta1'].includes(metric))return rs.map(r=>({...r,value:null,raw:null,status:'incompatible'}));
  const at=(source,r,k)=>source.get(periodKey(s,lagDate(s,r.date,k)))?.findLast(v=>v.date<=r.date);
  const get=(r,k)=>at(map,r,k);
  const changes=metric.startsWith('delta_ma')?periodRows(s,transform(s,'delta1')):null;
  return rs.map((r,i)=>{let value=null,raw=null;if(r.value==null)return {...r,value,raw};
  if(metric.startsWith('bp')){if(f!=='D'||!['%','Percent'].includes(s.unit))return {...r,value:null,raw:null,status:'derived'};const target=metric==='bp1w'?days(r.date,-7):monthShift(r.date,metric==='bp1m'?-1:metric==='bp3m'?-3:-12);const old=metric==='bp1d'?rs.slice(0,i).findLast(v=>v.value!=null):rs.slice(0,i).findLast(v=>v.date<=target&&v.value!=null&&Date.parse(target)-Date.parse(v.date)<=7*86400000);const diff=difference(r.raw,old?.raw);if(diff!=null)value=Number(diff)*100}
- else if(/^delta\d+$/.test(metric)){const old=f==='D'&&metric==='delta1'?rs.slice(0,i).findLast(v=>v.value!=null):get(r,Number(metric.slice(5)));raw=difference(r.raw,old?.raw);value=raw==null?null:Number(raw)}
+ else if(/^delta\d+$/.test(metric)){const old=f==='D'&&metric==='delta1'?rs.slice(0,i).findLast(v=>v.value!=null):get(r,Number(metric.slice(5)));raw=Number.isFinite(old?.value)?difference(r.raw,old.raw):null;value=raw==null?null:Number(raw)}
  else if(/^(?:delta_)?ma\d+$/.test(metric)){const n=Number(metric.match(/\d+$/)[0]),source=changes||map,window=Array.from({length:n},(_,j)=>at(source,r,j)?.value);if(window.every(Number.isFinite))value=window.reduce((a,b)=>a+b,0)/n}
  else if(/^(growth|annual)[36]$/.test(metric)){const n=Number(metric.at(-1)),old=get(r,n)?.value;if(f==='M'&&Number.isFinite(old)&&old>0&&r.value>0)value=(Math.pow(r.value/old,metric.startsWith('annual')?12/n:1)-1)*100}
  else if(metric==='percentile'){const history=rs.slice(0,i+1).map(r=>r.value).filter(Number.isFinite);value=100*history.filter(v=>v<=r.value).length/history.length}
@@ -63,10 +69,13 @@ export function tableHeatRule(s,metric='level'){
  const text=[label,s.publicationLabel,s.publication,s.measure].filter(Boolean).join(' ');
  if(/^(ism|sp):/.test(id)&&unit==='DI')return {center:50,label:'PMI（50基準）'};
  if(/^derived:ism_/.test(id))return {center:0,label:'指数差（0基準）'};
+ if(/^adppay:distribution:/.test(id))return null;
  if(/uncertainty|probability|percentile|standard deviation|variance|確率|不確実|分散/i.test(text))return null;
  if(/^sloos:/.test(id)&&/net percentage/i.test(label))return {center:0,label:'ネット回答比率（0基準）'};
  if(/%|Percent|ポイント/i.test(unit)&&/percent(?:age)? change|contributions? to|growth|成長率|伸び率|寄与度|上昇率|前年比|前月比|前期比/i.test(text))return {center:0,label:'伸び率・寄与度（0基準）'};
  if(/Percent Change/i.test(unit))return {center:0,label:'伸び率（0基準）'};
+ if(/^adppay:(?!distribution:)/.test(id))return {center:0,label:'賃金上昇率（0基準）'};
+ if(id==='adppulse:weekly4ma')return {center:0,label:'雇用増減の4週平均（0基準）'};
  if(/^macrocalc:(pce_dpi_gap|adp_pay_gap):/.test(id))return {center:0,label:'伸び率の差（0基準）'};
  return null;
 }
