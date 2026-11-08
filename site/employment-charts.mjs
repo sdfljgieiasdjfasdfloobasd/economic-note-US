@@ -1,6 +1,6 @@
-import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=8f3dfbc7d0e1dca8c595';
-import {attachTooltip} from './explorer-tooltip.mjs?v=8f3dfbc7d0e1dca8c595';
-import {industryDefinitions} from './contributions.mjs?v=8f3dfbc7d0e1dca8c595';
+import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=0e4bcdc150ffd7034ed9';
+import {attachTooltip} from './explorer-tooltip.mjs?v=0e4bcdc150ffd7034ed9';
+import {industryDefinitions} from './contributions.mjs?v=0e4bcdc150ffd7034ed9';
 
 const industryMap=new Map(industryDefinitions.map(s=>[s.name,s]));
 const industryDatasets=new Set(['employment','wages','hours']);
@@ -60,5 +60,5 @@ export function setupEmploymentCharts({panel,esc,fmt,chartId="employment-table-c
   if(separate||compactAxis){const axes=svg.previousElementSibling;const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='縦軸の範囲';details.className='employment-card-axis';details.append(summary);axes.before(details);details.append(axes)}
   attachTooltip(svg,{esc,fmt,left:L,right:w-R,top:T,bottom:h-B,compact:separate,points:model.dates.map((date,j)=>({x:x(j),label:date,values:items.map(item=>({label:item.label||item.s.label,value:item.values[model.indices[j]]??null,color:item.color,unit:item.met?.unit||''}))}))});
  }
- return {update(next){const nextKey=next.dataset.id;if(key!==nextKey){key=nextKey;hidden.clear();$('scope').value=industryDatasets.has(nextKey)?'major':'all';$('layout').value=nextKey==='labor'?'separate':'overlay'}model=next;draw()},resize(){if(!host.hidden)draw()}};
+ return {update(next){const nextKey=next.dataset.id;if(key!==nextKey){key=nextKey;hidden.clear();$('scope').value=industryDatasets.has(nextKey)?'major':'all';$('layout').value=next.defaultLayout||(nextKey==='labor'?'separate':'overlay')}model=next;draw()},resize(){if(!host.hidden)draw()}};
 }

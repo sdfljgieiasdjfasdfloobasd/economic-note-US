@@ -281,3 +281,5 @@
 #adp-overview [data-a="table"]{width:max-content;min-width:100%;font-size:13px}
 #adp-overview [data-a="table"] th,#adp-overview [data-a="table"] td{padding:6px 8px;min-width:0}
 #adp-overview [data-a="table"] thead th:not(:first-child){font-size:12px}
+
+#adp-overview[data-pay="true"] [data-a="total"] .employment-chart-legend{display:flex}
