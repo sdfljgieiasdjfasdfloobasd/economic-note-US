@@ -1,6 +1,6 @@
-import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=ba19a266df1738b4e259';
-import {attachTooltip} from './explorer-tooltip.mjs?v=ba19a266df1738b4e259';
-import {industryDefinitions} from './contributions.mjs?v=ba19a266df1738b4e259';
+import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=54a36504b97861cc70d1';
+import {attachTooltip} from './explorer-tooltip.mjs?v=54a36504b97861cc70d1';
+import {industryDefinitions} from './contributions.mjs?v=54a36504b97861cc70d1';
 
 const industryMap=new Map(industryDefinitions.map(s=>[s.name,s]));
 const industryDatasets=new Set(['employment','wages','hours']);
@@ -27,7 +27,7 @@ export function setupEmploymentCharts({panel,esc,fmt,chartId="employment-table-c
   const scope=industryDatasets.has(model.dataset.id)&&!model.selected?$('scope').value:'all';
   const items=chartItems(model.items,scope).map(item=>{const industry=industryMap.get(item.s.name),label=industry?.label||item.s.label;return {...item,s:{...item.s,label},label:industry?label:item.label,color:industry?.color||(['Total nonfarm','Total private'].includes(item.s.name)?'#142b42':palette[model.items.indexOf(item)%palette.length])}});
   const separate=$('layout').value==='separate';
-  const note=document.createElement('p');note.className='source-note employment-chart-note';note.textContent=`${items.length}品目を一括表示。表と同じ季節調整・表示値・表示月数です。`+(separate?'各図の縦軸は個別です。目盛りを確認して比較してください。':'凡例を押すと一時的に非表示にできます。')+' 親項目と内訳を含み、積み上げ・合算はしていません。';host.append(note);
+  const note=document.createElement('p');note.className='source-note employment-chart-note';note.textContent=model.note||`${items.length}品目を一括表示。表と同じ季節調整・表示値・表示月数です。`+(separate?'各図の縦軸は個別です。目盛りを確認して比較してください。':'凡例を押すと一時的に非表示にできます。')+' 親項目と内訳を含み、積み上げ・合算はしていません。';host.append(note);
   if(!model.dates.length){note.textContent='選択期間にデータがありません。開始月・終了月を確認してください。';return}
   if(!separate){
    const legend=document.createElement('div');legend.className='legend employment-chart-legend';

@@ -39,6 +39,7 @@ jobs:
         run: python -m pip install -r cloud/requirements.txt
       - name: Test update safety and publication scope
         run: |
+          python tests/real_retail.py
           python tests/indeed.py
           python tests/cloud.py
           python tests/housing.py

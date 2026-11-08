@@ -64,6 +64,8 @@ def jobs(datasets,catalog,report):
     yield 'bea',m.bea
     yield 'gdp',a.gdp
     yield 'retail',retail_source.update
+    from real_retail import update_prices
+    if any(s['id'].startswith('realretailinput:') for s in catalog['series']):yield 'realretailinput',update_prices
     from import_price_source import update as import_price_update
     yield 'mxp',import_price_update
     yield 'jolts',jolts_source.update
@@ -263,6 +265,22 @@ def run(root=ROOT,only=None):
                         if m['id'] in approved:metas[m['id']]=m
                     report.append(dict(source=name,status='success'))
                 except Exception as ex:report.append(dict(source=name,status='failed',reason=str(ex)))
+        # All price aliases and the nominal Control must be current before real retail.
+        if not only or set(only) & {'retail','bls','pce','bea','realretailinput','realretail'}:
+            try:
+                from real_retail import derive as real_retail
+                entries=[metas.get(s['id'],s) for s in catalog['series']]
+                if only:
+                    import macro_derived
+                    # Refresh just the existing Control input, without network access.
+                    for m in macro_derived.derive(entries):
+                        if m['id'] in approved:metas[m['id']]=m
+                    entries=[metas.get(s['id'],s) for s in catalog['series']]
+                computed=real_retail(entries)
+                for m in computed:metas[m['id']]=m
+                report.append(dict(source='realretail',status='success',series=len(computed)))
+            except Exception as ex:
+                report.append(dict(source='realretail',status='failed',reason=str(ex)))
         # Recompute from refreshed NSA indices and saved RI; no additional requests.
         if not only or set(only) & {'bls', 'cpi_core_yoy'}:
             try:

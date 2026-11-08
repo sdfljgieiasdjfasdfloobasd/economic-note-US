@@ -1,4 +1,4 @@
-import {buildSeriesTree} from './series-tree.mjs?v=ba19a266df1738b4e259';
+import {buildSeriesTree} from './series-tree.mjs?v=54a36504b97861cc70d1';
 // Branch expansion and series selection are separate actions; filters keep pending items.
 export function setupSeriesPicker({host,getCurrent,onApply,onOpenTable,tableDatasetIds=[],limit=8,search=false}){
  const root=document.createElement('details');root.className='series-picker';root.open=true;

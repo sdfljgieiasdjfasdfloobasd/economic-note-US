@@ -1,8 +1,8 @@
-import {axisScale,axisControls} from './chart-axis.mjs?v=ba19a266df1738b4e259';
-import {transform,monthShift} from './explorer-math.mjs?v=ba19a266df1738b4e259';
-import {niceAxis,dateTicks} from './chart-axis.mjs?v=ba19a266df1738b4e259';
-import {industryDefinitions} from './contributions.mjs?v=ba19a266df1738b4e259';
-import {attachTooltip} from './explorer-tooltip.mjs?v=ba19a266df1738b4e259';
+import {axisScale,axisControls} from './chart-axis.mjs?v=54a36504b97861cc70d1';
+import {transform,monthShift} from './explorer-math.mjs?v=54a36504b97861cc70d1';
+import {niceAxis,dateTicks} from './chart-axis.mjs?v=54a36504b97861cc70d1';
+import {industryDefinitions} from './contributions.mjs?v=54a36504b97861cc70d1';
+import {attachTooltip} from './explorer-tooltip.mjs?v=54a36504b97861cc70d1';
 export const joltsIndustries=['110099','230000','300000','400000','510000','510099','540099','600000','700000','810000','900000'];
 export function industryIds(catalog,type){
  if(type==='adp')return {total:'adp:M:National:U.S.:SA',industries:industryDefinitions.slice(0,10).map(s=>({...s,id:'adp:M:Industry:'+({'Mining and logging':'Natural resources and mining','Private education and health services':'Education and health services'}[s.name]||s.name)+':SA'}))};

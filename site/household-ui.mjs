@@ -1,5 +1,5 @@
-import {setupEmploymentCharts} from './employment-charts.mjs?v=ba19a266df1738b4e259';
-import {transform,compatibleUnit} from './explorer-math.mjs?v=ba19a266df1738b4e259';
+import {setupEmploymentCharts} from './employment-charts.mjs?v=54a36504b97861cc70d1';
+import {transform,compatibleUnit} from './explorer-math.mjs?v=54a36504b97861cc70d1';
 export const householdCategories=['労働供給・余剰','年齢・人種別失業','属性別労働市場（CPS）','失業理由・期間','労働供給・人口と出生地（CPS）','CPS人口基準調整・実験系列'];
 export const isHousehold=s=>s.page==='labor'&&householdCategories.includes(s.category);
 export const householdGroups=[['main','主要指標'],['counts','就業者・失業者・労働力人口'],['rates','U1〜U6'],['attributes','年齢・性別・人種'],['reasons','失業理由・期間'],['supply','働き方・潜在労働力'],['population','人口・出生地'],['experimental','人口基準調整（実験系列）']];

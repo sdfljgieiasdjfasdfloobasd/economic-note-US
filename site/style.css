@@ -285,3 +285,13 @@
 #adp-overview[data-pay="true"] [data-a="total"] .employment-chart-legend{display:flex}
 
 [data-productivity][aria-pressed="true"],[data-other-group][aria-pressed="true"]{background:#e5f3f0;border-color:#008477;color:#12584f;box-shadow:inset 3px 0 #008477}
+
+/* Real retail keeps the source picker and replaces only the analysis area. */
+#explorer-view[data-real-retail="true"] > .workspace, #explorer-view[data-real-retail="true"] > .ex-table {display:none}
+#real-retail-overview {scroll-margin-top:20px}
+#real-retail-overview table th {max-width:320px;min-width:110px}
+#real-retail-overview table td {padding:8px 10px;white-space:nowrap}
+#real-retail-overview details {margin:20px 0;padding:14px;border:1px solid #dce6ec;border-radius:8px}
+#real-retail-overview summary {cursor:pointer;font-weight:650}
+#real-retail-overview [data-method-id] {scroll-margin-top:24px}
+#real-retail-overview code {white-space:normal;overflow-wrap:anywhere}
