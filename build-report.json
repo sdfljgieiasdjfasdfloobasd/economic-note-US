@@ -1,11 +1,11 @@
 {
-  "builtAt": "2026-11-09T19:59:25.485873+00:00",
+  "builtAt": "2026-11-10T19:54:17.573479+00:00",
   "datasets": 10,
   "explorerSeries": 32935,
-  "observations": 8651163,
-  "dataBytesBeforeCompression": 1398711415,
-  "dataBytesAfterCompression": 143456906,
-  "siteBytes": 145733123,
+  "observations": 8651177,
+  "dataBytesBeforeCompression": 1398618331,
+  "dataBytesAfterCompression": 143429247,
+  "siteBytes": 145705335,
   "sourceUnchanged": true,
   "publicationCounts": {
     "included": 32935,
@@ -23,5 +23,5 @@
   ],
   "mode": "cloud",
   "automaticProviderUpdates": true,
-  "frontendVersion": "8b372337c3317d9d82ae"
+  "frontendVersion": "d0b00e11ac624db2cb1c"
 }

@@ -1,14 +1,14 @@
-import {comparisonCopy,metricLabel,comparisonTable} from './analysis-math.mjs?v=8b372337c3317d9d82ae';
-import {mountRevisionView} from './revision-view.mjs?v=8b372337c3317d9d82ae';
-import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=8b372337c3317d9d82ae';
-import {axisScale,axisControls} from './chart-axis.mjs?v=8b372337c3317d9d82ae';
-import {explorerPickerItem} from './series-tree.mjs?v=8b372337c3317d9d82ae';
-import {setupSeriesPicker} from './series-picker.mjs?v=8b372337c3317d9d82ae';
-import {niceAxis} from './chart-axis.mjs?v=8b372337c3317d9d82ae';
-import {metrics,pageMetrics,frequency} from './explorer-math.mjs?v=8b372337c3317d9d82ae';
-import {prepare,displaySeries,pairSeries} from './analysis-math.mjs?v=8b372337c3317d9d82ae';
-import {regress} from './analytics.mjs?v=8b372337c3317d9d82ae';
-import {attachTooltip} from './explorer-tooltip.mjs?v=8b372337c3317d9d82ae';
+import {comparisonCopy,metricLabel,comparisonTable} from './analysis-math.mjs?v=d0b00e11ac624db2cb1c';
+import {mountRevisionView} from './revision-view.mjs?v=d0b00e11ac624db2cb1c';
+import {seriesAttribution,seriesAttributions} from './expectation-presets.mjs?v=d0b00e11ac624db2cb1c';
+import {axisScale,axisControls} from './chart-axis.mjs?v=d0b00e11ac624db2cb1c';
+import {explorerPickerItem} from './series-tree.mjs?v=d0b00e11ac624db2cb1c';
+import {setupSeriesPicker} from './series-picker.mjs?v=d0b00e11ac624db2cb1c';
+import {niceAxis} from './chart-axis.mjs?v=d0b00e11ac624db2cb1c';
+import {metrics,pageMetrics,frequency} from './explorer-math.mjs?v=d0b00e11ac624db2cb1c';
+import {prepare,displaySeries,pairSeries} from './analysis-math.mjs?v=d0b00e11ac624db2cb1c';
+import {regress} from './analytics.mjs?v=d0b00e11ac624db2cb1c';
+import {attachTooltip} from './explorer-tooltip.mjs?v=d0b00e11ac624db2cb1c';
 const colors=['#007e72','#d58b35','#526bc4','#bd527f','#8a6b42','#299bb0','#7845a1','#656b75'];
 export function setupAnalysis({request,esc,fmt,csv,getToken}){
  const root=document.createElement('section');root.id='analysis-view';root.hidden=true;document.querySelector('main footer').before(root);
