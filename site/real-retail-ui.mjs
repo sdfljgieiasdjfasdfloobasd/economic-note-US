@@ -1,5 +1,5 @@
-import {setupEmploymentCharts} from './employment-charts.mjs?v=d0b00e11ac624db2cb1c';
-import {monthShift,tableHeatLimit,tableHeatColor} from './explorer-math.mjs?v=d0b00e11ac624db2cb1c';
+import {setupEmploymentCharts} from './employment-charts.mjs?v=6ac4ae8e88cac797052b';
+import {monthShift,tableHeatLimit,tableHeatColor} from './explorer-math.mjs?v=6ac4ae8e88cac797052b';
 export const realRetailIds=['REAL_RETAIL_2CPI','REAL_RETAIL_DETAIL','REAL_RETAIL_BEA','REAL_CONTROL_CORE'].map(id=>'realretail:'+id);
 export const realRetailMetrics=[['mom','前月比（%）'],['yoy','前年比（%）'],['growth3','3か月前比（%）'],['avg3','前月比の3か月平均（%）'],['annual3','3か月前比・年率（%）'],['index','数量指数（2025年11月=100）'],['index2019','数量指数（2019年12月=100）']];
 const labels=['財CPI＋外食CPI','業種別CPI','PCE価格調整（旧BEA未接続）','Control・コア財CPI'];
