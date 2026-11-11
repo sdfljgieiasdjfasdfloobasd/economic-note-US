@@ -86,6 +86,10 @@ def compare(before, after):
         a, b = old.get('observations',{}), new.get('observations',{})
         if not a and not b:
             continue
+        if a == b:
+            group=(new or old)['group']
+            unchanged[group]=unchanged.get(group,0)+1
+            continue
         details = []
         for date in sorted(a.keys() | b.keys(), reverse=True):
             av, bv = a.get(date), b.get(date)

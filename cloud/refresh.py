@@ -169,7 +169,7 @@ def finalize(root,original,datasets,catalog,metas,report,started,only):
     for s in analysis['series']:
         if s['id'].startswith('ex:'):
             m=by[s['id'][3:]]
-            for k in ('count','first','latest','status','error','retrievedAt','checkedAt'):
+            for k in ('count','first','latest','status','error','retrievedAt','checkedAt','unit','seasonal','frequency'):
                 if k in m:s[k]=m[k]
                 else:s.pop(k,None)
         elif s.get('descriptor'):

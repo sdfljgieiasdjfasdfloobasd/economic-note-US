@@ -132,6 +132,8 @@ def merge_observations(old, new):
     return [merged[d] for d in sorted(merged)]
 def save(s):
     import publication
+    from metadata_normalization import normalize
+    s=normalize(s)
     sid=s['id'];oldmeta=APPROVED.get(sid)
     if oldmeta is None:
         REJECTED[sid]='新規系列は公開範囲の確認待ち'
@@ -144,7 +146,8 @@ def save(s):
     s=dict(s,observations=merge_observations(old.get('observations',[]),s.get('observations',[])),retrievedAt=now(),status='available')
     s.pop('error',None);s.pop('checkedAt',None)
     # Keep the saved blob byte-identical on a successful no-change check.
-    if s['observations']==old.get('observations'):
+    ignored={'retrievedAt','checkedAt','updateState'}
+    if {k:v for k,v in s.items() if k not in ignored}=={k:v for k,v in old.items() if k not in ignored}:
         s=old
         if s.get('status')=='fetch_failed':
             s=dict(s,status='available');s.pop('error',None);s.pop('checkedAt',None)

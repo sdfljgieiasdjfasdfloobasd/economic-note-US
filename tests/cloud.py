@@ -5,6 +5,28 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'cloud'),str(ROOT/'tools')]
 import expansion as e,core,publication,refresh
 class CloudTests(unittest.TestCase):
+ def test_unchanged_values_still_save_reviewed_metadata_corrections(self):
+  old=dict(id='test:metadata',provider='BLS',unit='%',frequency='Monthly',seasonal='NSA',source='https://www.bls.gov/test',definition='old',observations=[e.obs('2026-09-01','4.1')])
+  new=dict(old,definition='reviewed definition')
+  with tempfile.TemporaryDirectory() as tmp:
+   e.initialize(tmp,{new['id']:new});path=e.SERIES/e.key(new['id']);e.write(path,old)
+   e.save(new);saved=json.loads(path.read_text())
+   self.assertEqual(saved['definition'],'reviewed definition');self.assertEqual(saved['observations'],old['observations'])
+ def test_reviewed_metadata_distinguishes_negation_and_raw_missing_codes(self):
+  from metadata_normalization import normalize
+  g=normalize(dict(id='g19:test',label='Consumer credit, not seasonally adjusted',dimensions={},observations=[dict(date='2026-01-01',value=-999,raw='-999',status='ND'),dict(date='2026-02-01',value=-2,raw='-2',status='A')]))
+  self.assertEqual(g['seasonal'],'NSA');self.assertIsNone(g['observations'][0]['value']);self.assertEqual(g['observations'][0]['raw'],'-999');self.assertEqual(g['observations'][1]['value'],-2)
+  q=normalize(dict(id='complement:qss:test',sourceMeasure='INPAT',unit='ambiguous'))
+  self.assertEqual(q['unit'],'千日')
+  n=normalize(dict(id='sloos:test',label='Number of responding banks',dimensions={'UNIT':'Number'},unit='Number',observations=[]))
+  self.assertEqual(n['unit'],'Number')
+  pct=normalize(dict(n,label='Net percentage of domestic banks tightening standards'))
+  self.assertEqual(pct['unit'],'%');self.assertEqual(pct['sourceUnit'],'Number')
+ def test_reviewed_metadata_keeps_population_and_monthly_change_distinct(self):
+  from metadata_normalization import normalize
+  base=dict(id='bea:test',sourceTable='T20600-M',unit='%',seasonal='SA')
+  change=normalize(dict(base,officialId='A067RCM'));self.assertFalse(change['annualized'])
+  population=normalize(dict(base,officialId='B230RC',unit='千人'));self.assertEqual(population['seasonal'],'未確認');self.assertFalse(population['annualized'])
  def test_ppi_includes_intermediate_demand_and_official_parent_rows(self):
   import price_sources
   for n in [1,3]:
