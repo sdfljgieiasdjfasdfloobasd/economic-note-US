@@ -32,7 +32,7 @@ export const employmentOtherGroups=[
 export const isPcePricePublication=g=>g.id==='price-table:pce'||/Table (?:2\.3\.4U|2\.4\.4U?|2\.8\.[478])(?:\.|\s|$)/.test(g.label||g.id||'');
 export const isRetailSeries=s=>/^(?:realretail:|realretailinput:|retail:|carts:|fred:RRSFS$|macrocalc:(?:retail_|gasoline_share:))/.test(s.id||'');
 export const employmentSection=(s,page)=>page==='adp'?/^(?:adp:|adppay:|adppulse:|macrocalc:adp_)/.test(s.id||''):page==='claims'?/^(?:claims:|derived:claims_|fred:(?:ICSA|ICNSA|IC4WSA|CCSA|CCNSA|CC4WSA|IURSA|IURNSA)$)/.test(s.id||''):page==='jolts'?s.category==='求人・採用（JOLTS）':false;
-import {isHousehold} from './household-ui.mjs?v=a55af4341af0e7aa8f58';
+import {isHousehold} from './household-ui.mjs?v=1f139e8889eb34eaa344';
 export const belongsToPage=(s,page)=>page==='labor-other'?!!employmentOtherKind(s):page==='household'?isHousehold(s):['adp','claims','jolts'].includes(page)?employmentSection(s,page):page==='retail'?isRetailSeries(s):page==='consumption'&&isRetailSeries(s)?false:(s.page===page||(s.pages||[]).includes(page))&&(page!=='pce'||(s.publications||[statisticalGroup(s)]).some(isPcePricePublication));
 // Publication families: institutions with multiple surveys remain separate tables.
 export function statisticalGroup(s){
