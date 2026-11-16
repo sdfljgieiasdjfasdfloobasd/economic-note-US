@@ -1,6 +1,6 @@
-import {references,pages,chapters,buildGuide,filterRecords,guideMarkdown,seriesCsv,AI_PROMPT} from './guide-content.mjs?v=16d945039b1ffa89a5b5';
+import {references,pages,chapters,buildGuide,filterRecords,guideMarkdown,seriesCsv,AI_PROMPT} from './guide-content.mjs?v=7d178a772959c657f083';
 const MODE='public';
-import {request} from './static-api.mjs?v=16d945039b1ffa89a5b5';
+import {request} from './static-api.mjs?v=7d178a772959c657f083';
 const $=s=>document.querySelector(s),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let model;
 $('#official-references').innerHTML=references.map(([label,url])=>`<li><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a></li>`).join('');
