@@ -1,6 +1,6 @@
-import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=466729f7a45ead2f8ce0';
-import {attachTooltip} from './explorer-tooltip.mjs?v=466729f7a45ead2f8ce0';
-import {industryDefinitions} from './contributions.mjs?v=466729f7a45ead2f8ce0';
+import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=a55cb87234fdea9d1e9d';
+import {attachTooltip} from './explorer-tooltip.mjs?v=a55cb87234fdea9d1e9d';
+import {industryDefinitions} from './contributions.mjs?v=a55cb87234fdea9d1e9d';
 
 const industryMap=new Map(industryDefinitions.map(s=>[s.name,s]));
 const industryDatasets=new Set(['employment','wages','hours']);
