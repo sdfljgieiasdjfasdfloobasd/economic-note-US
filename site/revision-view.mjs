@@ -1,8 +1,8 @@
-import {valuesFor} from './analytics.mjs?v=a55cb87234fdea9d1e9d';
-import {transform,compatibleUnit,frequency} from './explorer-math.mjs?v=a55cb87234fdea9d1e9d';
-import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=a55cb87234fdea9d1e9d';
-import {attachTooltip} from './explorer-tooltip.mjs?v=a55cb87234fdea9d1e9d';
-import {seriesAttributions} from './expectation-presets.mjs?v=a55cb87234fdea9d1e9d';
+import {valuesFor} from './analytics.mjs?v=1b9cfe41e349ae2ad58c';
+import {transform,compatibleUnit,frequency} from './explorer-math.mjs?v=1b9cfe41e349ae2ad58c';
+import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=1b9cfe41e349ae2ad58c';
+import {attachTooltip} from './explorer-tooltip.mjs?v=1b9cfe41e349ae2ad58c';
+import {seriesAttributions} from './expectation-presets.mjs?v=1b9cfe41e349ae2ad58c';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=v=>v==null||!Number.isFinite(v)?'—':Number(v).toLocaleString('ja-JP',{minimumFractionDigits:3,maximumFractionDigits:3});
 const date=d=>d.length===7?d+'-01':d;
