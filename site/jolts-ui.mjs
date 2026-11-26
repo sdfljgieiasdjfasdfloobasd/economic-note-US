@@ -1,7 +1,7 @@
-import {setupEmploymentCharts} from './employment-charts.mjs?v=99b34445b5f47151dbf3';
-import {transform,compatibleUnit} from './explorer-math.mjs?v=99b34445b5f47151dbf3';
-import {joltsHierarchy} from './publication-hierarchy-data.mjs?v=99b34445b5f47151dbf3';
-import {industryDefinitions} from './contributions.mjs?v=99b34445b5f47151dbf3';
+import {setupEmploymentCharts} from './employment-charts.mjs?v=785ac68200d4e8e5fd07';
+import {transform,compatibleUnit} from './explorer-math.mjs?v=785ac68200d4e8e5fd07';
+import {joltsHierarchy} from './publication-hierarchy-data.mjs?v=785ac68200d4e8e5fd07';
+import {industryDefinitions} from './contributions.mjs?v=785ac68200d4e8e5fd07';
 export const joltsMeasures=[['JO','求人数'],['HI','採用数'],['QU','自発的離職'],['LD','解雇・レイオフ'],['OS','その他離職'],['TS','総離職']];
 const displayMeasures=[...joltsMeasures,['VU','V/Uレシオ']];
 export function vuInputs(series,season){return [series.find(s=>s.category==='求人・採用（JOLTS）'&&s.measure==='JO'&&s.industryCode==='000000'&&s.unit==='千人'&&s.seasonal===season),series.find(s=>s.id===`local:CPS_Main_${season}:Unemployed`)]}
