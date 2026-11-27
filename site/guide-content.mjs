@@ -1,5 +1,5 @@
-import {tableGroups} from './explorer-groups.mjs?v=785ac68200d4e8e5fd07';
-import {hierarchyMetadata} from './publication-hierarchy.mjs?v=785ac68200d4e8e5fd07';
+import {tableGroups} from './explorer-groups.mjs?v=ca2cff1acd1043ca98a4';
+import {hierarchyMetadata} from './publication-hierarchy.mjs?v=ca2cff1acd1043ca98a4';
 export const references=[['BEA NIPA Handbook（GDP・PCE・投資等の概念と推計方法）','https://www.bea.gov/resources/methodologies/nipa-handbook'],['BLS CPI Frequently Asked Questions（CPIの対象と指数の読み方）','https://www.bls.gov/cpi/questions-and-answers.htm']];
 export const GUIDE_VERSION='2026-10-18';
 export const pages=[
