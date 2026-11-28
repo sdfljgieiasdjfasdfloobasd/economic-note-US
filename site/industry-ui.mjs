@@ -1,8 +1,8 @@
-import {axisScale,axisControls} from './chart-axis.mjs?v=a2c510d486a7d85a7b7d';
-import {transform,monthShift} from './explorer-math.mjs?v=a2c510d486a7d85a7b7d';
-import {niceAxis,dateTicks} from './chart-axis.mjs?v=a2c510d486a7d85a7b7d';
-import {industryDefinitions} from './contributions.mjs?v=a2c510d486a7d85a7b7d';
-import {attachTooltip} from './explorer-tooltip.mjs?v=a2c510d486a7d85a7b7d';
+import {axisScale,axisControls} from './chart-axis.mjs?v=bd2ac8367e1c3714bb70';
+import {transform,monthShift} from './explorer-math.mjs?v=bd2ac8367e1c3714bb70';
+import {niceAxis,dateTicks} from './chart-axis.mjs?v=bd2ac8367e1c3714bb70';
+import {industryDefinitions} from './contributions.mjs?v=bd2ac8367e1c3714bb70';
+import {attachTooltip} from './explorer-tooltip.mjs?v=bd2ac8367e1c3714bb70';
 export const joltsIndustries=['110099','230000','300000','400000','510000','510099','540099','600000','700000','810000','900000'];
 export function industryIds(catalog,type){
  if(type==='adp')return {total:'adp:M:National:U.S.:SA',industries:industryDefinitions.slice(0,10).map(s=>({...s,id:'adp:M:Industry:'+({'Mining and logging':'Natural resources and mining','Private education and health services':'Education and health services'}[s.name]||s.name)+':SA'}))};
@@ -34,7 +34,7 @@ export function setupIndustry({root,loadMany,esc,fmt,csv}){
  else stacks.forEach((ss,i)=>ss.forEach(s=>svg+=`<rect x="${x(i)-step*.36}" y="${Math.min(y(s.start),y(s.end))}" width="${step*.72}" height="${Math.abs(y(s.start)-y(s.end))}" fill="${definition.industries[s.i].color}"/>`));
  if(!hideTotal)svg+=path(rows.map(r=>r.total),'#142b42',2.6);
  for(const d of dateTicks(rows.map(r=>r.date),w-L-R)){const i=rows.findIndex(r=>r.date===d);svg+=`<text x="${x(i)}" y="${h-7}" text-anchor="${i===0?'start':i===rows.length-1?'end':'middle'}" font-size="11">${d.slice(0,7)}</text>`}
- $('plot').innerHTML=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="ADP・JOLTS 業種別 ${lines?'折れ線':'積み上げ棒'}グラフ">${svg}</svg>`;axisControls($('plot').querySelector('svg'),{key:axisKey,unit:'千人',axis,left:L,right:w-R,top:T,bottom:h-B,redraw:draw});attachTooltip($('plot').querySelector('svg'),{esc,fmt,left:L,right:w-R,top:T,bottom:h-B,points:rows.map((r,i)=>({x:x(i),label:r.date.slice(0,7),values:[...(!hideTotal?[{label:'Total',value:r.total,color:'#142b42',unit:'千人'}]:[]),...definition.industries.map((s,j)=>({...s,value:r.values[j],unit:'千人',index:j})).filter(s=>!hidden.has(s.index)).sort((a,b)=>Math.abs(b.value)-Math.abs(a.value)),{label:'全業種合計とTotalの差',value:r.residual,unit:'千人',color:'#889999'}]}))});
+ $('plot').innerHTML=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="ADP・JOLTS 業種別 ${lines?'折れ線':'積み上げ棒'}グラフ">${svg}</svg>`;axisControls($('plot').querySelector('svg'),{key:axisKey,unit:'千人',axis,left:L,right:w-R,top:T,bottom:h-B,redraw:draw,timeline:{frequency:'M',points:rows.map((r,i)=>({date:r.date,x:x(i)}))}});attachTooltip($('plot').querySelector('svg'),{esc,fmt,left:L,right:w-R,top:T,bottom:h-B,points:rows.map((r,i)=>({x:x(i),label:r.date.slice(0,7),values:[...(!hideTotal?[{label:'Total',value:r.total,color:'#142b42',unit:'千人'}]:[]),...definition.industries.map((s,j)=>({...s,value:r.values[j],unit:'千人',index:j})).filter(s=>!hidden.has(s.index)).sort((a,b)=>Math.abs(b.value)-Math.abs(a.value)),{label:'全業種合計とTotalの差',value:r.residual,unit:'千人',color:'#889999'}]}))});
  }
  $('source').onchange=()=>load(true);$('metric').onchange=()=>load(false);$('view').onchange=draw;$('from').onchange=draw;$('to').onchange=draw;
  panel.querySelectorAll('[data-ir]').forEach(b=>b.onclick=()=>{const latest=model.filter(r=>r.complete).at(-1)?.date;if(!latest)return;$('to').value=latest.slice(0,7);$('from').value=(b.dataset.ir==='all'?model[0].date:monthShift(latest,1-Number(b.dataset.ir))).slice(0,7);draw()});

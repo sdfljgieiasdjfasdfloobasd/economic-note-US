@@ -1,7 +1,7 @@
-import {axisScale,axisControls} from './chart-axis.mjs?v=a2c510d486a7d85a7b7d';
-import {niceAxis} from './chart-axis.mjs?v=a2c510d486a7d85a7b7d';
-import {buildContributions,stackContributions} from './contributions.mjs?v=a2c510d486a7d85a7b7d';
-import {shiftMonth} from './analytics.mjs?v=a2c510d486a7d85a7b7d';
+import {axisScale,axisControls} from './chart-axis.mjs?v=bd2ac8367e1c3714bb70';
+import {niceAxis} from './chart-axis.mjs?v=bd2ac8367e1c3714bb70';
+import {buildContributions,stackContributions} from './contributions.mjs?v=bd2ac8367e1c3714bb70';
+import {shiftMonth} from './analytics.mjs?v=bd2ac8367e1c3714bb70';
 export function setupContributions({esc,fmt}){
  const $=s=>document.querySelector(s),panel=$('#contribution-panel');
  let model=null,dataRef=null,rows=[],barMode='monthly',lineMode='ma3',chartType='stacked',range='36',hidden=new Set(),hiddenTotals=new Set(),active=-1,geometry=null;
@@ -73,8 +73,8 @@ export function setupContributions({esc,fmt}){
   }
   const ticks=Math.min(rows.length,w<600?3:7),seen=new Set();for(let i=0;i<ticks;i++){const index=ticks===1?0:Math.round((rows.length-1)*i/(ticks-1));if(seen.has(index))continue;seen.add(index);out+=`<text x="${x(index)}" y="${h-13}" text-anchor="${i===0?'start':i===ticks-1?'end':'middle'}" fill="#697b8d" font-size="12" font-weight="${index===latest?'700':'400'}">${rows[index].date}</text>`}
   out+=`<line id="contribution-cursor" y1="${T}" y2="${h-B}" stroke="#51687c" stroke-dasharray="3 3" visibility="hidden"/>`;
-  svg.innerHTML=out;axisControls(svg,{key:axisKey,unit:'千人',axis,left:L,right:w-R,top:T,bottom:h-B,redraw:draw});svg.setAttribute('aria-label',`業種別雇用増減寄与、季節調整済み、千人。業種別は${chartType==='lines'?'折れ線':'積み上げ棒'}、${barMode==='ma3'?'前月差の3か月平均':'単月前月差'}。折れ線は${lineLabel()}。左右キーで各月の内訳を確認できます。`);
-  function point(e){const rect=svg.getBoundingClientRect(),px=(e.clientX-rect.left)*w/rect.width;showMonth(Math.max(0,Math.min(rows.length-1,Math.floor((px-L)/step))))}
+  svg.innerHTML=out;axisControls(svg,{key:axisKey,unit:'千人',axis,left:L,right:w-R,top:T,bottom:h-B,redraw:draw,timeline:{frequency:'M',points:rows.map((r,i)=>({date:r.date,x:x(i)}))}});svg.setAttribute('aria-label',`業種別雇用増減寄与、季節調整済み、千人。業種別は${chartType==='lines'?'折れ線':'積み上げ棒'}、${barMode==='ma3'?'前月差の3か月平均':'単月前月差'}。折れ線は${lineLabel()}。左右キーで各月の内訳を確認できます。`);
+  function point(e){const rect=svg.getBoundingClientRect(),px=new DOMPoint(e.clientX,e.clientY).matrixTransform(svg.getScreenCTM().inverse()).x;showMonth(Math.max(0,Math.min(rows.length-1,Math.floor((px-L)/step))))}
   svg.onpointermove=point;svg.onpointerdown=point;svg.onpointerleave=e=>{if(e.pointerType==='mouse'){$('#contribution-cursor')?.setAttribute('visibility','hidden')}};
   svg.onfocus=()=>showMonth(rows.length-1);
   svg.onkeydown=e=>{if(['ArrowLeft','ArrowRight','Home','End','Escape'].includes(e.key)){e.preventDefault();if(e.key==='Escape'){$('#contribution-tooltip').hidden=true;active=-1;$('#contribution-cursor')?.setAttribute('visibility','hidden');return}const next=e.key==='Home'?0:e.key==='End'?rows.length-1:active<0?rows.length-1:active+(e.key==='ArrowRight'?1:-1);showMonth(Math.max(0,Math.min(rows.length-1,next)))}};

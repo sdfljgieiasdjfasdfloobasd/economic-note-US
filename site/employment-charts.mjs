@@ -1,6 +1,6 @@
-import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=a2c510d486a7d85a7b7d';
-import {attachTooltip} from './explorer-tooltip.mjs?v=a2c510d486a7d85a7b7d';
-import {industryDefinitions} from './contributions.mjs?v=a2c510d486a7d85a7b7d';
+import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=bd2ac8367e1c3714bb70';
+import {attachTooltip} from './explorer-tooltip.mjs?v=bd2ac8367e1c3714bb70';
+import {industryDefinitions} from './contributions.mjs?v=bd2ac8367e1c3714bb70';
 
 const industryMap=new Map(industryDefinitions.map(s=>[s.name,s]));
 const industryDatasets=new Set(['employment','wages','hours']);
@@ -56,7 +56,7 @@ export function setupEmploymentCharts({panel,esc,fmt,chartId="employment-table-c
   for(const item of items){let d='',on=false;for(let j=0;j<model.indices.length;j++){const v=item.values[model.indices[j]];if(!Number.isFinite(v)){on=false;continue}d+=`${on?'L':'M'}${x(j)},${y(v)} `;on=true;body+=`<circle cx="${x(j)}" cy="${y(v)}" r="${model.dates.length<=24?2:1}" fill="${item.color}"/>`}body+=`<path data-ec-series="${esc(item.s.id)}" d="${d}" stroke="${item.color}" stroke-width="${item.s.hierarchy?.depth===0?2.8:1.8}" fill="none"/>`}
   for(const date of dateTicks(model.dates,w-L-R)){const i=model.dates.indexOf(date);body+=`<text x="${x(i)}" y="${h-7}" text-anchor="${i===0?'start':i===model.dates.length-1?'end':'middle'}" font-size="11">${date}</text>`}
   const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.setAttribute('role','img');svg.setAttribute('aria-label',title+' '+context.textContent);svg.innerHTML=body;card.append(svg);
-  axisControls(svg,{key:axisKey,unit,axis,left:L,right:w-R,top:T,bottom:h-B,redraw:draw});
+  axisControls(svg,{key:axisKey,unit,axis,left:L,right:w-R,top:T,bottom:h-B,redraw:draw,timeline:{frequency:model.frequency||'M',points:model.dates.map((date,i)=>({date,x:x(i)}))}});
   if(separate||compactAxis){const axes=svg.previousElementSibling;const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='縦軸の範囲';details.className='employment-card-axis';details.append(summary);axes.before(details);details.append(axes)}
   attachTooltip(svg,{esc,fmt,left:L,right:w-R,top:T,bottom:h-B,compact:separate,points:model.dates.map((date,j)=>({x:x(j),label:date,values:items.map(item=>({label:item.label||item.s.label,value:item.values[model.indices[j]]??null,color:item.color,unit:item.met?.unit||''}))}))});
  }

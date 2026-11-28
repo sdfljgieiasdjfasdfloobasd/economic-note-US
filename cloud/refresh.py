@@ -37,6 +37,8 @@ def refresh_price_ppi(datasets,catalog):
 def jobs(datasets,catalog,report):
     import activity_sources as a,macro_sources as m,complementary_sources as c,completion_sources as cs
     import additional_sources as ads,retail_source,jolts_source
+    from policy_rates import update as policy_update
+    if any(s['id']=='policy:target-midpoint' for s in catalog['series']):yield 'policy',policy_update
     from indeed_source import update as indeed_update
     if any(s['id'].startswith('indeed:') for s in catalog['series']):yield 'indeed',indeed_update
     yield 'bls',lambda:core.bls(datasets,catalog,report)

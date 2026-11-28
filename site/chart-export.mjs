@@ -1,5 +1,5 @@
-import {chartPdf} from './static-pdf.mjs?v=a2c510d486a7d85a7b7d';
-import {seriesAttributions} from './expectation-presets.mjs?v=a2c510d486a7d85a7b7d';
+import {chartPdf} from './static-pdf.mjs?v=bd2ac8367e1c3714bb70';
+import {seriesAttributions} from './expectation-presets.mjs?v=bd2ac8367e1c3714bb70';
 const NS='http://www.w3.org/2000/svg';
 const query=s=>document.querySelector(s),text=s=>query(s)?.textContent?.trim()||'',value=s=>query(s)?.value||'',choice=s=>query(s)?.selectedOptions?.[0]?.textContent?.trim()||'';
 export const filename=(title,format)=>`${title.replace(/[\\/:*?"<>|\x00-\x1f]/g,'_').slice(0,100)||'経済グラフ'}_${new Date().toISOString().slice(0,10)}.${format}`;
@@ -15,6 +15,7 @@ export function chartContext(svg){
  else if(svg.closest('#an-scatter')){title='統計横断の回帰分析';details=[period('#an-from','#an-to'),`Xのラグ ${value('#an-lag')}期 · ${choice('#an-degree')}`,svg.parentElement.querySelector('p')?.textContent||'',text('#an-stats')]}
  else if(svg.closest('#an-plots')){title='統計横断の比較';details=[period('#an-from','#an-to'),choice('#an-mode'),choice('#an-frequency'),choice('#an-aggregation')];keys=legend(svg.parentElement.querySelectorAll('p span'));details.push(svg.parentElement.querySelector('p')?.childNodes[0]?.textContent?.trim()||'')}
  else {title=text('#ex-title');details=[period('#ex-from','#ex-to'),choice('#ex-metric'),choice('#ex-chart-mode')];keys=legend(svg.parentElement.querySelectorAll('.legend > span'));if(!keys.length)details.push(svg.parentElement.querySelector('p.source-note')?.textContent||svg.getAttribute('aria-label')||'')}
+ if(svg.policyOverlayContext){keys.push({label:svg.policyOverlayContext.label,color:svg.policyOverlayContext.color});details.push(svg.policyOverlayContext.source)}
  details.push(...seriesAttributions(keys));if(svg.closest('#an-scatter')){const labels=svg.parentElement.querySelector('p')?.textContent||'';for(const label of labels.split(/X: | ／ Y: /))details.push(...seriesAttributions([{label:label.trim()}]))}return {title,details:details.filter(Boolean),keys};
 }
 function element(tag,attrs={},content){const el=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));if(content!=null)el.textContent=content;return el}

@@ -1,8 +1,8 @@
-import {valuesFor} from './analytics.mjs?v=a2c510d486a7d85a7b7d';
-import {transform,compatibleUnit,frequency} from './explorer-math.mjs?v=a2c510d486a7d85a7b7d';
-import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=a2c510d486a7d85a7b7d';
-import {attachTooltip} from './explorer-tooltip.mjs?v=a2c510d486a7d85a7b7d';
-import {seriesAttributions} from './expectation-presets.mjs?v=a2c510d486a7d85a7b7d';
+import {valuesFor} from './analytics.mjs?v=bd2ac8367e1c3714bb70';
+import {transform,compatibleUnit,frequency} from './explorer-math.mjs?v=bd2ac8367e1c3714bb70';
+import {axisScale,axisControls,dateTicks} from './chart-axis.mjs?v=bd2ac8367e1c3714bb70';
+import {attachTooltip} from './explorer-tooltip.mjs?v=bd2ac8367e1c3714bb70';
+import {seriesAttributions} from './expectation-presets.mjs?v=bd2ac8367e1c3714bb70';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=v=>v==null||!Number.isFinite(v)?'—':Number(v).toLocaleString('ja-JP',{minimumFractionDigits:3,maximumFractionDigits:3});
 const date=d=>d.length===7?d+'-01':d;
@@ -84,6 +84,6 @@ export function drawRevisionPlot(box,rows,label,unit,mode,plotFrequency='Monthly
  else for(const field of (mode==='latest'?['after']:['before','after'])){let path='',previous=null;for(const r of rows){if(r[field]==null){previous=null;continue}const gap=previous?(Date.parse(r.date)-Date.parse(previous))/86400000:Infinity,maxgap={D:5,W:9,M:40,Q:105,A:380,T:1120,F:140}[frequency({frequency:plotFrequency})];path+=`${gap<=maxgap?'L':'M'}${x(r.date)},${y(r[field])} `;previous=r.date}out+=`<path d="${path}" fill="none" stroke="#007e72" stroke-width="2" ${field==='before'?'stroke-dasharray="5 4"':''}/>`;for(const r of rows)if(r[field]!=null)out+=`<circle cx="${x(r.date)}" cy="${y(r[field])}" r="2" fill="#007e72"/>`}
  const ticks=dateTicks(dates,w-L-R);ticks.forEach((d,i)=>out+=`<text x="${x(d)}" y="${h-8}" font-size="11" text-anchor="${i===0?'start':i===ticks.length-1?'end':'middle'}">${esc(d)}</text>`);
  box.innerHTML=`<div class="legend"><span>${esc(label)} · ${mode==='delta'?'改定幅':mode==='latest'?'最新値':'実線：最新 ／ 点線：更新前'}</span></div><svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)} 改定比較">${out}</svg>`;
- axisControls(box.querySelector('svg'),{key:axisKey,unit,axis,left:L,right:w-R,top:T,bottom:h-B,redraw:()=>drawRevisionPlot(box,rows,label,unit,mode,plotFrequency)});
+ axisControls(box.querySelector('svg'),{key:axisKey,unit,axis,left:L,right:w-R,top:T,bottom:h-B,redraw:()=>drawRevisionPlot(box,rows,label,unit,mode,plotFrequency),timeline:{frequency:frequency({frequency:plotFrequency}),points:dates.map(date=>({date,x:x(date)}))}});
  attachTooltip(box.querySelector('svg'),{esc,fmt,left:L,right:w-R,top:T,bottom:h-B,points:rows.map(r=>({x:x(r.date),label:r.date,values:[{label:'更新前',value:r.before,unit:mode==='delta'&&unit==='ポイント'?'%':unit,color:'#7ca29d'},{label:'最新',value:r.after,unit:mode==='delta'&&unit==='ポイント'?'%':unit,color:'#007e72'},{label:'改定幅',value:r.delta,unit:unit==='%'?'ポイント':unit,color:r.delta>=0?'#3987b6':'#d36673'}]}))});
 }

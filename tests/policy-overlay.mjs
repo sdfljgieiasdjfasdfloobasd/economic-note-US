@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {periodEnd,policyPoints} from '../site/policy-overlay.mjs';
+assert.equal(periodEnd('2024-02','M'),'2024-02-29');
+assert.equal(periodEnd('2024-04-01','Q'),'2024-06-30');
+assert.equal(periodEnd('2024-04-01','A'),'2024-12-31');
+assert.equal(periodEnd('2024-04-05','W'),'2024-04-05');
+const obs=[{date:'2024-01-31',value:5.375},{date:'2024-02-01',value:5.125},{date:'2024-02-02',value:null},{date:'2024-02-29',value:5.125},{date:'2024-03-01',value:5}];
+const out=policyPoints(obs,{frequency:'M',points:[{date:'2024-01',x:10},{date:'2024-02',x:300}]});
+assert.deepEqual(out.map(r=>r.value),[5.375,5.125,null,5.125]);
+assert.equal(out[0].x,10);assert.equal(out[1].x,20);assert.equal(out.at(-1).x,300);
+assert.deepEqual(policyPoints(obs,{frequency:'M',points:[{date:'2024-03',x:10}]}),[]);
+assert.equal(policyPoints(obs,{frequency:'W',points:[{date:'2024-02-01',x:10},{date:'2024-02-08',x:80}]}).length,2);
+console.log('PASS: period-end alignment, daily rate changes, missing values, no future fill, weekly dates.');

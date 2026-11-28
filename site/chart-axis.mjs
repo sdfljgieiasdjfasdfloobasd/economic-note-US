@@ -1,3 +1,4 @@
+import {mountPolicyOverlay} from './policy-overlay.mjs?v=bd2ac8367e1c3714bb70';
 // One scale for geometry and labels; keep full values in tooltips and tables.
 export function niceAxis(values,{include=[],count=5}={}){
  const ns=[...values,...include].filter(Number.isFinite);let lo=ns.length?Math.min(...ns):0,hi=ns.length?Math.max(...ns):1;
@@ -29,7 +30,7 @@ export function axisScale(key,values,options={}){
  try{axis=resolveAxis(values,options,manual)}catch{axis=resolveAxis(values,options);axis.invalidStored=true}
  return {...axis,values,options};
 }
-export function axisControls(svg,{key,unit='',axis,left,right,top,bottom,redraw}){
+export function axisControls(svg,{key,unit='',axis,left,right,top,bottom,redraw,timeline}){
  const previous=svg.previousElementSibling;if(previous?.classList.contains('axis-controls'))previous.remove();
  const panel=document.createElement('div');panel.className='axis-controls';
  const title=document.createElement('span');title.textContent='縦軸の範囲';panel.append(title);
@@ -45,5 +46,6 @@ export function axisControls(svg,{key,unit='',axis,left,right,top,bottom,redraw}
  function submit(){const next={};for(const field of ['min','max']){const input=inputs[field];if(input.validity.badInput||input.value.trim()!==''&&!Number.isFinite(Number(input.value))){error.textContent='有限の数値を入力してください。';return}if(input.value.trim()!=='')next[field]=Number(input.value)}try{resolveAxis(axis.values,axis.options,next)}catch(e){error.textContent=e.message;return}settings.set(key,next);redraw()}
  apply.onclick=submit;reset.onclick=()=>{settings.delete(key);redraw()};Object.values(inputs).forEach(input=>input.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();submit()}});
  svg.before(panel);
+ mountPolicyOverlay(svg,{key,timeline,left,right,top,bottom,panel});
  if(axis.manual){const ns='http://www.w3.org/2000/svg',id='manual-axis-clip-'+(++clipSequence),defs=document.createElementNS(ns,'defs'),clip=document.createElementNS(ns,'clipPath'),rect=document.createElementNS(ns,'rect');clip.id=id;for(const [k,v] of Object.entries({x:left,y:top,width:right-left,height:bottom-top}))rect.setAttribute(k,v);clip.append(rect);defs.append(clip);for(const shape of svg.querySelectorAll('path,circle,rect,line'))shape.setAttribute('clip-path',`url(#${id})`);svg.prepend(defs)}
 }
